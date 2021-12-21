@@ -69,8 +69,20 @@ namespace Channeld
             {0, default}
         };
 
+        public static ChanneldClient Instance {get; private set;}
+
         public ChanneldClient()
         {
+            // FIXME: Not thread-safe
+            if (Instance == null)
+            {
+                Instance = this; 
+            }
+            else
+            {
+                Log.Error("ChanneldClient can only be created once in a process.");
+            }
+
             tcp = new TcpClient();
             receiveThread = new Thread(Receive);
             receiveThread.IsBackground = true;
@@ -189,6 +201,9 @@ namespace Channeld
 
         public void Disconnect()
         {
+            if (!Connected)
+                return;
+
             receiveThread.Abort();
             netStream.Close();
             tcp.Close();
@@ -316,10 +331,13 @@ namespace Channeld
 
         public void TickOutgoing()
         {
+            if (!Connected)
+                return;
+
             if (outgoingQueue.Count == 0)
                 return;
 
-            if (!netStream.CanWrite)
+           if (!netStream.CanWrite)
                 return;
 
             var p = new Packet();

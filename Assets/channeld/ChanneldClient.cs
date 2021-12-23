@@ -12,6 +12,7 @@ namespace Channeld
 {
     public static class Log
     {
+        public static Action<string> Debug = Console.WriteLine;
         public static Action<string> Info = Console.WriteLine;
         public static Action<string> Warning = Console.WriteLine;
         public static Action<string> Error = Console.Error.WriteLine;
@@ -21,6 +22,7 @@ namespace Channeld
 
     public class ChanneldClient
     {
+        public const uint GlobalChannelId = 0;
 
         struct MessageHandlerEntry
         {
@@ -53,6 +55,7 @@ namespace Channeld
         public Action<uint, uint, byte[]> UserSpaceMessageHandleFunc = (channelId, sourceConnId, payload) => { };
 
         public bool Connected => tcp.Connected;
+        public static Action<ChanneldClient> OnAuthenticated;
 
         private TcpClient tcp;
         private NetworkStream netStream;
@@ -92,13 +95,23 @@ namespace Channeld
                 handleFunc = HandleUserSpaceMessage
             };
 
-            SetMessageHandlerEntry((uint)MessageType.Auth, AuthResultMessage.Parser);
+            SetMessageHandlerEntry((uint)MessageType.Auth, AuthResultMessage.Parser, HandleAuth);
             SetMessageHandlerEntry((uint)MessageType.CreateChannel, CreateChannelMessage.Parser);
             SetMessageHandlerEntry((uint)MessageType.RemoveChannel, RemoveChannelMessage.Parser, HandleRemoveChannel);
-            SetMessageHandlerEntry((uint)MessageType.ListChannel, ListChannelResultMessage.Parser);
+            SetMessageHandlerEntry((uint)MessageType.ListChannel, ListChannelResultMessage.Parser, HandleListChannel);
             SetMessageHandlerEntry((uint)MessageType.SubToChannel, SubscribedToChannelMessage.Parser, HandleSubToChannel);
             SetMessageHandlerEntry((uint)MessageType.UnsubToChannel, UnsubscribedToChannelMessage.Parser, HandleUnsubToChannel);
             SetMessageHandlerEntry((uint)MessageType.ChannelDataUpdate, ChannelDataUpdateMessage.Parser);
+        }
+
+        private void HandleAuth(ChanneldClient client, uint channelId, IMessage msg)
+        {
+            var resultMsg = msg as AuthResultMessage;
+            if (resultMsg.Result == AuthResultMessage.Types.AuthResult.Successful)
+            {
+                Id = resultMsg.ConnId;
+                OnAuthenticated?.Invoke(this);
+            }
         }
 
         private void HandleRemoveChannel(ChanneldClient client, uint channelId, IMessage msg)
@@ -107,6 +120,15 @@ namespace Channeld
             SubscribedChannels.Remove(removeMsg.ChannelId);
             OwnedChannels.Remove(removeMsg.ChannelId);
             ListedChannels.Remove(removeMsg.ChannelId);
+        }
+
+        private void HandleListChannel(ChanneldClient client, uint channelId, IMessage msg)
+        {
+            var resultMsg = msg as ListChannelResultMessage;
+            foreach (var channelInfo in resultMsg.Channels)
+            {
+                ListedChannels[channelInfo.ChannelId] = channelInfo;
+            }
         }
 
         private void HandleSubToChannel(ChanneldClient client, uint channelId, IMessage msg)
@@ -269,7 +291,7 @@ namespace Channeld
                             handleFunc = entry.handleFunc,
                         });
 
-                        Log.Info($"[channeld] Receive message(channelId={mp.ChannelId}, stubId={mp.StubId}, type={mp.MsgType}, bodySize={mp.MsgBody.Length}): {msg}");
+                        Log.Debug($"[channeld] Receive message(channelId={mp.ChannelId}, stubId={mp.StubId}, type={mp.MsgType}, bodySize={mp.MsgBody.Length}): {msg}");
                     }
                 }
             }
@@ -299,7 +321,7 @@ namespace Channeld
                 MsgBody = msgBody
             });
 
-            Log.Info($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
+            Log.Debug($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
         }
 
         public void Send(uint channelId, uint msgType, IMessage msg, BroadcastType broadcast = BroadcastType.No, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
@@ -365,22 +387,20 @@ namespace Channeld
             TickOutgoing();
         }
 
+        private MessageHandlerFunc WrapMessageHandler<T>(Action<T> callback)
+        {
+            if (callback == null)
+                return null;
+            return (client, channelId, msg) => callback?.Invoke((T)msg);
+        }
+
         public void Auth(string pit, string lt, Action<AuthResultMessage> callback = null)
         {
-            Send(0, (uint)MessageType.Auth, new AuthMessage()
+            Send(GlobalChannelId, (uint)MessageType.Auth, new AuthMessage()
             {
                 LoginToken = lt,
                 PlayerIdentifierToken = pit
-            }, BroadcastType.No, (client, channelId, m) =>
-            {
-                var msg = m as AuthResultMessage;
-                if (msg.Result == AuthResultMessage.Types.AuthResult.Successful)
-                {
-                    Id = msg.ConnId;
-                }
-
-                callback?.Invoke(msg);
-            });
+            }, BroadcastType.No, WrapMessageHandler(callback));
         }
 
 
@@ -388,7 +408,7 @@ namespace Channeld
         public async Task<AuthResultMessage> AuthAsync(string pit, string lt)
         {
             var tcs = new TaskCompletionSource<IMessage>();
-            Send(0, (uint)MessageType.Auth, new AuthMessage()
+            Send(GlobalChannelId, (uint)MessageType.Auth, new AuthMessage()
             {
                 LoginToken = lt,
                 PlayerIdentifierToken = pit
@@ -400,7 +420,7 @@ namespace Channeld
 
         public void CreateChannel(ChannelType channelType, string metadata, ChannelSubscriptionOptions subOptions = null, IMessage data = null, Action<SubscribedToChannelMessage> callback = null)
         {
-            Send(0, (uint)MessageType.CreateChannel, new CreateChannelMessage()
+            Send(GlobalChannelId, (uint)MessageType.CreateChannel, new CreateChannelMessage()
             {
                 ChannelType = channelType,
                 Metadata = metadata,
@@ -420,13 +440,10 @@ namespace Channeld
 
         public void RemoveChannel(uint channelId, Action<RemoveChannelMessage> callback = null)
         {
-            Send(0, (uint)MessageType.RemoveChannel, new RemoveChannelMessage()
+            Send(GlobalChannelId, (uint)MessageType.RemoveChannel, new RemoveChannelMessage()
             {
                 ChannelId = channelId
-            }, BroadcastType.No, (client, chId, m) =>
-            {
-                callback?.Invoke(m as RemoveChannelMessage);
-            });
+            }, BroadcastType.No, WrapMessageHandler(callback));
         }
 
         // Using ChannelType.Unknown will try to match all the channel types.
@@ -438,14 +455,7 @@ namespace Channeld
             };
             if (metadataFilters != null)
                 listMsg.MetadataFilters.Add(metadataFilters);
-            Send(0, (uint)MessageType.ListChannel, listMsg, callback: (client, channelId, m) =>
-            {
-                var msg = (ListChannelResultMessage)m;
-                foreach (var channelInfo in msg.Channels)
-                {
-                    ListedChannels[channelInfo.ChannelId] = channelInfo;
-                }
-            });
+            Send(GlobalChannelId, (uint)MessageType.ListChannel, listMsg, BroadcastType.No, WrapMessageHandler(callback));
         }
 
         public void SubToChannel(uint channelId, ChannelSubscriptionOptions options = null, Action<SubscribedToChannelMessage> callback = null)
@@ -454,10 +464,7 @@ namespace Channeld
             {
                 ConnId = Id,
                 SubOptions = options
-            }, BroadcastType.No, (client, chId, m) =>
-            {
-                callback?.Invoke(m as SubscribedToChannelMessage);
-            });
+            }, BroadcastType.No, WrapMessageHandler(callback));
         }
 
         public void UnsubFromChannel(uint channelId, Action<UnsubscribedToChannelMessage> callback = null)
@@ -465,10 +472,7 @@ namespace Channeld
             Send(channelId, (uint)MessageType.UnsubToChannel, new UnsubscribedToChannelMessage()
             {
                 ConnId = Id
-            }, BroadcastType.No, (client, chId, m) =>
-            {
-                callback?.Invoke(m as UnsubscribedToChannelMessage);
-            });
+            }, BroadcastType.No, WrapMessageHandler(callback));
         }
     }
 }

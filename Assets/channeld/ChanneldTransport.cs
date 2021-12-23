@@ -2,12 +2,17 @@
 using Google.Protobuf;
 using Mirror;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Channeld
 {
     public class ChanneldTransport : Transport
     {
+        public enum LogLevel { Debug, Info, Warning, Error }
+
+        public LogLevel logLevel = LogLevel.Info;
+
         public string ServerAddressToChanneld = "127.0.0.1";
         public int ServerPortToChanneld = 11288;
         public ChannelType ServerChannelType = ChannelType.Global;
@@ -22,18 +27,28 @@ namespace Channeld
         private ChanneldClient serverConnection;
         private ChanneldClient clientConnection;
 
-        // FIXME: NetworkIdentity.owningChannelId
+        // The first channel the server/client subs to.
         public uint? TargetChannelId { get; set; } = null;
+
+        // The spawned object's netId mapping to the id of the channel that owns the object.
+        private static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
+
+        public static uint GetOwningChannel(uint netId)
+        {
+            var transport = Transport.activeTransport as ChanneldTransport;
+            uint channelId = transport?.TargetChannelId ?? 0;
+            netIdOwningChannels.TryGetValue(netId, out channelId);
+            return channelId;
+        }
 
         void Awake()
         {
-            Channeld.Log.Info = Debug.Log;
-            Channeld.Log.Warning = Debug.LogWarning;
-            Channeld.Log.Error = Debug.LogError;
+            Log.Debug = (t) => { if (logLevel <= LogLevel.Debug) Debug.Log(t); };
+            Log.Info = (t) => { if (logLevel <= LogLevel.Info) Debug.Log(t); };
+            Log.Warning = (t) => { if (logLevel <= LogLevel.Warning) Debug.LogWarning(t); };
+            Log.Error = (t) => { if (logLevel <= LogLevel.Error) Debug.LogError(t); };
 
-            NetworkTime.PingFrequency = 60f;
-
-            Debug.Log("ChanneldTransport initialized!");
+            Log.Debug("ChanneldTransport initialized!");
         }
 
         #region Server Logic
@@ -51,15 +66,15 @@ namespace Channeld
                 var subMsg = msg as SubscribedToChannelMessage;
                 if (subMsg.ConnId == client.Id)
                 {
-                // Owned the target channel
-                TargetChannelId = channelId;
-                    Debug.Log("Server owned channel: " + TargetChannelId);
+                    // Owned the target channel
+                    TargetChannelId = channelId;
+                    Log.Info("Server owned channel: " + TargetChannelId);
                 }
                 else
                 {
                 // A client subscribed to the target channel
                 this.OnServerConnected.Invoke((int)subMsg.ConnId);
-                    Debug.Log("Server-owned channel has client sub: " + subMsg.ConnId);
+                    Log.Info("Server-owned channel has client sub: " + subMsg.ConnId);
                 }
             });
             serverConnection.AddMessageHandler((uint)MessageType.UnsubToChannel, (client, channelId, msg) =>
@@ -67,25 +82,25 @@ namespace Channeld
                 var subMsg = msg as UnsubscribedToChannelMessage;
                 if (subMsg.ConnId == client.Id)
                 {
-                    Debug.Log("Server no longer owns the channel: " + TargetChannelId);
+                    Log.Info("Server no longer owns the channel: " + TargetChannelId);
                     TargetChannelId = null;
                 }
                 else
                 {
                 // A client unsubscribed from the target channel
                 this.OnServerDisconnected.Invoke((int)subMsg.ConnId);
-                    Debug.Log("Server-owned channel has client unsub: " + subMsg.ConnId);
+                    Log.Info("Server-owned channel has client unsub: " + subMsg.ConnId);
                 }
             });
 
             serverConnection.Connect(ServerAddressToChanneld, ServerPortToChanneld);
-            Debug.Log("Server connected.");
+            Log.Info("Server connected.");
 
             serverConnection.Auth("test", "test", (msg) =>
             {
                 if (msg.Result == AuthResultMessage.Types.AuthResult.Successful)
                 {
-                    Debug.Log("Server authenticated.");
+                    Log.Info("Server authenticated.");
                     serverConnection.CreateChannel(ServerChannelType, ServerChannelMetadata, new ChannelSubscriptionOptions
                     {
                         CanUpdateData = true,
@@ -101,8 +116,9 @@ namespace Channeld
 
         public override void ServerSend(int connectionId, ArraySegment<byte> segment, int channelId)
         {
+            var msgType = MirrorUtils.GetChanneldMsgType(segment);
             // Send the packet to channeld and forward to the client connection.
-            serverConnection?.SendRaw((uint)connectionId, MirrorUtils.GetChanneldMsgType(segment),
+            serverConnection?.SendRaw((uint)connectionId, msgType,
                 ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count), BroadcastType.SingleConnection);
         }
 
@@ -135,7 +151,7 @@ namespace Channeld
 
         public override void ServerDisconnect(int connectionId)
         {
-            serverConnection?.Send(0, (uint)MessageType.Disconnect, new DisconnectMessage()
+            serverConnection?.Send(ChanneldClient.GlobalChannelId, (uint)MessageType.Disconnect, new DisconnectMessage()
             {
                 ConnId = (uint)connectionId
             });
@@ -153,12 +169,24 @@ namespace Channeld
 
         #region Client Logic
 
+        private NetworkReader spawnMessageReader = new NetworkReader(new byte[0]);
+
         private void InitClientConnection()
         {
             clientConnection = new ChanneldClient();
             clientConnection.UserSpaceMessageHandleFunc = (channelId, sourceConnId, payload) =>
             {
-                this.OnClientDataReceived(new ArraySegment<byte>(payload), Channels.Reliable);
+                var data = new ArraySegment<byte>(payload);
+                spawnMessageReader.SetBuffer(data);
+                // We can only set up the netId-channelId mapping by capturing the SpawnMessage from server.
+                if (MirrorUtils.IsMessage<SpawnMessage>(data, spawnMessageReader))
+                {
+                    var msg = spawnMessageReader.Read<SpawnMessage>();
+                    // By this far, the object has not yet spawned in the client, so we could only store the netId.
+                    netIdOwningChannels[msg.netId] = channelId;
+                    Log.Info($"Set up mapping of netId:{msg.netId} -> channelId:{channelId}");
+                }
+                this.OnClientDataReceived(data, Channels.Reliable);
             };
             clientConnection.AddMessageHandler((uint)MessageType.SubToChannel, (client, channelId, m) =>
             {
@@ -196,11 +224,11 @@ namespace Channeld
                 {
                     if (msg.Result == AuthResultMessage.Types.AuthResult.Successful)
                     {
-                        Debug.Log("Client authenticated.");
+                        Log.Info("Client authenticated.");
                     //this.OnClientConnected?.Invoke();
 
                     // Sub to the global channel, and then the server will proceed the client connection logic.
-                    clientConnection.SubToChannel(0, new ChannelSubscriptionOptions()
+                    clientConnection.SubToChannel(ChanneldClient.GlobalChannelId, new ChannelSubscriptionOptions()
                         {
                             CanUpdateData = true,
                             FanOutIntervalMs = ClientFanoutIntervalMs
@@ -232,7 +260,8 @@ namespace Channeld
 
         public override void ClientSend(ArraySegment<byte> segment, int channelId)
         {
-            clientConnection?.SendRaw(TargetChannelId ?? 0, MirrorUtils.GetChanneldMsgType(segment),
+            clientConnection?.SendRaw(TargetChannelId ?? ChanneldClient.GlobalChannelId, 
+                MirrorUtils.GetChanneldMsgType(segment),
                 ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count));
         }
 

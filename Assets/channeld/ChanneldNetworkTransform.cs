@@ -1,4 +1,9 @@
-﻿using Mirror;
+﻿using Channeld;
+using Channeld.Examples.Tanks;
+using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
+using Mirror;
+using Mirror.Examples.Tanks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -130,6 +135,7 @@ namespace Channeld
                 targetComponent.localScale = interpolateScale ? interpolated.scale : goal.scale;
         }
 
+        /*
         // cmd /////////////////////////////////////////////////////////////////
         // only unreliable. see comment above of this file.
         [Command(channel = Channels.Unreliable)]
@@ -142,6 +148,12 @@ namespace Channeld
             {
                 RpcServerToClientSync(position, rotation, scale);
             }
+        }
+        */
+
+        void ClientToServerSync(Vector3? position, Quaternion? rotation, Vector3? scale)
+        {
+            TankGameState.SendTransformUpdate(netIdentity, position, rotation, scale);
         }
 
         // local authority client sends sync message to server for broadcasting
@@ -181,11 +193,13 @@ namespace Channeld
             SnapshotInterpolation.InsertIfNewEnough(snapshot, serverBuffer);
         }
 
+        /*
         // rpc /////////////////////////////////////////////////////////////////
         // only unreliable. see comment above of this file.
         [ClientRpc(channel = Channels.Unreliable)]
         void RpcServerToClientSync(Vector3? position, Quaternion? rotation, Vector3? scale) =>
             OnServerToClientSync(position, rotation, scale);
+        */
 
         // server broadcasts sync message to all clients
         protected virtual void OnServerToClientSync(Vector3? position, Quaternion? rotation, Vector3? scale)
@@ -234,6 +248,11 @@ namespace Channeld
             SnapshotInterpolation.InsertIfNewEnough(snapshot, clientBuffer);
         }
 
+        void ServerToClientSync(Vector3? position, Quaternion? rotation, Vector3? scale)
+        {
+            TankGameState.SendTransformUpdate(netIdentity, position, rotation, scale);
+        }
+
         // update //////////////////////////////////////////////////////////////
         void UpdateServer()
         {
@@ -272,7 +291,7 @@ namespace Channeld
                 // send snapshot without timestamp.
                 // receiver gets it from batch timestamp to save bandwidth.
                 NTSnapshot snapshot = ConstructSnapshot();
-                RpcServerToClientSync(
+                ServerToClientSync(
                     // only sync what the user wants to sync
                     syncPosition ? snapshot.position : new Vector3?(),
                     syncRotation ? snapshot.rotation : new Quaternion?(),
@@ -337,7 +356,7 @@ namespace Channeld
                     // send snapshot without timestamp.
                     // receiver gets it from batch timestamp to save bandwidth.
                     NTSnapshot snapshot = ConstructSnapshot();
-                    CmdClientToServerSync(
+                    ClientToServerSync(
                         // only sync what the user wants to sync
                         syncPosition ? snapshot.position : new Vector3?(),
                         syncRotation ? snapshot.rotation : new Quaternion?(),
@@ -366,6 +385,47 @@ namespace Channeld
                     ApplySnapshot(start, goal, computed);
                 }
             }
+        }
+
+        private void Awake()
+        {
+            // We need to utilize the PingMessage to sync the remote timestamp, 
+            // otherwise if there's no other Mirror message, the remote timestamp will never get updated,
+            // and the new snapshot can never be buffered, so SnapshotInterpolation.Compute always returns false.
+            NetworkTime.PingFrequency = bufferTime;
+
+            // FIXME: Use base GameState instead of the concrete state class
+            TankGameState.OnGameStateChanged += (channelId, channelData) =>
+            {
+                TransformState transformState;
+                if (channelData.TransformStates.TryGetValue(netId, out transformState))
+                {
+                    if (isClient)
+                    {
+                        OnServerToClientSync(
+                            transformState.GetUnityPosition(),
+                            transformState.GetUnityRotation(),
+                            transformState.GetUnityScale());
+                    }
+                    if (isServer)
+                    {
+                        OnClientToServerSync(
+                            transformState.GetUnityPosition(),
+                            transformState.GetUnityRotation(),
+                            transformState.GetUnityScale());
+                        
+                        //For client authority, immediately pass on the client snapshot to all other
+                        //clients instead of waiting for server to send its snapshots.
+                        if (clientAuthority)
+                        {
+                            ServerToClientSync(
+                                transformState.GetUnityPosition(),
+                                transformState.GetUnityRotation(),
+                                transformState.GetUnityScale());
+                        }
+                    }
+                }
+            };
         }
 
         void Update()

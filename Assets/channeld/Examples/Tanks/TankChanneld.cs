@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
-using Channeld;
 using Google.Protobuf.WellKnownTypes;
 using Google.Protobuf;
 using System;
+using Mirror;
+using Mirror.Examples.Tanks;
 
-namespace Mirror.Examples.Tanks
+namespace Channeld.Examples.Tanks
 {
     public class TankChanneld : NetworkBehaviour
     {
@@ -133,45 +134,29 @@ namespace Mirror.Examples.Tanks
 
         private void Awake()
         {
-            if (ChanneldClient.Instance == null)
-                return;
-
-            ChanneldClient.Instance.AddMessageHandler((uint)MessageType.ChannelDataUpdate, (client, channelId, msg) =>
+            TankGameState.OnGameStateChanged += (channelId, channelData) =>
             {
-                var updateData = (msg as ChannelDataUpdateMessage).Data.Unpack<TankGameChannelData>();
                 TankState newState;
-                if (updateData.TankStates.TryGetValue(netId, out newState))
+                if (channelData.TankStates.TryGetValue(netId, out newState))
                 {
                     //if (!SyncVarEqual(newState.Health, ref health))
                     //    SetSyncVar(newState.Health, ref health, 1uL);
                     health = newState.Health;
                 }
-            });
+            };
         }
 
         protected override bool SerializeSyncVars(NetworkWriter writer, bool initialState)
         {
-            if (ChanneldClient.Instance != null)
-            {
-                var transport = Transport.activeTransport as ChanneldTransport;
-                var updateData = new TankGameChannelData();
-                updateData.TankStates.Add(netId, new TankState() { Health = health });
-                ChanneldClient.Instance.Send(transport.TargetChannelId ?? 0, (uint)MessageType.ChannelDataUpdate, new ChannelDataUpdateMessage()
-                {
-                    Data = Any.Pack(updateData)
-                });
-                return false;
-            }
-            return base.SerializeSyncVars(writer, initialState);
+            var updateData = new TankGameChannelData();
+            updateData.TankStates.Add(netId, new TankState() { Health = health });
+            TankGameState.SendUpdate(netIdentity, updateData);
+            return false;
         }
 
         protected override void DeserializeSyncVars(NetworkReader reader, bool initialState)
         {
-            if (ChanneldClient.Instance != null)
-            {
-                return;
-            }
-            base.DeserializeSyncVars(reader, initialState);
+            
         }
     }
 }

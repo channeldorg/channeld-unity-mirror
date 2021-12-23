@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Mirror.Examples.Tanks {
+namespace Channeld.Examples.Tanks {
 
   /// <summary>Holder for reflection information generated from example_mirror_tanks.proto</summary>
   public static partial class ExampleMirrorTanksReflection {
@@ -28,7 +28,7 @@ namespace Mirror.Examples.Tanks {
             "M2YSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiNgoIVmVjdG9y",
             "NGYSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAISCQoBdxgEIAEo",
             "AiJ2Cg5UcmFuc2Zvcm1TdGF0ZRIhCghwb3NpdGlvbhgBIAEoCzIPLnRhbmtz",
-            "LlZlY3RvcjNmEiEKCHJvdGF0aW5vGAIgASgLMg8udGFua3MuVmVjdG9yNGYS",
+            "LlZlY3RvcjNmEiEKCHJvdGF0aW9uGAIgASgLMg8udGFua3MuVmVjdG9yNGYS",
             "HgoFc2NhbGUYAyABKAsyDy50YW5rcy5WZWN0b3IzZiIbCglUYW5rU3RhdGUS",
             "DgoGaGVhbHRoGAEgASgFIrMCChNUYW5rR2FtZUNoYW5uZWxEYXRhEkgKD3Ry",
             "YW5zZm9ybVN0YXRlcxgBIAMoCzIvLnRhbmtzLlRhbmtHYW1lQ2hhbm5lbERh",
@@ -37,16 +37,16 @@ namespace Mirror.Examples.Tanks {
             "FFRyYW5zZm9ybVN0YXRlc0VudHJ5EgsKA2tleRgBIAEoDRIkCgV2YWx1ZRgC",
             "IAEoCzIVLnRhbmtzLlRyYW5zZm9ybVN0YXRlOgI4ARpDCg9UYW5rU3RhdGVz",
             "RW50cnkSCwoDa2V5GAEgASgNEh8KBXZhbHVlGAIgASgLMhAudGFua3MuVGFu",
-            "a1N0YXRlOgI4AUIgWgYvcHJvdG+qAhVNaXJyb3IuRXhhbXBsZXMuVGFua3Ni",
-            "BnByb3RvMw=="));
+            "a1N0YXRlOgI4AUIiWgYvcHJvdG+qAhdDaGFubmVsZC5FeGFtcGxlcy5UYW5r",
+            "c2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mirror.Examples.Tanks.Vector3f), global::Mirror.Examples.Tanks.Vector3f.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mirror.Examples.Tanks.Vector4f), global::Mirror.Examples.Tanks.Vector4f.Parser, new[]{ "X", "Y", "Z", "W" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mirror.Examples.Tanks.TransformState), global::Mirror.Examples.Tanks.TransformState.Parser, new[]{ "Position", "Rotatino", "Scale" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mirror.Examples.Tanks.TankState), global::Mirror.Examples.Tanks.TankState.Parser, new[]{ "Health" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mirror.Examples.Tanks.TankGameChannelData), global::Mirror.Examples.Tanks.TankGameChannelData.Parser, new[]{ "TransformStates", "TankStates" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.Vector3f), global::Channeld.Examples.Tanks.Vector3f.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.Vector4f), global::Channeld.Examples.Tanks.Vector4f.Parser, new[]{ "X", "Y", "Z", "W" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TransformState), global::Channeld.Examples.Tanks.TransformState.Parser, new[]{ "Position", "Rotation", "Scale" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankState), global::Channeld.Examples.Tanks.TankState.Parser, new[]{ "Health" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankGameChannelData), global::Channeld.Examples.Tanks.TankGameChannelData.Parser, new[]{ "TransformStates", "TankStates" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
           }));
     }
     #endregion
@@ -67,7 +67,7 @@ namespace Mirror.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mirror.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Channeld.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -330,7 +330,7 @@ namespace Mirror.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mirror.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Channeld.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -630,7 +630,7 @@ namespace Mirror.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mirror.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Channeld.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -651,7 +651,7 @@ namespace Mirror.Examples.Tanks {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TransformState(TransformState other) : this() {
       position_ = other.position_ != null ? other.position_.Clone() : null;
-      rotatino_ = other.rotatino_ != null ? other.rotatino_.Clone() : null;
+      rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
       scale_ = other.scale_ != null ? other.scale_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -664,34 +664,34 @@ namespace Mirror.Examples.Tanks {
 
     /// <summary>Field number for the "position" field.</summary>
     public const int PositionFieldNumber = 1;
-    private global::Mirror.Examples.Tanks.Vector3f position_;
+    private global::Channeld.Examples.Tanks.Vector3f position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Mirror.Examples.Tanks.Vector3f Position {
+    public global::Channeld.Examples.Tanks.Vector3f Position {
       get { return position_; }
       set {
         position_ = value;
       }
     }
 
-    /// <summary>Field number for the "rotatino" field.</summary>
-    public const int RotatinoFieldNumber = 2;
-    private global::Mirror.Examples.Tanks.Vector4f rotatino_;
+    /// <summary>Field number for the "rotation" field.</summary>
+    public const int RotationFieldNumber = 2;
+    private global::Channeld.Examples.Tanks.Vector4f rotation_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Mirror.Examples.Tanks.Vector4f Rotatino {
-      get { return rotatino_; }
+    public global::Channeld.Examples.Tanks.Vector4f Rotation {
+      get { return rotation_; }
       set {
-        rotatino_ = value;
+        rotation_ = value;
       }
     }
 
     /// <summary>Field number for the "scale" field.</summary>
     public const int ScaleFieldNumber = 3;
-    private global::Mirror.Examples.Tanks.Vector3f scale_;
+    private global::Channeld.Examples.Tanks.Vector3f scale_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Mirror.Examples.Tanks.Vector3f Scale {
+    public global::Channeld.Examples.Tanks.Vector3f Scale {
       get { return scale_; }
       set {
         scale_ = value;
@@ -714,7 +714,7 @@ namespace Mirror.Examples.Tanks {
         return true;
       }
       if (!object.Equals(Position, other.Position)) return false;
-      if (!object.Equals(Rotatino, other.Rotatino)) return false;
+      if (!object.Equals(Rotation, other.Rotation)) return false;
       if (!object.Equals(Scale, other.Scale)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -724,7 +724,7 @@ namespace Mirror.Examples.Tanks {
     public override int GetHashCode() {
       int hash = 1;
       if (position_ != null) hash ^= Position.GetHashCode();
-      if (rotatino_ != null) hash ^= Rotatino.GetHashCode();
+      if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (scale_ != null) hash ^= Scale.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -748,9 +748,9 @@ namespace Mirror.Examples.Tanks {
         output.WriteRawTag(10);
         output.WriteMessage(Position);
       }
-      if (rotatino_ != null) {
+      if (rotation_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(Rotatino);
+        output.WriteMessage(Rotation);
       }
       if (scale_ != null) {
         output.WriteRawTag(26);
@@ -770,9 +770,9 @@ namespace Mirror.Examples.Tanks {
         output.WriteRawTag(10);
         output.WriteMessage(Position);
       }
-      if (rotatino_ != null) {
+      if (rotation_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(Rotatino);
+        output.WriteMessage(Rotation);
       }
       if (scale_ != null) {
         output.WriteRawTag(26);
@@ -791,8 +791,8 @@ namespace Mirror.Examples.Tanks {
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
       }
-      if (rotatino_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rotatino);
+      if (rotation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rotation);
       }
       if (scale_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Scale);
@@ -811,19 +811,19 @@ namespace Mirror.Examples.Tanks {
       }
       if (other.position_ != null) {
         if (position_ == null) {
-          Position = new global::Mirror.Examples.Tanks.Vector3f();
+          Position = new global::Channeld.Examples.Tanks.Vector3f();
         }
         Position.MergeFrom(other.Position);
       }
-      if (other.rotatino_ != null) {
-        if (rotatino_ == null) {
-          Rotatino = new global::Mirror.Examples.Tanks.Vector4f();
+      if (other.rotation_ != null) {
+        if (rotation_ == null) {
+          Rotation = new global::Channeld.Examples.Tanks.Vector4f();
         }
-        Rotatino.MergeFrom(other.Rotatino);
+        Rotation.MergeFrom(other.Rotation);
       }
       if (other.scale_ != null) {
         if (scale_ == null) {
-          Scale = new global::Mirror.Examples.Tanks.Vector3f();
+          Scale = new global::Channeld.Examples.Tanks.Vector3f();
         }
         Scale.MergeFrom(other.Scale);
       }
@@ -844,21 +844,21 @@ namespace Mirror.Examples.Tanks {
             break;
           case 10: {
             if (position_ == null) {
-              Position = new global::Mirror.Examples.Tanks.Vector3f();
+              Position = new global::Channeld.Examples.Tanks.Vector3f();
             }
             input.ReadMessage(Position);
             break;
           }
           case 18: {
-            if (rotatino_ == null) {
-              Rotatino = new global::Mirror.Examples.Tanks.Vector4f();
+            if (rotation_ == null) {
+              Rotation = new global::Channeld.Examples.Tanks.Vector4f();
             }
-            input.ReadMessage(Rotatino);
+            input.ReadMessage(Rotation);
             break;
           }
           case 26: {
             if (scale_ == null) {
-              Scale = new global::Mirror.Examples.Tanks.Vector3f();
+              Scale = new global::Channeld.Examples.Tanks.Vector3f();
             }
             input.ReadMessage(Scale);
             break;
@@ -880,21 +880,21 @@ namespace Mirror.Examples.Tanks {
             break;
           case 10: {
             if (position_ == null) {
-              Position = new global::Mirror.Examples.Tanks.Vector3f();
+              Position = new global::Channeld.Examples.Tanks.Vector3f();
             }
             input.ReadMessage(Position);
             break;
           }
           case 18: {
-            if (rotatino_ == null) {
-              Rotatino = new global::Mirror.Examples.Tanks.Vector4f();
+            if (rotation_ == null) {
+              Rotation = new global::Channeld.Examples.Tanks.Vector4f();
             }
-            input.ReadMessage(Rotatino);
+            input.ReadMessage(Rotation);
             break;
           }
           case 26: {
             if (scale_ == null) {
-              Scale = new global::Mirror.Examples.Tanks.Vector3f();
+              Scale = new global::Channeld.Examples.Tanks.Vector3f();
             }
             input.ReadMessage(Scale);
             break;
@@ -920,7 +920,7 @@ namespace Mirror.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mirror.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Channeld.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1109,7 +1109,7 @@ namespace Mirror.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mirror.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Channeld.Examples.Tanks.ExampleMirrorTanksReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1142,23 +1142,23 @@ namespace Mirror.Examples.Tanks {
 
     /// <summary>Field number for the "transformStates" field.</summary>
     public const int TransformStatesFieldNumber = 1;
-    private static readonly pbc::MapField<uint, global::Mirror.Examples.Tanks.TransformState>.Codec _map_transformStates_codec
-        = new pbc::MapField<uint, global::Mirror.Examples.Tanks.TransformState>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Mirror.Examples.Tanks.TransformState.Parser), 10);
-    private readonly pbc::MapField<uint, global::Mirror.Examples.Tanks.TransformState> transformStates_ = new pbc::MapField<uint, global::Mirror.Examples.Tanks.TransformState>();
+    private static readonly pbc::MapField<uint, global::Channeld.Examples.Tanks.TransformState>.Codec _map_transformStates_codec
+        = new pbc::MapField<uint, global::Channeld.Examples.Tanks.TransformState>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Channeld.Examples.Tanks.TransformState.Parser), 10);
+    private readonly pbc::MapField<uint, global::Channeld.Examples.Tanks.TransformState> transformStates_ = new pbc::MapField<uint, global::Channeld.Examples.Tanks.TransformState>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<uint, global::Mirror.Examples.Tanks.TransformState> TransformStates {
+    public pbc::MapField<uint, global::Channeld.Examples.Tanks.TransformState> TransformStates {
       get { return transformStates_; }
     }
 
     /// <summary>Field number for the "tankStates" field.</summary>
     public const int TankStatesFieldNumber = 2;
-    private static readonly pbc::MapField<uint, global::Mirror.Examples.Tanks.TankState>.Codec _map_tankStates_codec
-        = new pbc::MapField<uint, global::Mirror.Examples.Tanks.TankState>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Mirror.Examples.Tanks.TankState.Parser), 18);
-    private readonly pbc::MapField<uint, global::Mirror.Examples.Tanks.TankState> tankStates_ = new pbc::MapField<uint, global::Mirror.Examples.Tanks.TankState>();
+    private static readonly pbc::MapField<uint, global::Channeld.Examples.Tanks.TankState>.Codec _map_tankStates_codec
+        = new pbc::MapField<uint, global::Channeld.Examples.Tanks.TankState>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Channeld.Examples.Tanks.TankState.Parser), 18);
+    private readonly pbc::MapField<uint, global::Channeld.Examples.Tanks.TankState> tankStates_ = new pbc::MapField<uint, global::Channeld.Examples.Tanks.TankState>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<uint, global::Mirror.Examples.Tanks.TankState> TankStates {
+    public pbc::MapField<uint, global::Channeld.Examples.Tanks.TankState> TankStates {
       get { return tankStates_; }
     }
 

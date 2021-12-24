@@ -41,36 +41,40 @@ namespace Channeld {
             "YW5uZWxNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hhbm5lbGQu",
             "Q2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSOAoKc3ViT3B0aW9ucxgD",
             "IAEoCzIkLmNoYW5uZWxkLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiIK",
-            "BGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55IikKFFJlbW92ZUNo",
-            "YW5uZWxNZXNzYWdlEhEKCWNoYW5uZWxJZBgBIAEoDSJYChJMaXN0Q2hhbm5l",
-            "bE1lc3NhZ2USKQoKdHlwZUZpbHRlchgBIAEoDjIVLmNoYW5uZWxkLkNoYW5u",
-            "ZWxUeXBlEhcKD21ldGFkYXRhRmlsdGVycxgCIAMoCSK8AQoYTGlzdENoYW5u",
-            "ZWxSZXN1bHRNZXNzYWdlEkAKCGNoYW5uZWxzGAEgAygLMi4uY2hhbm5lbGQu",
-            "TGlzdENoYW5uZWxSZXN1bHRNZXNzYWdlLkNoYW5uZWxJbmZvGl4KC0NoYW5u",
-            "ZWxJbmZvEhEKCWNoYW5uZWxJZBgBIAEoDRIqCgtjaGFubmVsVHlwZRgCIAEo",
-            "DjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAMgASgJImYK",
-            "GlN1YnNjcmliZWRUb0NoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI4",
-            "CgpzdWJPcHRpb25zGAIgASgLMiQuY2hhbm5lbGQuQ2hhbm5lbFN1YnNjcmlw",
-            "dGlvbk9wdGlvbnMiLgocVW5zdWJzY3JpYmVkVG9DaGFubmVsTWVzc2FnZRIO",
-            "CgZjb25uSWQYASABKA0iPgoYQ2hhbm5lbERhdGFVcGRhdGVNZXNzYWdlEiIK",
-            "BGRhdGEYASABKAsyFC5nb29nbGUucHJvdG9idWYuQW55IiMKEURpc2Nvbm5l",
-            "Y3RNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDSIrCghMb2NhdGlvbhIJCgF4GAEg",
-            "ASgBEgkKAXkYAiABKAESCQoBehgDIAEoASI0ChFTcGF0aWFsRW50aXR5SW5m",
-            "bxIfCgNsb2MYASABKAsyEi5jaGFubmVsZC5Mb2NhdGlvbiKuAQoZU3BhdGlh",
-            "bENoYW5uZWxEYXRhTWVzc2FnZRJDCghlbnRpdGllcxgBIAMoCzIxLmNoYW5u",
-            "ZWxkLlNwYXRpYWxDaGFubmVsRGF0YU1lc3NhZ2UuRW50aXRpZXNFbnRyeRpM",
-            "Cg1FbnRpdGllc0VudHJ5EgsKA2tleRgBIAEoDRIqCgV2YWx1ZRgCIAEoCzIb",
-            "LmNoYW5uZWxkLlNwYXRpYWxFbnRpdHlJbmZvOgI4ASpLCg1Ccm9hZGNhc3RU",
-            "eXBlEgYKAk5PEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQAhIVChFT",
-            "SU5HTEVfQ09OTkVDVElPThADKoQBCgtDaGFubmVsVHlwZRILCgdVTktOT1dO",
-            "EAASCgoGR0xPQkFMEAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMSCwoH",
-            "U1BBVElBTBAEEggKBFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYSCQoF",
-            "VEVTVDMQZxIJCgVURVNUNBBoKscBCgtNZXNzYWdlVHlwZRILCgdJTlZBTElE",
-            "EAASCAoEQVVUSBABEhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZFX0NI",
-            "QU5ORUwQBBIQCgxMSVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5FTBAG",
-            "EhQKEFVOU1VCX1RPX0NIQU5ORUwQBxIXChNDSEFOTkVMX0RBVEFfVVBEQVRF",
-            "EAgSDgoKRElTQ09OTkVDVBAJEhQKEFVTRVJfU1BBQ0VfU1RBUlQQZEIIWgYv",
-            "cHJvdG9iBnByb3RvMw=="));
+            "BGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55Il0KGkNyZWF0ZUNo",
+            "YW5uZWxSZXN1bHRNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hh",
+            "bm5lbGQuQ2hhbm5lbFR5cGUSEwoLb3duZXJDb25uSWQYAiABKA0iKQoUUmVt",
+            "b3ZlQ2hhbm5lbE1lc3NhZ2USEQoJY2hhbm5lbElkGAEgASgNIlgKEkxpc3RD",
+            "aGFubmVsTWVzc2FnZRIpCgp0eXBlRmlsdGVyGAEgASgOMhUuY2hhbm5lbGQu",
+            "Q2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0ZXJzGAIgAygJIrwBChhMaXN0",
+            "Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQAoIY2hhbm5lbHMYASADKAsyLi5jaGFu",
+            "bmVsZC5MaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2UuQ2hhbm5lbEluZm8aXgoL",
+            "Q2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEgASgNEioKC2NoYW5uZWxUeXBl",
+            "GAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAyAB",
+            "KAkiZgoaU3Vic2NyaWJlZFRvQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEg",
+            "ASgNEjgKCnN1Yk9wdGlvbnMYAiABKAsyJC5jaGFubmVsZC5DaGFubmVsU3Vi",
+            "c2NyaXB0aW9uT3B0aW9ucyJeCiBTdWJzY3JpYmVkVG9DaGFubmVsUmVzdWx0",
+            "TWVzc2FnZRIOCgZjb25uSWQYASABKA0SKgoLY2hhbm5lbFR5cGUYAiABKA4y",
+            "FS5jaGFubmVsZC5DaGFubmVsVHlwZSIwCh5VbnN1YnNjcmliZWRGcm9tQ2hh",
+            "bm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgNIj4KGENoYW5uZWxEYXRhVXBk",
+            "YXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFu",
+            "eSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZjb25uSWQYASABKA0iKwoITG9j",
+            "YXRpb24SCQoBeBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAEiNAoRU3Bh",
+            "dGlhbEVudGl0eUluZm8SHwoDbG9jGAEgASgLMhIuY2hhbm5lbGQuTG9jYXRp",
+            "b24irgEKGVNwYXRpYWxDaGFubmVsRGF0YU1lc3NhZ2USQwoIZW50aXRpZXMY",
+            "ASADKAsyMS5jaGFubmVsZC5TcGF0aWFsQ2hhbm5lbERhdGFNZXNzYWdlLkVu",
+            "dGl0aWVzRW50cnkaTAoNRW50aXRpZXNFbnRyeRILCgNrZXkYASABKA0SKgoF",
+            "dmFsdWUYAiABKAsyGy5jaGFubmVsZC5TcGF0aWFsRW50aXR5SW5mbzoCOAEq",
+            "SwoNQnJvYWRjYXN0VHlwZRIGCgJOTxAAEgcKA0FMTBABEhIKDkFMTF9CVVRf",
+            "U0VOREVSEAISFQoRU0lOR0xFX0NPTk5FQ1RJT04QAyqEAQoLQ2hhbm5lbFR5",
+            "cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQAhIMCghT",
+            "VUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVTVDEQZRIJ",
+            "CgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCrJAQoLTWVzc2FnZVR5",
+            "cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hBTk5FTBAD",
+            "EhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUSEgoOU1VC",
+            "X1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIXChNDSEFO",
+            "TkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhQKEFVTRVJfU1BB",
+            "Q0VfU1RBUlQQZEIIWgYvcHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -81,11 +85,13 @@ namespace Channeld {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelSubscriptionOptions), global::Channeld.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelMessage), global::Channeld.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelResultMessage), global::Channeld.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "OwnerConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.RemoveChannelMessage), global::Channeld.RemoveChannelMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelMessage), global::Channeld.ListChannelMessage.Parser, new[]{ "TypeFilter", "MetadataFilters" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelResultMessage), global::Channeld.ListChannelResultMessage.Parser, new[]{ "Channels" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelResultMessage.Types.ChannelInfo), global::Channeld.ListChannelResultMessage.Types.ChannelInfo.Parser, new[]{ "ChannelId", "ChannelType", "Metadata" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.SubscribedToChannelMessage), global::Channeld.SubscribedToChannelMessage.Parser, new[]{ "ConnId", "SubOptions" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.UnsubscribedToChannelMessage), global::Channeld.UnsubscribedToChannelMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.SubscribedToChannelResultMessage), global::Channeld.SubscribedToChannelResultMessage.Parser, new[]{ "ConnId", "ChannelType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.UnsubscribedFromChannelMessage), global::Channeld.UnsubscribedFromChannelMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelDataUpdateMessage), global::Channeld.ChannelDataUpdateMessage.Parser, new[]{ "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.DisconnectMessage), global::Channeld.DisconnectMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Location), global::Channeld.Location.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
@@ -155,7 +161,7 @@ namespace Channeld {
     [pbr::OriginalName("REMOVE_CHANNEL")] RemoveChannel = 4,
     [pbr::OriginalName("LIST_CHANNEL")] ListChannel = 5,
     [pbr::OriginalName("SUB_TO_CHANNEL")] SubToChannel = 6,
-    [pbr::OriginalName("UNSUB_TO_CHANNEL")] UnsubToChannel = 7,
+    [pbr::OriginalName("UNSUB_FROM_CHANNEL")] UnsubFromChannel = 7,
     [pbr::OriginalName("CHANNEL_DATA_UPDATE")] ChannelDataUpdate = 8,
     [pbr::OriginalName("DISCONNECT")] Disconnect = 9,
     [pbr::OriginalName("USER_SPACE_START")] UserSpaceStart = 100,
@@ -463,7 +469,7 @@ namespace Channeld {
     public const int MsgBodyFieldNumber = 5;
     private pb::ByteString msgBody_ = pb::ByteString.Empty;
     /// <summary>
-    /// Protobuf-marshalled message body.
+    /// The serialized message. It's Protobuf-marshalled byte array if the message is defined in @MessageType.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -703,6 +709,9 @@ namespace Channeld {
 
   }
 
+  /// <summary>
+  /// Messages that are not handled in channeld. DO NOT send this message directly to channeld, as channeld uses it to wrap the payload and forward it to the target endpoint(s).
+  /// </summary>
   public sealed partial class UserSpaceMessage : pb::IMessage<UserSpaceMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -767,7 +776,7 @@ namespace Channeld {
     public const int PayloadFieldNumber = 2;
     private pb::ByteString payload_ = pb::ByteString.Empty;
     /// <summary>
-    /// The user (client/server) decides to how decode the bytes.
+    /// The user (client/server) decides to how serialize/deserialize the message.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1659,7 +1668,7 @@ namespace Channeld {
 
   /// <summary>
   /// The packet should have channelId = 0 in order to be handled.
-  /// Response: @SubscribedToChannelsMessage
+  /// Response: @CreateChannelResultMessage. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
   /// </summary>
   public sealed partial class CreateChannelMessage : pb::IMessage<CreateChannelMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1979,9 +1988,235 @@ namespace Channeld {
 
   }
 
+  public sealed partial class CreateChannelResultMessage : pb::IMessage<CreateChannelResultMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CreateChannelResultMessage> _parser = new pb::MessageParser<CreateChannelResultMessage>(() => new CreateChannelResultMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CreateChannelResultMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CreateChannelResultMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CreateChannelResultMessage(CreateChannelResultMessage other) : this() {
+      channelType_ = other.channelType_;
+      ownerConnId_ = other.ownerConnId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CreateChannelResultMessage Clone() {
+      return new CreateChannelResultMessage(this);
+    }
+
+    /// <summary>Field number for the "channelType" field.</summary>
+    public const int ChannelTypeFieldNumber = 1;
+    private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Channeld.ChannelType ChannelType {
+      get { return channelType_; }
+      set {
+        channelType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ownerConnId" field.</summary>
+    public const int OwnerConnIdFieldNumber = 2;
+    private uint ownerConnId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint OwnerConnId {
+      get { return ownerConnId_; }
+      set {
+        ownerConnId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CreateChannelResultMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CreateChannelResultMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ChannelType != other.ChannelType) return false;
+      if (OwnerConnId != other.OwnerConnId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (OwnerConnId != 0) hash ^= OwnerConnId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChannelType);
+      }
+      if (OwnerConnId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(OwnerConnId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChannelType);
+      }
+      if (OwnerConnId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(OwnerConnId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
+      }
+      if (OwnerConnId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OwnerConnId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CreateChannelResultMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+        ChannelType = other.ChannelType;
+      }
+      if (other.OwnerConnId != 0) {
+        OwnerConnId = other.OwnerConnId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            OwnerConnId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            OwnerConnId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   /// <summary>
   /// The packet should have channelId = 0 in order to be handled.
-  /// Response: all connections in the channel will receive @RemoveChannelMessage
+  /// Response: all connections in the channel will receive @RemoveChannelMessage. The GLOBAL channel owner will also receive this message.
   /// </summary>
   public sealed partial class RemoveChannelMessage : pb::IMessage<RemoveChannelMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1997,7 +2232,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2190,7 +2425,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2405,7 +2640,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2841,7 +3076,7 @@ namespace Channeld {
   }
 
   /// <summary>
-  /// Response: @SubscribedToChannelMessage. The channel owner will receive the same message.
+  /// Response: @SubscribedToChannelResultMessage. The message sender, the subscribed connection, and the channel owner will receive the message respectively.
   /// </summary>
   public sealed partial class SubscribedToChannelMessage : pb::IMessage<SubscribedToChannelMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -2857,7 +3092,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3081,24 +3316,21 @@ namespace Channeld {
 
   }
 
-  /// <summary>
-  /// Response: @UnsubscribedToChannelMessage. The channel owner will receive the same message.
-  /// </summary>
-  public sealed partial class UnsubscribedToChannelMessage : pb::IMessage<UnsubscribedToChannelMessage>
+  public sealed partial class SubscribedToChannelResultMessage : pb::IMessage<SubscribedToChannelResultMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<UnsubscribedToChannelMessage> _parser = new pb::MessageParser<UnsubscribedToChannelMessage>(() => new UnsubscribedToChannelMessage());
+    private static readonly pb::MessageParser<SubscribedToChannelResultMessage> _parser = new pb::MessageParser<SubscribedToChannelResultMessage>(() => new SubscribedToChannelResultMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<UnsubscribedToChannelMessage> Parser { get { return _parser; } }
+    public static pb::MessageParser<SubscribedToChannelResultMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3109,7 +3341,7 @@ namespace Channeld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UnsubscribedToChannelMessage() {
+    public SubscribedToChannelResultMessage() {
       OnConstruction();
     }
 
@@ -3117,15 +3349,247 @@ namespace Channeld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UnsubscribedToChannelMessage(UnsubscribedToChannelMessage other) : this() {
+    public SubscribedToChannelResultMessage(SubscribedToChannelResultMessage other) : this() {
+      connId_ = other.connId_;
+      channelType_ = other.channelType_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SubscribedToChannelResultMessage Clone() {
+      return new SubscribedToChannelResultMessage(this);
+    }
+
+    /// <summary>Field number for the "connId" field.</summary>
+    public const int ConnIdFieldNumber = 1;
+    private uint connId_;
+    /// <summary>
+    /// The connection that subsribed.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ConnId {
+      get { return connId_; }
+      set {
+        connId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "channelType" field.</summary>
+    public const int ChannelTypeFieldNumber = 2;
+    private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Channeld.ChannelType ChannelType {
+      get { return channelType_; }
+      set {
+        channelType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SubscribedToChannelResultMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SubscribedToChannelResultMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ConnId != other.ConnId) return false;
+      if (ChannelType != other.ChannelType) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ConnId != 0) hash ^= ConnId.GetHashCode();
+      if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ConnId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(ConnId);
+      }
+      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) ChannelType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ConnId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(ConnId);
+      }
+      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) ChannelType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ConnId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ConnId);
+      }
+      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SubscribedToChannelResultMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ConnId != 0) {
+        ConnId = other.ConnId;
+      }
+      if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+        ChannelType = other.ChannelType;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ConnId = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ConnId = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Response: @UnsubscribedFromChannelMessage. The message sender, the subscribed connection, and the channel owner will receive the message respectively.
+  /// </summary>
+  public sealed partial class UnsubscribedFromChannelMessage : pb::IMessage<UnsubscribedFromChannelMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UnsubscribedFromChannelMessage> _parser = new pb::MessageParser<UnsubscribedFromChannelMessage>(() => new UnsubscribedFromChannelMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UnsubscribedFromChannelMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UnsubscribedFromChannelMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UnsubscribedFromChannelMessage(UnsubscribedFromChannelMessage other) : this() {
       connId_ = other.connId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UnsubscribedToChannelMessage Clone() {
-      return new UnsubscribedToChannelMessage(this);
+    public UnsubscribedFromChannelMessage Clone() {
+      return new UnsubscribedFromChannelMessage(this);
     }
 
     /// <summary>Field number for the "connId" field.</summary>
@@ -3143,12 +3607,12 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as UnsubscribedToChannelMessage);
+      return Equals(other as UnsubscribedFromChannelMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(UnsubscribedToChannelMessage other) {
+    public bool Equals(UnsubscribedFromChannelMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -3221,7 +3685,7 @@ namespace Channeld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(UnsubscribedToChannelMessage other) {
+    public void MergeFrom(UnsubscribedFromChannelMessage other) {
       if (other == null) {
         return;
       }
@@ -3290,7 +3754,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3494,7 +3958,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3683,7 +4147,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3946,7 +4410,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4144,7 +4608,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

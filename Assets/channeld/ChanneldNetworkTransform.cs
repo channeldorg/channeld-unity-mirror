@@ -414,6 +414,8 @@ namespace Channeld
                             transformState.GetUnityRotation(),
                             transformState.GetUnityScale());
                         
+                        /* With channeld, there's no need to send the state to all other clients, as channeld takes care of the pub/sub.
+                         * 
                         //For client authority, immediately pass on the client snapshot to all other
                         //clients instead of waiting for server to send its snapshots.
                         if (clientAuthority)
@@ -423,6 +425,7 @@ namespace Channeld
                                 transformState.GetUnityRotation(),
                                 transformState.GetUnityScale());
                         }
+                        */
                     }
                 }
             };

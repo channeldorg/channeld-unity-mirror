@@ -9,6 +9,7 @@ namespace Channeld
 {
     public abstract class GameState<T> : MonoBehaviour where T : class, IMessage<T>, new()
     {
+        public ChannelType channelType;
         public T ChannelData { get; private set; }
         private ChanneldClient client;
         private T bufferedUpdate;
@@ -44,15 +45,47 @@ namespace Channeld
         private void OnChanneldAuthenticated(ChanneldClient client)
         {
             this.client = client;
-            client.AddMessageHandler((uint)MessageType.ChannelDataUpdate, (_, channelId, msg) =>
+            client.AddMessageHandler((uint)MessageType.CreateChannel, (c, channelId, msg) =>
             {
-                if (!gameStatesInChannels.ContainsKey(channelId))
+                var resultMsg = (CreateChannelResultMessage)msg;
+                if (resultMsg.ChannelType == channelType)
                 {
                     gameStatesInChannels[channelId] = this;
+                    Log.Info($"Added GameState '{this.GetType().Name}' for channel {channelId}");
                 }
-
+            });
+            client.AddMessageHandler((uint)MessageType.RemoveChannel, (c, channelId, msg) =>
+            {
+                var removeMsg = (RemoveChannelMessage)msg;
+                if (gameStatesInChannels.Remove(channelId))
+                {
+                    Log.Info($"Removed GameState '{this.GetType().Name}' for channel {channelId}");
+                }
+            });
+            client.AddMessageHandler((uint)MessageType.SubToChannel, (c, channelId, msg) =>
+            {
+                var resultMsg = (SubscribedToChannelResultMessage)msg;
+                if (resultMsg.ConnId == c.Id && resultMsg.ChannelType == channelType)
+                {
+                    gameStatesInChannels[channelId] = this;
+                    Log.Info($"Added GameState '{this.GetType().Name}' for channel {channelId}");
+                }
+            });
+            client.AddMessageHandler((uint)MessageType.UnsubFromChannel, (c, channelId, msg) =>
+            {
+                var unsubMsg = (UnsubscribedFromChannelMessage)msg;
+                if (unsubMsg.ConnId == c.Id)
+                {
+                    if (gameStatesInChannels.Remove(channelId))
+                    {
+                        Log.Info($"Removed GameState '{this.GetType().Name}' for channel {channelId}");
+                    }
+                }
+            });
+            client.AddMessageHandler((uint)MessageType.ChannelDataUpdate, (_, channelId, msg) =>
+            {
                 var updateData = (msg as ChannelDataUpdateMessage).Data.Unpack<T>();
-                Debug.Log($"Receive {typeof(T).Name} update: {updateData.ToString()}");
+                Log.Debug($"Receive {typeof(T).Name} update: {updateData.ToString()}");
                 Merge(ChannelData, updateData);
                 OnGameStateChanged?.Invoke(channelId, updateData);
             });
@@ -60,7 +93,7 @@ namespace Channeld
 
         protected void SendUpdate(T update)
         {
-            Debug.Log($"Send {typeof(T).Name} update: {update.ToString()}");
+            Log.Debug($"Send {typeof(T).Name} update: {update.ToString()}");
 
             if (bufferedUpdate == null)
                 bufferedUpdate = update;
@@ -72,8 +105,12 @@ namespace Channeld
         {
             var channelId = ChanneldTransport.GetOwningChannel(ni.netId);
             var instance = GetInstance(channelId);
-            if (instance != null)
-                instance.SendUpdate(update);
+            if (instance == null)
+            {
+                Log.Warning($"Cannot find GameState by channelId: {channelId} (netId={ni.netId})");
+                return;
+            }
+            instance.SendUpdate(update);
         }
 
         // Construct a channel data message used to be merged and sent.
@@ -83,12 +120,13 @@ namespace Channeld
         {
             var channelId = ChanneldTransport.GetOwningChannel(ni.netId);
             var instance = GetInstance(channelId);
-            if (instance != null)
+            if (instance == null)
             {
-                T update = instance.ConstructTransformUpdate(ni, position, rotation, scale);
-                if (update != null)
-                    instance.SendUpdate(update);
+                Log.Warning($"Cannot find GameState by channelId: {channelId} (netId={ni.netId})");
+                return;
             }
+            T update = instance.ConstructTransformUpdate(ni, position, rotation, scale);
+            instance.SendUpdate(update);
         }
 
         // Make sure the message is sent after all the updates are buffered.

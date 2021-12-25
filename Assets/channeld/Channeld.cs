@@ -41,40 +41,41 @@ namespace Channeld {
             "YW5uZWxNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hhbm5lbGQu",
             "Q2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSOAoKc3ViT3B0aW9ucxgD",
             "IAEoCzIkLmNoYW5uZWxkLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiIK",
-            "BGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55Il0KGkNyZWF0ZUNo",
+            "BGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55Im8KGkNyZWF0ZUNo",
             "YW5uZWxSZXN1bHRNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hh",
-            "bm5lbGQuQ2hhbm5lbFR5cGUSEwoLb3duZXJDb25uSWQYAiABKA0iKQoUUmVt",
-            "b3ZlQ2hhbm5lbE1lc3NhZ2USEQoJY2hhbm5lbElkGAEgASgNIlgKEkxpc3RD",
-            "aGFubmVsTWVzc2FnZRIpCgp0eXBlRmlsdGVyGAEgASgOMhUuY2hhbm5lbGQu",
-            "Q2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0ZXJzGAIgAygJIrwBChhMaXN0",
-            "Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQAoIY2hhbm5lbHMYASADKAsyLi5jaGFu",
-            "bmVsZC5MaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2UuQ2hhbm5lbEluZm8aXgoL",
-            "Q2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEgASgNEioKC2NoYW5uZWxUeXBl",
-            "GAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAyAB",
-            "KAkiZgoaU3Vic2NyaWJlZFRvQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEg",
-            "ASgNEjgKCnN1Yk9wdGlvbnMYAiABKAsyJC5jaGFubmVsZC5DaGFubmVsU3Vi",
-            "c2NyaXB0aW9uT3B0aW9ucyJeCiBTdWJzY3JpYmVkVG9DaGFubmVsUmVzdWx0",
-            "TWVzc2FnZRIOCgZjb25uSWQYASABKA0SKgoLY2hhbm5lbFR5cGUYAiABKA4y",
-            "FS5jaGFubmVsZC5DaGFubmVsVHlwZSIwCh5VbnN1YnNjcmliZWRGcm9tQ2hh",
-            "bm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgNIj4KGENoYW5uZWxEYXRhVXBk",
-            "YXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFu",
-            "eSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZjb25uSWQYASABKA0iKwoITG9j",
-            "YXRpb24SCQoBeBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAEiNAoRU3Bh",
-            "dGlhbEVudGl0eUluZm8SHwoDbG9jGAEgASgLMhIuY2hhbm5lbGQuTG9jYXRp",
-            "b24irgEKGVNwYXRpYWxDaGFubmVsRGF0YU1lc3NhZ2USQwoIZW50aXRpZXMY",
-            "ASADKAsyMS5jaGFubmVsZC5TcGF0aWFsQ2hhbm5lbERhdGFNZXNzYWdlLkVu",
-            "dGl0aWVzRW50cnkaTAoNRW50aXRpZXNFbnRyeRILCgNrZXkYASABKA0SKgoF",
-            "dmFsdWUYAiABKAsyGy5jaGFubmVsZC5TcGF0aWFsRW50aXR5SW5mbzoCOAEq",
-            "SwoNQnJvYWRjYXN0VHlwZRIGCgJOTxAAEgcKA0FMTBABEhIKDkFMTF9CVVRf",
-            "U0VOREVSEAISFQoRU0lOR0xFX0NPTk5FQ1RJT04QAyqEAQoLQ2hhbm5lbFR5",
-            "cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQAhIMCghT",
-            "VUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVTVDEQZRIJ",
-            "CgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCrJAQoLTWVzc2FnZVR5",
-            "cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hBTk5FTBAD",
-            "EhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUSEgoOU1VC",
-            "X1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIXChNDSEFO",
-            "TkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhQKEFVTRVJfU1BB",
-            "Q0VfU1RBUlQQZEIIWgYvcHJvdG9iBnByb3RvMw=="));
+            "bm5lbGQuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSEwoLb3duZXJD",
+            "b25uSWQYAyABKA0iKQoUUmVtb3ZlQ2hhbm5lbE1lc3NhZ2USEQoJY2hhbm5l",
+            "bElkGAEgASgNIlgKEkxpc3RDaGFubmVsTWVzc2FnZRIpCgp0eXBlRmlsdGVy",
+            "GAEgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0",
+            "ZXJzGAIgAygJIrwBChhMaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQAoIY2hh",
+            "bm5lbHMYASADKAsyLi5jaGFubmVsZC5MaXN0Q2hhbm5lbFJlc3VsdE1lc3Nh",
+            "Z2UuQ2hhbm5lbEluZm8aXgoLQ2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEg",
+            "ASgNEioKC2NoYW5uZWxUeXBlGAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5",
+            "cGUSEAoIbWV0YWRhdGEYAyABKAkiZgoaU3Vic2NyaWJlZFRvQ2hhbm5lbE1l",
+            "c3NhZ2USDgoGY29ubklkGAEgASgNEjgKCnN1Yk9wdGlvbnMYAiABKAsyJC5j",
+            "aGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucyJeCiBTdWJzY3Jp",
+            "YmVkVG9DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQYASABKA0SKgoL",
+            "Y2hhbm5lbFR5cGUYAiABKA4yFS5jaGFubmVsZC5DaGFubmVsVHlwZSIwCh5V",
+            "bnN1YnNjcmliZWRGcm9tQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
+            "Ij4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQu",
+            "Z29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZj",
+            "b25uSWQYASABKA0iKwoITG9jYXRpb24SCQoBeBgBIAEoARIJCgF5GAIgASgB",
+            "EgkKAXoYAyABKAEiNAoRU3BhdGlhbEVudGl0eUluZm8SHwoDbG9jGAEgASgL",
+            "MhIuY2hhbm5lbGQuTG9jYXRpb24irgEKGVNwYXRpYWxDaGFubmVsRGF0YU1l",
+            "c3NhZ2USQwoIZW50aXRpZXMYASADKAsyMS5jaGFubmVsZC5TcGF0aWFsQ2hh",
+            "bm5lbERhdGFNZXNzYWdlLkVudGl0aWVzRW50cnkaTAoNRW50aXRpZXNFbnRy",
+            "eRILCgNrZXkYASABKA0SKgoFdmFsdWUYAiABKAsyGy5jaGFubmVsZC5TcGF0",
+            "aWFsRW50aXR5SW5mbzoCOAEqSwoNQnJvYWRjYXN0VHlwZRIGCgJOTxAAEgcK",
+            "A0FMTBABEhIKDkFMTF9CVVRfU0VOREVSEAISFQoRU0lOR0xFX0NPTk5FQ1RJ",
+            "T04QAyqEAQoLQ2hhbm5lbFR5cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBAB",
+            "EgsKB1BSSVZBVEUQAhIMCghTVUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRU",
+            "RVNUEGQSCQoFVEVTVDEQZRIJCgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVT",
+            "VDQQaCrJAQoLTWVzc2FnZVR5cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARIS",
+            "Cg5DUkVBVEVfQ0hBTk5FTBADEhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElT",
+            "VF9DSEFOTkVMEAUSEgoOU1VCX1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9N",
+            "X0NIQU5ORUwQBxIXChNDSEFOTkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09O",
+            "TkVDVBAJEhQKEFVTRVJfU1BBQ0VfU1RBUlQQZEIIWgYvcHJvdG9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -85,7 +86,7 @@ namespace Channeld {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelSubscriptionOptions), global::Channeld.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelMessage), global::Channeld.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelResultMessage), global::Channeld.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "OwnerConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelResultMessage), global::Channeld.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.RemoveChannelMessage), global::Channeld.RemoveChannelMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelMessage), global::Channeld.ListChannelMessage.Parser, new[]{ "TypeFilter", "MetadataFilters" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelResultMessage), global::Channeld.ListChannelResultMessage.Parser, new[]{ "Channels" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelResultMessage.Types.ChannelInfo), global::Channeld.ListChannelResultMessage.Types.ChannelInfo.Parser, new[]{ "ChannelId", "ChannelType", "Metadata" }, null, null, null, null)}),
@@ -2023,6 +2024,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateChannelResultMessage(CreateChannelResultMessage other) : this() {
       channelType_ = other.channelType_;
+      metadata_ = other.metadata_;
       ownerConnId_ = other.ownerConnId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2045,8 +2047,20 @@ namespace Channeld {
       }
     }
 
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 2;
+    private string metadata_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Metadata {
+      get { return metadata_; }
+      set {
+        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "ownerConnId" field.</summary>
-    public const int OwnerConnIdFieldNumber = 2;
+    public const int OwnerConnIdFieldNumber = 3;
     private uint ownerConnId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2073,6 +2087,7 @@ namespace Channeld {
         return true;
       }
       if (ChannelType != other.ChannelType) return false;
+      if (Metadata != other.Metadata) return false;
       if (OwnerConnId != other.OwnerConnId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2082,6 +2097,7 @@ namespace Channeld {
     public override int GetHashCode() {
       int hash = 1;
       if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (OwnerConnId != 0) hash ^= OwnerConnId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2105,8 +2121,12 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteEnum((int) ChannelType);
       }
+      if (Metadata.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Metadata);
+      }
       if (OwnerConnId != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteUInt32(OwnerConnId);
       }
       if (_unknownFields != null) {
@@ -2123,8 +2143,12 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteEnum((int) ChannelType);
       }
+      if (Metadata.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Metadata);
+      }
       if (OwnerConnId != 0) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteUInt32(OwnerConnId);
       }
       if (_unknownFields != null) {
@@ -2139,6 +2163,9 @@ namespace Channeld {
       int size = 0;
       if (ChannelType != global::Channeld.ChannelType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
+      }
+      if (Metadata.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
       }
       if (OwnerConnId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OwnerConnId);
@@ -2157,6 +2184,9 @@ namespace Channeld {
       }
       if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
         ChannelType = other.ChannelType;
+      }
+      if (other.Metadata.Length != 0) {
+        Metadata = other.Metadata;
       }
       if (other.OwnerConnId != 0) {
         OwnerConnId = other.OwnerConnId;
@@ -2180,7 +2210,11 @@ namespace Channeld {
             ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
             break;
           }
-          case 16: {
+          case 18: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 24: {
             OwnerConnId = input.ReadUInt32();
             break;
           }
@@ -2203,7 +2237,11 @@ namespace Channeld {
             ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
             break;
           }
-          case 16: {
+          case 18: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 24: {
             OwnerConnId = input.ReadUInt32();
             break;
           }

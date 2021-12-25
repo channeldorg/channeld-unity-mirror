@@ -149,7 +149,7 @@ namespace Channeld.Examples.Tanks
         protected override bool SerializeSyncVars(NetworkWriter writer, bool initialState)
         {
             var updateData = new TankGameChannelData();
-            updateData.TankStates.Add(netId, new TankState() { Health = health });
+            updateData.TankStates[netId] = new TankState() { Health = health };
             TankGameState.SendUpdate(netIdentity, updateData);
             return false;
         }
@@ -158,5 +158,16 @@ namespace Channeld.Examples.Tanks
         {
             
         }
+
+        /* Setting to null causes exception
+         * TODO: customize Google.Protobuf.Collections.MapField
+        private void OnDestroy()
+        {
+            var updateData = new TankGameChannelData();
+            updateData.TransformStates[netId] = null;
+            updateData.TankStates[netId] = null;
+            TankGameState.SendUpdate(netIdentity, updateData);
+        }
+        */
     }
 }

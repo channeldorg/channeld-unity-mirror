@@ -11,14 +11,18 @@ namespace Channeld
     {
         public enum LogLevel { Debug, Info, Warning, Error }
 
+        [Header("Logging")]
         public LogLevel logLevel = LogLevel.Info;
+        public bool showUserSpaceMessageLog = false;
 
+        [Header("Server")]
         public string ServerAddressToChanneld = "127.0.0.1";
         public int ServerPortToChanneld = 11288;
         public ChannelType ServerChannelType = ChannelType.Global;
         public string ServerChannelMetadata = "MirrorServer";
         public uint ServerFanoutIntervalMs = 10;
 
+        [Header("Client")]
         // The client connects to the address Mirror passes to it, generally NetworkManager.networkAddress
         //public string ClientAddressToChanneld = "127.0.0.1";
         public int ClientPortToChanneld = 12108;
@@ -92,6 +96,7 @@ namespace Channeld
         public override void ServerStart()
         {
             serverConnection = new ChanneldClient();
+            serverConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             serverConnection.UserSpaceMessageHandleFunc = (channelId, sourceConnId, payload) =>
             {
                 this.OnServerDataReceived((int)sourceConnId, new ArraySegment<byte>(payload), Channels.Reliable);
@@ -104,8 +109,6 @@ namespace Channeld
                     // Owned the target channel
                     TargetChannelId = channelId;
                     Log.Info($"Server owned channel: {TargetChannelId}");
-
-                    // Initialize the channel data
                 }
             });
             serverConnection.AddMessageHandler((uint)MessageType.SubToChannel, (client, channelId, msg) =>
@@ -218,6 +221,7 @@ namespace Channeld
         private void InitClientConnection()
         {
             clientConnection = new ChanneldClient();
+            clientConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             clientConnection.UserSpaceMessageHandleFunc = (channelId, sourceConnId, payload) =>
             {
                 var data = new ArraySegment<byte>(payload);
@@ -237,7 +241,7 @@ namespace Channeld
                 var resultMsg = msg as SubscribedToChannelResultMessage;
                 if (resultMsg.ConnId == client.Id && resultMsg.ChannelType == ServerChannelType)
                 {
-                    //this.OnClientConnected?.Invoke();
+                    this.OnClientConnected?.Invoke();
 
                     TargetChannelId = channelId;
 
@@ -278,7 +282,7 @@ namespace Channeld
                         {
                             CanUpdateData = true,
                             FanOutIntervalMs = ClientFanoutIntervalMs
-                        }/**/, (subMsg) => this.OnClientConnected?.Invoke());
+                        });
                     }
                     else
                     {

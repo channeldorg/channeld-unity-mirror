@@ -121,6 +121,13 @@ namespace Channeld
             {
                 OwnedChannels.Add(channelId);
             }
+
+            ListedChannels[channelId] = new ListChannelResultMessage.Types.ChannelInfo()
+            {
+                ChannelId = channelId,
+                ChannelType = resultMsg.ChannelType,
+                Metadata = resultMsg.Metadata
+            };
         }
 
         private void HandleRemoveChannel(ChanneldClient client, uint channelId, IMessage msg)
@@ -331,9 +338,8 @@ namespace Channeld
                 MsgBody = msgBody
             });
 
-            if (msgType >= (uint)MessageType.UserSpaceStart && !ShowUserSpaceMessageLog)
-                return;
-            Log.Debug($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
+            if (msgType < (uint)MessageType.UserSpaceStart || ShowUserSpaceMessageLog)
+                Log.Debug($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
         }
 
         public void Send(uint channelId, uint msgType, IMessage msg, BroadcastType broadcast = BroadcastType.No, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)

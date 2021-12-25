@@ -10,7 +10,9 @@ namespace Channeld
     public abstract class GameState<T> : MonoBehaviour where T : class, IMessage<T>, new()
     {
         public ChannelType channelType;
+        public uint ChannelId { get; private set; }
         public T ChannelData { get; private set; }
+
         private ChanneldClient client;
         private T bufferedUpdate;
 
@@ -39,6 +41,7 @@ namespace Channeld
             // Use Protobuf's default message merge.
             // However, the merge of two maps doesn't meet our requirements (having the same key causes exception).
             // In that case, we need to override this method and manually merge the map (use set indexer instead of Add).
+            // TODO: change the source code of Google Protobuf 
             dst.MergeFrom(src);
         }
 
@@ -50,6 +53,7 @@ namespace Channeld
                 var resultMsg = (CreateChannelResultMessage)msg;
                 if (resultMsg.ChannelType == channelType)
                 {
+                    ChannelId = channelId;
                     gameStatesInChannels[channelId] = this;
                     Log.Info($"Added GameState '{this.GetType().Name}' for channel {channelId}");
                 }
@@ -67,6 +71,7 @@ namespace Channeld
                 var resultMsg = (SubscribedToChannelResultMessage)msg;
                 if (resultMsg.ConnId == c.Id && resultMsg.ChannelType == channelType)
                 {
+                    ChannelId = channelId;
                     gameStatesInChannels[channelId] = this;
                     Log.Info($"Added GameState '{this.GetType().Name}' for channel {channelId}");
                 }
@@ -138,8 +143,7 @@ namespace Channeld
             if (bufferedUpdate == null)
                 return;
 
-            var transport = Transport.activeTransport as ChanneldTransport;
-            client.Send(transport.TargetChannelId ?? 0, (uint)MessageType.ChannelDataUpdate, new ChannelDataUpdateMessage()
+            client.Send(ChannelId, (uint)MessageType.ChannelDataUpdate, new ChannelDataUpdateMessage()
             {
                 Data = Any.Pack(bufferedUpdate)
             }, BroadcastType.No);

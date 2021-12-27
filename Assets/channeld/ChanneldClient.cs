@@ -52,7 +52,7 @@ namespace Channeld
         public Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo> ListedChannels { get; private set; } =
             new Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo>();
         public MessageHandlerFunc DefaultMessageHandleFunc = (client, channelId, msg) => { };
-        public Action<uint, uint, byte[]> UserSpaceMessageHandleFunc = (channelId, sourceConnId, payload) => { };
+        public Action<uint, uint, byte[]> UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) => { };
         public bool ShowUserSpaceMessageLog { get; set; }
         public bool Connected => tcp.Connected;
         public static Action<ChanneldClient> OnAuthenticated;
@@ -91,8 +91,8 @@ namespace Channeld
             receiveThread.IsBackground = true;
             userSpaceMessageHandlerEntry = new MessageHandlerEntry()
             {
-                parser = UserSpaceMessage.Parser,
-                handleFunc = HandleUserSpaceMessage
+                parser = ServerForwardMessage.Parser,
+                handleFunc = HandleServerForwardMessage
             };
 
             SetMessageHandlerEntry((uint)MessageType.Auth, AuthResultMessage.Parser, HandleAuth);
@@ -165,10 +165,10 @@ namespace Channeld
             }
         }
 
-        private void HandleUserSpaceMessage(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleServerForwardMessage(ChanneldClient client, uint channelId, IMessage msg)
         {
-            var usm = (UserSpaceMessage)msg;
-            UserSpaceMessageHandleFunc(channelId, usm.SourceConnId, usm.Payload.ToByteArray());
+            var usm = (ServerForwardMessage)msg;
+            UserSpaceMessageHandleFunc(channelId, usm.ClientConnId, usm.Payload.ToByteArray());
         }
 
         public void SetMessageHandlerEntry(uint msgType, MessageParser parser, MessageHandlerFunc handleFunc = null)

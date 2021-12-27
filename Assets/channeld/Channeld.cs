@@ -29,59 +29,59 @@ namespace Channeld {
             "bGQuTWVzc2FnZVBhY2sifgoLTWVzc2FnZVBhY2sSEQoJY2hhbm5lbElkGAEg",
             "ASgNEioKCWJyb2FkY2FzdBgCIAEoDjIXLmNoYW5uZWxkLkJyb2FkY2FzdFR5",
             "cGUSDgoGc3R1YklkGAMgASgNEg8KB21zZ1R5cGUYBCABKA0SDwoHbXNnQm9k",
-            "eRgFIAEoDCI5ChBVc2VyU3BhY2VNZXNzYWdlEhQKDHNvdXJjZUNvbm5JZBgB",
-            "IAEoDRIPCgdwYXlsb2FkGAIgASgMIkAKC0F1dGhNZXNzYWdlEh0KFXBsYXll",
-            "cklkZW50aWZpZXJUb2tlbhgBIAEoCRISCgpsb2dpblRva2VuGAIgASgJIpoB",
-            "ChFBdXRoUmVzdWx0TWVzc2FnZRI2CgZyZXN1bHQYASABKA4yJi5jaGFubmVs",
-            "ZC5BdXRoUmVzdWx0TWVzc2FnZS5BdXRoUmVzdWx0Eg4KBmNvbm5JZBgCIAEo",
-            "DSI9CgpBdXRoUmVzdWx0Eg4KClNVQ0NFU1NGVUwQABIPCgtJTlZBTElEX1BJ",
-            "VBABEg4KCklOVkFMSURfTFQQAiJlChpDaGFubmVsU3Vic2NyaXB0aW9uT3B0",
-            "aW9ucxIVCg1DYW5VcGRhdGVEYXRhGAEgASgIEhYKDkRhdGFGaWVsZE1hc2tz",
-            "GAIgAygJEhgKEEZhbk91dEludGVydmFsTXMYAyABKA0isgEKFENyZWF0ZUNo",
-            "YW5uZWxNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hhbm5lbGQu",
-            "Q2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSOAoKc3ViT3B0aW9ucxgD",
-            "IAEoCzIkLmNoYW5uZWxkLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiIK",
-            "BGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55Im8KGkNyZWF0ZUNo",
-            "YW5uZWxSZXN1bHRNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hh",
-            "bm5lbGQuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSEwoLb3duZXJD",
-            "b25uSWQYAyABKA0iKQoUUmVtb3ZlQ2hhbm5lbE1lc3NhZ2USEQoJY2hhbm5l",
-            "bElkGAEgASgNIlgKEkxpc3RDaGFubmVsTWVzc2FnZRIpCgp0eXBlRmlsdGVy",
-            "GAEgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0",
-            "ZXJzGAIgAygJIrwBChhMaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQAoIY2hh",
-            "bm5lbHMYASADKAsyLi5jaGFubmVsZC5MaXN0Q2hhbm5lbFJlc3VsdE1lc3Nh",
-            "Z2UuQ2hhbm5lbEluZm8aXgoLQ2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEg",
-            "ASgNEioKC2NoYW5uZWxUeXBlGAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5",
-            "cGUSEAoIbWV0YWRhdGEYAyABKAkiZgoaU3Vic2NyaWJlZFRvQ2hhbm5lbE1l",
-            "c3NhZ2USDgoGY29ubklkGAEgASgNEjgKCnN1Yk9wdGlvbnMYAiABKAsyJC5j",
-            "aGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucyJeCiBTdWJzY3Jp",
-            "YmVkVG9DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQYASABKA0SKgoL",
-            "Y2hhbm5lbFR5cGUYAiABKA4yFS5jaGFubmVsZC5DaGFubmVsVHlwZSIwCh5V",
-            "bnN1YnNjcmliZWRGcm9tQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
-            "Ij4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQu",
-            "Z29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZj",
-            "b25uSWQYASABKA0iKwoITG9jYXRpb24SCQoBeBgBIAEoARIJCgF5GAIgASgB",
-            "EgkKAXoYAyABKAEiNAoRU3BhdGlhbEVudGl0eUluZm8SHwoDbG9jGAEgASgL",
-            "MhIuY2hhbm5lbGQuTG9jYXRpb24irgEKGVNwYXRpYWxDaGFubmVsRGF0YU1l",
-            "c3NhZ2USQwoIZW50aXRpZXMYASADKAsyMS5jaGFubmVsZC5TcGF0aWFsQ2hh",
-            "bm5lbERhdGFNZXNzYWdlLkVudGl0aWVzRW50cnkaTAoNRW50aXRpZXNFbnRy",
-            "eRILCgNrZXkYASABKA0SKgoFdmFsdWUYAiABKAsyGy5jaGFubmVsZC5TcGF0",
-            "aWFsRW50aXR5SW5mbzoCOAEqSwoNQnJvYWRjYXN0VHlwZRIGCgJOTxAAEgcK",
-            "A0FMTBABEhIKDkFMTF9CVVRfU0VOREVSEAISFQoRU0lOR0xFX0NPTk5FQ1RJ",
-            "T04QAyqEAQoLQ2hhbm5lbFR5cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBAB",
-            "EgsKB1BSSVZBVEUQAhIMCghTVUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRU",
-            "RVNUEGQSCQoFVEVTVDEQZRIJCgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVT",
-            "VDQQaCrJAQoLTWVzc2FnZVR5cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARIS",
-            "Cg5DUkVBVEVfQ0hBTk5FTBADEhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElT",
-            "VF9DSEFOTkVMEAUSEgoOU1VCX1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9N",
-            "X0NIQU5ORUwQBxIXChNDSEFOTkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09O",
-            "TkVDVBAJEhQKEFVTRVJfU1BBQ0VfU1RBUlQQZEIIWgYvcHJvdG9iBnByb3Rv",
-            "Mw=="));
+            "eRgFIAEoDCI9ChRTZXJ2ZXJGb3J3YXJkTWVzc2FnZRIUCgxjbGllbnRDb25u",
+            "SWQYASABKA0SDwoHcGF5bG9hZBgCIAEoDCJACgtBdXRoTWVzc2FnZRIdChVw",
+            "bGF5ZXJJZGVudGlmaWVyVG9rZW4YASABKAkSEgoKbG9naW5Ub2tlbhgCIAEo",
+            "CSKaAQoRQXV0aFJlc3VsdE1lc3NhZ2USNgoGcmVzdWx0GAEgASgOMiYuY2hh",
+            "bm5lbGQuQXV0aFJlc3VsdE1lc3NhZ2UuQXV0aFJlc3VsdBIOCgZjb25uSWQY",
+            "AiABKA0iPQoKQXV0aFJlc3VsdBIOCgpTVUNDRVNTRlVMEAASDwoLSU5WQUxJ",
+            "RF9QSVQQARIOCgpJTlZBTElEX0xUEAIiZQoaQ2hhbm5lbFN1YnNjcmlwdGlv",
+            "bk9wdGlvbnMSFQoNQ2FuVXBkYXRlRGF0YRgBIAEoCBIWCg5EYXRhRmllbGRN",
+            "YXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZhbE1zGAMgASgNIrIBChRDcmVh",
+            "dGVDaGFubmVsTWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEoDjIVLmNoYW5u",
+            "ZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEjgKCnN1Yk9wdGlv",
+            "bnMYAyABKAsyJC5jaGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9u",
+            "cxIiCgRkYXRhGAQgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueSJvChpDcmVh",
+            "dGVDaGFubmVsUmVzdWx0TWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEoDjIV",
+            "LmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEhMKC293",
+            "bmVyQ29ubklkGAMgASgNIikKFFJlbW92ZUNoYW5uZWxNZXNzYWdlEhEKCWNo",
+            "YW5uZWxJZBgBIAEoDSJYChJMaXN0Q2hhbm5lbE1lc3NhZ2USKQoKdHlwZUZp",
+            "bHRlchgBIAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhcKD21ldGFkYXRh",
+            "RmlsdGVycxgCIAMoCSK8AQoYTGlzdENoYW5uZWxSZXN1bHRNZXNzYWdlEkAK",
+            "CGNoYW5uZWxzGAEgAygLMi4uY2hhbm5lbGQuTGlzdENoYW5uZWxSZXN1bHRN",
+            "ZXNzYWdlLkNoYW5uZWxJbmZvGl4KC0NoYW5uZWxJbmZvEhEKCWNoYW5uZWxJ",
+            "ZBgBIAEoDRIqCgtjaGFubmVsVHlwZRgCIAEoDjIVLmNoYW5uZWxkLkNoYW5u",
+            "ZWxUeXBlEhAKCG1ldGFkYXRhGAMgASgJImYKGlN1YnNjcmliZWRUb0NoYW5u",
+            "ZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI4CgpzdWJPcHRpb25zGAIgASgL",
+            "MiQuY2hhbm5lbGQuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMiXgogU3Vi",
+            "c2NyaWJlZFRvQ2hhbm5lbFJlc3VsdE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
+            "EioKC2NoYW5uZWxUeXBlGAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUi",
+            "MAoeVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgB",
+            "IAEoDSI+ChhDaGFubmVsRGF0YVVwZGF0ZU1lc3NhZ2USIgoEZGF0YRgBIAEo",
+            "CzIULmdvb2dsZS5wcm90b2J1Zi5BbnkiIwoRRGlzY29ubmVjdE1lc3NhZ2US",
+            "DgoGY29ubklkGAEgASgNIisKCExvY2F0aW9uEgkKAXgYASABKAESCQoBeRgC",
+            "IAEoARIJCgF6GAMgASgBIjQKEVNwYXRpYWxFbnRpdHlJbmZvEh8KA2xvYxgB",
+            "IAEoCzISLmNoYW5uZWxkLkxvY2F0aW9uIq4BChlTcGF0aWFsQ2hhbm5lbERh",
+            "dGFNZXNzYWdlEkMKCGVudGl0aWVzGAEgAygLMjEuY2hhbm5lbGQuU3BhdGlh",
+            "bENoYW5uZWxEYXRhTWVzc2FnZS5FbnRpdGllc0VudHJ5GkwKDUVudGl0aWVz",
+            "RW50cnkSCwoDa2V5GAEgASgNEioKBXZhbHVlGAIgASgLMhsuY2hhbm5lbGQu",
+            "U3BhdGlhbEVudGl0eUluZm86AjgBKksKDUJyb2FkY2FzdFR5cGUSBgoCTk8Q",
+            "ABIHCgNBTEwQARISCg5BTExfQlVUX1NFTkRFUhACEhUKEVNJTkdMRV9DT05O",
+            "RUNUSU9OEAMqhAEKC0NoYW5uZWxUeXBlEgsKB1VOS05PV04QABIKCgZHTE9C",
+            "QUwQARILCgdQUklWQVRFEAISDAoIU1VCV09STEQQAxILCgdTUEFUSUFMEAQS",
+            "CAoEVEVTVBBkEgkKBVRFU1QxEGUSCQoFVEVTVDIQZhIJCgVURVNUMxBnEgkK",
+            "BVRFU1Q0EGgqyQEKC01lc3NhZ2VUeXBlEgsKB0lOVkFMSUQQABIICgRBVVRI",
+            "EAESEgoOQ1JFQVRFX0NIQU5ORUwQAxISCg5SRU1PVkVfQ0hBTk5FTBAEEhAK",
+            "DExJU1RfQ0hBTk5FTBAFEhIKDlNVQl9UT19DSEFOTkVMEAYSFgoSVU5TVUJf",
+            "RlJPTV9DSEFOTkVMEAcSFwoTQ0hBTk5FTF9EQVRBX1VQREFURRAIEg4KCkRJ",
+            "U0NPTk5FQ1QQCRIUChBVU0VSX1NQQUNFX1NUQVJUEGRCCFoGL3Byb3RvYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Packet), global::Channeld.Packet.Parser, new[]{ "Messages" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.MessagePack), global::Channeld.MessagePack.Parser, new[]{ "ChannelId", "Broadcast", "StubId", "MsgType", "MsgBody" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.UserSpaceMessage), global::Channeld.UserSpaceMessage.Parser, new[]{ "SourceConnId", "Payload" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ServerForwardMessage), global::Channeld.ServerForwardMessage.Parser, new[]{ "ClientConnId", "Payload" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthMessage), global::Channeld.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelSubscriptionOptions), global::Channeld.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
@@ -118,8 +118,8 @@ namespace Channeld {
     /// </summary>
     [pbr::OriginalName("ALL_BUT_SENDER")] AllButSender = 2,
     /// <summary>
-    /// Forward the packet to the connection. Can only be used by the backend server. The channelId in the packet will then be used as the target connectionId.
-    /// This has the same behavior as sending the packet to the PRIVATE channel owned by the target connection with BroadcastType = NO, but is less efficient as the message will be handled in the global channel.
+    /// Forward the packet to the connection. Can only be used by the backend server.
+    /// This has the same behavior as sending the packet to the PRIVATE channel owned by the target connection with BroadcastType = NO.
     /// </summary>
     [pbr::OriginalName("SINGLE_CONNECTION")] SingleConnection = 3,
   }
@@ -711,18 +711,19 @@ namespace Channeld {
   }
 
   /// <summary>
-  /// Messages that are not handled in channeld. DO NOT send this message directly to channeld, as channeld uses it to wrap the payload and forward it to the target endpoint(s).
+  /// The message that is used to carries user-space message and communicate between channeld and game servers.
+  /// Users don't have to have this message if they are using a client library.
   /// </summary>
-  public sealed partial class UserSpaceMessage : pb::IMessage<UserSpaceMessage>
+  public sealed partial class ServerForwardMessage : pb::IMessage<ServerForwardMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<UserSpaceMessage> _parser = new pb::MessageParser<UserSpaceMessage>(() => new UserSpaceMessage());
+    private static readonly pb::MessageParser<ServerForwardMessage> _parser = new pb::MessageParser<ServerForwardMessage>(() => new ServerForwardMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<UserSpaceMessage> Parser { get { return _parser; } }
+    public static pb::MessageParser<ServerForwardMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -738,7 +739,7 @@ namespace Channeld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UserSpaceMessage() {
+    public ServerForwardMessage() {
       OnConstruction();
     }
 
@@ -746,30 +747,30 @@ namespace Channeld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UserSpaceMessage(UserSpaceMessage other) : this() {
-      sourceConnId_ = other.sourceConnId_;
+    public ServerForwardMessage(ServerForwardMessage other) : this() {
+      clientConnId_ = other.clientConnId_;
       payload_ = other.payload_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UserSpaceMessage Clone() {
-      return new UserSpaceMessage(this);
+    public ServerForwardMessage Clone() {
+      return new ServerForwardMessage(this);
     }
 
-    /// <summary>Field number for the "sourceConnId" field.</summary>
-    public const int SourceConnIdFieldNumber = 1;
-    private uint sourceConnId_;
+    /// <summary>Field number for the "clientConnId" field.</summary>
+    public const int ClientConnIdFieldNumber = 1;
+    private uint clientConnId_;
     /// <summary>
-    /// The backend server generally needs the client connId to identify the sender.
+    /// The client that sends the user-space message to server or server sends the user-space message to.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint SourceConnId {
-      get { return sourceConnId_; }
+    public uint ClientConnId {
+      get { return clientConnId_; }
       set {
-        sourceConnId_ = value;
+        clientConnId_ = value;
       }
     }
 
@@ -777,7 +778,7 @@ namespace Channeld {
     public const int PayloadFieldNumber = 2;
     private pb::ByteString payload_ = pb::ByteString.Empty;
     /// <summary>
-    /// The user (client/server) decides to how serialize/deserialize the message.
+    /// The original user-space message. channeld leaves it as it is.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -791,19 +792,19 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as UserSpaceMessage);
+      return Equals(other as ServerForwardMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(UserSpaceMessage other) {
+    public bool Equals(ServerForwardMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (SourceConnId != other.SourceConnId) return false;
+      if (ClientConnId != other.ClientConnId) return false;
       if (Payload != other.Payload) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -812,7 +813,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (SourceConnId != 0) hash ^= SourceConnId.GetHashCode();
+      if (ClientConnId != 0) hash ^= ClientConnId.GetHashCode();
       if (Payload.Length != 0) hash ^= Payload.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -832,9 +833,9 @@ namespace Channeld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (SourceConnId != 0) {
+      if (ClientConnId != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(SourceConnId);
+        output.WriteUInt32(ClientConnId);
       }
       if (Payload.Length != 0) {
         output.WriteRawTag(18);
@@ -850,9 +851,9 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (SourceConnId != 0) {
+      if (ClientConnId != 0) {
         output.WriteRawTag(8);
-        output.WriteUInt32(SourceConnId);
+        output.WriteUInt32(ClientConnId);
       }
       if (Payload.Length != 0) {
         output.WriteRawTag(18);
@@ -868,8 +869,8 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (SourceConnId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SourceConnId);
+      if (ClientConnId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ClientConnId);
       }
       if (Payload.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payload);
@@ -882,12 +883,12 @@ namespace Channeld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(UserSpaceMessage other) {
+    public void MergeFrom(ServerForwardMessage other) {
       if (other == null) {
         return;
       }
-      if (other.SourceConnId != 0) {
-        SourceConnId = other.SourceConnId;
+      if (other.ClientConnId != 0) {
+        ClientConnId = other.ClientConnId;
       }
       if (other.Payload.Length != 0) {
         Payload = other.Payload;
@@ -908,7 +909,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            SourceConnId = input.ReadUInt32();
+            ClientConnId = input.ReadUInt32();
             break;
           }
           case 18: {
@@ -931,7 +932,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            SourceConnId = input.ReadUInt32();
+            ClientConnId = input.ReadUInt32();
             break;
           }
           case 18: {

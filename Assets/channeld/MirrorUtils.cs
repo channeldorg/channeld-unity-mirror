@@ -9,13 +9,13 @@ namespace Channeld
 {
     public static class MirrorUtils
     {
-        private static NetworkReader msgTypeReader = new NetworkReader(new byte[0]);
+        private static NetworkReader emptyReader = new NetworkReader(new byte[0]);
 
         public static uint GetChanneldMsgType(ArraySegment<byte> segment)
         {
             ushort msgType;
-            msgTypeReader.SetBuffer(segment);
-            if (MessagePacking.Unpack(msgTypeReader, out msgType))
+            emptyReader.SetBuffer(segment);
+            if (MessagePacking.Unpack(emptyReader, out msgType))
             {
                 msgType += (ushort)MessageType.UserSpaceStart;
             }
@@ -34,7 +34,7 @@ namespace Channeld
         public static bool IsMessage<T>(ArraySegment<byte> segment, NetworkReader reader = null) where T : struct, NetworkMessage
         {
             if (reader == null)
-                reader = msgTypeReader;
+                reader = emptyReader;
             reader.SetBuffer(segment);
             ushort msgType;
             return MessagePacking.Unpack(reader, out msgType) && msgType == MessagePacking.GetId<T>();

@@ -37,45 +37,49 @@ namespace Channeld {
             "AiABKA0iPQoKQXV0aFJlc3VsdBIOCgpTVUNDRVNTRlVMEAASDwoLSU5WQUxJ",
             "RF9QSVQQARIOCgpJTlZBTElEX0xUEAIiZQoaQ2hhbm5lbFN1YnNjcmlwdGlv",
             "bk9wdGlvbnMSFQoNQ2FuVXBkYXRlRGF0YRgBIAEoCBIWCg5EYXRhRmllbGRN",
-            "YXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZhbE1zGAMgASgNIrIBChRDcmVh",
-            "dGVDaGFubmVsTWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEoDjIVLmNoYW5u",
-            "ZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEjgKCnN1Yk9wdGlv",
-            "bnMYAyABKAsyJC5jaGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9u",
-            "cxIiCgRkYXRhGAQgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueSJvChpDcmVh",
-            "dGVDaGFubmVsUmVzdWx0TWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEoDjIV",
-            "LmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEhMKC293",
-            "bmVyQ29ubklkGAMgASgNIikKFFJlbW92ZUNoYW5uZWxNZXNzYWdlEhEKCWNo",
-            "YW5uZWxJZBgBIAEoDSJYChJMaXN0Q2hhbm5lbE1lc3NhZ2USKQoKdHlwZUZp",
-            "bHRlchgBIAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhcKD21ldGFkYXRh",
-            "RmlsdGVycxgCIAMoCSK8AQoYTGlzdENoYW5uZWxSZXN1bHRNZXNzYWdlEkAK",
-            "CGNoYW5uZWxzGAEgAygLMi4uY2hhbm5lbGQuTGlzdENoYW5uZWxSZXN1bHRN",
-            "ZXNzYWdlLkNoYW5uZWxJbmZvGl4KC0NoYW5uZWxJbmZvEhEKCWNoYW5uZWxJ",
-            "ZBgBIAEoDRIqCgtjaGFubmVsVHlwZRgCIAEoDjIVLmNoYW5uZWxkLkNoYW5u",
-            "ZWxUeXBlEhAKCG1ldGFkYXRhGAMgASgJImYKGlN1YnNjcmliZWRUb0NoYW5u",
-            "ZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI4CgpzdWJPcHRpb25zGAIgASgL",
-            "MiQuY2hhbm5lbGQuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMiXgogU3Vi",
-            "c2NyaWJlZFRvQ2hhbm5lbFJlc3VsdE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
-            "EioKC2NoYW5uZWxUeXBlGAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUi",
-            "MAoeVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgB",
-            "IAEoDSI+ChhDaGFubmVsRGF0YVVwZGF0ZU1lc3NhZ2USIgoEZGF0YRgBIAEo",
-            "CzIULmdvb2dsZS5wcm90b2J1Zi5BbnkiIwoRRGlzY29ubmVjdE1lc3NhZ2US",
-            "DgoGY29ubklkGAEgASgNIisKCExvY2F0aW9uEgkKAXgYASABKAESCQoBeRgC",
-            "IAEoARIJCgF6GAMgASgBIjQKEVNwYXRpYWxFbnRpdHlJbmZvEh8KA2xvYxgB",
-            "IAEoCzISLmNoYW5uZWxkLkxvY2F0aW9uIq4BChlTcGF0aWFsQ2hhbm5lbERh",
-            "dGFNZXNzYWdlEkMKCGVudGl0aWVzGAEgAygLMjEuY2hhbm5lbGQuU3BhdGlh",
-            "bENoYW5uZWxEYXRhTWVzc2FnZS5FbnRpdGllc0VudHJ5GkwKDUVudGl0aWVz",
-            "RW50cnkSCwoDa2V5GAEgASgNEioKBXZhbHVlGAIgASgLMhsuY2hhbm5lbGQu",
-            "U3BhdGlhbEVudGl0eUluZm86AjgBKksKDUJyb2FkY2FzdFR5cGUSBgoCTk8Q",
-            "ABIHCgNBTEwQARISCg5BTExfQlVUX1NFTkRFUhACEhUKEVNJTkdMRV9DT05O",
-            "RUNUSU9OEAMqhAEKC0NoYW5uZWxUeXBlEgsKB1VOS05PV04QABIKCgZHTE9C",
-            "QUwQARILCgdQUklWQVRFEAISDAoIU1VCV09STEQQAxILCgdTUEFUSUFMEAQS",
-            "CAoEVEVTVBBkEgkKBVRFU1QxEGUSCQoFVEVTVDIQZhIJCgVURVNUMxBnEgkK",
-            "BVRFU1Q0EGgqyQEKC01lc3NhZ2VUeXBlEgsKB0lOVkFMSUQQABIICgRBVVRI",
-            "EAESEgoOQ1JFQVRFX0NIQU5ORUwQAxISCg5SRU1PVkVfQ0hBTk5FTBAEEhAK",
-            "DExJU1RfQ0hBTk5FTBAFEhIKDlNVQl9UT19DSEFOTkVMEAYSFgoSVU5TVUJf",
-            "RlJPTV9DSEFOTkVMEAcSFwoTQ0hBTk5FTF9EQVRBX1VQREFURRAIEg4KCkRJ",
-            "U0NPTk5FQ1QQCRIUChBVU0VSX1NQQUNFX1NUQVJUEGRCCFoGL3Byb3RvYgZw",
-            "cm90bzM="));
+            "YXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZhbE1zGAMgASgNInUKF0NoYW5u",
+            "ZWxEYXRhTWVyZ2VPcHRpb25zEh0KFXNob3VsZFJlcGxhY2VSZXBlYXRlZBgB",
+            "IAEoCBIkChxzaG91bGRDaGVja1JlbW92YWJsZU1hcEZpZWxkGAIgASgIEhUK",
+            "DWxpc3RTaXplTGltaXQYAyABKA0i6wEKFENyZWF0ZUNoYW5uZWxNZXNzYWdl",
+            "EioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUS",
+            "EAoIbWV0YWRhdGEYAiABKAkSOAoKc3ViT3B0aW9ucxgDIAEoCzIkLmNoYW5u",
+            "ZWxkLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiIKBGRhdGEYBCABKAsy",
+            "FC5nb29nbGUucHJvdG9idWYuQW55EjcKDG1lcmdlT3B0aW9ucxgFIAEoCzIh",
+            "LmNoYW5uZWxkLkNoYW5uZWxEYXRhTWVyZ2VPcHRpb25zIm8KGkNyZWF0ZUNo",
+            "YW5uZWxSZXN1bHRNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hh",
+            "bm5lbGQuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSEwoLb3duZXJD",
+            "b25uSWQYAyABKA0iKQoUUmVtb3ZlQ2hhbm5lbE1lc3NhZ2USEQoJY2hhbm5l",
+            "bElkGAEgASgNIlgKEkxpc3RDaGFubmVsTWVzc2FnZRIpCgp0eXBlRmlsdGVy",
+            "GAEgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0",
+            "ZXJzGAIgAygJIrwBChhMaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQAoIY2hh",
+            "bm5lbHMYASADKAsyLi5jaGFubmVsZC5MaXN0Q2hhbm5lbFJlc3VsdE1lc3Nh",
+            "Z2UuQ2hhbm5lbEluZm8aXgoLQ2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEg",
+            "ASgNEioKC2NoYW5uZWxUeXBlGAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5",
+            "cGUSEAoIbWV0YWRhdGEYAyABKAkiZgoaU3Vic2NyaWJlZFRvQ2hhbm5lbE1l",
+            "c3NhZ2USDgoGY29ubklkGAEgASgNEjgKCnN1Yk9wdGlvbnMYAiABKAsyJC5j",
+            "aGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucyJeCiBTdWJzY3Jp",
+            "YmVkVG9DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQYASABKA0SKgoL",
+            "Y2hhbm5lbFR5cGUYAiABKA4yFS5jaGFubmVsZC5DaGFubmVsVHlwZSIwCh5V",
+            "bnN1YnNjcmliZWRGcm9tQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
+            "Ij4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQu",
+            "Z29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZj",
+            "b25uSWQYASABKA0iKwoITG9jYXRpb24SCQoBeBgBIAEoARIJCgF5GAIgASgB",
+            "EgkKAXoYAyABKAEiNAoRU3BhdGlhbEVudGl0eUluZm8SHwoDbG9jGAEgASgL",
+            "MhIuY2hhbm5lbGQuTG9jYXRpb24irgEKGVNwYXRpYWxDaGFubmVsRGF0YU1l",
+            "c3NhZ2USQwoIZW50aXRpZXMYASADKAsyMS5jaGFubmVsZC5TcGF0aWFsQ2hh",
+            "bm5lbERhdGFNZXNzYWdlLkVudGl0aWVzRW50cnkaTAoNRW50aXRpZXNFbnRy",
+            "eRILCgNrZXkYASABKA0SKgoFdmFsdWUYAiABKAsyGy5jaGFubmVsZC5TcGF0",
+            "aWFsRW50aXR5SW5mbzoCOAEqSwoNQnJvYWRjYXN0VHlwZRIGCgJOTxAAEgcK",
+            "A0FMTBABEhIKDkFMTF9CVVRfU0VOREVSEAISFQoRU0lOR0xFX0NPTk5FQ1RJ",
+            "T04QAyqEAQoLQ2hhbm5lbFR5cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBAB",
+            "EgsKB1BSSVZBVEUQAhIMCghTVUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRU",
+            "RVNUEGQSCQoFVEVTVDEQZRIJCgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVT",
+            "VDQQaCrJAQoLTWVzc2FnZVR5cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARIS",
+            "Cg5DUkVBVEVfQ0hBTk5FTBADEhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElT",
+            "VF9DSEFOTkVMEAUSEgoOU1VCX1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9N",
+            "X0NIQU5ORUwQBxIXChNDSEFOTkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09O",
+            "TkVDVBAJEhQKEFVTRVJfU1BBQ0VfU1RBUlQQZEIIWgYvcHJvdG9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -85,7 +89,8 @@ namespace Channeld {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthMessage), global::Channeld.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelSubscriptionOptions), global::Channeld.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelMessage), global::Channeld.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelDataMergeOptions), global::Channeld.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceRepeated", "ShouldCheckRemovableMapField", "ListSizeLimit" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelMessage), global::Channeld.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelResultMessage), global::Channeld.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.RemoveChannelMessage), global::Channeld.RemoveChannelMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelMessage), global::Channeld.ListChannelMessage.Parser, new[]{ "TypeFilter", "MetadataFilters" }, null, null, null, null),
@@ -711,7 +716,7 @@ namespace Channeld {
   }
 
   /// <summary>
-  /// The message that is used to carries user-space message and communicate between channeld and game servers.
+  /// The message that is used to carries user-space message and communicate between channeld and backend servers.
   /// Users don't have to have this message if they are using a client library.
   /// </summary>
   public sealed partial class ServerForwardMessage : pb::IMessage<ServerForwardMessage>
@@ -778,7 +783,7 @@ namespace Channeld {
     public const int PayloadFieldNumber = 2;
     private pb::ByteString payload_ = pb::ByteString.Empty;
     /// <summary>
-    /// The original user-space message. channeld leaves it as it is.
+    /// The user-space message. channeld leaves it as the original binary format.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1668,6 +1673,278 @@ namespace Channeld {
 
   }
 
+  public sealed partial class ChannelDataMergeOptions : pb::IMessage<ChannelDataMergeOptions>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ChannelDataMergeOptions> _parser = new pb::MessageParser<ChannelDataMergeOptions>(() => new ChannelDataMergeOptions());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ChannelDataMergeOptions> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChannelDataMergeOptions() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChannelDataMergeOptions(ChannelDataMergeOptions other) : this() {
+      shouldReplaceRepeated_ = other.shouldReplaceRepeated_;
+      shouldCheckRemovableMapField_ = other.shouldCheckRemovableMapField_;
+      listSizeLimit_ = other.listSizeLimit_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChannelDataMergeOptions Clone() {
+      return new ChannelDataMergeOptions(this);
+    }
+
+    /// <summary>Field number for the "shouldReplaceRepeated" field.</summary>
+    public const int ShouldReplaceRepeatedFieldNumber = 1;
+    private bool shouldReplaceRepeated_;
+    /// <summary>
+    /// By default, Protobuf appends the src list to the dst list. Setting this option to true will replace the dst list with the src list.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ShouldReplaceRepeated {
+      get { return shouldReplaceRepeated_; }
+      set {
+        shouldReplaceRepeated_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "shouldCheckRemovableMapField" field.</summary>
+    public const int ShouldCheckRemovableMapFieldFieldNumber = 2;
+    private bool shouldCheckRemovableMapField_;
+    /// <summary>
+    /// If true, the merge method will remove any map entry that has removed=true in its value.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ShouldCheckRemovableMapField {
+      get { return shouldCheckRemovableMapField_; }
+      set {
+        shouldCheckRemovableMapField_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "listSizeLimit" field.</summary>
+    public const int ListSizeLimitFieldNumber = 3;
+    private uint listSizeLimit_;
+    /// <summary>
+    /// If the value is greater than 0, truncate the top elements of the list when oversized.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ListSizeLimit {
+      get { return listSizeLimit_; }
+      set {
+        listSizeLimit_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ChannelDataMergeOptions);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ChannelDataMergeOptions other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ShouldReplaceRepeated != other.ShouldReplaceRepeated) return false;
+      if (ShouldCheckRemovableMapField != other.ShouldCheckRemovableMapField) return false;
+      if (ListSizeLimit != other.ListSizeLimit) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ShouldReplaceRepeated != false) hash ^= ShouldReplaceRepeated.GetHashCode();
+      if (ShouldCheckRemovableMapField != false) hash ^= ShouldCheckRemovableMapField.GetHashCode();
+      if (ListSizeLimit != 0) hash ^= ListSizeLimit.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ShouldReplaceRepeated != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(ShouldReplaceRepeated);
+      }
+      if (ShouldCheckRemovableMapField != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(ShouldCheckRemovableMapField);
+      }
+      if (ListSizeLimit != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ListSizeLimit);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ShouldReplaceRepeated != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(ShouldReplaceRepeated);
+      }
+      if (ShouldCheckRemovableMapField != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(ShouldCheckRemovableMapField);
+      }
+      if (ListSizeLimit != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ListSizeLimit);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ShouldReplaceRepeated != false) {
+        size += 1 + 1;
+      }
+      if (ShouldCheckRemovableMapField != false) {
+        size += 1 + 1;
+      }
+      if (ListSizeLimit != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ListSizeLimit);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ChannelDataMergeOptions other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ShouldReplaceRepeated != false) {
+        ShouldReplaceRepeated = other.ShouldReplaceRepeated;
+      }
+      if (other.ShouldCheckRemovableMapField != false) {
+        ShouldCheckRemovableMapField = other.ShouldCheckRemovableMapField;
+      }
+      if (other.ListSizeLimit != 0) {
+        ListSizeLimit = other.ListSizeLimit;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ShouldReplaceRepeated = input.ReadBool();
+            break;
+          }
+          case 16: {
+            ShouldCheckRemovableMapField = input.ReadBool();
+            break;
+          }
+          case 24: {
+            ListSizeLimit = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ShouldReplaceRepeated = input.ReadBool();
+            break;
+          }
+          case 16: {
+            ShouldCheckRemovableMapField = input.ReadBool();
+            break;
+          }
+          case 24: {
+            ListSizeLimit = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   /// <summary>
   /// The packet should have channelId = 0 in order to be handled.
   /// Response: @CreateChannelResultMessage. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
@@ -1686,7 +1963,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1710,6 +1987,7 @@ namespace Channeld {
       metadata_ = other.metadata_;
       subOptions_ = other.subOptions_ != null ? other.subOptions_.Clone() : null;
       data_ = other.data_ != null ? other.data_.Clone() : null;
+      mergeOptions_ = other.mergeOptions_ != null ? other.mergeOptions_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1767,6 +2045,18 @@ namespace Channeld {
       }
     }
 
+    /// <summary>Field number for the "mergeOptions" field.</summary>
+    public const int MergeOptionsFieldNumber = 5;
+    private global::Channeld.ChannelDataMergeOptions mergeOptions_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Channeld.ChannelDataMergeOptions MergeOptions {
+      get { return mergeOptions_; }
+      set {
+        mergeOptions_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1786,6 +2076,7 @@ namespace Channeld {
       if (Metadata != other.Metadata) return false;
       if (!object.Equals(SubOptions, other.SubOptions)) return false;
       if (!object.Equals(Data, other.Data)) return false;
+      if (!object.Equals(MergeOptions, other.MergeOptions)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1797,6 +2088,7 @@ namespace Channeld {
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (subOptions_ != null) hash ^= SubOptions.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
+      if (mergeOptions_ != null) hash ^= MergeOptions.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1831,6 +2123,10 @@ namespace Channeld {
         output.WriteRawTag(34);
         output.WriteMessage(Data);
       }
+      if (mergeOptions_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(MergeOptions);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1857,6 +2153,10 @@ namespace Channeld {
         output.WriteRawTag(34);
         output.WriteMessage(Data);
       }
+      if (mergeOptions_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(MergeOptions);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1878,6 +2178,9 @@ namespace Channeld {
       }
       if (data_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (mergeOptions_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MergeOptions);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1908,6 +2211,12 @@ namespace Channeld {
           Data = new global::Google.Protobuf.WellKnownTypes.Any();
         }
         Data.MergeFrom(other.Data);
+      }
+      if (other.mergeOptions_ != null) {
+        if (mergeOptions_ == null) {
+          MergeOptions = new global::Channeld.ChannelDataMergeOptions();
+        }
+        MergeOptions.MergeFrom(other.MergeOptions);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1944,6 +2253,13 @@ namespace Channeld {
               Data = new global::Google.Protobuf.WellKnownTypes.Any();
             }
             input.ReadMessage(Data);
+            break;
+          }
+          case 42: {
+            if (mergeOptions_ == null) {
+              MergeOptions = new global::Channeld.ChannelDataMergeOptions();
+            }
+            input.ReadMessage(MergeOptions);
             break;
           }
         }
@@ -1983,6 +2299,13 @@ namespace Channeld {
             input.ReadMessage(Data);
             break;
           }
+          case 42: {
+            if (mergeOptions_ == null) {
+              MergeOptions = new global::Channeld.ChannelDataMergeOptions();
+            }
+            input.ReadMessage(MergeOptions);
+            break;
+          }
         }
       }
     }
@@ -2004,7 +2327,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2271,7 +2594,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2464,7 +2787,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2679,7 +3002,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3131,7 +3454,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3369,7 +3692,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3601,7 +3924,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3793,7 +4116,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3997,7 +4320,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4186,7 +4509,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4449,7 +4772,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4647,7 +4970,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -1,15 +1,13 @@
-﻿using Channeld;
-using Channeld.Examples.Tanks;
-using Google.Protobuf;
-using Google.Protobuf.WellKnownTypes;
+﻿using Google.Protobuf;
 using Mirror;
-using Mirror.Examples.Tanks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Channeld
 {
+    // Code copied from Mirror.NetworkTransformBase.
+    // The main difference is instead of using RPCs, this class uses ChannelDataUpdateMessage.
     public class ChanneldNetworkTransform : NetworkBehaviour
     {
         [Header("Authority")]
@@ -151,11 +149,6 @@ namespace Channeld
         }
         */
 
-        void ClientToServerSync(Vector3? position, Quaternion? rotation, Vector3? scale)
-        {
-            TankGameState.SendTransformUpdate(netIdentity, position, rotation, scale);
-        }
-
         // local authority client sends sync message to server for broadcasting
         protected virtual void OnClientToServerSync(Vector3? position, Quaternion? rotation, Vector3? scale)
         {
@@ -246,11 +239,6 @@ namespace Channeld
 
             // add to buffer (or drop if older than first element)
             SnapshotInterpolation.InsertIfNewEnough(snapshot, clientBuffer);
-        }
-
-        void ServerToClientSync(Vector3? position, Quaternion? rotation, Vector3? scale)
-        {
-            TankGameState.SendTransformUpdate(netIdentity, position, rotation, scale);
         }
 
         // update //////////////////////////////////////////////////////////////
@@ -385,50 +373,6 @@ namespace Channeld
                     ApplySnapshot(start, goal, computed);
                 }
             }
-        }
-
-        private void Awake()
-        {
-            // We need to utilize the PingMessage to sync the remote timestamp, 
-            // otherwise if there's no other Mirror message, the remote timestamp will never get updated,
-            // and the new snapshot can never be buffered, so SnapshotInterpolation.Compute always returns false.
-            NetworkTime.PingFrequency = bufferTime;
-
-            // FIXME: Use base GameState instead of the concrete state class
-            TankGameState.OnGameStateChanged += (channelId, channelData) =>
-            {
-                TransformState transformState;
-                if (channelData.TransformStates.TryGetValue(netId, out transformState))
-                {
-                    if (isClient)
-                    {
-                        OnServerToClientSync(
-                            transformState.GetUnityPosition(),
-                            transformState.GetUnityRotation(),
-                            transformState.GetUnityScale());
-                    }
-                    if (isServer)
-                    {
-                        OnClientToServerSync(
-                            transformState.GetUnityPosition(),
-                            transformState.GetUnityRotation(),
-                            transformState.GetUnityScale());
-                        
-                        /* With channeld, there's no need to send the state to all other clients, as channeld takes care of the pub/sub.
-                         * 
-                        //For client authority, immediately pass on the client snapshot to all other
-                        //clients instead of waiting for server to send its snapshots.
-                        if (clientAuthority)
-                        {
-                            ServerToClientSync(
-                                transformState.GetUnityPosition(),
-                                transformState.GetUnityRotation(),
-                                transformState.GetUnityScale());
-                        }
-                        */
-                    }
-                }
-            };
         }
 
         void Update()
@@ -606,5 +550,68 @@ namespace Channeld
             if (isClient) DrawGizmos(clientBuffer);
         }
 #endif
+
+
+        void ServerToClientSync(Vector3? position, Quaternion? rotation, Vector3? scale)
+        {
+            GameState.SendTransformUpdate(netIdentity, false, position, rotation, scale);
+        }
+
+        void ClientToServerSync(Vector3? position, Quaternion? rotation, Vector3? scale)
+        {
+            GameState.SendTransformUpdate(netIdentity, false, position, rotation, scale);
+        }
+
+        private void OnGameStateChanged(uint channelId, GameState state, IMessage updateData)
+        {
+            var transformUpdate = state.GetTransformUpdateFromChannelData(updateData, netIdentity);
+            if (transformUpdate == null)
+                return;
+
+            if (isClient)
+            {
+                OnServerToClientSync(
+                    transformUpdate.Position,
+                    transformUpdate.Rotation,
+                    transformUpdate.Scale);
+            }
+            if (isServer)
+            {
+                OnClientToServerSync(
+                    transformUpdate.Position,
+                    transformUpdate.Rotation,
+                    transformUpdate.Scale);
+
+                /* With channeld, there's no need to send the state to all other clients, as channeld takes care of the pub/sub.
+                 * 
+                //For client authority, immediately pass on the client snapshot to all other
+                //clients instead of waiting for server to send its snapshots.
+                if (clientAuthority)
+                {
+                    ServerToClientSync(
+                        transformUpdate.Position,
+                        transformUpdate.Rotation,
+                        transformUpdate.Scale);
+                 }
+                */
+            }
+        }
+
+        private void Awake()
+        {
+            // We need to utilize the PingMessage to sync the remote timestamp, 
+            // otherwise if there's no other Mirror message, the remote timestamp will never get updated,
+            // and the new snapshot can never be buffered, so SnapshotInterpolation.Compute always returns false.
+            NetworkTime.PingFrequency = bufferTime;
+
+            GameState.OnDataChanged += OnGameStateChanged;
+        }
+
+        private void OnDestroy()
+        {
+            GameState.OnDataChanged -= OnGameStateChanged;
+            GameState.SendTransformUpdate(netIdentity, true, null, null, null);
+            ChanneldTransport.ResetOwningChannel(netId);
+        }
     }
 }

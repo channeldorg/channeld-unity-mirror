@@ -64,6 +64,11 @@ namespace Channeld
             return channelId;
         }
 
+        public static void ResetOwningChannel(uint netId)
+        {
+            netIdOwningChannels.Remove(netId);
+        }
+
         void Awake()
         {
             Log.Debug = (t) => { if (logLevel <= LogLevel.Debug) Debug.Log(t); };
@@ -182,11 +187,12 @@ namespace Channeld
                     if (msg.Result == AuthResultMessage.Types.AuthResult.Successful)
                     {
                         Log.Info($"Server authenticated, connId: {msg.ConnId}");
+                        var gameState = GameState.GetByChannelType(ServerChannelType);
                         serverConnection.CreateChannel(ServerChannelType, ServerChannelMetadata, new ChannelSubscriptionOptions
                         {
                             CanUpdateData = true,
                             FanOutIntervalMs = ServerFanoutIntervalMs
-                        });
+                        }, gameState.SetUpInitData(), gameState.SetUpMergeOptions());
                     }
                     else
                     {

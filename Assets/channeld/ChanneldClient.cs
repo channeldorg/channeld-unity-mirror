@@ -338,13 +338,15 @@ namespace Channeld
                 MsgBody = msgBody
             });
 
-            if (msgType < (uint)MessageType.UserSpaceStart || ShowUserSpaceMessageLog)
+            if (msgType >= (uint)MessageType.UserSpaceStart && ShowUserSpaceMessageLog)
                 Log.Debug($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
         }
 
         public void Send(uint channelId, uint msgType, IMessage msg, BroadcastType broadcast = BroadcastType.No, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
         {
             SendRaw(channelId, msgType, msg.ToByteString(), broadcast, callback, tcs);
+            if (msgType < (uint)MessageType.UserSpaceStart)
+                Log.Debug($"[channeld] Send message(channelId={channelId}, type={msgType}): {msg}");
         }
 
         public void TickIncoming()
@@ -436,7 +438,7 @@ namespace Channeld
         }
         //#endif
 
-        public void CreateChannel(ChannelType channelType, string metadata, ChannelSubscriptionOptions subOptions = null, IMessage data = null, Action<CreateChannelResultMessage> callback = null)
+        public void CreateChannel(ChannelType channelType, string metadata, ChannelSubscriptionOptions subOptions = null, IMessage data = null, ChannelDataMergeOptions mergeOptions = null, Action<CreateChannelResultMessage> callback = null)
         {
             Send(GlobalChannelId, (uint)MessageType.CreateChannel, new CreateChannelMessage()
             {
@@ -444,6 +446,7 @@ namespace Channeld
                 Metadata = metadata,
                 SubOptions = subOptions,
                 Data = data == null ? null : Any.Pack(data),
+                MergeOptions = mergeOptions,
             }, BroadcastType.No, WrapMessageHandler(callback));
         }
 

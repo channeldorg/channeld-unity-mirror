@@ -134,7 +134,7 @@ namespace Channeld.Examples.Tanks
 
         private void Awake()
         {
-            TankGameState.OnGameStateChanged += (channelId, channelData) =>
+            TankGameState.OnGenericDataChanged += (channelId, channelData) =>
             {
                 TankState newState;
                 if (channelData.TankStates.TryGetValue(netId, out newState))
@@ -156,18 +156,14 @@ namespace Channeld.Examples.Tanks
 
         protected override void DeserializeSyncVars(NetworkReader reader, bool initialState)
         {
-            
+            // Do nothing as we don't need to read the SyncVars from the reader.
         }
 
-        /* Setting to null causes exception
-         * TODO: customize Google.Protobuf.Collections.MapField
         private void OnDestroy()
         {
             var updateData = new TankGameChannelData();
-            updateData.TransformStates[netId] = null;
-            updateData.TankStates[netId] = null;
+            updateData.TankStates[netId] = new TankState() { Removed = true };
             TankGameState.SendUpdate(netIdentity, updateData);
         }
-        */
     }
 }

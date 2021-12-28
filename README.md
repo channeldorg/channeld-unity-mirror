@@ -18,15 +18,15 @@ The [Tanks](https://mirror-networking.gitbook.io/docs/examples/tanks) is highly 
 ## GameState
 By default, ChanneldTransport does nothing more than forwarding the Mirror messages in game. To utilize channeld's data pub/sub and fan-out feature, the developer need to define the structure of the channel data with Protobuf. 
 
-The tank demo's [proto](https://github.com/indiest/channeld/blob/master/proto/example_mirror_tanks.proto) defines two types of sub-state: TransformState and TankState. They are coresponding to [ChanneldNetworkTransform](Assets/channeld/ChanneldNetworkTransform.cs) and [TankChanneld](Assets/channeld/Examples/Tanks/TankChanneld.cs) scripts.
+The tank demo's [proto](https://github.com/indiest/channeld/blob/master/proto/example_mirror_tanks.proto) defines two types of sub-state: TransformState and TankState. They are corresponding to [ChanneldNetworkTransform](Assets/channeld/ChanneldNetworkTransform.cs) and [TankChanneld](Assets/channeld/Examples/Tanks/TankChanneld.cs) scripts.
 
 ChanneldNetworkTransform is the replacement of Mirror's NetworkTransform. It replaces the RPCs with sending the TransformState update to channeld. Similarly, TankChanneld overrides the `SerializeSyncVars` to send the TankState update.
 
 *Notice: `[SyncVar]` hooks is not implemented yet.*
 
-GameState<T> is the abstract class that manages the channel data. For every type of channel data, the developer needs to implement a subclass of GameState<T> where T is the Protobuf-generated ChannelData class. For example, the [TankGameState](Assets/channeld/Examples/Tanks/TankGameState.cs) class uses `TankGameChannelData` as the type parameter. Then TankGameState implemented the `ConstructTransformUpdate` and `Merge` methods to speicify how `ChanneldNetworkTransform` should create the channel update data from the transform change, and how should two channel updates be merged, especially when there are maps involved.
+GameState<T> is the abstract class that manages the channel data. For every type of channel data, the developer needs to implement a subclass of GameState<T> where T is the Protobuf-generated ChannelData class. For example, the [TankGameState](Assets/channeld/Examples/Tanks/TankGameState.cs) class uses `TankGameChannelData` as the type parameter. Then TankGameState implemented the `GetChannelDataUpdateFromTransform`, `GetTransformUpdateFromChannelData` and `Merge` methods to speicify how to convert between the transform update and the channel data update message, and how should two channel updates be merged, especially when there are maps involved.
 
-To use a GameState, create a GameObject in the scene with the GameState<T> subclass attached, and set its Channel Type properly. You can have multiple GameState instances in your scene, but each Channel Type should only have one instance!
+To use a GameState, create a GameObject in the scene with the GameState<T> subclass attached, and set its Channel Type properly. You can have multiple GameState instances in your scene, but each Channel Type should only have one instance (except for the Spatial channels)!
 
 For the final step, attach the [ChanneldInterestManagement](Assets/channeld/ChanneldInterestManagement.cs) script to your NetowrkManager. Now you are ready to go!
 

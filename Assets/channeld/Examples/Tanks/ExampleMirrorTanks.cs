@@ -27,25 +27,25 @@ namespace Channeld.Examples.Tanks {
             "ChpleGFtcGxlX21pcnJvcl90YW5rcy5wcm90bxIFdGFua3MiKwoIVmVjdG9y",
             "M2YSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiNgoIVmVjdG9y",
             "NGYSCQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAISCQoBdxgEIAEo",
-            "AiJ2Cg5UcmFuc2Zvcm1TdGF0ZRIhCghwb3NpdGlvbhgBIAEoCzIPLnRhbmtz",
-            "LlZlY3RvcjNmEiEKCHJvdGF0aW9uGAIgASgLMg8udGFua3MuVmVjdG9yNGYS",
-            "HgoFc2NhbGUYAyABKAsyDy50YW5rcy5WZWN0b3IzZiIbCglUYW5rU3RhdGUS",
-            "DgoGaGVhbHRoGAEgASgFIrMCChNUYW5rR2FtZUNoYW5uZWxEYXRhEkgKD3Ry",
-            "YW5zZm9ybVN0YXRlcxgBIAMoCzIvLnRhbmtzLlRhbmtHYW1lQ2hhbm5lbERh",
-            "dGEuVHJhbnNmb3JtU3RhdGVzRW50cnkSPgoKdGFua1N0YXRlcxgCIAMoCzIq",
-            "LnRhbmtzLlRhbmtHYW1lQ2hhbm5lbERhdGEuVGFua1N0YXRlc0VudHJ5Gk0K",
-            "FFRyYW5zZm9ybVN0YXRlc0VudHJ5EgsKA2tleRgBIAEoDRIkCgV2YWx1ZRgC",
-            "IAEoCzIVLnRhbmtzLlRyYW5zZm9ybVN0YXRlOgI4ARpDCg9UYW5rU3RhdGVz",
-            "RW50cnkSCwoDa2V5GAEgASgNEh8KBXZhbHVlGAIgASgLMhAudGFua3MuVGFu",
-            "a1N0YXRlOgI4AUIiWgYvcHJvdG+qAhdDaGFubmVsZC5FeGFtcGxlcy5UYW5r",
-            "c2IGcHJvdG8z"));
+            "AiKHAQoOVHJhbnNmb3JtU3RhdGUSDwoHcmVtb3ZlZBgBIAEoCBIhCghwb3Np",
+            "dGlvbhgCIAEoCzIPLnRhbmtzLlZlY3RvcjNmEiEKCHJvdGF0aW9uGAMgASgL",
+            "Mg8udGFua3MuVmVjdG9yNGYSHgoFc2NhbGUYBCABKAsyDy50YW5rcy5WZWN0",
+            "b3IzZiIsCglUYW5rU3RhdGUSDwoHcmVtb3ZlZBgBIAEoCBIOCgZoZWFsdGgY",
+            "AiABKAUiswIKE1RhbmtHYW1lQ2hhbm5lbERhdGESSAoPdHJhbnNmb3JtU3Rh",
+            "dGVzGAEgAygLMi8udGFua3MuVGFua0dhbWVDaGFubmVsRGF0YS5UcmFuc2Zv",
+            "cm1TdGF0ZXNFbnRyeRI+Cgp0YW5rU3RhdGVzGAIgAygLMioudGFua3MuVGFu",
+            "a0dhbWVDaGFubmVsRGF0YS5UYW5rU3RhdGVzRW50cnkaTQoUVHJhbnNmb3Jt",
+            "U3RhdGVzRW50cnkSCwoDa2V5GAEgASgNEiQKBXZhbHVlGAIgASgLMhUudGFu",
+            "a3MuVHJhbnNmb3JtU3RhdGU6AjgBGkMKD1RhbmtTdGF0ZXNFbnRyeRILCgNr",
+            "ZXkYASABKA0SHwoFdmFsdWUYAiABKAsyEC50YW5rcy5UYW5rU3RhdGU6AjgB",
+            "QiJaBi9wcm90b6oCF0NoYW5uZWxkLkV4YW1wbGVzLlRhbmtzYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.Vector3f), global::Channeld.Examples.Tanks.Vector3f.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.Vector4f), global::Channeld.Examples.Tanks.Vector4f.Parser, new[]{ "X", "Y", "Z", "W" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TransformState), global::Channeld.Examples.Tanks.TransformState.Parser, new[]{ "Position", "Rotation", "Scale" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankState), global::Channeld.Examples.Tanks.TankState.Parser, new[]{ "Health" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TransformState), global::Channeld.Examples.Tanks.TransformState.Parser, new[]{ "Removed", "Position", "Rotation", "Scale" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankState), global::Channeld.Examples.Tanks.TankState.Parser, new[]{ "Removed", "Health" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankGameChannelData), global::Channeld.Examples.Tanks.TankGameChannelData.Parser, new[]{ "TransformStates", "TankStates" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
           }));
     }
@@ -650,6 +650,7 @@ namespace Channeld.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TransformState(TransformState other) : this() {
+      removed_ = other.removed_;
       position_ = other.position_ != null ? other.position_.Clone() : null;
       rotation_ = other.rotation_ != null ? other.rotation_.Clone() : null;
       scale_ = other.scale_ != null ? other.scale_.Clone() : null;
@@ -662,8 +663,23 @@ namespace Channeld.Examples.Tanks {
       return new TransformState(this);
     }
 
+    /// <summary>Field number for the "removed" field.</summary>
+    public const int RemovedFieldNumber = 1;
+    private bool removed_;
+    /// <summary>
+    /// Marks that the state should be removed from transformStates map
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Removed {
+      get { return removed_; }
+      set {
+        removed_ = value;
+      }
+    }
+
     /// <summary>Field number for the "position" field.</summary>
-    public const int PositionFieldNumber = 1;
+    public const int PositionFieldNumber = 2;
     private global::Channeld.Examples.Tanks.Vector3f position_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -675,7 +691,7 @@ namespace Channeld.Examples.Tanks {
     }
 
     /// <summary>Field number for the "rotation" field.</summary>
-    public const int RotationFieldNumber = 2;
+    public const int RotationFieldNumber = 3;
     private global::Channeld.Examples.Tanks.Vector4f rotation_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -687,7 +703,7 @@ namespace Channeld.Examples.Tanks {
     }
 
     /// <summary>Field number for the "scale" field.</summary>
-    public const int ScaleFieldNumber = 3;
+    public const int ScaleFieldNumber = 4;
     private global::Channeld.Examples.Tanks.Vector3f scale_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -713,6 +729,7 @@ namespace Channeld.Examples.Tanks {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Removed != other.Removed) return false;
       if (!object.Equals(Position, other.Position)) return false;
       if (!object.Equals(Rotation, other.Rotation)) return false;
       if (!object.Equals(Scale, other.Scale)) return false;
@@ -723,6 +740,7 @@ namespace Channeld.Examples.Tanks {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Removed != false) hash ^= Removed.GetHashCode();
       if (position_ != null) hash ^= Position.GetHashCode();
       if (rotation_ != null) hash ^= Rotation.GetHashCode();
       if (scale_ != null) hash ^= Scale.GetHashCode();
@@ -744,16 +762,20 @@ namespace Channeld.Examples.Tanks {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (Removed != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Removed);
+      }
       if (position_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(Position);
       }
       if (rotation_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Rotation);
       }
       if (scale_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Scale);
       }
       if (_unknownFields != null) {
@@ -766,16 +788,20 @@ namespace Channeld.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Removed != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Removed);
+      }
       if (position_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(Position);
       }
       if (rotation_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Rotation);
       }
       if (scale_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Scale);
       }
       if (_unknownFields != null) {
@@ -788,6 +814,9 @@ namespace Channeld.Examples.Tanks {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Removed != false) {
+        size += 1 + 1;
+      }
       if (position_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Position);
       }
@@ -808,6 +837,9 @@ namespace Channeld.Examples.Tanks {
     public void MergeFrom(TransformState other) {
       if (other == null) {
         return;
+      }
+      if (other.Removed != false) {
+        Removed = other.Removed;
       }
       if (other.position_ != null) {
         if (position_ == null) {
@@ -842,21 +874,25 @@ namespace Channeld.Examples.Tanks {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 8: {
+            Removed = input.ReadBool();
+            break;
+          }
+          case 18: {
             if (position_ == null) {
               Position = new global::Channeld.Examples.Tanks.Vector3f();
             }
             input.ReadMessage(Position);
             break;
           }
-          case 18: {
+          case 26: {
             if (rotation_ == null) {
               Rotation = new global::Channeld.Examples.Tanks.Vector4f();
             }
             input.ReadMessage(Rotation);
             break;
           }
-          case 26: {
+          case 34: {
             if (scale_ == null) {
               Scale = new global::Channeld.Examples.Tanks.Vector3f();
             }
@@ -878,21 +914,25 @@ namespace Channeld.Examples.Tanks {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 8: {
+            Removed = input.ReadBool();
+            break;
+          }
+          case 18: {
             if (position_ == null) {
               Position = new global::Channeld.Examples.Tanks.Vector3f();
             }
             input.ReadMessage(Position);
             break;
           }
-          case 18: {
+          case 26: {
             if (rotation_ == null) {
               Rotation = new global::Channeld.Examples.Tanks.Vector4f();
             }
             input.ReadMessage(Rotation);
             break;
           }
-          case 26: {
+          case 34: {
             if (scale_ == null) {
               Scale = new global::Channeld.Examples.Tanks.Vector3f();
             }
@@ -940,6 +980,7 @@ namespace Channeld.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TankState(TankState other) : this() {
+      removed_ = other.removed_;
       health_ = other.health_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -950,8 +991,23 @@ namespace Channeld.Examples.Tanks {
       return new TankState(this);
     }
 
+    /// <summary>Field number for the "removed" field.</summary>
+    public const int RemovedFieldNumber = 1;
+    private bool removed_;
+    /// <summary>
+    /// Marks that the state should be removed from tankStates map
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Removed {
+      get { return removed_; }
+      set {
+        removed_ = value;
+      }
+    }
+
     /// <summary>Field number for the "health" field.</summary>
-    public const int HealthFieldNumber = 1;
+    public const int HealthFieldNumber = 2;
     private int health_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -977,6 +1033,7 @@ namespace Channeld.Examples.Tanks {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Removed != other.Removed) return false;
       if (Health != other.Health) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -985,6 +1042,7 @@ namespace Channeld.Examples.Tanks {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Removed != false) hash ^= Removed.GetHashCode();
       if (Health != 0) hash ^= Health.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1004,8 +1062,12 @@ namespace Channeld.Examples.Tanks {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Health != 0) {
+      if (Removed != false) {
         output.WriteRawTag(8);
+        output.WriteBool(Removed);
+      }
+      if (Health != 0) {
+        output.WriteRawTag(16);
         output.WriteInt32(Health);
       }
       if (_unknownFields != null) {
@@ -1018,8 +1080,12 @@ namespace Channeld.Examples.Tanks {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Health != 0) {
+      if (Removed != false) {
         output.WriteRawTag(8);
+        output.WriteBool(Removed);
+      }
+      if (Health != 0) {
+        output.WriteRawTag(16);
         output.WriteInt32(Health);
       }
       if (_unknownFields != null) {
@@ -1032,6 +1098,9 @@ namespace Channeld.Examples.Tanks {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Removed != false) {
+        size += 1 + 1;
+      }
       if (Health != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Health);
       }
@@ -1046,6 +1115,9 @@ namespace Channeld.Examples.Tanks {
     public void MergeFrom(TankState other) {
       if (other == null) {
         return;
+      }
+      if (other.Removed != false) {
+        Removed = other.Removed;
       }
       if (other.Health != 0) {
         Health = other.Health;
@@ -1066,6 +1138,10 @@ namespace Channeld.Examples.Tanks {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
+            Removed = input.ReadBool();
+            break;
+          }
+          case 16: {
             Health = input.ReadInt32();
             break;
           }
@@ -1085,6 +1161,10 @@ namespace Channeld.Examples.Tanks {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
+            Removed = input.ReadBool();
+            break;
+          }
+          case 16: {
             Health = input.ReadInt32();
             break;
           }

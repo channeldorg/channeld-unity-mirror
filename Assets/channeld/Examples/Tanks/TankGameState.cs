@@ -2,52 +2,95 @@ using UnityEngine;
 using Mirror;
 using Channeld;
 using Channeld.Examples.Tanks;
+using Google.Protobuf;
 
 namespace Mirror.Examples.Tanks
 {
     public class TankGameState : GameState<TankGameChannelData>
     {
-        protected override TankGameChannelData ConstructTransformUpdate(NetworkIdentity ni, Vector3? position, Quaternion? rotation, Vector3? scale)
+        protected override IMessage GetChannelDataUpdateFromTransform(NetworkIdentity ni, bool removed, Vector3? position, Quaternion? rotation, Vector3? scale)
         {
             var updateData = new TankGameChannelData();
-            var transformState = new TransformState();
-            if (position.HasValue)
-                transformState.Position = new Vector3f() { X = position.Value.x, Y = position.Value.y, Z = position.Value.z };
-            if (rotation.HasValue)
-                transformState.Rotation = new Vector4f() { X = rotation.Value.x, Y = rotation.Value.y, Z = rotation.Value.z, W = rotation.Value.w };
-            if (scale.HasValue)
-                transformState.Scale = new Vector3f() { X = scale.Value.x, Y = scale.Value.y, Z = scale.Value.z };
+            var transformState = new TransformState() { Removed = removed };
+            if (!removed)
+            {
+                if (position.HasValue)
+                    transformState.Position = new Vector3f() { X = position.Value.x, Y = position.Value.y, Z = position.Value.z };
+                if (rotation.HasValue)
+                    transformState.Rotation = new Vector4f() { X = rotation.Value.x, Y = rotation.Value.y, Z = rotation.Value.z, W = rotation.Value.w };
+                if (scale.HasValue)
+                    transformState.Scale = new Vector3f() { X = scale.Value.x, Y = scale.Value.y, Z = scale.Value.z };
+            }
             updateData.TransformStates[ni.netId] = transformState;
             return updateData;
         }
 
-        protected override void Merge(TankGameChannelData dst, TankGameChannelData src)
+        public override TransformUpdateData GetTransformUpdateFromChannelData(IMessage channelUpdateData, NetworkIdentity ni)
         {
-            foreach (var kv in src.TransformStates)
+            var updateData = (TankGameChannelData)channelUpdateData;
+            TransformState transformState;
+            if (updateData.TransformStates.TryGetValue(ni.netId, out transformState))
             {
+                if (transformState.Removed)
+                    return null;
+
+                return new TransformUpdateData()
+                {
+                    Position = transformState.GetUnityPosition(),
+                    Rotation = transformState.GetUnityRotation(),
+                    Scale = transformState.GetUnityScale()
+                };
+            }
+            return null;
+        }
+
+        protected override void Merge(IMessage dst, IMessage src)
+        {
+            var dstState = (TankGameChannelData)dst;
+            var srcState = (TankGameChannelData)src;
+
+            foreach (var kv in srcState.TransformStates)
+            {
+                if (kv.Value.Removed)
+                {
+                    dstState.TransformStates.Remove(kv.Key);
+                    continue;
+                }
+
                 TransformState transformState;
-                if (dst.TransformStates.TryGetValue(kv.Key, out transformState))
+                if (dstState.TransformStates.TryGetValue(kv.Key, out transformState))
                 {
                     transformState.MergeFrom(kv.Value);
                 }
                 else
                 {
-                    dst.TransformStates[kv.Key] = kv.Value;
+                    dstState.TransformStates[kv.Key] = kv.Value;
                 }
             }
 
-            foreach (var kv in src.TankStates)
+            foreach (var kv in srcState.TankStates)
             {
+                if (kv.Value.Removed)
+                {
+                    dstState.TankStates.Remove(kv.Key);
+                    continue;
+                }
+
                 TankState tankState;
-                if (dst.TankStates.TryGetValue(kv.Key, out tankState))
+                if (dstState.TankStates.TryGetValue(kv.Key, out tankState))
                 {
                     tankState.MergeFrom(kv.Value);
                 }
                 else
                 {
-                    dst.TankStates[kv.Key] = kv.Value;
+                    dstState.TankStates[kv.Key] = kv.Value;
                 }
             }
+        }
+
+        public override ChannelDataMergeOptions SetUpMergeOptions()
+        {
+            return new ChannelDataMergeOptions() { ShouldCheckRemovableMapField = true };
         }
     }
 

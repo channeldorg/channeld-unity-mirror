@@ -46,6 +46,7 @@ namespace Channeld
 
         public string RemoteAddress { get; private set; }
         public int RemotePort { get; private set; }
+        public int ConnectTimeoutMs { get; set; } = 3000;
         public uint Id { get; private set; } = 0;
         public HashSet<uint> SubscribedChannels { get; private set; } = new HashSet<uint>();
         public HashSet<uint> OwnedChannels { get; private set; } = new HashSet<uint>();
@@ -210,18 +211,39 @@ namespace Channeld
             handlers[msgType] = entry;
         }
 
-        public void Connect(string host, int port, Action onConnected = null)
+        public void Connect(string host, int port, Action onConnected = null, Action onTimeout = null)
         {
             RemoteAddress = host;
             RemotePort = port;
-            // Calling TcpClient.Connect() causes the thread to halt, which is not a good practice in an application with UI.
-            Task.Run(() =>
+
+#if UNITY_SERVER
+            if (tcp.ConnectAsync(host, port).Wait(ConnectTimeoutMs))
             {
-                tcp.Connect(host, port);
                 netStream = tcp.GetStream();
                 receiveThread.Start();
                 onConnected?.Invoke();
+            }
+            else
+            {
+                onTimeout?.Invoke();
+            }
+#else
+            // Calling TcpClient.Connect() causes the thread to halt, which is not a good practice in an application with UI.
+            Task.Run(async () =>
+            {
+                var connectTask = tcp.ConnectAsync(host, port);
+                if (await Task.WhenAny(connectTask, Task.Delay(ConnectTimeoutMs)) == connectTask)
+                {
+                    netStream = tcp.GetStream();
+                    receiveThread.Start();
+                    onConnected?.Invoke();
+                }
+                else
+                {
+                    onTimeout?.Invoke();
+                }
             });
+#endif
         }
 
         public Task ConnectAsync(string host, int port)

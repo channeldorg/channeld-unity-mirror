@@ -14,12 +14,12 @@ namespace Channeld.Examples.Tanks
         public NavMeshAgent agent;
         public Animator animator;
         public TextMesh healthBar;
+        public ITankController controller;
 
         [Header("Movement")]
         public float rotationSpeed = 100;
 
         [Header("Firing")]
-        public KeyCode shootKey = KeyCode.Space;
         public GameObject projectilePrefab;
         public Transform projectileMount;
 
@@ -33,22 +33,23 @@ namespace Channeld.Examples.Tanks
             healthBar.text = new string('-', health);
 
             // movement for local player
-            if (isLocalPlayer)
+            if (isClient && !isLocalPlayer)
+                return;
+            if (controller != null)
             {
                 // rotate
-                float horizontal = Input.GetAxis("Horizontal");
-                transform.Rotate(0, horizontal * rotationSpeed * Time.deltaTime, 0);
+                transform.Rotate(0, controller.GetRotation() * rotationSpeed * Time.deltaTime, 0);
 
                 // move
-                float vertical = Input.GetAxis("Vertical");
                 Vector3 forward = transform.TransformDirection(Vector3.forward);
-                agent.velocity = forward * Mathf.Max(vertical, 0) * agent.speed;
+                agent.velocity = forward * Mathf.Max(controller.GetMovement(), 0) * agent.speed;
                 animator.SetBool("Moving", agent.velocity != Vector3.zero);
 
                 // shoot
-                if (Input.GetKeyDown(shootKey))
+                if (controller.GetFired())
                 {
-                    CmdFire();
+                    if (isClient) CmdFire();
+                    else if (isServer) CmdFire_Implementation();
                 }
             }
         }
@@ -64,6 +65,11 @@ namespace Channeld.Examples.Tanks
             NetworkWriterPool.Recycle(writer);
 
             */
+            CmdFire_Implementation();
+        }
+
+        void CmdFire_Implementation()
+        {
             GameObject projectile = Instantiate(projectilePrefab, projectileMount.position, transform.rotation);
             NetworkServer.Spawn(projectile);
             RpcOnFire();
@@ -134,13 +140,14 @@ namespace Channeld.Examples.Tanks
 
         private void Awake()
         {
+            if (controller == null)
+                controller = GetComponent<ITankController>();
+
             TankGameState.OnGenericDataChanged += (channelId, channelData) =>
             {
                 TankState newState;
                 if (channelData.TankStates.TryGetValue(netId, out newState))
                 {
-                    //if (!SyncVarEqual(newState.Health, ref health))
-                    //    SetSyncVar(newState.Health, ref health, 1uL);
                     health = newState.Health;
                 }
             };

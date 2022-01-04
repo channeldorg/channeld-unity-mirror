@@ -1,5 +1,4 @@
-﻿using Channeld;
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Mirror;
 using System;
 using System.Collections.Generic;
@@ -18,6 +17,7 @@ namespace Channeld
         [Header("Server")]
         public string ServerAddressToChanneld = "127.0.0.1";
         public int ServerPortToChanneld = 11288;
+        public int ServerConnectTimeoutMs = 1000;
         public ChannelType ServerChannelType = ChannelType.Global;
         public string ServerChannelMetadata = "MirrorServer";
         public uint ServerFanoutIntervalMs = 10;
@@ -26,6 +26,7 @@ namespace Channeld
         // The client connects to the address Mirror passes to it, generally NetworkManager.networkAddress
         //public string ClientAddressToChanneld = "127.0.0.1";
         public int ClientPortToChanneld = 12108;
+        public int ClientConnectTimeoutMs = 3000;
         public uint ClientFanoutIntervalMs = 50;
 
         private ChanneldClient serverConnection;
@@ -112,7 +113,7 @@ namespace Channeld
                 Log.Warning($"Invalid value of command line arg '{args[i]}': {args[i + 1]}");
             }
 
-            Log.Debug("ChanneldTransport initialized!");
+            Log.Debug("ChanneldTransport initialized.");
         }
 
         #region Server Logic
@@ -121,6 +122,7 @@ namespace Channeld
         {
             serverConnection = new ChanneldClient();
             serverConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
+            serverConnection.ConnectTimeoutMs = ServerConnectTimeoutMs;
             serverConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
             {
                 this.OnServerDataReceived((int)clientConnId, new ArraySegment<byte>(payload), Channels.Reliable);
@@ -180,7 +182,7 @@ namespace Channeld
 
             serverConnection.Connect(ServerAddressToChanneld, ServerPortToChanneld, () =>
             {
-                Log.Info("Server connected.");
+                Log.Info("Server connected to channeld.");
 
                 serverConnection.Auth("test", "test", (msg) =>
                 {
@@ -199,6 +201,10 @@ namespace Channeld
                         this.OnServerError((int)msg.ConnId, new Exception("Authentication failed:" + msg.Result.ToString()));
                     }
                 });
+            }, () =>
+            {
+                Log.Error("Server failed to connect to channeld.");
+                NetworkServer.Shutdown();
             });
         }
 
@@ -266,6 +272,7 @@ namespace Channeld
         {
             clientConnection = new ChanneldClient();
             clientConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
+            clientConnection.ConnectTimeoutMs = ClientConnectTimeoutMs;
             clientConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
             {
                 // The payload may contains multiple Mirror messages, making it hard to recognize the SpawnMessage inside.
@@ -313,6 +320,8 @@ namespace Channeld
 
         private void OnClientConnectedChanneld()
         {
+            Log.Info("Client connected to channeld.");
+
             if (NetworkManager.singleton.authenticator == null)
             {
                 // channeld always requires authentication
@@ -342,16 +351,22 @@ namespace Channeld
             }
         }
 
+        private void OnClientConnectTimeout()
+        {
+            Log.Info("Client failed to connect to channeld.");
+            NetworkClient.Shutdown();
+        }
+
         public override void ClientConnect(string address)
         {
             InitClientConnection();
-            clientConnection.Connect(address, ClientPortToChanneld, OnClientConnectedChanneld);
+            clientConnection.Connect(address, ClientPortToChanneld, OnClientConnectedChanneld, OnClientConnectTimeout);
         }
 
         public override void ClientConnect(Uri uri)
         {
             InitClientConnection();
-            clientConnection.Connect(uri.Host, uri.Port, OnClientConnectedChanneld);
+            clientConnection.Connect(uri.Host, uri.Port, OnClientConnectedChanneld, OnClientConnectTimeout);
         }
 
         public override void ClientSend(ArraySegment<byte> segment, int channelId)

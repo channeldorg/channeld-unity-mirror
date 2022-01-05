@@ -35,7 +35,7 @@ namespace Channeld.Examples.Tanks
                 tank = GetComponent<TankChanneld>();
             }
         }
-
+        
         private void Update()
         {
             if (tank.isServer)

@@ -1,5 +1,4 @@
-﻿using Channeld.Examples.Tanks;
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Mirror;
 using System;
 using System.IO;

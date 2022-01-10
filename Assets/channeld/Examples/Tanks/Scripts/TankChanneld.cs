@@ -1,10 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using Google.Protobuf.WellKnownTypes;
-using Google.Protobuf;
-using System;
 using Mirror;
-using Mirror.Examples.Tanks;
 
 namespace Channeld.Examples.Tanks
 {

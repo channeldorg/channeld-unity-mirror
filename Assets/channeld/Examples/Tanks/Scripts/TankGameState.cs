@@ -1,10 +1,8 @@
 using UnityEngine;
 using Mirror;
-using Channeld;
-using Channeld.Examples.Tanks;
 using Google.Protobuf;
 
-namespace Mirror.Examples.Tanks
+namespace Channeld.Examples.Tanks
 {
     public class TankGameState : GameState<TankGameChannelData>
     {

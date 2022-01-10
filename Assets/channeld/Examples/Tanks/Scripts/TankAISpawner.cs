@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Channeld.Examples.Tanks
 {
-    public class TankAISpawner : MonoBehaviour
+    public class TankAISpawner : NetworkBehaviour
     {
         public TankChanneld tankPrefab;
         public int prespawnNum = 0;
@@ -23,7 +23,6 @@ namespace Channeld.Examples.Tanks
                 }
             }
 
-
             if (prespawnNum > 0)
             {
                 GameState.OnDataChanged += Prespawn;
@@ -33,12 +32,12 @@ namespace Channeld.Examples.Tanks
         private void Prespawn(uint channelId, GameState state, IMessage msg)
         {
             GameState.OnDataChanged -= Prespawn;
-            Spawn(prespawnNum);
+            ServerSpawn(prespawnNum);
         }
 
-        public void Spawn(int num)
+        private void ServerSpawn(int num)
         {
-            if (!NetworkServer.active)
+            if (!isServer)
                 return;
 
             for (int i = 0; i < num; i++)
@@ -51,14 +50,27 @@ namespace Channeld.Examples.Tanks
             }
         }
 
+        [Command(requiresAuthority = false)]
+        public void Spawn(int num)
+        {
+            ServerSpawn(num);
+        }
+
         private void OnGUI()
         {
-            if (!NetworkServer.active)
+            if (!isClient && !isServer)
                 return;
 
             if (GUI.Button(new Rect(10, 10, 100, 20), "Spawn Tanks"))
             {
-                Spawn(10);
+                if (isClient)
+                {
+                    Spawn(10);
+                }
+                else if (isServer)
+                {
+                    ServerSpawn(10);
+                }
             }
         }
     }

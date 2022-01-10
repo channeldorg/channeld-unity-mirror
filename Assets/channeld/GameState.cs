@@ -166,7 +166,7 @@ namespace Channeld
             client.Send(ChannelId, (uint)MessageType.ChannelDataUpdate, new ChannelDataUpdateMessage()
             {
                 Data = Any.Pack(bufferedUpdate)
-            }, BroadcastType.No);
+            }, BroadcastType.NoBroadcast);
 
             bufferedUpdate = null;
         }

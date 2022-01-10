@@ -48,6 +48,7 @@ namespace Channeld
         public int RemotePort { get; private set; }
         public int ConnectTimeoutMs { get; set; } = 3000;
         public uint Id { get; private set; } = 0;
+        public CompressionType CompressionType { get; private set; } = CompressionType.NoCompression;
         public HashSet<uint> SubscribedChannels { get; private set; } = new HashSet<uint>();
         public HashSet<uint> OwnedChannels { get; private set; } = new HashSet<uint>();
         public Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo> ListedChannels { get; private set; } =
@@ -111,6 +112,7 @@ namespace Channeld
             if (resultMsg.Result == AuthResultMessage.Types.AuthResult.Successful)
             {
                 Id = resultMsg.ConnId;
+                CompressionType = resultMsg.CompressionType;
                 OnAuthenticated?.Invoke(this);
             }
         }
@@ -283,7 +285,7 @@ namespace Channeld
                     }
                     while (netStream.DataAvailable);
 
-                    if (ms.Length <= 4)
+                    if (ms.Length <= 5)
                         continue;
 
                     var bytes = ms.ToArray();
@@ -300,10 +302,17 @@ namespace Channeld
                         size = size | bytes[2] << 8;
                     }
 
-                    if (bytes.Length < size + 4)
+                    if (bytes.Length < size + 5)
                         throw new IOException("segment doesn't have a complete packet");
 
-                    var p = Packet.Parser.ParseFrom(bytes, 4, size);
+                    var ros = new System.ReadOnlySpan<byte>(bytes, 5, bytes.Length - 5);
+
+                    if (bytes[4] == (byte)CompressionType.Snappy)
+                    {
+                        ros = IronSnappy.Snappy.Decode(ros);
+                    }
+
+                    var p = Packet.Parser.ParseFrom(ros);
 
                     foreach (var mp in p.Messages)
                     {
@@ -347,7 +356,7 @@ namespace Channeld
             return stubId;
         }
 
-        public void SendRaw(uint channelId, uint msgType, ByteString msgBody, BroadcastType broadcast = BroadcastType.No, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
+        public void SendRaw(uint channelId, uint msgType, ByteString msgBody, BroadcastType broadcast = BroadcastType.NoBroadcast, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
         {
             uint stubId = callback == null && tcs == null ? 0 : AddRpcCallback(callback, tcs);
 
@@ -364,7 +373,7 @@ namespace Channeld
                 Log.Debug($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
         }
 
-        public void Send(uint channelId, uint msgType, IMessage msg, BroadcastType broadcast = BroadcastType.No, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
+        public void Send(uint channelId, uint msgType, IMessage msg, BroadcastType broadcast = BroadcastType.NoBroadcast, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
         {
             SendRaw(channelId, msgType, msg.ToByteString(), broadcast, callback, tcs);
             if (msgType < (uint)MessageType.UserSpaceStart)
@@ -415,11 +424,17 @@ namespace Channeld
             }
 
             var bytes = p.ToByteArray();
-            var tag = new byte[] { 67, 72, 78, 76 };
+
+            if (CompressionType == CompressionType.Snappy)
+            {
+                bytes = IronSnappy.Snappy.Encode(bytes);
+            }
+
+            var tag = new byte[] { 67, 72, 78, 76, (byte)CompressionType };
             tag[3] = (byte)(bytes.Length & 0xff);
             if (bytes.Length > 0xff) tag[2] = (byte)((bytes.Length >> 8) & 0xff);
             if (bytes.Length > 0xffff) tag[1] = (byte)((bytes.Length >> 16) & 0xff);
-            netStream.Write(tag, 0, 4);
+            netStream.Write(tag, 0, 5);
             netStream.Write(bytes, 0, bytes.Length);
         }
 
@@ -442,7 +457,7 @@ namespace Channeld
             {
                 LoginToken = lt,
                 PlayerIdentifierToken = pit
-            }, BroadcastType.No, WrapMessageHandler(callback));
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 
 
@@ -469,7 +484,7 @@ namespace Channeld
                 SubOptions = subOptions,
                 Data = data == null ? null : Any.Pack(data),
                 MergeOptions = mergeOptions,
-            }, BroadcastType.No, WrapMessageHandler(callback));
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 
         public void RemoveChannel(uint channelId, Action<RemoveChannelMessage> callback = null)
@@ -477,7 +492,7 @@ namespace Channeld
             Send(GlobalChannelId, (uint)MessageType.RemoveChannel, new RemoveChannelMessage()
             {
                 ChannelId = channelId
-            }, BroadcastType.No, WrapMessageHandler(callback));
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 
         // Using ChannelType.Unknown will try to match all the channel types.
@@ -489,7 +504,7 @@ namespace Channeld
             };
             if (metadataFilters != null)
                 listMsg.MetadataFilters.Add(metadataFilters);
-            Send(GlobalChannelId, (uint)MessageType.ListChannel, listMsg, BroadcastType.No, WrapMessageHandler(callback));
+            Send(GlobalChannelId, (uint)MessageType.ListChannel, listMsg, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 
         public void SubToChannel(uint channelId, ChannelSubscriptionOptions options = null, Action<SubscribedToChannelResultMessage> callback = null)
@@ -498,7 +513,7 @@ namespace Channeld
             {
                 ConnId = Id,
                 SubOptions = options
-            }, BroadcastType.No, WrapMessageHandler(callback));
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 
         public void UnsubFromChannel(uint channelId, Action<UnsubscribedFromChannelMessage> callback = null)
@@ -506,7 +521,7 @@ namespace Channeld
             Send(channelId, (uint)MessageType.UnsubFromChannel, new UnsubscribedFromChannelMessage()
             {
                 ConnId = Id
-            }, BroadcastType.No, WrapMessageHandler(callback));
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
     }
 }

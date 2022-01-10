@@ -32,62 +32,64 @@ namespace Channeld {
             "eRgFIAEoDCI9ChRTZXJ2ZXJGb3J3YXJkTWVzc2FnZRIUCgxjbGllbnRDb25u",
             "SWQYASABKA0SDwoHcGF5bG9hZBgCIAEoDCJACgtBdXRoTWVzc2FnZRIdChVw",
             "bGF5ZXJJZGVudGlmaWVyVG9rZW4YASABKAkSEgoKbG9naW5Ub2tlbhgCIAEo",
-            "CSKaAQoRQXV0aFJlc3VsdE1lc3NhZ2USNgoGcmVzdWx0GAEgASgOMiYuY2hh",
+            "CSLOAQoRQXV0aFJlc3VsdE1lc3NhZ2USNgoGcmVzdWx0GAEgASgOMiYuY2hh",
             "bm5lbGQuQXV0aFJlc3VsdE1lc3NhZ2UuQXV0aFJlc3VsdBIOCgZjb25uSWQY",
-            "AiABKA0iPQoKQXV0aFJlc3VsdBIOCgpTVUNDRVNTRlVMEAASDwoLSU5WQUxJ",
-            "RF9QSVQQARIOCgpJTlZBTElEX0xUEAIiZQoaQ2hhbm5lbFN1YnNjcmlwdGlv",
-            "bk9wdGlvbnMSFQoNQ2FuVXBkYXRlRGF0YRgBIAEoCBIWCg5EYXRhRmllbGRN",
-            "YXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZhbE1zGAMgASgNInUKF0NoYW5u",
-            "ZWxEYXRhTWVyZ2VPcHRpb25zEh0KFXNob3VsZFJlcGxhY2VSZXBlYXRlZBgB",
-            "IAEoCBIkChxzaG91bGRDaGVja1JlbW92YWJsZU1hcEZpZWxkGAIgASgIEhUK",
-            "DWxpc3RTaXplTGltaXQYAyABKA0i6wEKFENyZWF0ZUNoYW5uZWxNZXNzYWdl",
-            "EioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUS",
-            "EAoIbWV0YWRhdGEYAiABKAkSOAoKc3ViT3B0aW9ucxgDIAEoCzIkLmNoYW5u",
-            "ZWxkLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiIKBGRhdGEYBCABKAsy",
-            "FC5nb29nbGUucHJvdG9idWYuQW55EjcKDG1lcmdlT3B0aW9ucxgFIAEoCzIh",
-            "LmNoYW5uZWxkLkNoYW5uZWxEYXRhTWVyZ2VPcHRpb25zIm8KGkNyZWF0ZUNo",
-            "YW5uZWxSZXN1bHRNZXNzYWdlEioKC2NoYW5uZWxUeXBlGAEgASgOMhUuY2hh",
-            "bm5lbGQuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSEwoLb3duZXJD",
-            "b25uSWQYAyABKA0iKQoUUmVtb3ZlQ2hhbm5lbE1lc3NhZ2USEQoJY2hhbm5l",
-            "bElkGAEgASgNIlgKEkxpc3RDaGFubmVsTWVzc2FnZRIpCgp0eXBlRmlsdGVy",
-            "GAEgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0",
-            "ZXJzGAIgAygJIrwBChhMaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQAoIY2hh",
-            "bm5lbHMYASADKAsyLi5jaGFubmVsZC5MaXN0Q2hhbm5lbFJlc3VsdE1lc3Nh",
-            "Z2UuQ2hhbm5lbEluZm8aXgoLQ2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEg",
+            "AiABKA0SMgoPY29tcHJlc3Npb25UeXBlGAMgASgOMhkuY2hhbm5lbGQuQ29t",
+            "cHJlc3Npb25UeXBlIj0KCkF1dGhSZXN1bHQSDgoKU1VDQ0VTU0ZVTBAAEg8K",
+            "C0lOVkFMSURfUElUEAESDgoKSU5WQUxJRF9MVBACImUKGkNoYW5uZWxTdWJz",
+            "Y3JpcHRpb25PcHRpb25zEhUKDUNhblVwZGF0ZURhdGEYASABKAgSFgoORGF0",
+            "YUZpZWxkTWFza3MYAiADKAkSGAoQRmFuT3V0SW50ZXJ2YWxNcxgDIAEoDSJ1",
+            "ChdDaGFubmVsRGF0YU1lcmdlT3B0aW9ucxIdChVzaG91bGRSZXBsYWNlUmVw",
+            "ZWF0ZWQYASABKAgSJAocc2hvdWxkQ2hlY2tSZW1vdmFibGVNYXBGaWVsZBgC",
+            "IAEoCBIVCg1saXN0U2l6ZUxpbWl0GAMgASgNIusBChRDcmVhdGVDaGFubmVs",
+            "TWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEoDjIVLmNoYW5uZWxkLkNoYW5u",
+            "ZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEjgKCnN1Yk9wdGlvbnMYAyABKAsy",
+            "JC5jaGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucxIiCgRkYXRh",
+            "GAQgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueRI3CgxtZXJnZU9wdGlvbnMY",
+            "BSABKAsyIS5jaGFubmVsZC5DaGFubmVsRGF0YU1lcmdlT3B0aW9ucyJvChpD",
+            "cmVhdGVDaGFubmVsUmVzdWx0TWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEo",
+            "DjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEhMK",
+            "C293bmVyQ29ubklkGAMgASgNIikKFFJlbW92ZUNoYW5uZWxNZXNzYWdlEhEK",
+            "CWNoYW5uZWxJZBgBIAEoDSJYChJMaXN0Q2hhbm5lbE1lc3NhZ2USKQoKdHlw",
+            "ZUZpbHRlchgBIAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhcKD21ldGFk",
+            "YXRhRmlsdGVycxgCIAMoCSK8AQoYTGlzdENoYW5uZWxSZXN1bHRNZXNzYWdl",
+            "EkAKCGNoYW5uZWxzGAEgAygLMi4uY2hhbm5lbGQuTGlzdENoYW5uZWxSZXN1",
+            "bHRNZXNzYWdlLkNoYW5uZWxJbmZvGl4KC0NoYW5uZWxJbmZvEhEKCWNoYW5u",
+            "ZWxJZBgBIAEoDRIqCgtjaGFubmVsVHlwZRgCIAEoDjIVLmNoYW5uZWxkLkNo",
+            "YW5uZWxUeXBlEhAKCG1ldGFkYXRhGAMgASgJImYKGlN1YnNjcmliZWRUb0No",
+            "YW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI4CgpzdWJPcHRpb25zGAIg",
+            "ASgLMiQuY2hhbm5lbGQuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMiXgog",
+            "U3Vic2NyaWJlZFRvQ2hhbm5lbFJlc3VsdE1lc3NhZ2USDgoGY29ubklkGAEg",
             "ASgNEioKC2NoYW5uZWxUeXBlGAIgASgOMhUuY2hhbm5lbGQuQ2hhbm5lbFR5",
-            "cGUSEAoIbWV0YWRhdGEYAyABKAkiZgoaU3Vic2NyaWJlZFRvQ2hhbm5lbE1l",
-            "c3NhZ2USDgoGY29ubklkGAEgASgNEjgKCnN1Yk9wdGlvbnMYAiABKAsyJC5j",
-            "aGFubmVsZC5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucyJeCiBTdWJzY3Jp",
-            "YmVkVG9DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQYASABKA0SKgoL",
-            "Y2hhbm5lbFR5cGUYAiABKA4yFS5jaGFubmVsZC5DaGFubmVsVHlwZSIwCh5V",
-            "bnN1YnNjcmliZWRGcm9tQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
-            "Ij4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQu",
-            "Z29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZj",
-            "b25uSWQYASABKA0iKwoITG9jYXRpb24SCQoBeBgBIAEoARIJCgF5GAIgASgB",
-            "EgkKAXoYAyABKAEiNAoRU3BhdGlhbEVudGl0eUluZm8SHwoDbG9jGAEgASgL",
-            "MhIuY2hhbm5lbGQuTG9jYXRpb24irgEKGVNwYXRpYWxDaGFubmVsRGF0YU1l",
-            "c3NhZ2USQwoIZW50aXRpZXMYASADKAsyMS5jaGFubmVsZC5TcGF0aWFsQ2hh",
-            "bm5lbERhdGFNZXNzYWdlLkVudGl0aWVzRW50cnkaTAoNRW50aXRpZXNFbnRy",
-            "eRILCgNrZXkYASABKA0SKgoFdmFsdWUYAiABKAsyGy5jaGFubmVsZC5TcGF0",
-            "aWFsRW50aXR5SW5mbzoCOAEqSwoNQnJvYWRjYXN0VHlwZRIGCgJOTxAAEgcK",
-            "A0FMTBABEhIKDkFMTF9CVVRfU0VOREVSEAISFQoRU0lOR0xFX0NPTk5FQ1RJ",
-            "T04QAyqEAQoLQ2hhbm5lbFR5cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBAB",
-            "EgsKB1BSSVZBVEUQAhIMCghTVUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRU",
-            "RVNUEGQSCQoFVEVTVDEQZRIJCgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVT",
-            "VDQQaCrJAQoLTWVzc2FnZVR5cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARIS",
-            "Cg5DUkVBVEVfQ0hBTk5FTBADEhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElT",
-            "VF9DSEFOTkVMEAUSEgoOU1VCX1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9N",
-            "X0NIQU5ORUwQBxIXChNDSEFOTkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09O",
-            "TkVDVBAJEhQKEFVTRVJfU1BBQ0VfU1RBUlQQZEIIWgYvcHJvdG9iBnByb3Rv",
-            "Mw=="));
+            "cGUiMAoeVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxNZXNzYWdlEg4KBmNvbm5J",
+            "ZBgBIAEoDSI+ChhDaGFubmVsRGF0YVVwZGF0ZU1lc3NhZ2USIgoEZGF0YRgB",
+            "IAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkiIwoRRGlzY29ubmVjdE1lc3Nh",
+            "Z2USDgoGY29ubklkGAEgASgNIisKCExvY2F0aW9uEgkKAXgYASABKAESCQoB",
+            "eRgCIAEoARIJCgF6GAMgASgBIjQKEVNwYXRpYWxFbnRpdHlJbmZvEh8KA2xv",
+            "YxgBIAEoCzISLmNoYW5uZWxkLkxvY2F0aW9uIq4BChlTcGF0aWFsQ2hhbm5l",
+            "bERhdGFNZXNzYWdlEkMKCGVudGl0aWVzGAEgAygLMjEuY2hhbm5lbGQuU3Bh",
+            "dGlhbENoYW5uZWxEYXRhTWVzc2FnZS5FbnRpdGllc0VudHJ5GkwKDUVudGl0",
+            "aWVzRW50cnkSCwoDa2V5GAEgASgNEioKBXZhbHVlGAIgASgLMhsuY2hhbm5l",
+            "bGQuU3BhdGlhbEVudGl0eUluZm86AjgBKlUKDUJyb2FkY2FzdFR5cGUSEAoM",
+            "Tk9fQlJPQURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQAhIV",
+            "ChFTSU5HTEVfQ09OTkVDVElPThADKoQBCgtDaGFubmVsVHlwZRILCgdVTktO",
+            "T1dOEAASCgoGR0xPQkFMEAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMS",
+            "CwoHU1BBVElBTBAEEggKBFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYS",
+            "CQoFVEVTVDMQZxIJCgVURVNUNBBoKskBCgtNZXNzYWdlVHlwZRILCgdJTlZB",
+            "TElEEAASCAoEQVVUSBABEhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZF",
+            "X0NIQU5ORUwQBBIQCgxMSVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5F",
+            "TBAGEhYKElVOU1VCX0ZST01fQ0hBTk5FTBAHEhcKE0NIQU5ORUxfREFUQV9V",
+            "UERBVEUQCBIOCgpESVNDT05ORUNUEAkSFAoQVVNFUl9TUEFDRV9TVEFSVBBk",
+            "KjEKD0NvbXByZXNzaW9uVHlwZRISCg5OT19DT01QUkVTU0lPThAAEgoKBlNO",
+            "QVBQWRABQghaBi9wcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), typeof(global::Channeld.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Packet), global::Channeld.Packet.Parser, new[]{ "Messages" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.MessagePack), global::Channeld.MessagePack.Parser, new[]{ "ChannelId", "Broadcast", "StubId", "MsgType", "MsgBody" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ServerForwardMessage), global::Channeld.ServerForwardMessage.Parser, new[]{ "ClientConnId", "Payload" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthMessage), global::Channeld.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId", "CompressionType" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelSubscriptionOptions), global::Channeld.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelDataMergeOptions), global::Channeld.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceRepeated", "ShouldCheckRemovableMapField", "ListSizeLimit" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelMessage), global::Channeld.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
@@ -113,7 +115,7 @@ namespace Channeld {
     /// <summary>
     /// No broadcast. All internal messages should use this type, and other types are ignored.
     /// </summary>
-    [pbr::OriginalName("NO")] No = 0,
+    [pbr::OriginalName("NO_BROADCAST")] NoBroadcast = 0,
     /// <summary>
     /// Broadcast the message to all the connections in the channel, the sender included.
     /// </summary>
@@ -171,6 +173,14 @@ namespace Channeld {
     [pbr::OriginalName("CHANNEL_DATA_UPDATE")] ChannelDataUpdate = 8,
     [pbr::OriginalName("DISCONNECT")] Disconnect = 9,
     [pbr::OriginalName("USER_SPACE_START")] UserSpaceStart = 100,
+  }
+
+  public enum CompressionType {
+    [pbr::OriginalName("NO_COMPRESSION")] NoCompression = 0,
+    /// <summary>
+    /// https://github.com/google/snappy
+    /// </summary>
+    [pbr::OriginalName("SNAPPY")] Snappy = 1,
   }
 
   #endregion
@@ -426,7 +436,7 @@ namespace Channeld {
 
     /// <summary>Field number for the "broadcast" field.</summary>
     public const int BroadcastFieldNumber = 2;
-    private global::Channeld.BroadcastType broadcast_ = global::Channeld.BroadcastType.No;
+    private global::Channeld.BroadcastType broadcast_ = global::Channeld.BroadcastType.NoBroadcast;
     /// <summary>
     /// Will the message be broadcasted to all connections in the channel? 
     /// ONLY works for the user-space messages. 
@@ -514,7 +524,7 @@ namespace Channeld {
     public override int GetHashCode() {
       int hash = 1;
       if (ChannelId != 0) hash ^= ChannelId.GetHashCode();
-      if (Broadcast != global::Channeld.BroadcastType.No) hash ^= Broadcast.GetHashCode();
+      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) hash ^= Broadcast.GetHashCode();
       if (StubId != 0) hash ^= StubId.GetHashCode();
       if (MsgType != 0) hash ^= MsgType.GetHashCode();
       if (MsgBody.Length != 0) hash ^= MsgBody.GetHashCode();
@@ -540,7 +550,7 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteUInt32(ChannelId);
       }
-      if (Broadcast != global::Channeld.BroadcastType.No) {
+      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Broadcast);
       }
@@ -570,7 +580,7 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteUInt32(ChannelId);
       }
-      if (Broadcast != global::Channeld.BroadcastType.No) {
+      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Broadcast);
       }
@@ -599,7 +609,7 @@ namespace Channeld {
       if (ChannelId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ChannelId);
       }
-      if (Broadcast != global::Channeld.BroadcastType.No) {
+      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Broadcast);
       }
       if (StubId != 0) {
@@ -626,7 +636,7 @@ namespace Channeld {
       if (other.ChannelId != 0) {
         ChannelId = other.ChannelId;
       }
-      if (other.Broadcast != global::Channeld.BroadcastType.No) {
+      if (other.Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
         Broadcast = other.Broadcast;
       }
       if (other.StubId != 0) {
@@ -1217,6 +1227,7 @@ namespace Channeld {
     public AuthResultMessage(AuthResultMessage other) : this() {
       result_ = other.result_;
       connId_ = other.connId_;
+      compressionType_ = other.compressionType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1250,6 +1261,23 @@ namespace Channeld {
       }
     }
 
+    /// <summary>Field number for the "compressionType" field.</summary>
+    public const int CompressionTypeFieldNumber = 3;
+    private global::Channeld.CompressionType compressionType_ = global::Channeld.CompressionType.NoCompression;
+    /// <summary>
+    /// The compression type should be used for future communication.
+    /// However, because the compression type is specified per packet, the client has its freedom to control which compression type to use.
+    /// It's useful when the client has too much CPU load for the compression, or the network debug is needed.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Channeld.CompressionType CompressionType {
+      get { return compressionType_; }
+      set {
+        compressionType_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1267,6 +1295,7 @@ namespace Channeld {
       }
       if (Result != other.Result) return false;
       if (ConnId != other.ConnId) return false;
+      if (CompressionType != other.CompressionType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1276,6 +1305,7 @@ namespace Channeld {
       int hash = 1;
       if (Result != global::Channeld.AuthResultMessage.Types.AuthResult.Successful) hash ^= Result.GetHashCode();
       if (ConnId != 0) hash ^= ConnId.GetHashCode();
+      if (CompressionType != global::Channeld.CompressionType.NoCompression) hash ^= CompressionType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1302,6 +1332,10 @@ namespace Channeld {
         output.WriteRawTag(16);
         output.WriteUInt32(ConnId);
       }
+      if (CompressionType != global::Channeld.CompressionType.NoCompression) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) CompressionType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1320,6 +1354,10 @@ namespace Channeld {
         output.WriteRawTag(16);
         output.WriteUInt32(ConnId);
       }
+      if (CompressionType != global::Channeld.CompressionType.NoCompression) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) CompressionType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1335,6 +1373,9 @@ namespace Channeld {
       }
       if (ConnId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ConnId);
+      }
+      if (CompressionType != global::Channeld.CompressionType.NoCompression) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CompressionType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1353,6 +1394,9 @@ namespace Channeld {
       }
       if (other.ConnId != 0) {
         ConnId = other.ConnId;
+      }
+      if (other.CompressionType != global::Channeld.CompressionType.NoCompression) {
+        CompressionType = other.CompressionType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1377,6 +1421,10 @@ namespace Channeld {
             ConnId = input.ReadUInt32();
             break;
           }
+          case 24: {
+            CompressionType = (global::Channeld.CompressionType) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -1398,6 +1446,10 @@ namespace Channeld {
           }
           case 16: {
             ConnId = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            CompressionType = (global::Channeld.CompressionType) input.ReadEnum();
             break;
           }
         }

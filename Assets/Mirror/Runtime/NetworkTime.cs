@@ -86,7 +86,7 @@ namespace Mirror
         internal static void UpdateClient()
         {
             // localTime (double) instead of Time.time for accuracy over days
-            if (localTime - lastPingTime >= PingFrequency)
+            if (PingFrequency > 0 && localTime - lastPingTime >= PingFrequency)
             {
                 NetworkPingMessage pingMessage = new NetworkPingMessage(localTime);
                 NetworkClient.Send(pingMessage, Channels.Unreliable);

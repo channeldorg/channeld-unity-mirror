@@ -290,7 +290,10 @@ namespace Channeld
 
                     var bytes = ms.ToArray();
                     if (bytes[0] != 67)
-                        throw new IOException("invalid tag");
+                    {
+                        Log.Error("Invalid tag: " + bytes[0]);
+                        continue;
+                    }
 
                     int size = bytes[3];
                     if (bytes[1] != 72)
@@ -303,16 +306,36 @@ namespace Channeld
                     }
 
                     if (bytes.Length < size + 5)
-                        throw new IOException("segment doesn't have a complete packet");
+                    {
+                        Log.Error($"Segment doesn't have a complete packet, size in header: {size}, actual packet size: {bytes.Length - 5}");
+                        continue;
+                    }
 
                     var ros = new System.ReadOnlySpan<byte>(bytes, 5, bytes.Length - 5);
 
                     if (bytes[4] == (byte)CompressionType.Snappy)
                     {
-                        ros = IronSnappy.Snappy.Decode(ros);
+                        try
+                        {
+                            ros = IronSnappy.Snappy.Decode(ros);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error("Snappy.Decode: " + ex.ToString());
+                            continue;
+                        }
                     }
 
-                    var p = Packet.Parser.ParseFrom(ros);
+                    Packet p;
+                    try
+                    {
+                        p = Packet.Parser.ParseFrom(ros);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("Packet.Parse: " + ex.ToString());
+                        continue;
+                    }
 
                     foreach (var mp in p.Messages)
                     {
@@ -325,11 +348,22 @@ namespace Channeld
                             }
                             else
                             {
-                                throw new Exception("No parser registered for msgType:" + mp.MsgType);
+                                Log.Error("No parser registered for msgType:" + mp.MsgType);
+                                continue;
                             }
                         }
 
-                        var msg = entry.parser.ParseFrom(mp.MsgBody);
+                        IMessage msg;
+                        try
+                        {
+                            msg = entry.parser.ParseFrom(mp.MsgBody);
+                        }
+                        catch(Exception ex)
+                        {
+                            Log.Error("Message.Parse: " + ex.ToString());
+                            continue;
+                        }
+
                         incomingQueue.Add(new MessageQueueEntry()
                         {
                             msg = msg,

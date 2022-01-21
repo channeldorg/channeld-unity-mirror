@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7781b1346121f47a34ee94ab0475db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logLevel: 0
+  logLevel: 1
   showUserSpaceMessageLog: 0
   ServerAddressToChanneld: 127.0.0.1
   ServerPortToChanneld: 11288
@@ -557,6 +557,7 @@ MonoBehaviour:
   syncInterval: 0.1
   tankPrefab: {fileID: 5813281437721818533, guid: 14ab5060e1354f04c8151bba4abb91a5, type: 3}
   prespawnNum: 0
+  batchSpawnNum: 10
 --- !u!4 &1398358989
 Transform:
   m_ObjectHideFlags: 0

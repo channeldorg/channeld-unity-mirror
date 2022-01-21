@@ -82,6 +82,15 @@ namespace Channeld
             {
                 switch (args[i])
                 {
+					case "-loglevel":
+						int level;
+						if (int.TryParse(args[i + 1], out level))
+						{
+							logLevel = (LogLevel)level;
+							Log.Info($"Read LogLevel from command line: {logLevel}");
+							continue;
+						}
+						break;
                     case "-sa":
                         ServerAddressToChanneld = args[i + 1];
                         Log.Info($"Read ServerAddressToChanneld from command line: {ServerAddressToChanneld}");
@@ -156,7 +165,8 @@ namespace Channeld
                     Log.Info($"Server-owned channel({resultMsg.ChannelType} {channelId}) has client sub: {resultMsg.ConnId}");
                     if (resultMsg.ChannelType == ServerChannelType)
                     {
-                        this.OnServerConnected.Invoke((int)resultMsg.ConnId);
+                        if (!NetworkServer.connections.ContainsKey((int)resultMsg.ConnId))
+                            this.OnServerConnected.Invoke((int)resultMsg.ConnId);
                     }
                 }
             });
@@ -266,7 +276,7 @@ namespace Channeld
 
         #region Client Logic
 
-        private NetworkReader spawnMessageReader = new NetworkReader(new byte[0]);
+        //private NetworkReader spawnMessageReader = new NetworkReader(new byte[0]);
 
         private void InitClientConnection()
         {

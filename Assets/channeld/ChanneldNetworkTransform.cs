@@ -152,15 +152,27 @@ namespace Channeld
         // local authority client sends sync message to server for broadcasting
         protected virtual void OnClientToServerSync(Vector3? position, Quaternion? rotation, Vector3? scale)
         {
+            /* The sync can come from other server via channeld, so we should always apply the sync and let channeld worries about the authority.
+             * 
             // only apply if in client authority mode
             if (!clientAuthority) return;
+            */
 
+            if (position.HasValue) targetComponent.localPosition = position.Value;
+            if (rotation.HasValue) targetComponent.localRotation = rotation.Value;
+            if (scale.HasValue) targetComponent.localScale = scale.Value;
+            return;
+
+
+            /* Server applies the new transform directly - no interpolation.
+             * 
             // protect against ever growing buffer size attacks
             if (serverBuffer.Count >= bufferSizeLimit) return;
 
             // only player owned objects (with a connection) can send to
             // server. we can get the timestamp from the connection.
-            double timestamp = connectionToClient.remoteTimeStamp;
+            // FIXME: use NetworkTime.localTime if no player owned.
+            double timestamp = connectionToClient?.remoteTimeStamp ?? NetworkTime.localTime;
 
             // position, rotation, scale can have no value if same as last time.
             // saves bandwidth.
@@ -184,6 +196,7 @@ namespace Channeld
 
             // add to buffer (or drop if older than first element)
             SnapshotInterpolation.InsertIfNewEnough(snapshot, serverBuffer);
+            */
         }
 
         /*
@@ -289,6 +302,8 @@ namespace Channeld
                 lastServerSendTime = NetworkTime.localTime;
             }
 
+            /* Server applies the new transform directly - no interpolation.
+             * 
             // apply buffered snapshots IF client authority
             // -> in server authority, server moves the object
             //    so no need to apply any snapshots there.
@@ -312,6 +327,7 @@ namespace Channeld
                     ApplySnapshot(start, goal, computed);
                 }
             }
+            */
         }
 
         void UpdateClient()
@@ -605,6 +621,15 @@ namespace Channeld
             NetworkTime.PingFrequency = bufferTime;
 
             GameState.OnDataChanged += OnGameStateChanged;
+        }
+
+        private void Start()
+        {
+            if (isServer)
+            {
+                // Send the init state to channeld, even there's no change yet
+                GameState.SendTransformUpdate(netIdentity, false, targetComponent.localPosition, targetComponent.localRotation, targetComponent.localScale);
+            }
         }
 
         private void OnDestroy()

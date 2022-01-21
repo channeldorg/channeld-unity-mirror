@@ -9,6 +9,7 @@ namespace Channeld.Examples.Tanks
     {
         public TankChanneld tankPrefab;
         public int prespawnNum = 0;
+        public int batchSpawnNum = 10;
         private int index = 0;
 
         private void Awake()
@@ -23,16 +24,35 @@ namespace Channeld.Examples.Tanks
                 }
             }
 
-            if (prespawnNum > 0)
-            {
-                GameState.OnDataChanged += Prespawn;
-            }
+            TankGameState.OnGenericDataChanged += OnFullChannelDataReceived;
         }
 
-        private void Prespawn(uint channelId, GameState state, IMessage msg)
+        private void OnFullChannelDataReceived(uint channelId, TankGameChannelData data)
         {
-            GameState.OnDataChanged -= Prespawn;
-            ServerSpawn(prespawnNum);
+            TankGameState.OnGenericDataChanged -= OnFullChannelDataReceived;
+
+            if (!isServer)
+                return;
+
+            // Cases that there are tank states already exist when a server joins the channel:
+            // 1. It's a spatial channel and the server has been launched to load-balance the channel. The tank states could be either belong to player's tanks, or AI's.
+            // 2. The tank states were created by the previous owner of the channel. When disconnected from channeld, the server either failed to remove the states, or did that on purpose.
+            // For now, we create the AI tanks from the states.
+            foreach (var kv in data.TankStates)
+            {
+                TransformState transformState;
+                if (data.TransformStates.TryGetValue(kv.Key, out transformState))
+                {
+                    var tank = Instantiate(tankPrefab, transformState.GetUnityPosition() ?? Vector3.zero, transformState.GetUnityRotation() ?? Quaternion.identity);
+                    tank.health = kv.Value.Health;
+                    NetworkServer.Spawn(tank.gameObject);
+                }
+            }
+
+            if (prespawnNum > 0)
+            {
+                ServerSpawn(prespawnNum);
+            }
         }
 
         private void ServerSpawn(int num)
@@ -69,7 +89,7 @@ namespace Channeld.Examples.Tanks
                 }
                 else if (isServer)
                 {
-                    ServerSpawn(10);
+                    ServerSpawn(batchSpawnNum);
                 }
             }
         }

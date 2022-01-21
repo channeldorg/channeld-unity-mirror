@@ -149,10 +149,35 @@ namespace Channeld.Examples.Tanks
             };
         }
 
+        private void Start()
+        {
+            if (isServer)
+            {
+                // Send the init state to channeld, even there's no change yet
+                SerializeSyncVars(null, true);
+            }
+        }
+
         protected override bool SerializeSyncVars(NetworkWriter writer, bool initialState)
         {
             var updateData = new TankGameChannelData();
-            updateData.TankStates[netId] = new TankState() { Health = health };
+            var tankState = new TankState();
+            if (initialState)
+            {
+                tankState.Health = health;
+            }
+            else
+            {
+                if ((base.syncVarDirtyBits & 1L) != 0L)
+                {
+                    tankState.Health = health;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            updateData.TankStates[netId] = tankState;
             TankGameState.SendUpdate(netIdentity, updateData);
             return false;
         }

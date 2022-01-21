@@ -7,6 +7,13 @@ namespace Channeld.Examples.Tanks
     public class TankAIController : MonoBehaviour, ITankController
     {
         public TankChanneld tank;
+        public float FiringPossibility = 0.1f;
+        public float FiringStateDuration = 0.05f;
+        public float RotatingPossibility = 0.2f;
+        public float RotatingStateDuration = 1f;
+        public float MovingPossibility = 0.2f;
+        public float MovingStateDuration = 2f;
+        public float IdleStateDuration = 1f;
 
         enum State { Idle, Moving, Rotating, Firing }
         State state = State.Idle;
@@ -47,27 +54,28 @@ namespace Channeld.Examples.Tanks
                 }
 
                 var rnd = Random.value;
-                if (rnd < 0.1f)
+                float prob = 0;
+                if (rnd < (prob += FiringPossibility))
                 {
                     state = State.Firing;
-                    timer = 0.05f;
+                    timer = FiringStateDuration;
                 }
-                else if (rnd < 0.3f)
+                else if (rnd < (prob += RotatingPossibility))
                 {
                     state = State.Rotating;
                     dir = Random.Range(-1f, 1f);
-                    timer = 1f;
+                    timer = RotatingStateDuration;
                 }
-                else if (rnd < 0.5f)
+                else if (rnd < (prob += MovingPossibility))
                 {
                     state = State.Moving;
                     dir = Random.Range(-1f, 1f);
-                    timer = 2f;
+                    timer = MovingStateDuration;
                 }
                 else
                 {
                     state = State.Idle;
-                    timer = 1f;
+                    timer = IdleStateDuration;
                 }
             }
         }

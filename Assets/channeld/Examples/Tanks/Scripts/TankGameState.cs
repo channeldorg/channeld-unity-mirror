@@ -58,7 +58,14 @@ namespace Channeld.Examples.Tanks
                 TransformState transformState;
                 if (dstState.TransformStates.TryGetValue(kv.Key, out transformState))
                 {
-                    transformState.MergeFrom(kv.Value);
+                    // The default merge causes null position/rotation/scale overwriting the non-null value
+                    //transformState.MergeFrom(kv.Value);
+                    if (kv.Value.Position != null)
+                        transformState.Position = kv.Value.Position;
+                    if (kv.Value.Rotation != null)
+                        transformState.Rotation = kv.Value.Rotation;
+                    if (kv.Value.Position != null)
+                        transformState.Scale = kv.Value.Scale;
                 }
                 else
                 {

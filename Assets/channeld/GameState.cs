@@ -143,6 +143,9 @@ namespace Channeld
 
         public static void SendTransformUpdate(NetworkIdentity ni, bool removed, Vector3? position, Quaternion? rotation, Vector3? scale)
         {
+            if (!removed && position == null && rotation == null && scale == null)
+                return;
+
             var channelId = ChanneldTransport.GetOwningChannel(ni.netId);
             var instance = GetByChannelId(channelId);
             if (instance == null)

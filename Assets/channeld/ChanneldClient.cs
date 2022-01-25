@@ -271,110 +271,121 @@ namespace Channeld
             tcp.Close();
         }
 
+        private MemoryStream netBuffer = new MemoryStream();
+
         private void Receive()
         {
             while (netStream.CanRead)
             {
                 byte[] buffer = new byte[512];
-                using (MemoryStream ms = new MemoryStream())
+                do
                 {
-                    do
-                    {
-                        int bytesRead = netStream.Read(buffer, 0, buffer.Length);
-                        ms.Write(buffer, 0, bytesRead);
-                    }
-                    while (netStream.DataAvailable);
+                    int bytesRead = netStream.Read(buffer, 0, buffer.Length);
+                    netBuffer.Write(buffer, 0, bytesRead);
+                }
+                while (netStream.DataAvailable);
 
-                    if (ms.Length <= 5)
-                        continue;
+                if (netBuffer.Length <= 5)
+                    continue;
 
-                    var bytes = ms.ToArray();
-                    if (bytes[0] != 67)
-                    {
-                        Log.Error("Invalid tag: " + bytes[0]);
-                        continue;
-                    }
+                var bytes = netBuffer.ToArray();
+                if (bytes[0] != 67)
+                {
+                    Log.Error("Invalid tag: " + bytes[0]);
+                    // Discard the invalid packet
+                    netBuffer.SetLength(0);
+                    continue;
+                }
 
-                    int size = bytes[3];
-                    if (bytes[1] != 72)
-                    {
-                        size = size | bytes[1] << 16 | bytes[2] << 8;
-                    }
-                    else if (bytes[2] != 78)
-                    {
-                        size = size | bytes[2] << 8;
-                    }
+                int size = bytes[3];
+                if (bytes[1] != 72)
+                {
+                    size = size | bytes[1] << 16 | bytes[2] << 8;
+                }
+                else if (bytes[2] != 78)
+                {
+                    size = size | bytes[2] << 8;
+                }
 
-                    if (bytes.Length < size + 5)
-                    {
-                        Log.Error($"Segment doesn't have a complete packet, size in header: {size}, actual packet size: {bytes.Length - 5}");
-                        continue;
-                    }
+                if (bytes.Length < size + 5)
+                {
+                    Log.Warning($"[channeld] Segment doesn't have a complete packet, size in header: {size}, actual packet size: {bytes.Length - 5}");
+                    continue;
+                }
 
-                    var ros = new System.ReadOnlySpan<byte>(bytes, 5, bytes.Length - 5);
+                var ros = new System.ReadOnlySpan<byte>(bytes, 5, size);
 
-                    if (bytes[4] == (byte)CompressionType.Snappy)
-                    {
-                        try
-                        {
-                            ros = IronSnappy.Snappy.Decode(ros);
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error("Snappy.Decode: " + ex.ToString());
-                            continue;
-                        }
-                    }
-
-                    Packet p;
+                if (bytes[4] == (byte)CompressionType.Snappy)
+                {
                     try
                     {
-                        p = Packet.Parser.ParseFrom(ros);
+                        ros = IronSnappy.Snappy.Decode(ros);
                     }
                     catch (Exception ex)
                     {
-                        Log.Error("Packet.Parse: " + ex.ToString());
+                        Log.Error("[channeld] Snappy.Decode: " + ex.ToString());
+                        continue;
+                    }
+                }
+
+                Packet p;
+                try
+                {
+                    p = Packet.Parser.ParseFrom(ros);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error("[channeld] Packet.Parse: " + ex.ToString());
+                    continue;
+                }
+
+                foreach (var mp in p.Messages)
+                {
+                    MessageHandlerEntry entry;
+                    if (!handlers.TryGetValue(mp.MsgType, out entry))
+                    {
+                        if (mp.MsgType >= (uint)MessageType.UserSpaceStart)
+                        {
+                            entry = userSpaceMessageHandlerEntry;
+                        }
+                        else
+                        {
+                            Log.Error("[channeld] No parser registered for msgType:" + mp.MsgType);
+                            continue;
+                        }
+                    }
+
+                    IMessage msg;
+                    try
+                    {
+                        msg = entry.parser.ParseFrom(mp.MsgBody);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("[channeld] Message.Parse: " + ex.ToString());
                         continue;
                     }
 
-                    foreach (var mp in p.Messages)
+                    incomingQueue.Add(new MessageQueueEntry()
                     {
-                        MessageHandlerEntry entry;
-                        if (!handlers.TryGetValue(mp.MsgType, out entry))
-                        {
-                            if (mp.MsgType >= (uint)MessageType.UserSpaceStart)
-                            {
-                                entry = userSpaceMessageHandlerEntry;
-                            }
-                            else
-                            {
-                                Log.Error("No parser registered for msgType:" + mp.MsgType);
-                                continue;
-                            }
-                        }
+                        msg = msg,
+                        channelId = mp.ChannelId,
+                        stubId = mp.StubId,
+                        handleFunc = entry.handleFunc,
+                    });
 
-                        IMessage msg;
-                        try
-                        {
-                            msg = entry.parser.ParseFrom(mp.MsgBody);
-                        }
-                        catch(Exception ex)
-                        {
-                            Log.Error("Message.Parse: " + ex.ToString());
-                            continue;
-                        }
+                    if (mp.MsgType < (uint)MessageType.UserSpaceStart || ShowUserSpaceMessageLog)
+                        Log.Debug($"[channeld] Receive message(channelId={mp.ChannelId}, stubId={mp.StubId}, type={mp.MsgType}, bodySize={mp.MsgBody.Length}): {msg}");
+                }
 
-                        incomingQueue.Add(new MessageQueueEntry()
-                        {
-                            msg = msg,
-                            channelId = mp.ChannelId,
-                            stubId = mp.StubId,
-                            handleFunc = entry.handleFunc,
-                        });
-
-                        if (mp.MsgType < (uint)MessageType.UserSpaceStart || ShowUserSpaceMessageLog)
-                            Log.Debug($"[channeld] Receive message(channelId={mp.ChannelId}, stubId={mp.StubId}, type={mp.MsgType}, bodySize={mp.MsgBody.Length}): {msg}");
-                    }
+                // Reset the buffer after read the packet completely
+                netBuffer.SetLength(0);
+                int leftSize = bytes.Length - size - 5;
+                if (leftSize > 0)
+                {
+                    // Write in the leftover for future use
+                    netBuffer.Write(bytes, size + 5, leftSize);
+                    Log.Warning($"[channeld] Remained {leftSize} bytes after reading the packet.");
                 }
             }
         }

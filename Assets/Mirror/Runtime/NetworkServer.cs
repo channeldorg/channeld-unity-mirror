@@ -377,7 +377,7 @@ namespace Mirror
             if (connections.ContainsKey(connectionId))
             {
                 Transport.activeTransport.ServerDisconnect(connectionId);
-                // Debug.Log($"Server connectionId {connectionId} already in use...kicked client");
+                Debug.Log($"Server connectionId {connectionId} already in use...kicked client");
                 return;
             }
 

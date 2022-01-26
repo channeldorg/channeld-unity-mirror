@@ -82,15 +82,24 @@ namespace Channeld
             {
                 switch (args[i])
                 {
-					case "-loglevel":
-						int level;
-						if (int.TryParse(args[i + 1], out level))
-						{
-							logLevel = (LogLevel)level;
-							Log.Info($"Read LogLevel from command line: {logLevel}");
-							continue;
-						}
-						break;
+                    case "-loglevel":
+                        int level;
+                        if (int.TryParse(args[i + 1], out level))
+                        {
+                            logLevel = (LogLevel)level;
+                            Log.Info($"Read LogLevel from command line: {logLevel}");
+                            continue;
+                        }
+                        break;
+                    case "-maxconn":
+                        int maxConn;
+                        if (int.TryParse(args[i + 1], out maxConn))
+                        {
+                            NetworkManager.singleton.maxConnections = maxConn;
+                            Log.Info($"Read MaxConnections from command line: {maxConn}");
+                            continue;
+                        }
+                        break;
                     case "-sa":
                         ServerAddressToChanneld = args[i + 1];
                         Log.Info($"Read ServerAddressToChanneld from command line: {ServerAddressToChanneld}");

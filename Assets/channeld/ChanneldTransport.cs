@@ -18,49 +18,57 @@ namespace Channeld
         public string ServerAddressToChanneld = "127.0.0.1";
         public int ServerPortToChanneld = 11288;
         public int ServerConnectTimeoutMs = 1000;
-        public ChannelType ServerChannelType = ChannelType.Global;
+        //public ChannelType ServerChannelType = ChannelType.Unknown;
         public string ServerChannelMetadata = "MirrorServer";
-        public uint ServerFanoutIntervalMs = 10;
+        //public uint ServerFanoutIntervalMs = 10;
 
         [Header("Client")]
         // The client connects to the address Mirror passes to it, generally NetworkManager.networkAddress
         //public string ClientAddressToChanneld = "127.0.0.1";
         public int ClientPortToChanneld = 12108;
         public int ClientConnectTimeoutMs = 3000;
-        public uint ClientFanoutIntervalMs = 50;
+        //public uint ClientFanoutIntervalMs = 50;
 
-        private ChanneldClient serverConnection;
-        private ChanneldClient clientConnection;
+        private ChanneldConnection serverConnection;
+        private ChanneldConnection clientConnection;
 
-        // The default channel the server created or owned.
-        public uint? ServerOwnedChannelId { get; private set; } = null;
-        // The default channel the client sends messages to.
-        public uint? ClientTargetChannelId { get; private set; } = null;
+        // The connection has been authenticated by channeld and is ready to set up the channels.
+        public static Action<ChanneldConnection> OnAuthenticated;
+        // The GLOBAL channel owner (a.k.a. Master Server) receives ALL the AuthResultMessage. It's for handling cases like 
+        // 1) repeated unsuccessful login attempts
+        // 2) the clients don't have authority to sub, so the Master Server will sub for them.
+        public static Action<AuthResultMessage> OnGlobalOwnerReceivedAuthResult;
+
+        // The channelId the ServerForwardMessage should be send to when calling ServerSend() 
+        public static uint? ServerSendChannelId { get; internal set; } = null;
+        // The channelId the ServerForwardMessage should be send to when calling ClientSend() 
+        public static uint? ClientSendChannelId { get; internal set; } = null;
 
         // The spawned object's netId mapping to the id of the channel that owns the object.
         private static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
 
-        public static void SetOwningChannel(uint netId)
+        public static uint SetOwningChannel(uint netId)
         {
             var transport = Transport.activeTransport as ChanneldTransport;
             uint channelId = 0;
-            if (transport.serverConnection != null && transport.ServerOwnedChannelId != null)
-                channelId = transport.ServerOwnedChannelId.Value;
-            else if (transport.clientConnection != null && transport.ClientTargetChannelId != null)
-                channelId = transport.ClientTargetChannelId.Value;
+            if (transport.serverConnection != null && ServerSendChannelId != null)
+                channelId = ServerSendChannelId.Value;
+            else if (transport.clientConnection != null && ClientSendChannelId != null)
+                channelId = ClientSendChannelId.Value;
             netIdOwningChannels[netId] = channelId;
 
             Log.Info($"Set up mapping of netId:{netId} -> channelId:{channelId}");
+            return channelId;
         }
 
         public static uint GetOwningChannel(uint netId)
         {
             var transport = Transport.activeTransport as ChanneldTransport;
             uint channelId = 0;
-            if (transport.serverConnection != null && transport.ServerOwnedChannelId != null)
-                channelId = transport.ServerOwnedChannelId.Value;
-            else if (transport.clientConnection != null && transport.ClientTargetChannelId != null)
-                channelId = transport.ClientTargetChannelId.Value;
+            if (transport.serverConnection != null && ServerSendChannelId != null)
+                channelId = ServerSendChannelId.Value;
+            else if (transport.clientConnection != null && ClientSendChannelId != null)
+                channelId = ClientSendChannelId.Value;
             netIdOwningChannels.TryGetValue(netId, out channelId);
             return channelId;
         }
@@ -111,13 +119,13 @@ namespace Channeld
                             continue;
                         }
                         break;
-                    case "-sc":
-                        if (Enum.TryParse<ChannelType>(args[i + 1], out ServerChannelType))
-                        {
-                            Log.Info($"Read ServerChannelType from command line: {ServerChannelType}");
-                            continue;
-                        }
-                        break;
+                    //case "-sc":
+                    //    if (Enum.TryParse<ChannelType>(args[i + 1], out ServerChannelType))
+                    //    {
+                    //        Log.Info($"Read ServerChannelType from command line: {ServerChannelType}");
+                    //        continue;
+                    //    }
+                    //    break;
                     case "-cp":
                         if (int.TryParse(args[i + 1], out ClientPortToChanneld))
                         {
@@ -138,24 +146,25 @@ namespace Channeld
 
         public override void ServerStart()
         {
-            serverConnection = new ChanneldClient();
+            serverConnection = new ChanneldConnection();
             serverConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             serverConnection.ConnectTimeoutMs = ServerConnectTimeoutMs;
             serverConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
             {
                 this.OnServerDataReceived((int)clientConnId, new ArraySegment<byte>(payload), Channels.Reliable);
             };
-            serverConnection.AddMessageHandler((uint)MessageType.CreateChannel, (client, channelId, msg) =>
+            /* Moved to ServerView
+            serverConnection.AddMessageHandler((uint)MessageType.CreateChannel, (conn, channelId, msg) =>
             {
                 var resultMsg = (CreateChannelResultMessage)msg;
-                if (resultMsg.OwnerConnId == client.Id)
+                if (resultMsg.OwnerConnId == conn.Id)
                 {
                     // Owned the target channel
                     ServerOwnedChannelId = channelId;
                     Log.Info($"Server owned channel: {ServerOwnedChannelId}");
                 }
             });
-            serverConnection.AddMessageHandler((uint)MessageType.RemoveChannel, (client, channelId, msg) =>
+            serverConnection.AddMessageHandler((uint)MessageType.RemoveChannel, (conn, channelId, msg) =>
             {
                 var removeMsg = (RemoveChannelMessage)msg;
                 Log.Info("Channel removed: " + channelId);
@@ -165,26 +174,29 @@ namespace Channeld
                     ServerOwnedChannelId = null;
                 }
             });
-            serverConnection.AddMessageHandler((uint)MessageType.SubToChannel, (client, channelId, msg) =>
+            serverConnection.AddMessageHandler((uint)MessageType.SubToChannel, (conn, channelId, msg) =>
             {
                 var resultMsg = (SubscribedToChannelResultMessage)msg;
-                if (resultMsg.ConnId != client.Id)
+                if (resultMsg.ConnId != conn.Id)
                 {
-                    // A client subscribed to the target channel
-                    Log.Info($"Server-owned channel({resultMsg.ChannelType} {channelId}) has client sub: {resultMsg.ConnId}");
-                    if (resultMsg.ChannelType == ServerChannelType)
+                    Log.Info($"Server received sub of other conn({resultMsg.ConnId}), connType={resultMsg.ConnType}, channelType={resultMsg.ChannelType}, channelId={channelId}");
+                    if (resultMsg.ConnType == ConnectionType.Client)
                     {
-                        if (!NetworkServer.connections.ContainsKey((int)resultMsg.ConnId))
-                            this.OnServerConnected.Invoke((int)resultMsg.ConnId);
+                        // A client subscribed to the target channel
+                        if (resultMsg.ChannelType == ServerChannelType)
+                        {
+                            if (!NetworkServer.connections.ContainsKey((int)resultMsg.ConnId))
+                                this.OnServerConnected.Invoke((int)resultMsg.ConnId);
+                        }
                     }
                 }
             });
-            serverConnection.AddMessageHandler((uint)MessageType.UnsubFromChannel, (client, channelId, msg) =>
+            serverConnection.AddMessageHandler((uint)MessageType.UnsubFromChannel, (conn, channelId, msg) =>
             {
-                var subMsg = (UnsubscribedFromChannelMessage)msg;
-                if (subMsg.ConnId == client.Id)
+                var resultMsg = (UnsubscribedFromChannelResultMessage)msg;
+                if (resultMsg.ConnId == conn.Id)
                 {
-                    Log.Info("Server unsub from channel: " + channelId);
+                    Log.Info("Server unsubbed from channel: " + channelId);
                     if (ServerOwnedChannelId == channelId)
                     {
                         Log.Info("Server no longer owns the channel: " + ServerOwnedChannelId);
@@ -193,11 +205,15 @@ namespace Channeld
                 }
                 else
                 {
-                // A client unsubscribed from the target channel
-                this.OnServerDisconnected.Invoke((int)subMsg.ConnId);
-                    Log.Info("Server-owned channel has client unsub: " + subMsg.ConnId);
+                    Log.Info($"Server received unsub of other conn({resultMsg.ConnId}), connType={resultMsg.ConnType}, channelType={resultMsg.ChannelType}, channelId={channelId}");
+                    if (resultMsg.ConnType == ConnectionType.Client)
+                    {
+                        // A client unsubscribed from the target channel
+                        this.OnServerDisconnected.Invoke((int)resultMsg.ConnId);
+                    }
                 }
             });
+            */
 
             serverConnection.Connect(ServerAddressToChanneld, ServerPortToChanneld, () =>
             {
@@ -205,19 +221,40 @@ namespace Channeld
 
                 serverConnection.Auth("test", "test", (msg) =>
                 {
-                    if (msg.Result == AuthResultMessage.Types.AuthResult.Successful)
+                    if (serverConnection.Id == msg.ConnId)
                     {
-                        Log.Info($"Server authenticated, connId: {msg.ConnId}");
-                        var gameState = GameState.GetByChannelType(ServerChannelType);
-                        serverConnection.CreateChannel(ServerChannelType, ServerChannelMetadata, new ChannelSubscriptionOptions
+                        if (msg.Result == AuthResultMessage.Types.AuthResult.Successful)
                         {
-                            CanUpdateData = true,
-                            FanOutIntervalMs = ServerFanoutIntervalMs
-                        }, gameState.SetUpInitData(), gameState.SetUpMergeOptions());
+                            Log.Info($"Server authenticated, connId: {msg.ConnId}");
+                            /*
+                            // The master server creates(owns) the Global channel after sign in.
+                            if (ServerChannelType == ChannelType.Global)
+                            {
+                                serverConnection.CreateChannel(ServerChannelType, ServerChannelMetadata, new ChannelSubscriptionOptions
+                                {
+                                    CanUpdateData = true,
+                                    FanOutIntervalMs = ServerFanoutIntervalMs
+                                }, callback: (_) => OnServerAuthenticated?.Invoke(serverConnection));
+                            }
+                            // Other servers sub to the Global channel before creating their own channels.
+                            else
+                            {
+                                serverConnection.SubToChannel(ChanneldConnection.GlobalChannelId, callback: (_) =>
+                                {
+                                    OnServerAuthenticated?.Invoke(serverConnection);
+                                });
+                            }
+                            */
+                            OnAuthenticated?.Invoke(serverConnection);
+                        }
+                        else
+                        {
+                            this.OnServerError((int)msg.ConnId, new Exception("Authentication failed:" + msg.Result.ToString()));
+                        }
                     }
                     else
                     {
-                        this.OnServerError((int)msg.ConnId, new Exception("Authentication failed:" + msg.Result.ToString()));
+                        OnGlobalOwnerReceivedAuthResult?.Invoke(msg);
                     }
                 });
             }, () =>
@@ -227,11 +264,11 @@ namespace Channeld
             });
         }
 
-        public override void ServerSend(int connectionId, ArraySegment<byte> segment, int channelId)
+        public override void ServerSend(int connectionId, ArraySegment<byte> segment, int reliable)
         {
             var msgType = MirrorUtils.GetChanneldMsgType(segment);
             // Send the packet to channeld and forward to the client connection.
-            serverConnection?.Send(ServerOwnedChannelId ?? ChanneldClient.GlobalChannelId, msgType, new ServerForwardMessage()
+            serverConnection?.Send(ServerSendChannelId ?? ChanneldConnection.GlobalChannelId, msgType, new ServerForwardMessage()
             {
                 ClientConnId = (uint)connectionId,
                 Payload = ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count)
@@ -267,7 +304,7 @@ namespace Channeld
 
         public override void ServerDisconnect(int connectionId)
         {
-            serverConnection?.Send(ChanneldClient.GlobalChannelId, (uint)MessageType.Disconnect, new DisconnectMessage()
+            serverConnection?.Send(ChanneldConnection.GlobalChannelId, (uint)MessageType.Disconnect, new DisconnectMessage()
             {
                 ConnId = (uint)connectionId
             });
@@ -289,7 +326,7 @@ namespace Channeld
 
         private void InitClientConnection()
         {
-            clientConnection = new ChanneldClient();
+            clientConnection = new ChanneldConnection();
             clientConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             clientConnection.ConnectTimeoutMs = ClientConnectTimeoutMs;
             clientConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
@@ -308,33 +345,40 @@ namespace Channeld
                 var data = new ArraySegment<byte>(payload);
                 this.OnClientDataReceived(data, Channels.Reliable);
             };
+            /* Moved to ClientView
             clientConnection.AddMessageHandler((uint)MessageType.SubToChannel, (client, channelId, msg) =>
             {
                 var resultMsg = msg as SubscribedToChannelResultMessage;
                 if (resultMsg.ConnId == client.Id && resultMsg.ChannelType == ServerChannelType)
                 {
-                    this.OnClientConnected?.Invoke();
-
-                    ClientTargetChannelId = channelId;
-
-                    if (NetworkManager.singleton.authenticator != null)
-                    {
-                        // Fake an AuthRespondMessage and pass it to NetworkClient.OnTransportData()
-                        using (PooledNetworkWriter writer = NetworkWriterPool.GetWriter())
-                        {
-                            var arm = new Mirror.Authenticators.BasicAuthenticator.AuthResponseMessage()
-                            {
-                                code = 100,
-                                message = "Success"
-                            };
-
-                            MessagePacking.Pack(arm, writer);
-
-                            this.OnClientDataReceived(writer.ToArraySegment(), Channels.Reliable);
-                        }
-                    }
+                    OnClientSubToChannel(channelId);
                 }
             });
+            */
+        }
+
+        public void OnClientSubToChannel(uint channelId)
+        {
+            this.OnClientConnected?.Invoke();
+
+            ClientSendChannelId = channelId;
+
+            if (NetworkManager.singleton.authenticator != null)
+            {
+                // Fake an AuthRespondMessage and pass it to NetworkClient.OnTransportData()
+                using (PooledNetworkWriter writer = NetworkWriterPool.GetWriter())
+                {
+                    var arm = new Mirror.Authenticators.BasicAuthenticator.AuthResponseMessage()
+                    {
+                        code = 100,
+                        message = "Success"
+                    };
+
+                    MessagePacking.Pack(arm, writer);
+
+                    this.OnClientDataReceived(writer.ToArraySegment(), Channels.Reliable);
+                }
+            }
         }
 
         private void OnClientConnectedChanneld()
@@ -351,12 +395,7 @@ namespace Channeld
                         Log.Info($"Client authenticated, connId: {msg.ConnId}");
                         //this.OnClientConnected?.Invoke();
 
-                        // Sub to the global channel, and then the server will proceed the client connection logic.
-                        clientConnection.SubToChannel(ChanneldClient.GlobalChannelId, new ChannelSubscriptionOptions()
-                        {
-                            CanUpdateData = true,
-                            FanOutIntervalMs = ClientFanoutIntervalMs
-                        });
+                        OnAuthenticated?.Invoke(clientConnection);
                     }
                     else
                     {
@@ -390,7 +429,7 @@ namespace Channeld
 
         public override void ClientSend(ArraySegment<byte> segment, int channelId)
         {
-            clientConnection?.SendRaw(ClientTargetChannelId ?? ChanneldClient.GlobalChannelId, 
+            clientConnection?.SendRaw(ClientSendChannelId ?? ChanneldConnection.GlobalChannelId, 
                 MirrorUtils.GetChanneldMsgType(segment),
                 ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count));
         }

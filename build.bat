@@ -1,2 +1,3 @@
-Unity -batchmode -nographics -projectPath . -executeMethod BuildScript.BuildLinuxServer -logFile build.log -quit
-docker build -t channeld/tanks .
+build_server.bat
+build_docker.bat
+pause

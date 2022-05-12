@@ -18,9 +18,9 @@ namespace Channeld
         public static Action<string> Error = Console.Error.WriteLine;
     }
 
-    public delegate void MessageHandlerFunc(ChanneldClient client, uint channelId, IMessage msg);
+    public delegate void MessageHandlerFunc(ChanneldConnection conn, uint channelId, IMessage msg);
 
-    public class ChanneldClient
+    public class ChanneldConnection
     {
         public const uint GlobalChannelId = 0;
 
@@ -49,7 +49,7 @@ namespace Channeld
         public int ConnectTimeoutMs { get; set; } = 3000;
         public uint Id { get; private set; } = 0;
         public CompressionType CompressionType { get; private set; } = CompressionType.NoCompression;
-        public HashSet<uint> SubscribedChannels { get; private set; } = new HashSet<uint>();
+        public Dictionary<uint, SubscribedToChannelResultMessage> SubscribedChannels { get; private set; } = new Dictionary<uint, SubscribedToChannelResultMessage>();
         public HashSet<uint> OwnedChannels { get; private set; } = new HashSet<uint>();
         public Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo> ListedChannels { get; private set; } =
             new Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo>();
@@ -57,7 +57,6 @@ namespace Channeld
         public Action<uint, uint, byte[]> UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) => { };
         public bool ShowUserSpaceMessageLog { get; set; }
         public bool Connected => tcp.Connected;
-        public static Action<ChanneldClient> OnAuthenticated;
 
         private TcpClient tcp;
         private NetworkStream netStream;
@@ -74,9 +73,9 @@ namespace Channeld
             {0, default}
         };
 
-        public static ChanneldClient Instance {get; private set;}
+        public static ChanneldConnection Instance {get; private set;}
 
-        public ChanneldClient()
+        public ChanneldConnection()
         {
             // FIXME: Not thread-safe
             if (Instance == null)
@@ -102,22 +101,24 @@ namespace Channeld
             SetMessageHandlerEntry((uint)MessageType.RemoveChannel, RemoveChannelMessage.Parser, HandleRemoveChannel);
             SetMessageHandlerEntry((uint)MessageType.ListChannel, ListChannelResultMessage.Parser, HandleListChannel);
             SetMessageHandlerEntry((uint)MessageType.SubToChannel, SubscribedToChannelResultMessage.Parser, HandleSubToChannel);
-            SetMessageHandlerEntry((uint)MessageType.UnsubFromChannel, UnsubscribedFromChannelMessage.Parser, HandleUnsubToChannel);
+            SetMessageHandlerEntry((uint)MessageType.UnsubFromChannel, UnsubscribedFromChannelResultMessage.Parser, HandleUnsubToChannel);
             SetMessageHandlerEntry((uint)MessageType.ChannelDataUpdate, ChannelDataUpdateMessage.Parser);
         }
 
-        private void HandleAuth(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleAuth(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var resultMsg = (AuthResultMessage)msg;
             if (resultMsg.Result == AuthResultMessage.Types.AuthResult.Successful)
             {
-                Id = resultMsg.ConnId;
-                CompressionType = resultMsg.CompressionType;
-                OnAuthenticated?.Invoke(this);
+                if (Id == 0)
+                {
+                    Id = resultMsg.ConnId;
+                    CompressionType = resultMsg.CompressionType;
+                }
             }
         }
 
-        private void HandleCreateChannel(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleCreateChannel(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var resultMsg = (CreateChannelResultMessage)msg;
             if (resultMsg.OwnerConnId == Id)
@@ -133,7 +134,7 @@ namespace Channeld
             };
         }
 
-        private void HandleRemoveChannel(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleRemoveChannel(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var removeMsg = (RemoveChannelMessage)msg;
             SubscribedChannels.Remove(removeMsg.ChannelId);
@@ -141,7 +142,7 @@ namespace Channeld
             ListedChannels.Remove(removeMsg.ChannelId);
         }
 
-        private void HandleListChannel(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleListChannel(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var resultMsg = msg as ListChannelResultMessage;
             foreach (var channelInfo in resultMsg.Channels)
@@ -150,30 +151,31 @@ namespace Channeld
             }
         }
 
-        private void HandleSubToChannel(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleSubToChannel(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var subMsg = (SubscribedToChannelResultMessage)msg;
-            if (subMsg.ConnId == client.Id)
+            if (subMsg.ConnId == conn.Id)
             {
-                SubscribedChannels.Add(channelId);
+                SubscribedChannels.Add(channelId, subMsg);
             }
         }
 
-        private void HandleUnsubToChannel(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleUnsubToChannel(ChanneldConnection conn, uint channelId, IMessage msg)
         {
-            var unsubMsg = (UnsubscribedFromChannelMessage)msg;
-            if (unsubMsg.ConnId == client.Id)
+            var unsubMsg = (UnsubscribedFromChannelResultMessage)msg;
+            if (unsubMsg.ConnId == conn.Id)
             {
-                SubscribedChannels.Add(channelId);
+                SubscribedChannels.Remove(channelId);
             }
         }
 
-        private void HandleServerForwardMessage(ChanneldClient client, uint channelId, IMessage msg)
+        private void HandleServerForwardMessage(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var usm = (ServerForwardMessage)msg;
             UserSpaceMessageHandleFunc(channelId, usm.ClientConnId, usm.Payload.ToByteArray());
         }
 
+        // Remarks: handleFunc will always be invoked BEFORE the RPC callback
         public void SetMessageHandlerEntry(uint msgType, MessageParser parser, MessageHandlerFunc handleFunc = null)
         {
             handlers[msgType] = new MessageHandlerEntry()
@@ -189,6 +191,7 @@ namespace Channeld
             };
         }
 
+        // Remarks: handleFunc will always be invoked BEFORE the RPC callback
         public void AddMessageHandler(uint msgType, MessageHandlerFunc handleFunc)
         {
             MessageHandlerEntry entry;
@@ -401,6 +404,7 @@ namespace Channeld
             return stubId;
         }
 
+        // Remarks: callback will always be invoked AFTER the message handler function
         public void SendRaw(uint channelId, uint msgType, ByteString msgBody, BroadcastType broadcast = BroadcastType.NoBroadcast, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
         {
             uint stubId = callback == null && tcs == null ? 0 : AddRpcCallback(callback, tcs);
@@ -418,6 +422,7 @@ namespace Channeld
                 Log.Debug($"[channeld] Send message(channelId={channelId}, stubId={stubId}, type={msgType}, bodySize={msgBody.Length})");
         }
 
+        // Remarks: callback will always be invoked AFTER the message handler function
         public void Send(uint channelId, uint msgType, IMessage msg, BroadcastType broadcast = BroadcastType.NoBroadcast, MessageHandlerFunc callback = null, TaskCompletionSource<IMessage> tcs = null)
         {
             SendRaw(channelId, msgType, msg.ToByteString(), broadcast, callback, tcs);

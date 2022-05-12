@@ -24,12 +24,12 @@ namespace Channeld.Examples.Tanks
                 }
             }
 
-            TankGameState.OnGenericDataChanged += OnFullChannelDataReceived;
+            TankChannelDataProvider.OnGenericDataChanged += OnFullChannelDataReceived;
         }
 
         private void OnFullChannelDataReceived(uint channelId, TankGameChannelData data)
         {
-            TankGameState.OnGenericDataChanged -= OnFullChannelDataReceived;
+            TankChannelDataProvider.OnGenericDataChanged -= OnFullChannelDataReceived;
 
             if (!isServer)
                 return;

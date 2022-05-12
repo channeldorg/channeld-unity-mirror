@@ -570,15 +570,68 @@ namespace Channeld
 
         void ServerToClientSync(Vector3? position, Quaternion? rotation, Vector3? scale)
         {
-            GameState.SendTransformUpdate(netIdentity, false, position, rotation, scale);
+            //ChannelDataProvider.SendTransformUpdate(netIdentity, false, position, rotation, scale);
+            SendTransformUpdate(position, rotation, scale);
         }
 
         void ClientToServerSync(Vector3? position, Quaternion? rotation, Vector3? scale)
         {
-            GameState.SendTransformUpdate(netIdentity, false, position, rotation, scale);
+            //ChannelDataProvider.SendTransformUpdate(netIdentity, false, position, rotation, scale);
+            SendTransformUpdate(position, rotation, scale);
         }
 
-        private void OnGameStateChanged(uint channelId, GameState state, IMessage updateData)
+        private void SendTransformUpdate(Vector3? position, Quaternion? rotation, Vector3? scale)
+        {
+            if (transformStateProvider == null)
+                return;
+
+            transformStateProvider.UpdateTransform(new TransformState()
+            {
+                Position = position.HasValue ? new Vector3f() { X = position.Value.x, Y = position.Value.y, Z = position.Value.z } : null,
+                Rotation = rotation.HasValue ? new Vector4f() { X = rotation.Value.x, Y = rotation.Value.y, Z = rotation.Value.z, W = rotation.Value.w } : null,
+                Scale = scale.HasValue ? new Vector3f() { X = scale.Value.x, Y = scale.Value.y, Z = scale.Value.z } : null
+            });
+        }
+
+        private void OnTransformUpdate(TransformState state)
+        {
+            if (isClient)
+            {
+                OnServerToClientSync(
+                    state.GetUnityPosition(),
+                    state.GetUnityRotation(),
+                    state.GetUnityScale());
+            }
+            if (isServer)
+            {
+                OnClientToServerSync(
+                    state.GetUnityPosition(),
+                    state.GetUnityRotation(),
+                    state.GetUnityScale());
+            }
+        }
+
+        ITransformStateProvider transformStateProvider;
+
+        private void Awake()
+        {
+            /* ChannelView refactoring
+            // We need to utilize the PingMessage to sync the remote timestamp, 
+            // otherwise if there's no other Mirror message, the remote timestamp will never get updated,
+            // and the new snapshot can never be buffered, so SnapshotInterpolation.Compute always returns false.
+            NetworkTime.PingFrequency = bufferTime;
+
+            ChannelDataProvider.OnDataChanged += OnGameStateChanged;
+            */
+
+            transformStateProvider = GetComponent<ITransformStateProvider>();
+            if (transformStateProvider != null)
+                transformStateProvider.OnTransformUpdated += OnTransformUpdate;
+        }
+
+        /* ChannelView refactoring
+
+        private void OnGameStateChanged(uint channelId, ChannelDataProvider state, IMessage updateData)
         {
             var transformUpdate = state.GetTransformUpdateFromChannelData(updateData, netIdentity);
             if (transformUpdate == null)
@@ -597,30 +650,7 @@ namespace Channeld
                     transformUpdate.Position,
                     transformUpdate.Rotation,
                     transformUpdate.Scale);
-
-                /* With channeld, there's no need to send the state to all other clients, as channeld takes care of the pub/sub.
-                 * 
-                //For client authority, immediately pass on the client snapshot to all other
-                //clients instead of waiting for server to send its snapshots.
-                if (clientAuthority)
-                {
-                    ServerToClientSync(
-                        transformUpdate.Position,
-                        transformUpdate.Rotation,
-                        transformUpdate.Scale);
-                 }
-                */
             }
-        }
-
-        private void Awake()
-        {
-            // We need to utilize the PingMessage to sync the remote timestamp, 
-            // otherwise if there's no other Mirror message, the remote timestamp will never get updated,
-            // and the new snapshot can never be buffered, so SnapshotInterpolation.Compute always returns false.
-            NetworkTime.PingFrequency = bufferTime;
-
-            GameState.OnDataChanged += OnGameStateChanged;
         }
 
         private void Start()
@@ -628,15 +658,38 @@ namespace Channeld
             if (isServer)
             {
                 // Send the init state to channeld, even there's no change yet
-                GameState.SendTransformUpdate(netIdentity, false, targetComponent.localPosition, targetComponent.localRotation, targetComponent.localScale);
+                ChannelDataProvider.SendTransformUpdate(netIdentity, false, targetComponent.localPosition, targetComponent.localRotation, targetComponent.localScale);
             }
         }
+        */
 
         private void OnDestroy()
         {
-            GameState.OnDataChanged -= OnGameStateChanged;
-            GameState.SendTransformUpdate(netIdentity, true, null, null, null);
+            /* ChannelView refactoring
+            ChannelDataProvider.OnDataChanged -= OnGameStateChanged;
+            ChannelDataProvider.SendTransformUpdate(netIdentity, true, null, null, null);
             ChanneldTransport.ResetOwningChannel(netId);
+            */
+
+            if (transformStateProvider != null)
+                transformStateProvider.OnTransformUpdated -= OnTransformUpdate;
+        }
+    }
+    public static class TransformStateExtension
+    {
+        public static Vector3? GetUnityPosition(this TransformState state)
+        {
+            return state.Position == null ? null : new Vector3?(new Vector3(state.Position.X, state.Position.Y, state.Position.Z));
+        }
+
+        public static Quaternion? GetUnityRotation(this TransformState state)
+        {
+            return state.Rotation == null ? null : new Quaternion?(new Quaternion(state.Rotation.X, state.Rotation.Y, state.Rotation.Z, state.Rotation.W));
+        }
+
+        public static Vector3? GetUnityScale(this TransformState state)
+        {
+            return state.Scale == null ? null : new Vector3?(new Vector3(state.Scale.X, state.Scale.Y, state.Scale.Z));
         }
     }
 }

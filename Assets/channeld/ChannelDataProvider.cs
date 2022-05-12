@@ -14,32 +14,42 @@ namespace Channeld
         public Vector3? Scale;
     }
 
+    public interface IChannelDataProvider
+    {
+        System.Type GetChannelDataType();
+        bool UpdateChannelData(IMessage data);
+        void OnChannelDataUpdated(in IMessage data);
+    }
+
+    /*
+    public interface IChannelDataProvider<T> : IChannelDataProvider where T : IMessage<T>
+    {
+        bool UpdateChannelData(T data);
+        void OnChannelDataUpdated(in T data);
+    }
+    */
+
+    public interface ITransformStateProvider
+    {
+        void UpdateTransform(TransformState state);
+        Action<TransformState> OnTransformUpdated {get; set;}
+    }
+
     // Accessor of all static methods.
-    // DO NOT inherit from this class. Use GameState<T> instead.
-    public abstract class GameState : MonoBehaviour
+    // DO NOT inherit from this class. Use ChannelDataProvider<T> instead.
+    public abstract class ChannelDataProvider : MonoBehaviour
     {
         public ChannelType channelType;
         public uint ChannelId { get; protected set; }
 
-        protected ChanneldClient client;
+        protected ChanneldConnection client;
 
         private IMessage bufferedUpdate;
 
-        protected static Dictionary<ChannelType, GameState> statesByChannelType = new Dictionary<ChannelType, GameState>();
-        public static GameState GetByChannelType(ChannelType channelType)
+        protected static Dictionary<uint, ChannelDataProvider> statesInChannels = new Dictionary<uint, ChannelDataProvider>();
+        public static ChannelDataProvider GetByChannelId(uint channelId)
         {
-            GameState instance;
-            if (statesByChannelType.TryGetValue(channelType, out instance))
-            {
-                return instance;
-            }
-            return null;
-        }
-
-        protected static Dictionary<uint, GameState> statesInChannels = new Dictionary<uint, GameState>();
-        public static GameState GetByChannelId(uint channelId)
-        {
-            GameState instance;
+            ChannelDataProvider instance;
             if (statesInChannels.TryGetValue(channelId, out instance))
             {
                 return instance;
@@ -47,21 +57,14 @@ namespace Channeld
             return null;
         }
 
-        public static Action<uint, GameState, IMessage> OnDataChanged;
+        public static Action<uint, ChannelDataProvider, IMessage> OnDataChanged;
 
         protected virtual void Awake()
         {
-            if (statesByChannelType.ContainsKey(channelType))
-            {
-                Log.Error($"GameState with ChannelType '{channelType}' alreadys exists. There can only be one GameState per ChannelType. Object name: {gameObject.name}");
-                return;
-            }
-            statesByChannelType[channelType] = this;
-
-            ChanneldClient.OnAuthenticated += OnChanneldAuthenticated;
+            ChanneldTransport.OnAuthenticated += OnChanneldAuthenticated;
         }
 
-        protected virtual void OnChanneldAuthenticated(ChanneldClient client)
+        protected virtual void OnChanneldAuthenticated(ChanneldConnection client)
         {
             this.client = client;
             client.AddMessageHandler((uint)MessageType.CreateChannel, (c, channelId, msg) =>
@@ -94,7 +97,7 @@ namespace Channeld
             });
             client.AddMessageHandler((uint)MessageType.UnsubFromChannel, (c, channelId, msg) =>
             {
-                var unsubMsg = (UnsubscribedFromChannelMessage)msg;
+                var unsubMsg = (UnsubscribedFromChannelResultMessage)msg;
                 if (unsubMsg.ConnId == c.Id)
                 {
                     if (statesInChannels.Remove(channelId))
@@ -175,9 +178,9 @@ namespace Channeld
         }
     }
 
-    // GameState base class with generic type which is used to help to merge data and unpack from Any message type.
-    // All concrete GameState class should inherit from this class.
-    public abstract class GameState<T> : GameState where T : class, IMessage<T>, new()
+    // ChannelDataProvider base class with generic type which is used to help to merge data and unpack from Any message type.
+    // All concrete ChannelDataProvider class should inherit from this class.
+    public abstract class ChannelDataProvider<T> : ChannelDataProvider where T : class, IMessage<T>, new()
     {
         public T ChannelData { get; private set; }
 
@@ -204,7 +207,7 @@ namespace Channeld
             ((T)dst).MergeFrom((T)src);
         }
 
-        protected override void OnChanneldAuthenticated(ChanneldClient client)
+        protected override void OnChanneldAuthenticated(ChanneldConnection client)
         {
             base.OnChanneldAuthenticated(client);
             client.AddMessageHandler((uint)MessageType.ChannelDataUpdate, (_, channelId, msg) =>

@@ -309,50 +309,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1207513416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1207513418}
-  - component: {fileID: 1207513417}
-  m_Layer: 0
-  m_Name: GameState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1207513417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207513416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ed1ea201916f54f856c813f2c8e089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channelType: 1
---- !u!4 &1207513418
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207513416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282001517
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,17 +399,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7781b1346121f47a34ee94ab0475db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logLevel: 1
+  logLevel: 0
   showUserSpaceMessageLog: 0
   ServerAddressToChanneld: 127.0.0.1
   ServerPortToChanneld: 11288
   ServerConnectTimeoutMs: 1000
   ServerChannelType: 1
   ServerChannelMetadata: MirrorServer
-  ServerFanoutIntervalMs: 10
   ClientPortToChanneld: 12108
   ClientConnectTimeoutMs: 3000
-  ClientFanoutIntervalMs: 50
 --- !u!114 &1282001522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208ffac57848f384f89729360e92f1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChannelViewPrefab: {fileID: 11400000, guid: 0a1aeb1678fa4db46a0461dfa2c7cdf4, type: 2}
 --- !u!1 &1356050967
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +525,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1398358990
 MonoBehaviour:
@@ -634,7 +589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054208274
 GameObject:

@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Mirror;
+using Google.Protobuf;
+using System;
 
 namespace Channeld.Examples.Tanks
 {
-    public class TankChanneld : NetworkBehaviour
+    public class TankChanneld : ChanneldNetworkBehaviour, IChannelDataProvider/*<TankGameChannelData>*/, ITransformStateProvider
     {
         [Header("Components")]
         public NavMeshAgent agent;
@@ -21,6 +23,11 @@ namespace Channeld.Examples.Tanks
 
         [Header("Stats")]
         [SyncVar] public int health = 4;
+
+        // Represents the latest change (from SerializeSyncVars). Only changed properties will be set.
+        private TankState syncState;
+        private TransformState transformState;
+        public Action<TransformState> OnTransformUpdated {get; set;}
 
         void Update()
         {
@@ -139,7 +146,8 @@ namespace Channeld.Examples.Tanks
             if (controller == null)
                 controller = GetComponent<ITankController>();
 
-            TankGameState.OnGenericDataChanged += (channelId, channelData) =>
+            /* ChannelView refactoring
+            TankChannelDataProvider.OnGenericDataChanged += (channelId, channelData) =>
             {
                 TankState newState;
                 if (channelData.TankStates.TryGetValue(netId, out newState))
@@ -147,8 +155,10 @@ namespace Channeld.Examples.Tanks
                     health = newState.Health;
                 }
             };
+            */
         }
 
+        /* ChannelView refactoring
         private void Start()
         {
             if (isServer)
@@ -157,28 +167,38 @@ namespace Channeld.Examples.Tanks
                 SerializeSyncVars(null, true);
             }
         }
+        */
 
         protected override bool SerializeSyncVars(NetworkWriter writer, bool initialState)
         {
-            var updateData = new TankGameChannelData();
-            var tankState = new TankState();
+            if (!initialState && !IsDirty())
+            {
+                return false;
+            }
+
+            //var updateData = new TankGameChannelData();
+            if (syncState == null)
+                syncState = new TankState();
+
             if (initialState)
             {
-                tankState.Health = health;
+                syncState.Health = health;
             }
             else
             {
                 if ((base.syncVarDirtyBits & 1L) != 0L)
                 {
-                    tankState.Health = health;
+                    syncState.Health = health;
                 }
                 else
                 {
                     return false;
                 }
             }
+            /* ChannelView refactoring
             updateData.TankStates[netId] = tankState;
-            TankGameState.SendUpdate(netIdentity, updateData);
+            TankChannelDataProvider.SendUpdate(netIdentity, updateData);
+            */
             return false;
         }
 
@@ -187,11 +207,97 @@ namespace Channeld.Examples.Tanks
             // Do nothing as we don't need to read the SyncVars from the reader.
         }
 
+        /* ChannelView refactoring
         private void OnDestroy()
         {
             var updateData = new TankGameChannelData();
             updateData.TankStates[netId] = new TankState() { Removed = true };
-            TankGameState.SendUpdate(netIdentity, updateData);
+            TankChannelDataProvider.SendUpdate(netIdentity, updateData);
         }
+        */
+
+        /*
+        public bool UpdateChannelData(TankGameChannelData data)
+        {
+            if (syncState != null)
+            {
+                data.TankStates[netId] = syncState;
+                syncState = null;
+                return true;
+            }
+            return false;
+        }
+
+        public void OnChannelDataUpdated(in TankGameChannelData data)
+        {
+            TankState newState;
+            if (data.TankStates.TryGetValue(netId, out newState))
+            {
+                health = newState.Health;
+            }
+        }
+        */
+        public System.Type GetChannelDataType()
+        {
+            return typeof(TankGameChannelData);
+        }
+
+        public bool UpdateChannelData(IMessage data)
+        //public bool UpdateChannelData(TankGameChannelData tankChanneldata)
+        {
+            var tankChanneldata = (TankGameChannelData)data;
+            bool updated = false;
+            if (syncState != null)
+            {
+                tankChanneldata.TankStates[netId] = syncState;
+                syncState = null;
+                updated = true;
+            }
+            if (transformState != null && (transformState.Position != null || 
+                transformState.Rotation != null || transformState.Scale != null))
+            {
+                tankChanneldata.TransformStates[netId] = transformState;
+                transformState = null;
+                updated = true;
+            }
+            return updated;
+        }
+
+        public void OnChannelDataUpdated(in IMessage data)
+        //public void OnChannelDataUpdated(in TankGameChannelData tankChanneldata)
+        {
+            var tankChanneldata = (TankGameChannelData)data;
+            TankState newState;
+            if (tankChanneldata.TankStates.TryGetValue(netId, out newState))
+            {
+                health = newState.Health;
+            }
+
+            TransformState transformState;
+            if (tankChanneldata.TransformStates.TryGetValue(netId, out transformState))
+            {
+                OnTransformUpdated?.Invoke(transformState);
+            }
+        }
+
+        public void UpdateTransform(TransformState state)
+        {
+            transformState = state;
+        }
+
+        /*
+        public override void OnStartClient()
+        {
+            if (NetworkClient.aoi is ChanneldInterestManagement)
+            {
+                ((ChanneldInterestManagement)NetworkClient.aoi).CurrentView.AddChannelDataProvider(0, this);
+            }
+        }
+
+        public override void OnStartServer()
+        {
+            base.OnStartServer();
+        }
+        */
     }
 }

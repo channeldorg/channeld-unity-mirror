@@ -264,10 +264,20 @@ namespace Channeld
             return task;
         }
 
-        public void Disconnect()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="flushAll">If true, send all outgoing messages before closing the socket.</param>
+        public void Disconnect(bool flushAll = true)
         {
             if (!Connected)
                 return;
+
+            if (flushAll)
+            {
+                TickOutgoing();
+                netStream.Flush();
+            }
 
             receiveThread.Abort();
             netStream.Close();

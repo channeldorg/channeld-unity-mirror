@@ -19,6 +19,7 @@ namespace Channeld
         System.Type GetChannelDataType();
         bool UpdateChannelData(IMessage data);
         void OnChannelDataUpdated(in IMessage data);
+        bool IsRemoved {get; set; }
     }
 
     /*

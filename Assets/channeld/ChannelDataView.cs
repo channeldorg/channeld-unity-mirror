@@ -20,7 +20,6 @@ namespace Channeld
         {
             channelDataParsers[Any.Pack(channelDataTemplate).TypeUrl] = parser;
 
-            
             //channelDataTemplates[channelType] = channelDataTemplate;
             // We have to instantiate the ChannelData message using reflection, as it cannot be cast to IDeepClone<IMessage>
             // Use DynamicMethod for the sake of performance: https://andrewlock.net/benchmarking-4-reflection-methods-for-calling-a-constructor-in-dotnet/
@@ -44,12 +43,14 @@ namespace Channeld
             Connection = conn;
             Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
             InitChannels();
+            Log.Info($"{GetType()} initialized channels.");
         }
 
         public virtual void Unintialize()
         {
             Connection.RemoveMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
             UninitChannels();
+            Log.Info($"{GetType()} uninitialized channels.");
         }
 
         protected abstract void InitChannels();
@@ -143,8 +144,10 @@ namespace Channeld
             HashSet<IChannelDataProvider> providers;
             if (channelDataProviders.TryGetValue(channelId, out providers))
             {
-                providers.Remove(provider);
-                Log.Info($"Removed channel data provider {provider} from channel {channelId}");
+                // Post the remove to the next SendAllChannelUpdates, so the Removed=true will be set in the provider's UpdateChannelData().
+                //providers.Remove(provider);
+                Log.Info($"Removing channel data provider {provider} from channel {channelId}");
+                provider.IsRemoved = true;
             }
         }
 
@@ -205,12 +208,15 @@ namespace Channeld
                     IMessage newState = messageCreator();
 
                     int updateCount = 0;
-                    // FIXME: dynamic 
                     foreach (var provider in providers)
                     {
                        if (provider.UpdateChannelData(newState))
                             updateCount++;
                     }
+                    // Actually remove the provider from the set.
+                    int removeCount = providers.RemoveWhere(p => p.IsRemoved);
+                    if (removeCount > 0)
+                        Log.Info($"Removed {removeCount} channel data provider(s) from channel {channelId}");
 
                     if (updateCount > 0)
                     {

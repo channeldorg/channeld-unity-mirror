@@ -28,6 +28,7 @@ namespace Channeld.Examples.Tanks
         private TankState syncState;
         private TransformState transformState;
         public Action<TransformState> OnTransformUpdated {get; set;}
+        public bool IsRemoved { get; set; }
 
         void Update()
         {
@@ -176,7 +177,6 @@ namespace Channeld.Examples.Tanks
                 return false;
             }
 
-            //var updateData = new TankGameChannelData();
             if (syncState == null)
                 syncState = new TankState();
 
@@ -195,10 +195,6 @@ namespace Channeld.Examples.Tanks
                     return false;
                 }
             }
-            /* ChannelView refactoring
-            updateData.TankStates[netId] = tankState;
-            TankChannelDataProvider.SendUpdate(netIdentity, updateData);
-            */
             return false;
         }
 
@@ -207,36 +203,6 @@ namespace Channeld.Examples.Tanks
             // Do nothing as we don't need to read the SyncVars from the reader.
         }
 
-        /* ChannelView refactoring
-        private void OnDestroy()
-        {
-            var updateData = new TankGameChannelData();
-            updateData.TankStates[netId] = new TankState() { Removed = true };
-            TankChannelDataProvider.SendUpdate(netIdentity, updateData);
-        }
-        */
-
-        /*
-        public bool UpdateChannelData(TankGameChannelData data)
-        {
-            if (syncState != null)
-            {
-                data.TankStates[netId] = syncState;
-                syncState = null;
-                return true;
-            }
-            return false;
-        }
-
-        public void OnChannelDataUpdated(in TankGameChannelData data)
-        {
-            TankState newState;
-            if (data.TankStates.TryGetValue(netId, out newState))
-            {
-                health = newState.Health;
-            }
-        }
-        */
         public System.Type GetChannelDataType()
         {
             return typeof(TankGameChannelData);
@@ -246,6 +212,14 @@ namespace Channeld.Examples.Tanks
         //public bool UpdateChannelData(TankGameChannelData tankChanneldata)
         {
             var tankChanneldata = (TankGameChannelData)data;
+            // Handle the situation that the game object is going to be removed (set from OnStopClient/Server).
+            if (IsRemoved)
+            {
+                tankChanneldata.TankStates[netId] = new TankState(){Removed = true };
+                tankChanneldata.TransformStates[netId] = new TransformState(){Removed = true };
+                return true;
+            }
+
             bool updated = false;
             if (syncState != null)
             {
@@ -284,20 +258,5 @@ namespace Channeld.Examples.Tanks
         {
             transformState = state;
         }
-
-        /*
-        public override void OnStartClient()
-        {
-            if (NetworkClient.aoi is ChanneldInterestManagement)
-            {
-                ((ChanneldInterestManagement)NetworkClient.aoi).CurrentView.AddChannelDataProvider(0, this);
-            }
-        }
-
-        public override void OnStartServer()
-        {
-            base.OnStartServer();
-        }
-        */
     }
 }

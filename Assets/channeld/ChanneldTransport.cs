@@ -18,23 +18,20 @@ namespace Channeld
         public string ServerAddressToChanneld = "127.0.0.1";
         public int ServerPortToChanneld = 11288;
         public int ServerConnectTimeoutMs = 1000;
-        //public ChannelType ServerChannelType = ChannelType.Unknown;
         public string ServerChannelMetadata = "MirrorServer";
-        //public uint ServerFanoutIntervalMs = 10;
 
         [Header("Client")]
         // The client connects to the address Mirror passes to it, generally NetworkManager.networkAddress
         //public string ClientAddressToChanneld = "127.0.0.1";
         public int ClientPortToChanneld = 12108;
         public int ClientConnectTimeoutMs = 3000;
-        //public uint ClientFanoutIntervalMs = 50;
 
         private ChanneldConnection serverConnection;
         private ChanneldConnection clientConnection;
 
         // The connection has been authenticated by channeld and is ready to set up the channels.
         public static Action<ChanneldConnection> OnAuthenticated;
-        // The GLOBAL channel owner (a.k.a. Master Server) receives ALL the AuthResultMessage. It's for handling cases like 
+        // The GLOBAL channel owner (a.k.a. Master Server) receives the AuthResultMessage of ALL connections. It's for handling cases like 
         // 1) repeated unsuccessful login attempts
         // 2) the clients don't have authority to sub, so the Master Server will sub for them.
         public static Action<AuthResultMessage> OnGlobalOwnerReceivedAuthResult;
@@ -119,13 +116,6 @@ namespace Channeld
                             continue;
                         }
                         break;
-                    //case "-sc":
-                    //    if (Enum.TryParse<ChannelType>(args[i + 1], out ServerChannelType))
-                    //    {
-                    //        Log.Info($"Read ServerChannelType from command line: {ServerChannelType}");
-                    //        continue;
-                    //    }
-                    //    break;
                     case "-cp":
                         if (int.TryParse(args[i + 1], out ClientPortToChanneld))
                         {
@@ -146,7 +136,8 @@ namespace Channeld
 
         public override void ServerStart()
         {
-            serverConnection = new ChanneldConnection();
+            if (serverConnection == null)
+                serverConnection = new ChanneldConnection();
             serverConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             serverConnection.ConnectTimeoutMs = ServerConnectTimeoutMs;
             serverConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
@@ -326,7 +317,8 @@ namespace Channeld
 
         private void InitClientConnection()
         {
-            clientConnection = new ChanneldConnection();
+            if (clientConnection == null)
+                clientConnection = new ChanneldConnection();
             clientConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             clientConnection.ConnectTimeoutMs = ClientConnectTimeoutMs;
             clientConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
@@ -359,9 +351,9 @@ namespace Channeld
 
         public void OnClientSubToChannel(uint channelId)
         {
-            this.OnClientConnected?.Invoke();
-
             ClientSendChannelId = channelId;
+
+            this.OnClientConnected?.Invoke();
 
             if (NetworkManager.singleton.authenticator != null)
             {

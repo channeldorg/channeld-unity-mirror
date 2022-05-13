@@ -1,6 +1,7 @@
 ﻿
 using Mirror;
 using UnityEngine;
+using System.Linq;
 
 namespace Channeld.Examples.Tanks
 {
@@ -26,7 +27,8 @@ namespace Channeld.Examples.Tanks
             {
                 if (resultMsg.Channels.Count > 0)
                 {
-                    uint channelId = resultMsg.Channels[resultMsg.Channels.Count - 1].ChannelId;
+                    // Use the max channelId (properly the latest created channel)
+                    uint channelId = resultMsg.Channels.Max(channelInfo => channelInfo.ChannelId);
                     Connection.SubToChannel(channelId, new ChannelSubscriptionOptions()
                     {
                         CanUpdateData = true,

@@ -41,6 +41,7 @@ namespace Channeld
         public virtual void Initialize(ChanneldConnection conn)
         {
             Connection = conn;
+            LoadCmdLineArgs();
             Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
             InitChannels();
             Log.Info($"{GetType()} initialized channels.");
@@ -53,6 +54,7 @@ namespace Channeld
             Log.Info($"{GetType()} uninitialized channels.");
         }
 
+        protected virtual void LoadCmdLineArgs() { }
         protected abstract void InitChannels();
         protected abstract void UninitChannels();
 
@@ -99,9 +101,9 @@ namespace Channeld
             {
                 providers = new HashSet<IChannelDataProvider>();
                 channelDataProviders[channelId] = providers;
-                Log.Info($"Added channel data provider {provider} to channel {channelId}");
             }
             providers.Add(provider);
+            Log.Info($"Added channel data provider {provider} to channel {channelId}");
         }
 
         /*

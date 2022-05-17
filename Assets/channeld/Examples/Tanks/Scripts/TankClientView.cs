@@ -11,6 +11,12 @@ namespace Channeld.Examples.Tanks
         public ChannelType channelType = ChannelType.Global;
         public uint fanOutIntervalMs = 50;
 
+        protected override void LoadCmdLineArgs()
+        {
+            CmdLineArgParser.Default.GetEnumOptionFromString("--channel-type", "-ct", ref channelType);
+            CmdLineArgParser.Default.GetOptionValue("--fan-out-interval", "-fo", ref fanOutIntervalMs);
+        }
+
         protected override void InitChannels()
         {
             RegisterChannelDataParser(channelType, new TankGameChannelData(), TankGameChannelData.Parser);

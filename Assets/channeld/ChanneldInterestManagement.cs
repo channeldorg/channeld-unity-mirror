@@ -14,17 +14,7 @@ namespace Channeld
         // We cannot use Awake as it will 'override' the InterestManagement.Awake() in Unity.
         protected virtual void Start()
         {
-            var args = Environment.GetCommandLineArgs();
-            string viewClassName = null;
-            for (int i = 0; i < args.Length - 1; i++)
-            {
-                if (args[i] == "-view")
-                {
-                    viewClassName = args[i + 1];
-                    break;
-                }
-            }
-
+            string viewClassName = CmdLineArgParser.Default.GetOptionValue("--view", "-V");
             if (!string.IsNullOrEmpty(viewClassName))
             { 
                 CurrentView = ScriptableObject.CreateInstance(viewClassName) as ChannelDataView;

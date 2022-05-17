@@ -82,52 +82,14 @@ namespace Channeld
             Log.Warning = (t) => { if (logLevel <= LogLevel.Warning) Debug.LogWarning(t); };
             Log.Error = (t) => { if (logLevel <= LogLevel.Error) Debug.LogError(t); };
 
-            var args = Environment.GetCommandLineArgs();
-            for (int i = 0; i < args.Length - 1; i++)
-            {
-                switch (args[i])
-                {
-                    case "-loglevel":
-                        int level;
-                        if (int.TryParse(args[i + 1], out level))
-                        {
-                            logLevel = (LogLevel)level;
-                            Log.Info($"Read LogLevel from command line: {logLevel}");
-                            continue;
-                        }
-                        break;
-                    case "-maxconn":
-                        int maxConn;
-                        if (int.TryParse(args[i + 1], out maxConn))
-                        {
-                            NetworkManager.singleton.maxConnections = maxConn;
-                            Log.Info($"Read MaxConnections from command line: {maxConn}");
-                            continue;
-                        }
-                        break;
-                    case "-sa":
-                        ServerAddressToChanneld = args[i + 1];
-                        Log.Info($"Read ServerAddressToChanneld from command line: {ServerAddressToChanneld}");
-                        continue;
-                    case "-sp":
-                        if (int.TryParse(args[i + 1], out ServerPortToChanneld))
-                        {
-                            Log.Info($"Read ServerPortToChanneld from command line: {ServerPortToChanneld}");
-                            continue;
-                        }
-                        break;
-                    case "-cp":
-                        if (int.TryParse(args[i + 1], out ClientPortToChanneld))
-                        {
-                            Log.Info($"Read ClientPortToChanneld from command line: {ClientPortToChanneld}");
-                            continue;
-                        }
-                        break;
-                    default:
-                        continue;
-                }
-                Log.Warning($"Invalid value of command line arg '{args[i]}': {args[i + 1]}");
-            }
+            var parser = CmdLineArgParser.Default;
+            parser.DefaultConversionSuccessHandler = (optionName, alias, value, result) => Log.Info($"Read '{optionName}' from command line: {value}");
+            parser.DefaultConversionErrorHandler = (optionName, alias, value, type, ex) => Log.Error($"Invalid value of command line arg '{optionName}': {value}, exception: {ex}");
+            parser.GetEnumOptionFromInt("--log-level", "-loglevel", ref logLevel);
+            parser.GetOptionValue("--max-conn", "-maxconn", ref NetworkManager.singleton.maxConnections);
+            parser.GetOptionValue("--server-ip", "-sa", ref ServerAddressToChanneld);
+            parser.GetOptionValue("--server-port", "-sp", ref ServerPortToChanneld);
+            parser.GetOptionValue("--client-port", "-cp", ref ServerPortToChanneld);
 
             Log.Debug("ChanneldTransport initialized.");
         }

@@ -12,6 +12,12 @@ namespace Channeld.Examples.Tanks
         public string channelMetadata = "";
 
         private uint? channelId;
+        protected override void LoadCmdLineArgs()
+        {
+            CmdLineArgParser.Default.GetEnumOptionFromString("--channel-type", "-ct", ref channelType);
+            CmdLineArgParser.Default.GetOptionValue("--fan-out-interval", "-fo", ref fanOutIntervalMs);
+            CmdLineArgParser.Default.GetOptionValue("--channel-meta", "-cm", ref channelMetadata);
+        }
 
         protected override void InitChannels()
         {

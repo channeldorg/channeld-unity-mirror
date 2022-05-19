@@ -41,10 +41,12 @@ namespace Channeld
 
         #region Extension methods
 
+        /*
         public static uint GetOwningChannel(this NetworkBehaviour netBehaviour)
         {
             return ChanneldTransport.GetOwningChannel(netBehaviour.netId);
         }
+        */
 
         #endregion
     }

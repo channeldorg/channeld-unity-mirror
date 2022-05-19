@@ -1300,7 +1300,7 @@ namespace Mirror
         }
 
         // destroy /////////////////////////////////////////////////////////////
-        static void DestroyObject(uint netId)
+        public static void DestroyObject(uint netId)
         {
             // Debug.Log($"NetworkClient.OnObjDestroy netId: {netId}");
             if (spawned.TryGetValue(netId, out NetworkIdentity localObject) && localObject != null)

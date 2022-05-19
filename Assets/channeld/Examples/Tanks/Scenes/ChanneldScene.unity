@@ -404,7 +404,6 @@ MonoBehaviour:
   ServerAddressToChanneld: 127.0.0.1
   ServerPortToChanneld: 11288
   ServerConnectTimeoutMs: 1000
-  ServerChannelType: 1
   ServerChannelMetadata: MirrorServer
   ClientPortToChanneld: 12108
   ClientConnectTimeoutMs: 3000

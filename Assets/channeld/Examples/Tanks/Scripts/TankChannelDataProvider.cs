@@ -4,6 +4,7 @@ using Google.Protobuf;
 
 namespace Channeld.Examples.Tanks
 {
+    /*
     public class TankChannelDataProvider : ChannelDataProvider<TankGameChannelData>
     {
         protected override IMessage GetChannelDataUpdateFromTransform(NetworkIdentity ni, bool removed, Vector3? position, Quaternion? rotation, Vector3? scale)
@@ -116,4 +117,5 @@ namespace Channeld.Examples.Tanks
             return transformState.Scale == null ? null : new Vector3?(new Vector3(transformState.Scale.X, transformState.Scale.Y, transformState.Scale.Z));
         }
     }
+    */
 }

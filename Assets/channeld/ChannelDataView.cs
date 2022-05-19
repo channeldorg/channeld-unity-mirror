@@ -43,6 +43,7 @@ namespace Channeld
             Connection = conn;
             LoadCmdLineArgs();
             Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
+            Connection.AddMessageHandler((uint)MessageType.UnsubFromChannel, HandleUnsub);
             InitChannels();
             Log.Info($"{GetType()} initialized channels.");
         }
@@ -138,7 +139,7 @@ namespace Channeld
                 }
             }
 
-            Log.Warning($"Failed to RemoveChannelDataProviderFromAllChannels: no default channel found of type '{channelType}', data type: {channelDataType}.");
+            //Log.Warning($"Failed to RemoveChannelDataProviderFromAllChannels: no default channel found of type '{channelType}', data type: {channelDataType}.");
         }
 
         public void RemoveChannelDataProvider(uint channelId, IChannelDataProvider provider)
@@ -153,7 +154,24 @@ namespace Channeld
             }
         }
 
-        protected virtual void HandleChannelDataUpdate(ChanneldConnection conn, uint channelId, IMessage msg)
+        private void HandleUnsub(ChanneldConnection conn, uint channelId, IMessage msg)
+        {
+            var unsubMsg = (UnsubscribedFromChannelResultMessage)msg;
+            if (unsubMsg.ConnId == Connection.Id)
+            {
+                HashSet<IChannelDataProvider> providers;
+                if (channelDataProviders.TryGetValue(channelId, out providers))
+                {
+                    channelDataProviders.Remove(channelId);
+                    Log.Info($"Received Unsub message. Removed all data providers from channel {channelId}");
+                    OnUnsubFromChannel(channelId, providers);
+                }
+            }
+        }
+
+        protected virtual void OnUnsubFromChannel(uint channelId, IEnumerable<IChannelDataProvider> removedProviders){ }
+
+        private void HandleChannelDataUpdate(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var updateMsg = msg as ChannelDataUpdateMessage;
             MessageParser channelDataParser;
@@ -171,7 +189,7 @@ namespace Channeld
             HashSet<IChannelDataProvider> providers;
             if (!channelDataProviders.TryGetValue(channelId, out providers))
             {
-                Log.Error($"No provider registered for channel {channelId}, typeUrl: {updateMsg.Data.TypeUrl}");
+                Log.Warning($"No provider registered for channel {channelId}, typeUrl: {updateMsg.Data.TypeUrl}");
                 return;
             }
             foreach (var provider in providers)

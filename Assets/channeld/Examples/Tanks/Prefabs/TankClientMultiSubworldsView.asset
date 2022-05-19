@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67ba26dabc394014f90cd998dca2fc39, type: 3}
-  m_Name: TankClientView
+  m_Script: {fileID: 11500000, guid: 72b627e8cca2a2e4dbbb88349088ba56, type: 3}
+  m_Name: TankClientMultiSubworldsView
   m_EditorClassIdentifier: 
   channelType: 3
   fanOutIntervalMs: 50
+  uiPrefab: {fileID: 5457389154321789014, guid: 032dad66c485dfd4eb9248d07d52b896, type: 3}

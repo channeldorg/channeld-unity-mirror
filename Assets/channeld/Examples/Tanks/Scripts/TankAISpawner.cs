@@ -24,9 +24,10 @@ namespace Channeld.Examples.Tanks
                 }
             }
 
-            TankChannelDataProvider.OnGenericDataChanged += OnFullChannelDataReceived;
+            //TankChannelDataProvider.OnGenericDataChanged += OnFullChannelDataReceived;
         }
 
+        /* TODO: move to ServerView
         private void OnFullChannelDataReceived(uint channelId, TankGameChannelData data)
         {
             TankChannelDataProvider.OnGenericDataChanged -= OnFullChannelDataReceived;
@@ -54,6 +55,7 @@ namespace Channeld.Examples.Tanks
                 ServerSpawn(prespawnNum);
             }
         }
+        */
 
         private void ServerSpawn(int num)
         {

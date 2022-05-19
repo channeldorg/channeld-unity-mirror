@@ -36,6 +36,7 @@ namespace Channeld
         Action<TransformState> OnTransformUpdated {get; set;}
     }
 
+    /*
     // Accessor of all static methods.
     // DO NOT inherit from this class. Use ChannelDataProvider<T> instead.
     public abstract class ChannelDataProvider : MonoBehaviour
@@ -221,4 +222,5 @@ namespace Channeld
             });
         }
     }
+    */
 }

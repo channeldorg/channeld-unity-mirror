@@ -29,6 +29,11 @@ namespace Channeld
         private ChanneldConnection serverConnection;
         private ChanneldConnection clientConnection;
 
+        public static ChanneldTransport Current
+        {
+            get{ return activeTransport as ChanneldTransport; }
+        }
+
         // The connection has been authenticated by channeld and is ready to set up the channels.
         public static Action<ChanneldConnection> OnAuthenticated;
         // The GLOBAL channel owner (a.k.a. Master Server) receives the AuthResultMessage of ALL connections. It's for handling cases like 
@@ -39,8 +44,9 @@ namespace Channeld
         // The channelId the ServerForwardMessage should be send to when calling ServerSend() 
         public static uint? ServerSendChannelId { get; internal set; } = null;
         // The channelId the ServerForwardMessage should be send to when calling ClientSend() 
-        public static uint? ClientSendChannelId { get; internal set; } = null;
+        public static uint? ClientSendChannelId { get; private set; } = null;
 
+        /*
         // The spawned object's netId mapping to the id of the channel that owns the object.
         private static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
 
@@ -74,6 +80,7 @@ namespace Channeld
         {
             netIdOwningChannels.Remove(netId);
         }
+        */
 
         void Awake()
         {
@@ -285,6 +292,8 @@ namespace Channeld
             clientConnection.ConnectTimeoutMs = ClientConnectTimeoutMs;
             clientConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
             {
+                /* With ChannelDataView, we no longer needs netId-channelId mapping 
+                 * 
                 // The payload may contains multiple Mirror messages, making it hard to recognize the SpawnMessage inside.
                 // We have to use this awkward way to make sure when handling SpawnMessage, the NetworkClient has the right channelId context.
                 // FIXME: reduce memory allocation?
@@ -295,9 +304,10 @@ namespace Channeld
                     NetworkClient.OnSpawn(msg);
                 };
                 NetworkClient.ReplaceHandler<SpawnMessage>(onSpawn, false);
+                */
 
                 var data = new ArraySegment<byte>(payload);
-                this.OnClientDataReceived(data, Channels.Reliable);
+                OnClientDataReceived(data, Channels.Reliable);
             };
             /* Moved to ClientView
             clientConnection.AddMessageHandler((uint)MessageType.SubToChannel, (client, channelId, msg) =>
@@ -309,29 +319,42 @@ namespace Channeld
                 }
             });
             */
+            clientConnection.AddMessageHandler((uint)MessageType.UnsubFromChannel, (conn, channelId, msg) =>
+            {
+                var resultMsg = (UnsubscribedFromChannelResultMessage)msg;
+                if (resultMsg.ConnId == conn.Id && channelId == ClientSendChannelId)
+                {
+                    ClientSendChannelId = null;
+                }
+            });
         }
 
         public void OnClientSubToChannel(uint channelId)
         {
-            ClientSendChannelId = channelId;
+            if (ClientSendChannelId == null)
+            { 
+                ClientSendChannelId = channelId;
 
-            this.OnClientConnected?.Invoke();
+                this.OnClientConnected?.Invoke();
 
-            if (NetworkManager.singleton.authenticator != null)
-            {
-                // Fake an AuthRespondMessage and pass it to NetworkClient.OnTransportData()
-                using (PooledNetworkWriter writer = NetworkWriterPool.GetWriter())
+                if (NetworkManager.singleton.authenticator != null)
                 {
-                    var arm = new Mirror.Authenticators.BasicAuthenticator.AuthResponseMessage()
+                    // Fake an AuthRespondMessage and pass it to NetworkClient.OnTransportData()
+                    OnClientMessageReceived(new Mirror.Authenticators.BasicAuthenticator.AuthResponseMessage()
                     {
                         code = 100,
                         message = "Success"
-                    };
-
-                    MessagePacking.Pack(arm, writer);
-
-                    this.OnClientDataReceived(writer.ToArraySegment(), Channels.Reliable);
+                    });
                 }
+            }
+            else if (ClientSendChannelId != channelId)
+            {
+                ClientSendChannelId = channelId;
+
+                // The client has already subscribed to a channel. We don't need to trigger NetworkManager.OnClientConnect() again.
+                // Instead, send the AddPlayer message to the server that owns the new channel.
+                // FIXME: if both channels are spatial channels, the new owner could be the same server!
+                NetworkClient.connection.Send(new AddPlayerMessage());
             }
         }
 
@@ -386,6 +409,16 @@ namespace Channeld
             clientConnection?.SendRaw(ClientSendChannelId ?? ChanneldConnection.GlobalChannelId, 
                 MirrorUtils.GetChanneldMsgType(segment),
                 ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count));
+        }
+
+        public void OnClientMessageReceived<T>(T mirrorMsg, int reliable = Channels.Reliable) where T : struct, NetworkMessage
+        {
+            using (PooledNetworkWriter writer = NetworkWriterPool.GetWriter())
+            {
+                MessagePacking.Pack(mirrorMsg, writer);
+
+                OnClientDataReceived(writer.ToArraySegment(), reliable);
+            }
         }
 
         public override void ClientEarlyUpdate()

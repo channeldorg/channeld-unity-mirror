@@ -60,7 +60,7 @@ namespace Mirror.Weaver
             worker.Emit(OpCodes.Ldc_I4, channel);
             // requiresAuthority ? 1 : 0
             worker.Emit(requiresAuthority ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
-            worker.Emit(OpCodes.Call, weaverTypes.sendCommandInternal);
+            worker.Emit(OpCodes.Callvirt, weaverTypes.sendCommandInternal);
 
             NetworkBehaviourProcessor.WriteRecycleWriter(worker, weaverTypes);
 

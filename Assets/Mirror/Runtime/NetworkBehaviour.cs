@@ -187,7 +187,7 @@ namespace Mirror
             syncObject.IsRecording = () => netIdentity.observers?.Count > 0;
         }
 
-        protected void SendCommandInternal(Type invokeClass, string cmdName, NetworkWriter writer, int channelId, bool requiresAuthority = true)
+        protected virtual void SendCommandInternal(Type invokeClass, string cmdName, NetworkWriter writer, int channelId, bool requiresAuthority = true)
         {
             // this was in Weaver before
             // NOTE: we could remove this later to allow calling Cmds on Server

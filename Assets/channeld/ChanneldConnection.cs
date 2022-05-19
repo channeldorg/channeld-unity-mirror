@@ -44,13 +44,14 @@ namespace Channeld
             public TaskCompletionSource<IMessage> tcs;
         }
 
+        public ConnectionType ConnectionType { get; private set; }
         public string RemoteAddress { get; private set; }
         public int RemotePort { get; private set; }
         public int ConnectTimeoutMs { get; set; } = 3000;
         public uint Id { get; private set; } = 0;
         public CompressionType CompressionType { get; private set; } = CompressionType.NoCompression;
         public Dictionary<uint, SubscribedToChannelResultMessage> SubscribedChannels { get; private set; } = new Dictionary<uint, SubscribedToChannelResultMessage>();
-        public HashSet<uint> OwnedChannels { get; private set; } = new HashSet<uint>();
+        public Dictionary<uint, CreateChannelResultMessage> OwnedChannels { get; private set; } = new Dictionary<uint, CreateChannelResultMessage>();
         public Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo> ListedChannels { get; private set; } =
             new Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo>();
         public MessageHandlerFunc DefaultMessageHandleFunc = (client, channelId, msg) => { };
@@ -75,7 +76,7 @@ namespace Channeld
 
         public static ChanneldConnection Instance {get; private set;}
 
-        public ChanneldConnection()
+        public ChanneldConnection(ConnectionType connectionType)
         {
             // FIXME: Not thread-safe
             if (Instance == null)
@@ -87,6 +88,7 @@ namespace Channeld
                 Log.Error("ChanneldClient can only be created once in a process.");
             }
 
+            ConnectionType = connectionType;
             tcp = new TcpClient();
             receiveThread = new Thread(Receive);
             receiveThread.IsBackground = true;
@@ -123,7 +125,7 @@ namespace Channeld
             var resultMsg = (CreateChannelResultMessage)msg;
             if (resultMsg.OwnerConnId == Id)
             {
-                OwnedChannels.Add(channelId);
+                OwnedChannels.Add(channelId, resultMsg);
             }
 
             ListedChannels[channelId] = new ListChannelResultMessage.Types.ChannelInfo()

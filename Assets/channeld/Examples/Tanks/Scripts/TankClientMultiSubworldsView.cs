@@ -1,4 +1,6 @@
 ﻿
+using Mirror;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Channeld.Examples.Tanks
@@ -20,14 +22,28 @@ namespace Channeld.Examples.Tanks
                 ui.Connection = Connection;
                 ui.OnChannelSelected = (channelId) =>
                 {
-                    Connection.SubToChannel(channelId, new ChannelSubscriptionOptions()
+                    if (Connection.SubscribedChannels.ContainsKey(channelId))
                     {
-                        CanUpdateData = true,
-                        FanOutIntervalMs = fanOutIntervalMs
-                    }, callback: (_) =>
+                        Connection.UnsubFromChannel(channelId);
+                    }
+                    else
                     {
-                        ChanneldTransport.Current.OnClientSubToChannel(channelId);
-                    });
+                        Connection.SubToChannel(channelId, new ChannelSubscriptionOptions()
+                        {
+                            CanUpdateData = true,
+                            FanOutIntervalMs = fanOutIntervalMs
+                        }, callback: (_) =>
+                        {
+                            ChanneldTransport.Current.OnClientSubToChannel(channelId);
+
+                            // Make sure the player provider is added to the channel view
+                            if (NetworkClient.localPlayer != null)
+                            {
+                                foreach (var provider in NetworkClient.localPlayer.GetComponents<IChannelDataProvider>())
+                                    AddChannelDataProvider(channelId, provider);
+                            }
+                        });
+                    }
                 };
                 ui.OnUnsubAll = () =>
                 {
@@ -37,6 +53,19 @@ namespace Channeld.Examples.Tanks
                     }
                 };
             });
+        }
+
+        protected override void OnUnsubFromChannel(uint channelId, IEnumerable<IChannelDataProvider> removedProviders)
+        {
+            foreach (var provider in removedProviders)
+            {
+                if (provider is NetworkBehaviour networkBehaviour)
+                {
+                    // Send the ObjectDestroyMessage to handle the destroy properly.
+                    // ChanneldTransport.Current.OnClientMessageReceived(new ObjectDestroyMessage(){netId = ((NetworkBehaviour)provider).netId});
+                    NetworkClient.DestroyObject(networkBehaviour.netId);
+                }
+            }
         }
     }
 }

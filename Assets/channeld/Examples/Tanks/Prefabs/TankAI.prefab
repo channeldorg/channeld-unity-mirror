@@ -92,7 +92,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 0
-  sendInterval: 0.1
+  sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.05
   agent: {fileID: 6900008319038825817}
   animator: {fileID: 2240606817507776182}
   healthBar: {fileID: 1985504562751981867}

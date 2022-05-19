@@ -26,8 +26,8 @@ namespace Channeld
         public int ClientPortToChanneld = 12108;
         public int ClientConnectTimeoutMs = 3000;
 
-        private ChanneldConnection serverConnection;
-        private ChanneldConnection clientConnection;
+        internal ChanneldConnection serverConnection { get; private set; }
+        internal ChanneldConnection clientConnection { get; private set; }
 
         public static ChanneldTransport Current
         {
@@ -106,12 +106,12 @@ namespace Channeld
         public override void ServerStart()
         {
             if (serverConnection == null)
-                serverConnection = new ChanneldConnection();
+                serverConnection = new ChanneldConnection(ConnectionType.Server);
             serverConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             serverConnection.ConnectTimeoutMs = ServerConnectTimeoutMs;
-            serverConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
+            serverConnection.UserSpaceMessageHandleFunc += (channelId, clientConnId, payload) =>
             {
-                this.OnServerDataReceived((int)clientConnId, new ArraySegment<byte>(payload), Channels.Reliable);
+                OnServerDataReceived((int)clientConnId, new ArraySegment<byte>(payload), Channels.Reliable);
             };
             /* Moved to ServerView
             serverConnection.AddMessageHandler((uint)MessageType.CreateChannel, (conn, channelId, msg) =>
@@ -287,12 +287,12 @@ namespace Channeld
         private void InitClientConnection()
         {
             if (clientConnection == null)
-                clientConnection = new ChanneldConnection();
+                clientConnection = new ChanneldConnection(ConnectionType.Client);
             clientConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             clientConnection.ConnectTimeoutMs = ClientConnectTimeoutMs;
-            clientConnection.UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) =>
+            clientConnection.UserSpaceMessageHandleFunc += (channelId, clientConnId, payload) =>
             {
-                /* With ChannelDataView, we no longer needs netId-channelId mapping 
+                /* Moved to ChannelDataView
                  * 
                 // The payload may contains multiple Mirror messages, making it hard to recognize the SpawnMessage inside.
                 // We have to use this awkward way to make sure when handling SpawnMessage, the NetworkClient has the right channelId context.
@@ -354,7 +354,7 @@ namespace Channeld
                 // The client has already subscribed to a channel. We don't need to trigger NetworkManager.OnClientConnect() again.
                 // Instead, send the AddPlayer message to the server that owns the new channel.
                 // FIXME: if both channels are spatial channels, the new owner could be the same server!
-                NetworkClient.connection.Send(new AddPlayerMessage());
+                //NetworkClient.connection.Send(new AddPlayerMessage());
             }
         }
 
@@ -421,6 +421,21 @@ namespace Channeld
             }
         }
 
+        // Client sends the NetworkMessage directly to channeld (without batching in Mirror's NetworkConnection)
+        public void ClientSendNetworkMessage<T>(uint channelId, T message) where T : struct, NetworkMessage
+        {
+            using (PooledNetworkWriter packetWriter = NetworkWriterPool.GetWriter())
+            {
+                // A packet consists of a timestamp and a series of NetworkMessage.
+                packetWriter.WriteDouble(NetworkTime.localTime);
+                MessagePacking.Pack(message, packetWriter);
+                var segment = packetWriter.ToArraySegment();
+                ChanneldTransport.Current.clientConnection.SendRaw(channelId,
+                    MirrorUtils.GetChanneldMsgType(segment),
+                    ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count));
+            }
+        }
+
         public override void ClientEarlyUpdate()
         {
             clientConnection?.TickIncoming();
@@ -457,9 +472,9 @@ namespace Channeld
         public override void Shutdown()
         {
             clientConnection?.Disconnect();
-            clientConnection = null;
+            //clientConnection = null;
             serverConnection?.Disconnect();
-            serverConnection = null;
+            //serverConnection = null;
         }
     }
 }

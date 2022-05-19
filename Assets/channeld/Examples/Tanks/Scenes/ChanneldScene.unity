@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208ffac57848f384f89729360e92f1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChannelViewPrefab: {fileID: 11400000, guid: 0a1aeb1678fa4db46a0461dfa2c7cdf4, type: 2}
+  ChannelViewPrefab: {fileID: 11400000, guid: e487ed8fc9a4cb54ab5389e4536b48d1, type: 2}
 --- !u!1 &1356050967
 GameObject:
   m_ObjectHideFlags: 0

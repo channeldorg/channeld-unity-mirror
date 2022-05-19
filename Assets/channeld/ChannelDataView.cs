@@ -1,6 +1,8 @@
 ﻿
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
+using Mirror;
+using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using UnityEngine;
@@ -14,13 +16,21 @@ namespace Channeld
         //private static Dictionary<ChannelType, IMessage> channelDataTemplates = new Dictionary<ChannelType, IMessage>();
         private static Dictionary<ChannelType, System.Func<IMessage>> channelDataCreators = new Dictionary<ChannelType, System.Func<IMessage>>();
         private static Dictionary<System.Type, ChannelType> channelDataTypes = new Dictionary<System.Type, ChannelType>();
+        // The spawned object's netId mapping to the id of the channel that owns the object.
+        private static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
+        public static uint GetOwningChannel(uint netId)
+        {
+            uint channelId = 0;
+            netIdOwningChannels.TryGetValue(netId, out channelId);
+            return channelId;
+        }
 
-        // Unfortunately, MessageParser.CreateTemplate() is not public...
         public static void RegisterChannelDataParser(ChannelType channelType, IMessage channelDataTemplate, MessageParser parser)
         {
             channelDataParsers[Any.Pack(channelDataTemplate).TypeUrl] = parser;
 
             //channelDataTemplates[channelType] = channelDataTemplate;
+            // Unfortunately, MessageParser.CreateTemplate() is not public...
             // We have to instantiate the ChannelData message using reflection, as it cannot be cast to IDeepClone<IMessage>
             // Use DynamicMethod for the sake of performance: https://andrewlock.net/benchmarking-4-reflection-methods-for-calling-a-constructor-in-dotnet/
             var channelDataType = channelDataTemplate.GetType();
@@ -41,10 +51,33 @@ namespace Channeld
         public virtual void Initialize(ChanneldConnection conn)
         {
             Connection = conn;
+            
             LoadCmdLineArgs();
+            
             Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
             Connection.AddMessageHandler((uint)MessageType.UnsubFromChannel, HandleUnsub);
+            if (Connection.ConnectionType == ConnectionType.Client)
+            {
+                Action<uint, uint, byte[]> handler = (channelId, clientConnId, payload) =>
+                {
+                    // The payload may contains multiple Mirror messages, making it hard to recognize the SpawnMessage inside.
+                    // We have to use this awkward way to make sure when handling SpawnMessage, the NetworkClient has the right channelId context.
+                    // FIXME: how to reduce memory allocation?
+                    Action<SpawnMessage> onSpawn = (msg) =>
+                    {
+                        netIdOwningChannels[msg.netId] = channelId;
+                        Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {channelId}");
+                        NetworkClientExposed.OnSpawn(msg);
+                    };
+                    NetworkClient.ReplaceHandler<SpawnMessage>(onSpawn, false);
+                };
+                // Make sure NetworkClient.ReplaceHandler() is called before NetworkClient.OnTransportData()
+                handler += Connection.UserSpaceMessageHandleFunc;
+                Connection.UserSpaceMessageHandleFunc = handler;
+            }
+
             InitChannels();
+            
             Log.Info($"{GetType()} initialized channels.");
         }
 
@@ -82,16 +115,47 @@ namespace Channeld
                 return;
             }
 
-            foreach (var kv in Connection.SubscribedChannels)
+            if (Connection.ConnectionType == ConnectionType.Server)
             {
-                if (kv.Value.ChannelType == channelType)
+                // Server: add the provider to ALL the matching channels that the server owns.
+                foreach (var kv in Connection.OwnedChannels)
                 {
-                    AddChannelDataProvider(kv.Key, provider);
-                    return;
+                    if (kv.Value.ChannelType == channelType)
+                    {
+                        AddChannelDataProvider(kv.Key, provider);
+                    }
                 }
             }
+            else
+            {
+                // Client: add the provider to the channel that spawns the netId.
+                if (provider is NetworkBehaviour networkBehaviour)
+                {
+                    uint channelId = 0;
+                    if (netIdOwningChannels.TryGetValue(networkBehaviour.netId, out channelId))
+                    {
+                        AddChannelDataProvider(channelId, provider);
+                        return;
+                    }
+                    else
+                    {
+                        Log.Error($"No channelId mapping found for netId {networkBehaviour.netId}");
+                    }
+                }
+                /*
+                foreach (var kv in Connection.SubscribedChannels)
+                {
+                    if (kv.Value.ChannelType == channelType)
+                    {
+                        AddChannelDataProvider(kv.Key, provider);
+                        return;
+                    }
+                }
 
-            Log.Warning($"Failed to AddChannelDataProviderToDefaultChannel: no default channel found of type '{channelType}', data type: {channelDataType}.");
+                Log.Warning($"Failed to AddChannelDataProviderToDefaultChannel: no default channel found of type '{channelType}', data type: {channelDataType}.");
+                */
+
+            }
         }
 
 
@@ -103,8 +167,9 @@ namespace Channeld
                 providers = new HashSet<IChannelDataProvider>();
                 channelDataProviders[channelId] = providers;
             }
-            providers.Add(provider);
-            Log.Info($"Added channel data provider {provider} to channel {channelId}");
+
+            if (providers.Add(provider))
+                Log.Info($"Added channel data provider {provider} to channel {channelId}");
         }
 
         /*

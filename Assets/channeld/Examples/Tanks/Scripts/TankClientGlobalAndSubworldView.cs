@@ -1,4 +1,6 @@
 ﻿
+using Mirror;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Channeld.Examples.Tanks
@@ -20,6 +22,7 @@ namespace Channeld.Examples.Tanks
                 FanOutIntervalMs = fanOutIntervalMs
             }, (_) =>
             {
+                ChanneldTransport.Current.OnClientSubToChannel(ChanneldConnection.GlobalChannelId);
                 Connection.ListChannel(channelType, callback: (resultMsg) =>
                 {
                     ui = Instantiate(uiPrefab);
@@ -38,7 +41,6 @@ namespace Channeld.Examples.Tanks
                                 FanOutIntervalMs = fanOutIntervalMs
                             }, callback: (_) =>
                             {
-                                ChanneldTransport.Current.OnClientSubToChannel(channelId);
                             });
                         }
                     };
@@ -51,6 +53,18 @@ namespace Channeld.Examples.Tanks
                     };
                 });
             });
+        }
+
+        protected override void OnUnsubFromChannel(uint channelId, IEnumerable<IChannelDataProvider> removedProviders)
+        {
+            foreach (var provider in removedProviders)
+            {
+                if (provider is NetworkBehaviour networkBehaviour)
+                {
+                    if (!networkBehaviour.isLocalPlayer)
+                        NetworkClient.DestroyObject(networkBehaviour.netId);
+                }
+            }
         }
     }
 }

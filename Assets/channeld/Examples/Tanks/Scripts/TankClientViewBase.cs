@@ -22,19 +22,6 @@ namespace Channeld.Examples.Tanks
             RegisterChannelDataParser(channelType, new TankGameChannelData(), TankGameChannelData.Parser);
         }
 
-        protected override void OnUnsubFromChannel(uint channelId, IEnumerable<IChannelDataProvider> removedProviders)
-        {
-            foreach (var provider in removedProviders)
-            {
-                if (provider is NetworkBehaviour)
-                {
-                    // Send the ObjectDestroyMessage to handle the destroy properly.
-                    // ChanneldTransport.Current.OnClientMessageReceived(new ObjectDestroyMessage(){netId = ((NetworkBehaviour)provider).netId});
-                    NetworkClient.DestroyObject(((NetworkBehaviour)provider).netId);
-                }
-            }
-        }
-
         protected override void UninitChannels()
         {
             // No need to unsub, as channeld will handle the closed connections properly.

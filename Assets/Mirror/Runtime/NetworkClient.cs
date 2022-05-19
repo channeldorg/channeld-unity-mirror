@@ -1268,7 +1268,7 @@ namespace Mirror
 
         internal static void OnObjectDestroy(ObjectDestroyMessage message) => DestroyObject(message.netId);
 
-        public static void OnSpawn(SpawnMessage message)
+        internal static void OnSpawn(SpawnMessage message)
         {
             // Debug.Log($"Client spawn handler instantiating netId={msg.netId} assetID={msg.assetId} sceneId={msg.sceneId:X} pos={msg.position}");
             if (FindOrSpawnObject(message, out NetworkIdentity identity))

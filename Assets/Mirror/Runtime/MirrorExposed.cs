@@ -20,4 +20,12 @@ namespace Mirror
             NetworkClient.OnSpawn(msg);
         }
     }
+    
+    public static class NetworkIdentityExposed
+    {
+        public static void SetNetId(this NetworkIdentity ni, uint netId)
+        {
+            ni.netId = netId;
+        }
+    }
 }

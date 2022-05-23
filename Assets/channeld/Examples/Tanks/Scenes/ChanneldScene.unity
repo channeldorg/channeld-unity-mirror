@@ -382,7 +382,7 @@ MonoBehaviour:
   maxConnections: 1000
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 1916082411674582, guid: 345457c841b536d48843f454e61b227f, type: 3}
-  autoCreatePlayer: 1
+  autoCreatePlayer: 0
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 5890560936853567077, guid: b7dd46dbf38c643f09e206f9fa4be008, type: 3}

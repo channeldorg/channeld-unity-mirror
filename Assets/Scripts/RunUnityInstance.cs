@@ -12,6 +12,28 @@ public class RunUnityInstanceWindow : EditorWindow
     {
         EditorWindow.GetWindow(typeof(RunUnityInstanceWindow));
     }
+    private void OnEnable()
+    {
+        string prefKey = GetType().Name;
+        if (!EditorPrefs.HasKey(prefKey))
+            return;
+
+        string prefValue = EditorPrefs.GetString(prefKey);
+        try
+        {
+            EditorJsonUtility.FromJsonOverwrite(prefValue, this);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Failed to load {prefKey} from JSON:\n{prefValue}\nException:{ex}");
+        }
+    }
+
+    private void OnDisable()
+    {
+        string prefValue = EditorJsonUtility.ToJson(this, false);
+        EditorPrefs.SetString(GetType().Name, prefValue);
+    }
 
     [Serializable]
     public struct InstaceGroup
@@ -123,16 +145,16 @@ public class RunUnityInstanceWindow : EditorWindow
                 }
             }
 
-            args = args.Replace("{index}", i.ToString());// + $" > {logFile} | type {logFile}";
+            var instanceArgs = args.Replace("{index}", i.ToString());// + $" > {logFile} | type {logFile}";
             
             if (group.logFile)
             {
                 string timePostfix = group.useTimePostfixForLogFile ? DateTime.Now.ToString("-yyyyMMddHHmmssff") : "";
                 string logFile = $"./Logs/server{i}-group{groupIndex}{timePostfix}.log";
-                args += $"-logFile {logFile}";
+                instanceArgs += $" -logFile {logFile}";
             }
 
-            BuildScript.RunProcess(BuildScript.WINDOWS_BINARY, args, WorkingFolder);
+            BuildScript.RunProcess(BuildScript.WINDOWS_BINARY, instanceArgs, WorkingFolder);
         }
     }
 

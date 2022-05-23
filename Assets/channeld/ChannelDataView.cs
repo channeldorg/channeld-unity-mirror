@@ -17,11 +17,12 @@ namespace Channeld
         private static Dictionary<ChannelType, System.Func<IMessage>> channelDataCreators = new Dictionary<ChannelType, System.Func<IMessage>>();
         private static Dictionary<System.Type, ChannelType> channelDataTypes = new Dictionary<System.Type, ChannelType>();
         // The spawned object's netId mapping to the id of the channel that owns the object.
-        private static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
+        protected static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
         public static uint GetOwningChannel(uint netId)
         {
             uint channelId = 0;
-            netIdOwningChannels.TryGetValue(netId, out channelId);
+            if (!netIdOwningChannels.TryGetValue(netId, out channelId))
+                Log.Warning($"No owning channel found for netId {netId}, fall back to GLOBAL channel.");
             return channelId;
         }
 

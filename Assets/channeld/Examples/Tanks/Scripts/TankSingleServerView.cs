@@ -26,9 +26,12 @@ namespace Channeld.Examples.Tanks
             Connection.AddMessageHandler((uint)MessageType.CreateChannel, (_, channelId, msg) =>
             {
                 var resultMsg = (CreateChannelResultMessage)msg;
-                Log.Info($"Server owned channel {resultMsg.ChannelType}");
-                this.channelId = channelId;
-                ChanneldTransport.ServerSendChannelId = channelId;
+                if (resultMsg.OwnerConnId == Connection.Id)
+                {
+                    Log.Info($"Server owned channel {resultMsg.ChannelType}");
+                    this.channelId = channelId;
+                    ChanneldTransport.ServerSendChannelId = channelId;
+                }
             });
 
             Connection.AddMessageHandler((uint)MessageType.RemoveChannel, (_, channelId, msg) =>
@@ -39,6 +42,7 @@ namespace Channeld.Examples.Tanks
                 {
                     Log.Info($"Server no longer owns channel {removeMsg.ChannelId}");
                     this.channelId = null;
+                    ChanneldTransport.ServerSendChannelId = null;
                 }
             });
 
@@ -49,8 +53,16 @@ namespace Channeld.Examples.Tanks
                 // A client subscribed to the target channel
                 if (resultMsg.ConnType == ConnectionType.Client && resultMsg.ChannelType == channelType)
                 {
-                    if (!NetworkServer.connections.ContainsKey((int)resultMsg.ConnId))
-                        (Transport.activeTransport as ChanneldTransport).OnServerConnected?.Invoke((int)resultMsg.ConnId);
+                    int mirrorConnId = (int)resultMsg.ConnId;
+                    if (!NetworkServer.connections.ContainsKey(mirrorConnId))
+                    {
+                        ChanneldTransport.Current.OnServerConnected?.Invoke(mirrorConnId);
+                    }
+
+                    if (!NetworkManager.singleton.autoCreatePlayer && resultMsg.ChannelType != ChannelType.Global)
+                    {
+                        NetworkManager.singleton.OnServerAddPlayer(NetworkServer.connections[mirrorConnId]);
+                    }
                 }
             });
 
@@ -61,7 +73,7 @@ namespace Channeld.Examples.Tanks
                 // A client unsubscribed from the target channel
                 if (resultMsg.ConnType == ConnectionType.Client && resultMsg.ChannelType == channelType)
                 {
-                    (Transport.activeTransport as ChanneldTransport).OnServerDisconnected?.Invoke((int)resultMsg.ConnId);
+                    ChanneldTransport.Current.OnServerDisconnected?.Invoke((int)resultMsg.ConnId);
                 }
             });
 

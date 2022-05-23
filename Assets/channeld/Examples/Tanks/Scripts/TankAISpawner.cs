@@ -1,6 +1,7 @@
 using Google.Protobuf;
 using Mirror;
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Channeld.Examples.Tanks
@@ -14,15 +15,7 @@ namespace Channeld.Examples.Tanks
 
         private void Awake()
         {
-            var args = Environment.GetCommandLineArgs();
-            for (int i = 0; i < args.Length - 1; i++)
-            {
-                if (args[i] == "-spawnai")
-                {
-                    int.TryParse(args[i + 1], out prespawnNum);
-                    break;
-                }
-            }
+            CmdLineArgParser.Default.GetOptionValue("--spawn-ai", "-spawnai", ref prespawnNum);
 
             //TankChannelDataProvider.OnGenericDataChanged += OnFullChannelDataReceived;
         }
@@ -61,6 +54,15 @@ namespace Channeld.Examples.Tanks
         {
             if (!isServer)
                 return;
+
+
+            if (index == 0 && ChanneldConnection.Instance != null)
+            {
+                var ownedChannelIds = ChanneldConnection.Instance.OwnedChannels.Keys;
+                // Offset the first spawning point with the server 'index'
+                if (ownedChannelIds.Count > 0)
+                    index = batchSpawnNum * (int)ownedChannelIds.First();
+            }
 
             for (int i = 0; i < num; i++)
             {

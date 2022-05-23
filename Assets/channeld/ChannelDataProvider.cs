@@ -7,13 +7,6 @@ using UnityEngine;
 
 namespace Channeld
 {
-    public class TransformUpdateData
-    {
-        public Vector3? Position;
-        public Quaternion? Rotation;
-        public Vector3? Scale;
-    }
-
     public interface IChannelDataProvider
     {
         System.Type GetChannelDataType();
@@ -37,6 +30,13 @@ namespace Channeld
     }
 
     /*
+    public class TransformUpdateData
+    {
+        public Vector3? Position;
+        public Quaternion? Rotation;
+        public Vector3? Scale;
+    }
+
     // Accessor of all static methods.
     // DO NOT inherit from this class. Use ChannelDataProvider<T> instead.
     public abstract class ChannelDataProvider : MonoBehaviour

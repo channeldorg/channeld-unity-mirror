@@ -36,12 +36,12 @@ namespace Channeld.Examples.Tanks
                         {
                             ChanneldTransport.Current.OnClientSubToChannel(channelId);
 
-                            // Make sure the player provider is added to the channel view
-                            if (NetworkClient.localPlayer != null)
-                            {
-                                foreach (var provider in NetworkClient.localPlayer.GetComponents<IChannelDataProvider>())
-                                    AddChannelDataProvider(channelId, provider);
-                            }
+                            //// Make sure the player provider is added to the channel view
+                            //if (NetworkClient.localPlayer != null)
+                            //{
+                            //    foreach (var provider in NetworkClient.localPlayer.GetComponents<IChannelDataProvider>())
+                            //        AddChannelDataProvider(channelId, provider);
+                            //}
                         });
                     }
                 };

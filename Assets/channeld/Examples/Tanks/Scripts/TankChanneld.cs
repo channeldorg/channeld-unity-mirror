@@ -30,6 +30,8 @@ namespace Channeld.Examples.Tanks
         public Action<TransformState> OnTransformUpdated {get; set;}
         public bool IsRemoved { get; set; }
 
+        public static Action<TankChanneld> OnLocalPlayerCreated;
+
         void Update()
         {
             // always update health bar.
@@ -257,6 +259,11 @@ namespace Channeld.Examples.Tanks
         public void UpdateTransform(TransformState state)
         {
             transformState = state;
+        }
+
+        public override void OnStartLocalPlayer()
+        {
+            OnLocalPlayerCreated?.Invoke(this);
         }
     }
 }

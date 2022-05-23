@@ -107,6 +107,7 @@ namespace Channeld
         {
             if (serverConnection == null)
                 serverConnection = new ChanneldConnection(ConnectionType.Server);
+
             serverConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             serverConnection.ConnectTimeoutMs = ServerConnectTimeoutMs;
             serverConnection.UserSpaceMessageHandleFunc += (channelId, clientConnId, payload) =>
@@ -175,6 +176,8 @@ namespace Channeld
             });
             */
 
+            NetworkServer.RegisterHandler<AddPlayerProxyMessage>(HandleAddPlayerProxyMessage);
+
             serverConnection.Connect(ServerAddressToChanneld, ServerPortToChanneld, () =>
             {
                 Log.Info("Server connected to channeld.");
@@ -222,6 +225,23 @@ namespace Channeld
                 Log.Error("Server failed to connect to channeld.");
                 NetworkServer.Shutdown();
             });
+        }
+
+        private void HandleAddPlayerProxyMessage(NetworkConnection conn, AddPlayerProxyMessage msg)
+        {
+            var networkManager = NetworkManager.singleton;
+            GameObject player = Instantiate(networkManager.playerPrefab, msg.position, msg.rotation);
+            player.transform.localScale = msg.scale;
+
+            // instantiating a "Player" prefab gives it the name "Player(clone)"
+            // => appending the connectionId is WAY more useful for debugging!
+            player.name = $"{networkManager.playerPrefab.name} [connId={conn.connectionId}]";
+            NetworkIdentity identity = player.GetComponent<NetworkIdentity>();
+            NetworkServer.AddPlayerForConnection(conn, player);
+            // Update the Proxy Player's netId with the Authority Player's netId
+            NetworkServer.spawned.Remove(identity.netId);
+            identity.SetNetId(msg.netId);
+            NetworkServer.spawned[msg.netId] = identity;
         }
 
         public override void ServerSend(int connectionId, ArraySegment<byte> segment, int reliable)
@@ -275,6 +295,7 @@ namespace Channeld
 
         public override void ServerStop()
         {
+            serverConnection.UserSpaceMessageHandleFunc = null;
             serverConnection?.Disconnect();
         }
 
@@ -286,8 +307,10 @@ namespace Channeld
 
         private void InitClientConnection()
         {
-            if (clientConnection == null)
-                clientConnection = new ChanneldConnection(ConnectionType.Client);
+            if (clientConnection != null)
+                return;
+
+            clientConnection = new ChanneldConnection(ConnectionType.Client);
             clientConnection.ShowUserSpaceMessageLog = showUserSpaceMessageLog;
             clientConnection.ConnectTimeoutMs = ClientConnectTimeoutMs;
             clientConnection.UserSpaceMessageHandleFunc += (channelId, clientConnId, payload) =>
@@ -475,6 +498,11 @@ namespace Channeld
             //clientConnection = null;
             serverConnection?.Disconnect();
             //serverConnection = null;
+        }
+
+        private void OnDestroy()
+        {
+            Shutdown();
         }
     }
 }

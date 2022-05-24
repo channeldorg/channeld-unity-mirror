@@ -24,13 +24,14 @@ namespace Channeld {
     static UnityCommonReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJ1bml0eV9jb21tb24ucHJvdG8SCGNoYW5uZWxkIisKCFZlY3RvcjNmEgkK",
-            "AXgYASABKAISCQoBeRgCIAEoAhIJCgF6GAMgASgCIjYKCFZlY3RvcjRmEgkK",
-            "AXgYASABKAISCQoBeRgCIAEoAhIJCgF6GAMgASgCEgkKAXcYBCABKAIikAEK",
-            "DlRyYW5zZm9ybVN0YXRlEg8KB3JlbW92ZWQYASABKAgSJAoIcG9zaXRpb24Y",
-            "AiABKAsyEi5jaGFubmVsZC5WZWN0b3IzZhIkCghyb3RhdGlvbhgDIAEoCzIS",
-            "LmNoYW5uZWxkLlZlY3RvcjRmEiEKBXNjYWxlGAQgASgLMhIuY2hhbm5lbGQu",
-            "VmVjdG9yM2ZCE1oGL3Byb3RvqgIIQ2hhbm5lbGRiBnByb3RvMw=="));
+            "ChJ1bml0eV9jb21tb24ucHJvdG8SCmNoYW5uZWxkcGIiKwoIVmVjdG9yM2YS",
+            "CQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiNgoIVmVjdG9yNGYS",
+            "CQoBeBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAISCQoBdxgEIAEoAiKW",
+            "AQoOVHJhbnNmb3JtU3RhdGUSDwoHcmVtb3ZlZBgBIAEoCBImCghwb3NpdGlv",
+            "bhgCIAEoCzIULmNoYW5uZWxkcGIuVmVjdG9yM2YSJgoIcm90YXRpb24YAyAB",
+            "KAsyFC5jaGFubmVsZHBiLlZlY3RvcjRmEiMKBXNjYWxlGAQgASgLMhQuY2hh",
+            "bm5lbGRwYi5WZWN0b3IzZkI5WixjaGFubmVsZC5jbGV3Y2F0LmNvbS9jaGFu",
+            "bmVsZC9wa2cvY2hhbm5lbGRwYqoCCENoYW5uZWxkYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

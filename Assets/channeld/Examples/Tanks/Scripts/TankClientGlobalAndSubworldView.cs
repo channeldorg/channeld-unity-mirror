@@ -1,4 +1,5 @@
 ﻿
+using Channeldpb;
 using Mirror;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Channeld.Examples.Tanks
 {
-    [CreateAssetMenu(fileName = "TankClientGlobalAndSubworldView", menuName = "ScriptableObjects/TankClientGlobalAndSubworldView", order = 3)]
+    [CreateAssetMenu(fileName = "TankClientGlobalAndSubworldView", menuName = "ScriptableObjects/TankClientGlobalAndSubworldView", order = 4)]
     public class TankClientGlobalAndSubworldView : TankClientViewBase
     {
         public TankClientViewUI uiPrefab;

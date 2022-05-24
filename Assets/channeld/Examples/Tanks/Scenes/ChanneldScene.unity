@@ -321,7 +321,6 @@ GameObject:
   - component: {fileID: 1282001520}
   - component: {fileID: 1282001519}
   - component: {fileID: 1282001521}
-  - component: {fileID: 1282001522}
   - component: {fileID: 1282001523}
   m_Layer: 0
   m_Name: NetworkManager
@@ -407,18 +406,6 @@ MonoBehaviour:
   ServerChannelMetadata: MirrorServer
   ClientPortToChanneld: 12108
   ClientConnectTimeoutMs: 3000
---- !u!114 &1282001522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282001517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eed21c7d3f31304885d0a6b2a367a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1282001523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208ffac57848f384f89729360e92f1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChannelViewPrefab: {fileID: 11400000, guid: e487ed8fc9a4cb54ab5389e4536b48d1, type: 2}
+  ChannelViewPrefab: {fileID: 11400000, guid: 0a1aeb1678fa4db46a0461dfa2c7cdf4, type: 2}
 --- !u!1 &1356050967
 GameObject:
   m_ObjectHideFlags: 0

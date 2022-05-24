@@ -1,4 +1,5 @@
-﻿using Google.Protobuf;
+﻿using Channeldpb;
+using Google.Protobuf;
 using Mirror;
 using System;
 using System.IO;

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Channeld {
+namespace Channeldpb {
 
   /// <summary>Holder for reflection information generated from channeld.proto</summary>
   public static partial class ChanneldReflection {
@@ -24,95 +24,97 @@ namespace Channeld {
     static ChanneldReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5jaGFubmVsZC5wcm90bxIIY2hhbm5lbGQaGWdvb2dsZS9wcm90b2J1Zi9h",
-            "bnkucHJvdG8iMQoGUGFja2V0EicKCG1lc3NhZ2VzGAEgAygLMhUuY2hhbm5l",
-            "bGQuTWVzc2FnZVBhY2sifgoLTWVzc2FnZVBhY2sSEQoJY2hhbm5lbElkGAEg",
-            "ASgNEioKCWJyb2FkY2FzdBgCIAEoDjIXLmNoYW5uZWxkLkJyb2FkY2FzdFR5",
-            "cGUSDgoGc3R1YklkGAMgASgNEg8KB21zZ1R5cGUYBCABKA0SDwoHbXNnQm9k",
-            "eRgFIAEoDCI9ChRTZXJ2ZXJGb3J3YXJkTWVzc2FnZRIUCgxjbGllbnRDb25u",
-            "SWQYASABKA0SDwoHcGF5bG9hZBgCIAEoDCJACgtBdXRoTWVzc2FnZRIdChVw",
-            "bGF5ZXJJZGVudGlmaWVyVG9rZW4YASABKAkSEgoKbG9naW5Ub2tlbhgCIAEo",
-            "CSLOAQoRQXV0aFJlc3VsdE1lc3NhZ2USNgoGcmVzdWx0GAEgASgOMiYuY2hh",
-            "bm5lbGQuQXV0aFJlc3VsdE1lc3NhZ2UuQXV0aFJlc3VsdBIOCgZjb25uSWQY",
-            "AiABKA0SMgoPY29tcHJlc3Npb25UeXBlGAMgASgOMhkuY2hhbm5lbGQuQ29t",
-            "cHJlc3Npb25UeXBlIj0KCkF1dGhSZXN1bHQSDgoKU1VDQ0VTU0ZVTBAAEg8K",
-            "C0lOVkFMSURfUElUEAESDgoKSU5WQUxJRF9MVBACImUKGkNoYW5uZWxTdWJz",
-            "Y3JpcHRpb25PcHRpb25zEhUKDUNhblVwZGF0ZURhdGEYASABKAgSFgoORGF0",
-            "YUZpZWxkTWFza3MYAiADKAkSGAoQRmFuT3V0SW50ZXJ2YWxNcxgDIAEoDSKG",
-            "AQoXQ2hhbm5lbERhdGFNZXJnZU9wdGlvbnMSGQoRc2hvdWxkUmVwbGFjZUxp",
-            "c3QYASABKAgSFQoNbGlzdFNpemVMaW1pdBgCIAEoDRITCgt0cnVuY2F0ZVRv",
-            "cBgDIAEoCBIkChxzaG91bGRDaGVja1JlbW92YWJsZU1hcEZpZWxkGAQgASgI",
-            "IusBChRDcmVhdGVDaGFubmVsTWVzc2FnZRIqCgtjaGFubmVsVHlwZRgBIAEo",
-            "DjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEjgK",
-            "CnN1Yk9wdGlvbnMYAyABKAsyJC5jaGFubmVsZC5DaGFubmVsU3Vic2NyaXB0",
-            "aW9uT3B0aW9ucxIiCgRkYXRhGAQgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFu",
-            "eRI3CgxtZXJnZU9wdGlvbnMYBSABKAsyIS5jaGFubmVsZC5DaGFubmVsRGF0",
-            "YU1lcmdlT3B0aW9ucyJvChpDcmVhdGVDaGFubmVsUmVzdWx0TWVzc2FnZRIq",
-            "CgtjaGFubmVsVHlwZRgBIAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAK",
-            "CG1ldGFkYXRhGAIgASgJEhMKC293bmVyQ29ubklkGAMgASgNIikKFFJlbW92",
-            "ZUNoYW5uZWxNZXNzYWdlEhEKCWNoYW5uZWxJZBgBIAEoDSJYChJMaXN0Q2hh",
-            "bm5lbE1lc3NhZ2USKQoKdHlwZUZpbHRlchgBIAEoDjIVLmNoYW5uZWxkLkNo",
-            "YW5uZWxUeXBlEhcKD21ldGFkYXRhRmlsdGVycxgCIAMoCSK8AQoYTGlzdENo",
-            "YW5uZWxSZXN1bHRNZXNzYWdlEkAKCGNoYW5uZWxzGAEgAygLMi4uY2hhbm5l",
-            "bGQuTGlzdENoYW5uZWxSZXN1bHRNZXNzYWdlLkNoYW5uZWxJbmZvGl4KC0No",
-            "YW5uZWxJbmZvEhEKCWNoYW5uZWxJZBgBIAEoDRIqCgtjaGFubmVsVHlwZRgC",
-            "IAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAMgASgJ",
-            "ImYKGlN1YnNjcmliZWRUb0NoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEo",
-            "DRI4CgpzdWJPcHRpb25zGAIgASgLMiQuY2hhbm5lbGQuQ2hhbm5lbFN1YnNj",
-            "cmlwdGlvbk9wdGlvbnMixAEKIFN1YnNjcmliZWRUb0NoYW5uZWxSZXN1bHRN",
-            "ZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI4CgpzdWJPcHRpb25zGAIgASgLMiQu",
-            "Y2hhbm5lbGQuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMSKgoIY29ublR5",
-            "cGUYAyABKA4yGC5jaGFubmVsZC5Db25uZWN0aW9uVHlwZRIqCgtjaGFubmVs",
-            "VHlwZRgEIAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxUeXBlIjAKHlVuc3Vic2Ny",
-            "aWJlZEZyb21DaGFubmVsTWVzc2FnZRIOCgZjb25uSWQYASABKA0ijgEKJFVu",
-            "c3Vic2NyaWJlZEZyb21DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQY",
-            "ASABKA0SKgoIY29ublR5cGUYAiABKA4yGC5jaGFubmVsZC5Db25uZWN0aW9u",
-            "VHlwZRIqCgtjaGFubmVsVHlwZRgDIAEoDjIVLmNoYW5uZWxkLkNoYW5uZWxU",
-            "eXBlIj4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2FnZRIiCgRkYXRhGAEgASgL",
-            "MhQuZ29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNjb25uZWN0TWVzc2FnZRIO",
-            "CgZjb25uSWQYASABKA0iKwoITG9jYXRpb24SCQoBeBgBIAEoARIJCgF5GAIg",
-            "ASgBEgkKAXoYAyABKAEiNAoRU3BhdGlhbEVudGl0eUluZm8SHwoDbG9jGAEg",
-            "ASgLMhIuY2hhbm5lbGQuTG9jYXRpb24irgEKGVNwYXRpYWxDaGFubmVsRGF0",
-            "YU1lc3NhZ2USQwoIZW50aXRpZXMYASADKAsyMS5jaGFubmVsZC5TcGF0aWFs",
-            "Q2hhbm5lbERhdGFNZXNzYWdlLkVudGl0aWVzRW50cnkaTAoNRW50aXRpZXNF",
-            "bnRyeRILCgNrZXkYASABKA0SKgoFdmFsdWUYAiABKAsyGy5jaGFubmVsZC5T",
-            "cGF0aWFsRW50aXR5SW5mbzoCOAEqVQoNQnJvYWRjYXN0VHlwZRIQCgxOT19C",
-            "Uk9BRENBU1QQABIHCgNBTEwQARISCg5BTExfQlVUX1NFTkRFUhACEhUKEVNJ",
-            "TkdMRV9DT05ORUNUSU9OEAMqOwoOQ29ubmVjdGlvblR5cGUSEQoNTk9fQ09O",
-            "TkVDVElPThAAEgoKBlNFUlZFUhABEgoKBkNMSUVOVBACKoQBCgtDaGFubmVs",
-            "VHlwZRILCgdVTktOT1dOEAASCgoGR0xPQkFMEAESCwoHUFJJVkFURRACEgwK",
-            "CFNVQldPUkxEEAMSCwoHU1BBVElBTBAEEggKBFRFU1QQZBIJCgVURVNUMRBl",
-            "EgkKBVRFU1QyEGYSCQoFVEVTVDMQZxIJCgVURVNUNBBoKskBCgtNZXNzYWdl",
-            "VHlwZRILCgdJTlZBTElEEAASCAoEQVVUSBABEhIKDkNSRUFURV9DSEFOTkVM",
-            "EAMSEgoOUkVNT1ZFX0NIQU5ORUwQBBIQCgxMSVNUX0NIQU5ORUwQBRISCg5T",
-            "VUJfVE9fQ0hBTk5FTBAGEhYKElVOU1VCX0ZST01fQ0hBTk5FTBAHEhcKE0NI",
-            "QU5ORUxfREFUQV9VUERBVEUQCBIOCgpESVNDT05ORUNUEAkSFAoQVVNFUl9T",
-            "UEFDRV9TVEFSVBBkKjEKD0NvbXByZXNzaW9uVHlwZRISCg5OT19DT01QUkVT",
-            "U0lPThAAEgoKBlNOQVBQWRABQghaBi9wcm90b2IGcHJvdG8z"));
+            "Cg5jaGFubmVsZC5wcm90bxIKY2hhbm5lbGRwYhoZZ29vZ2xlL3Byb3RvYnVm",
+            "L2FueS5wcm90byIzCgZQYWNrZXQSKQoIbWVzc2FnZXMYASADKAsyFy5jaGFu",
+            "bmVsZHBiLk1lc3NhZ2VQYWNrIoABCgtNZXNzYWdlUGFjaxIRCgljaGFubmVs",
+            "SWQYASABKA0SLAoJYnJvYWRjYXN0GAIgASgOMhkuY2hhbm5lbGRwYi5Ccm9h",
+            "ZGNhc3RUeXBlEg4KBnN0dWJJZBgDIAEoDRIPCgdtc2dUeXBlGAQgASgNEg8K",
+            "B21zZ0JvZHkYBSABKAwiPQoUU2VydmVyRm9yd2FyZE1lc3NhZ2USFAoMY2xp",
+            "ZW50Q29ubklkGAEgASgNEg8KB3BheWxvYWQYAiABKAwiQAoLQXV0aE1lc3Nh",
+            "Z2USHQoVcGxheWVySWRlbnRpZmllclRva2VuGAEgASgJEhIKCmxvZ2luVG9r",
+            "ZW4YAiABKAki0gEKEUF1dGhSZXN1bHRNZXNzYWdlEjgKBnJlc3VsdBgBIAEo",
+            "DjIoLmNoYW5uZWxkcGIuQXV0aFJlc3VsdE1lc3NhZ2UuQXV0aFJlc3VsdBIO",
+            "CgZjb25uSWQYAiABKA0SNAoPY29tcHJlc3Npb25UeXBlGAMgASgOMhsuY2hh",
+            "bm5lbGRwYi5Db21wcmVzc2lvblR5cGUiPQoKQXV0aFJlc3VsdBIOCgpTVUND",
+            "RVNTRlVMEAASDwoLSU5WQUxJRF9QSVQQARIOCgpJTlZBTElEX0xUEAIiZQoa",
+            "Q2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMSFQoNQ2FuVXBkYXRlRGF0YRgB",
+            "IAEoCBIWCg5EYXRhRmllbGRNYXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZh",
+            "bE1zGAMgASgNIoYBChdDaGFubmVsRGF0YU1lcmdlT3B0aW9ucxIZChFzaG91",
+            "bGRSZXBsYWNlTGlzdBgBIAEoCBIVCg1saXN0U2l6ZUxpbWl0GAIgASgNEhMK",
+            "C3RydW5jYXRlVG9wGAMgASgIEiQKHHNob3VsZENoZWNrUmVtb3ZhYmxlTWFw",
+            "RmllbGQYBCABKAgi8QEKFENyZWF0ZUNoYW5uZWxNZXNzYWdlEiwKC2NoYW5u",
+            "ZWxUeXBlGAEgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZRIQCghtZXRh",
+            "ZGF0YRgCIAEoCRI6CgpzdWJPcHRpb25zGAMgASgLMiYuY2hhbm5lbGRwYi5D",
+            "aGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucxIiCgRkYXRhGAQgASgLMhQuZ29v",
+            "Z2xlLnByb3RvYnVmLkFueRI5CgxtZXJnZU9wdGlvbnMYBSABKAsyIy5jaGFu",
+            "bmVsZHBiLkNoYW5uZWxEYXRhTWVyZ2VPcHRpb25zInEKGkNyZWF0ZUNoYW5u",
+            "ZWxSZXN1bHRNZXNzYWdlEiwKC2NoYW5uZWxUeXBlGAEgASgOMhcuY2hhbm5l",
+            "bGRwYi5DaGFubmVsVHlwZRIQCghtZXRhZGF0YRgCIAEoCRITCgtvd25lckNv",
+            "bm5JZBgDIAEoDSIpChRSZW1vdmVDaGFubmVsTWVzc2FnZRIRCgljaGFubmVs",
+            "SWQYASABKA0iWgoSTGlzdENoYW5uZWxNZXNzYWdlEisKCnR5cGVGaWx0ZXIY",
+            "ASABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlEhcKD21ldGFkYXRhRmls",
+            "dGVycxgCIAMoCSLAAQoYTGlzdENoYW5uZWxSZXN1bHRNZXNzYWdlEkIKCGNo",
+            "YW5uZWxzGAEgAygLMjAuY2hhbm5lbGRwYi5MaXN0Q2hhbm5lbFJlc3VsdE1l",
+            "c3NhZ2UuQ2hhbm5lbEluZm8aYAoLQ2hhbm5lbEluZm8SEQoJY2hhbm5lbElk",
+            "GAEgASgNEiwKC2NoYW5uZWxUeXBlGAIgASgOMhcuY2hhbm5lbGRwYi5DaGFu",
+            "bmVsVHlwZRIQCghtZXRhZGF0YRgDIAEoCSJoChpTdWJzY3JpYmVkVG9DaGFu",
+            "bmVsTWVzc2FnZRIOCgZjb25uSWQYASABKA0SOgoKc3ViT3B0aW9ucxgCIAEo",
+            "CzImLmNoYW5uZWxkcGIuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMiygEK",
+            "IFN1YnNjcmliZWRUb0NoYW5uZWxSZXN1bHRNZXNzYWdlEg4KBmNvbm5JZBgB",
+            "IAEoDRI6CgpzdWJPcHRpb25zGAIgASgLMiYuY2hhbm5lbGRwYi5DaGFubmVs",
+            "U3Vic2NyaXB0aW9uT3B0aW9ucxIsCghjb25uVHlwZRgDIAEoDjIaLmNoYW5u",
+            "ZWxkcGIuQ29ubmVjdGlvblR5cGUSLAoLY2hhbm5lbFR5cGUYBCABKA4yFy5j",
+            "aGFubmVsZHBiLkNoYW5uZWxUeXBlIjAKHlVuc3Vic2NyaWJlZEZyb21DaGFu",
+            "bmVsTWVzc2FnZRIOCgZjb25uSWQYASABKA0ikgEKJFVuc3Vic2NyaWJlZEZy",
+            "b21DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQYASABKA0SLAoIY29u",
+            "blR5cGUYAiABKA4yGi5jaGFubmVsZHBiLkNvbm5lY3Rpb25UeXBlEiwKC2No",
+            "YW5uZWxUeXBlGAMgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZSI+ChhD",
+            "aGFubmVsRGF0YVVwZGF0ZU1lc3NhZ2USIgoEZGF0YRgBIAEoCzIULmdvb2ds",
+            "ZS5wcm90b2J1Zi5BbnkiIwoRRGlzY29ubmVjdE1lc3NhZ2USDgoGY29ubklk",
+            "GAEgASgNIisKCExvY2F0aW9uEgkKAXgYASABKAESCQoBeRgCIAEoARIJCgF6",
+            "GAMgASgBIjYKEVNwYXRpYWxFbnRpdHlJbmZvEiEKA2xvYxgBIAEoCzIULmNo",
+            "YW5uZWxkcGIuTG9jYXRpb24isgEKGVNwYXRpYWxDaGFubmVsRGF0YU1lc3Nh",
+            "Z2USRQoIZW50aXRpZXMYASADKAsyMy5jaGFubmVsZHBiLlNwYXRpYWxDaGFu",
+            "bmVsRGF0YU1lc3NhZ2UuRW50aXRpZXNFbnRyeRpOCg1FbnRpdGllc0VudHJ5",
+            "EgsKA2tleRgBIAEoDRIsCgV2YWx1ZRgCIAEoCzIdLmNoYW5uZWxkcGIuU3Bh",
+            "dGlhbEVudGl0eUluZm86AjgBKlUKDUJyb2FkY2FzdFR5cGUSEAoMTk9fQlJP",
+            "QURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQAhIVChFTSU5H",
+            "TEVfQ09OTkVDVElPThADKjsKDkNvbm5lY3Rpb25UeXBlEhEKDU5PX0NPTk5F",
+            "Q1RJT04QABIKCgZTRVJWRVIQARIKCgZDTElFTlQQAiqEAQoLQ2hhbm5lbFR5",
+            "cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQAhIMCghT",
+            "VUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVTVDEQZRIJ",
+            "CgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCrJAQoLTWVzc2FnZVR5",
+            "cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hBTk5FTBAD",
+            "EhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUSEgoOU1VC",
+            "X1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIXChNDSEFO",
+            "TkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhQKEFVTRVJfU1BB",
+            "Q0VfU1RBUlQQZCoxCg9Db21wcmVzc2lvblR5cGUSEgoOTk9fQ09NUFJFU1NJ",
+            "T04QABIKCgZTTkFQUFkQAUIuWixjaGFubmVsZC5jbGV3Y2F0LmNvbS9jaGFu",
+            "bmVsZC9wa2cvY2hhbm5lbGRwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeld.BroadcastType), typeof(global::Channeld.ConnectionType), typeof(global::Channeld.ChannelType), typeof(global::Channeld.MessageType), typeof(global::Channeld.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Packet), global::Channeld.Packet.Parser, new[]{ "Messages" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.MessagePack), global::Channeld.MessagePack.Parser, new[]{ "ChannelId", "Broadcast", "StubId", "MsgType", "MsgBody" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ServerForwardMessage), global::Channeld.ServerForwardMessage.Parser, new[]{ "ClientConnId", "Payload" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthMessage), global::Channeld.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.AuthResultMessage), global::Channeld.AuthResultMessage.Parser, new[]{ "Result", "ConnId", "CompressionType" }, null, new[]{ typeof(global::Channeld.AuthResultMessage.Types.AuthResult) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelSubscriptionOptions), global::Channeld.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelDataMergeOptions), global::Channeld.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceList", "ListSizeLimit", "TruncateTop", "ShouldCheckRemovableMapField" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelMessage), global::Channeld.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.CreateChannelResultMessage), global::Channeld.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.RemoveChannelMessage), global::Channeld.RemoveChannelMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelMessage), global::Channeld.ListChannelMessage.Parser, new[]{ "TypeFilter", "MetadataFilters" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelResultMessage), global::Channeld.ListChannelResultMessage.Parser, new[]{ "Channels" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ListChannelResultMessage.Types.ChannelInfo), global::Channeld.ListChannelResultMessage.Types.ChannelInfo.Parser, new[]{ "ChannelId", "ChannelType", "Metadata" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.SubscribedToChannelMessage), global::Channeld.SubscribedToChannelMessage.Parser, new[]{ "ConnId", "SubOptions" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.SubscribedToChannelResultMessage), global::Channeld.SubscribedToChannelResultMessage.Parser, new[]{ "ConnId", "SubOptions", "ConnType", "ChannelType" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.UnsubscribedFromChannelMessage), global::Channeld.UnsubscribedFromChannelMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.UnsubscribedFromChannelResultMessage), global::Channeld.UnsubscribedFromChannelResultMessage.Parser, new[]{ "ConnId", "ConnType", "ChannelType" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.ChannelDataUpdateMessage), global::Channeld.ChannelDataUpdateMessage.Parser, new[]{ "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.DisconnectMessage), global::Channeld.DisconnectMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Location), global::Channeld.Location.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.SpatialEntityInfo), global::Channeld.SpatialEntityInfo.Parser, new[]{ "Loc" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.SpatialChannelDataMessage), global::Channeld.SpatialChannelDataMessage.Parser, new[]{ "Entities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.Packet), global::Channeldpb.Packet.Parser, new[]{ "Messages" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.MessagePack), global::Channeldpb.MessagePack.Parser, new[]{ "ChannelId", "Broadcast", "StubId", "MsgType", "MsgBody" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ServerForwardMessage), global::Channeldpb.ServerForwardMessage.Parser, new[]{ "ClientConnId", "Payload" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.AuthMessage), global::Channeldpb.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.AuthResultMessage), global::Channeldpb.AuthResultMessage.Parser, new[]{ "Result", "ConnId", "CompressionType" }, null, new[]{ typeof(global::Channeldpb.AuthResultMessage.Types.AuthResult) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelSubscriptionOptions), global::Channeldpb.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataMergeOptions), global::Channeldpb.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceList", "ListSizeLimit", "TruncateTop", "ShouldCheckRemovableMapField" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelMessage), global::Channeldpb.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelResultMessage), global::Channeldpb.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.RemoveChannelMessage), global::Channeldpb.RemoveChannelMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ListChannelMessage), global::Channeldpb.ListChannelMessage.Parser, new[]{ "TypeFilter", "MetadataFilters" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ListChannelResultMessage), global::Channeldpb.ListChannelResultMessage.Parser, new[]{ "Channels" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo), global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo.Parser, new[]{ "ChannelId", "ChannelType", "Metadata" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SubscribedToChannelMessage), global::Channeldpb.SubscribedToChannelMessage.Parser, new[]{ "ConnId", "SubOptions" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SubscribedToChannelResultMessage), global::Channeldpb.SubscribedToChannelResultMessage.Parser, new[]{ "ConnId", "SubOptions", "ConnType", "ChannelType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.UnsubscribedFromChannelMessage), global::Channeldpb.UnsubscribedFromChannelMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.UnsubscribedFromChannelResultMessage), global::Channeldpb.UnsubscribedFromChannelResultMessage.Parser, new[]{ "ConnId", "ConnType", "ChannelType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataUpdateMessage), global::Channeldpb.ChannelDataUpdateMessage.Parser, new[]{ "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DisconnectMessage), global::Channeldpb.DisconnectMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.Location), global::Channeldpb.Location.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialEntityInfo), global::Channeldpb.SpatialEntityInfo.Parser, new[]{ "Loc" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialChannelDataMessage), global::Channeldpb.SpatialChannelDataMessage.Parser, new[]{ "Entities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -217,7 +219,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -249,12 +251,12 @@ namespace Channeld {
 
     /// <summary>Field number for the "messages" field.</summary>
     public const int MessagesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Channeld.MessagePack> _repeated_messages_codec
-        = pb::FieldCodec.ForMessage(10, global::Channeld.MessagePack.Parser);
-    private readonly pbc::RepeatedField<global::Channeld.MessagePack> messages_ = new pbc::RepeatedField<global::Channeld.MessagePack>();
+    private static readonly pb::FieldCodec<global::Channeldpb.MessagePack> _repeated_messages_codec
+        = pb::FieldCodec.ForMessage(10, global::Channeldpb.MessagePack.Parser);
+    private readonly pbc::RepeatedField<global::Channeldpb.MessagePack> messages_ = new pbc::RepeatedField<global::Channeldpb.MessagePack>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Channeld.MessagePack> Messages {
+    public pbc::RepeatedField<global::Channeldpb.MessagePack> Messages {
       get { return messages_; }
     }
 
@@ -398,7 +400,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -450,14 +452,14 @@ namespace Channeld {
 
     /// <summary>Field number for the "broadcast" field.</summary>
     public const int BroadcastFieldNumber = 2;
-    private global::Channeld.BroadcastType broadcast_ = global::Channeld.BroadcastType.NoBroadcast;
+    private global::Channeldpb.BroadcastType broadcast_ = global::Channeldpb.BroadcastType.NoBroadcast;
     /// <summary>
     /// Will the message be broadcasted to all connections in the channel? 
     /// ONLY works for the user-space messages. 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.BroadcastType Broadcast {
+    public global::Channeldpb.BroadcastType Broadcast {
       get { return broadcast_; }
       set {
         broadcast_ = value;
@@ -538,7 +540,7 @@ namespace Channeld {
     public override int GetHashCode() {
       int hash = 1;
       if (ChannelId != 0) hash ^= ChannelId.GetHashCode();
-      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) hash ^= Broadcast.GetHashCode();
+      if (Broadcast != global::Channeldpb.BroadcastType.NoBroadcast) hash ^= Broadcast.GetHashCode();
       if (StubId != 0) hash ^= StubId.GetHashCode();
       if (MsgType != 0) hash ^= MsgType.GetHashCode();
       if (MsgBody.Length != 0) hash ^= MsgBody.GetHashCode();
@@ -564,7 +566,7 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteUInt32(ChannelId);
       }
-      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
+      if (Broadcast != global::Channeldpb.BroadcastType.NoBroadcast) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Broadcast);
       }
@@ -594,7 +596,7 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteUInt32(ChannelId);
       }
-      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
+      if (Broadcast != global::Channeldpb.BroadcastType.NoBroadcast) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Broadcast);
       }
@@ -623,7 +625,7 @@ namespace Channeld {
       if (ChannelId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ChannelId);
       }
-      if (Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
+      if (Broadcast != global::Channeldpb.BroadcastType.NoBroadcast) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Broadcast);
       }
       if (StubId != 0) {
@@ -650,7 +652,7 @@ namespace Channeld {
       if (other.ChannelId != 0) {
         ChannelId = other.ChannelId;
       }
-      if (other.Broadcast != global::Channeld.BroadcastType.NoBroadcast) {
+      if (other.Broadcast != global::Channeldpb.BroadcastType.NoBroadcast) {
         Broadcast = other.Broadcast;
       }
       if (other.StubId != 0) {
@@ -682,7 +684,7 @@ namespace Channeld {
             break;
           }
           case 16: {
-            Broadcast = (global::Channeld.BroadcastType) input.ReadEnum();
+            Broadcast = (global::Channeldpb.BroadcastType) input.ReadEnum();
             break;
           }
           case 24: {
@@ -717,7 +719,7 @@ namespace Channeld {
             break;
           }
           case 16: {
-            Broadcast = (global::Channeld.BroadcastType) input.ReadEnum();
+            Broadcast = (global::Channeldpb.BroadcastType) input.ReadEnum();
             break;
           }
           case 24: {
@@ -757,7 +759,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -993,7 +995,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1219,7 +1221,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1253,10 +1255,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "result" field.</summary>
     public const int ResultFieldNumber = 1;
-    private global::Channeld.AuthResultMessage.Types.AuthResult result_ = global::Channeld.AuthResultMessage.Types.AuthResult.Successful;
+    private global::Channeldpb.AuthResultMessage.Types.AuthResult result_ = global::Channeldpb.AuthResultMessage.Types.AuthResult.Successful;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.AuthResultMessage.Types.AuthResult Result {
+    public global::Channeldpb.AuthResultMessage.Types.AuthResult Result {
       get { return result_; }
       set {
         result_ = value;
@@ -1277,7 +1279,7 @@ namespace Channeld {
 
     /// <summary>Field number for the "compressionType" field.</summary>
     public const int CompressionTypeFieldNumber = 3;
-    private global::Channeld.CompressionType compressionType_ = global::Channeld.CompressionType.NoCompression;
+    private global::Channeldpb.CompressionType compressionType_ = global::Channeldpb.CompressionType.NoCompression;
     /// <summary>
     /// The compression type should be used for future communication.
     /// However, because the compression type is specified per packet, the client has its freedom to control which compression type to use.
@@ -1285,7 +1287,7 @@ namespace Channeld {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.CompressionType CompressionType {
+    public global::Channeldpb.CompressionType CompressionType {
       get { return compressionType_; }
       set {
         compressionType_ = value;
@@ -1317,9 +1319,9 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Result != global::Channeld.AuthResultMessage.Types.AuthResult.Successful) hash ^= Result.GetHashCode();
+      if (Result != global::Channeldpb.AuthResultMessage.Types.AuthResult.Successful) hash ^= Result.GetHashCode();
       if (ConnId != 0) hash ^= ConnId.GetHashCode();
-      if (CompressionType != global::Channeld.CompressionType.NoCompression) hash ^= CompressionType.GetHashCode();
+      if (CompressionType != global::Channeldpb.CompressionType.NoCompression) hash ^= CompressionType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1338,7 +1340,7 @@ namespace Channeld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Result != global::Channeld.AuthResultMessage.Types.AuthResult.Successful) {
+      if (Result != global::Channeldpb.AuthResultMessage.Types.AuthResult.Successful) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Result);
       }
@@ -1346,7 +1348,7 @@ namespace Channeld {
         output.WriteRawTag(16);
         output.WriteUInt32(ConnId);
       }
-      if (CompressionType != global::Channeld.CompressionType.NoCompression) {
+      if (CompressionType != global::Channeldpb.CompressionType.NoCompression) {
         output.WriteRawTag(24);
         output.WriteEnum((int) CompressionType);
       }
@@ -1360,7 +1362,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Result != global::Channeld.AuthResultMessage.Types.AuthResult.Successful) {
+      if (Result != global::Channeldpb.AuthResultMessage.Types.AuthResult.Successful) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Result);
       }
@@ -1368,7 +1370,7 @@ namespace Channeld {
         output.WriteRawTag(16);
         output.WriteUInt32(ConnId);
       }
-      if (CompressionType != global::Channeld.CompressionType.NoCompression) {
+      if (CompressionType != global::Channeldpb.CompressionType.NoCompression) {
         output.WriteRawTag(24);
         output.WriteEnum((int) CompressionType);
       }
@@ -1382,13 +1384,13 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Result != global::Channeld.AuthResultMessage.Types.AuthResult.Successful) {
+      if (Result != global::Channeldpb.AuthResultMessage.Types.AuthResult.Successful) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Result);
       }
       if (ConnId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ConnId);
       }
-      if (CompressionType != global::Channeld.CompressionType.NoCompression) {
+      if (CompressionType != global::Channeldpb.CompressionType.NoCompression) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CompressionType);
       }
       if (_unknownFields != null) {
@@ -1403,13 +1405,13 @@ namespace Channeld {
       if (other == null) {
         return;
       }
-      if (other.Result != global::Channeld.AuthResultMessage.Types.AuthResult.Successful) {
+      if (other.Result != global::Channeldpb.AuthResultMessage.Types.AuthResult.Successful) {
         Result = other.Result;
       }
       if (other.ConnId != 0) {
         ConnId = other.ConnId;
       }
-      if (other.CompressionType != global::Channeld.CompressionType.NoCompression) {
+      if (other.CompressionType != global::Channeldpb.CompressionType.NoCompression) {
         CompressionType = other.CompressionType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1428,7 +1430,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Result = (global::Channeld.AuthResultMessage.Types.AuthResult) input.ReadEnum();
+            Result = (global::Channeldpb.AuthResultMessage.Types.AuthResult) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1436,7 +1438,7 @@ namespace Channeld {
             break;
           }
           case 24: {
-            CompressionType = (global::Channeld.CompressionType) input.ReadEnum();
+            CompressionType = (global::Channeldpb.CompressionType) input.ReadEnum();
             break;
           }
         }
@@ -1455,7 +1457,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Result = (global::Channeld.AuthResultMessage.Types.AuthResult) input.ReadEnum();
+            Result = (global::Channeldpb.AuthResultMessage.Types.AuthResult) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1463,7 +1465,7 @@ namespace Channeld {
             break;
           }
           case 24: {
-            CompressionType = (global::Channeld.CompressionType) input.ReadEnum();
+            CompressionType = (global::Channeldpb.CompressionType) input.ReadEnum();
             break;
           }
         }
@@ -1501,7 +1503,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1758,7 +1760,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2059,6 +2061,7 @@ namespace Channeld {
   /// <summary>
   /// The packet should have channelId = 0 in order to be handled.
   /// Response: @CreateChannelResultMessage. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
+  /// Response: @SubscribedToChannelResultMessage. The channel creator will also be subscripbed to the channel immediately after the creation.
   /// </summary>
   public sealed partial class CreateChannelMessage : pb::IMessage<CreateChannelMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -2074,7 +2077,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2110,10 +2113,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "channelType" field.</summary>
     public const int ChannelTypeFieldNumber = 1;
-    private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+    private global::Channeldpb.ChannelType channelType_ = global::Channeldpb.ChannelType.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelType ChannelType {
+    public global::Channeldpb.ChannelType ChannelType {
       get { return channelType_; }
       set {
         channelType_ = value;
@@ -2134,10 +2137,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "subOptions" field.</summary>
     public const int SubOptionsFieldNumber = 3;
-    private global::Channeld.ChannelSubscriptionOptions subOptions_;
+    private global::Channeldpb.ChannelSubscriptionOptions subOptions_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelSubscriptionOptions SubOptions {
+    public global::Channeldpb.ChannelSubscriptionOptions SubOptions {
       get { return subOptions_; }
       set {
         subOptions_ = value;
@@ -2158,10 +2161,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "mergeOptions" field.</summary>
     public const int MergeOptionsFieldNumber = 5;
-    private global::Channeld.ChannelDataMergeOptions mergeOptions_;
+    private global::Channeldpb.ChannelDataMergeOptions mergeOptions_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelDataMergeOptions MergeOptions {
+    public global::Channeldpb.ChannelDataMergeOptions MergeOptions {
       get { return mergeOptions_; }
       set {
         mergeOptions_ = value;
@@ -2195,7 +2198,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (subOptions_ != null) hash ^= SubOptions.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
@@ -2218,7 +2221,7 @@ namespace Channeld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ChannelType);
       }
@@ -2248,7 +2251,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ChannelType);
       }
@@ -2278,7 +2281,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
       }
       if (Metadata.Length != 0) {
@@ -2305,7 +2308,7 @@ namespace Channeld {
       if (other == null) {
         return;
       }
-      if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (other.ChannelType != global::Channeldpb.ChannelType.Unknown) {
         ChannelType = other.ChannelType;
       }
       if (other.Metadata.Length != 0) {
@@ -2313,7 +2316,7 @@ namespace Channeld {
       }
       if (other.subOptions_ != null) {
         if (subOptions_ == null) {
-          SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+          SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
         }
         SubOptions.MergeFrom(other.SubOptions);
       }
@@ -2325,7 +2328,7 @@ namespace Channeld {
       }
       if (other.mergeOptions_ != null) {
         if (mergeOptions_ == null) {
-          MergeOptions = new global::Channeld.ChannelDataMergeOptions();
+          MergeOptions = new global::Channeldpb.ChannelDataMergeOptions();
         }
         MergeOptions.MergeFrom(other.MergeOptions);
       }
@@ -2345,7 +2348,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -2354,7 +2357,7 @@ namespace Channeld {
           }
           case 26: {
             if (subOptions_ == null) {
-              SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+              SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
             }
             input.ReadMessage(SubOptions);
             break;
@@ -2368,7 +2371,7 @@ namespace Channeld {
           }
           case 42: {
             if (mergeOptions_ == null) {
-              MergeOptions = new global::Channeld.ChannelDataMergeOptions();
+              MergeOptions = new global::Channeldpb.ChannelDataMergeOptions();
             }
             input.ReadMessage(MergeOptions);
             break;
@@ -2389,7 +2392,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -2398,7 +2401,7 @@ namespace Channeld {
           }
           case 26: {
             if (subOptions_ == null) {
-              SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+              SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
             }
             input.ReadMessage(SubOptions);
             break;
@@ -2412,7 +2415,7 @@ namespace Channeld {
           }
           case 42: {
             if (mergeOptions_ == null) {
-              MergeOptions = new global::Channeld.ChannelDataMergeOptions();
+              MergeOptions = new global::Channeldpb.ChannelDataMergeOptions();
             }
             input.ReadMessage(MergeOptions);
             break;
@@ -2438,7 +2441,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2472,10 +2475,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "channelType" field.</summary>
     public const int ChannelTypeFieldNumber = 1;
-    private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+    private global::Channeldpb.ChannelType channelType_ = global::Channeldpb.ChannelType.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelType ChannelType {
+    public global::Channeldpb.ChannelType ChannelType {
       get { return channelType_; }
       set {
         channelType_ = value;
@@ -2531,7 +2534,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (OwnerConnId != 0) hash ^= OwnerConnId.GetHashCode();
       if (_unknownFields != null) {
@@ -2552,7 +2555,7 @@ namespace Channeld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ChannelType);
       }
@@ -2574,7 +2577,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) ChannelType);
       }
@@ -2596,7 +2599,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
       }
       if (Metadata.Length != 0) {
@@ -2617,7 +2620,7 @@ namespace Channeld {
       if (other == null) {
         return;
       }
-      if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (other.ChannelType != global::Channeldpb.ChannelType.Unknown) {
         ChannelType = other.ChannelType;
       }
       if (other.Metadata.Length != 0) {
@@ -2642,7 +2645,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -2669,7 +2672,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -2705,7 +2708,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2898,7 +2901,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2931,10 +2934,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "typeFilter" field.</summary>
     public const int TypeFilterFieldNumber = 1;
-    private global::Channeld.ChannelType typeFilter_ = global::Channeld.ChannelType.Unknown;
+    private global::Channeldpb.ChannelType typeFilter_ = global::Channeldpb.ChannelType.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelType TypeFilter {
+    public global::Channeldpb.ChannelType TypeFilter {
       get { return typeFilter_; }
       set {
         typeFilter_ = value;
@@ -2976,7 +2979,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (TypeFilter != global::Channeld.ChannelType.Unknown) hash ^= TypeFilter.GetHashCode();
+      if (TypeFilter != global::Channeldpb.ChannelType.Unknown) hash ^= TypeFilter.GetHashCode();
       hash ^= metadataFilters_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2996,7 +2999,7 @@ namespace Channeld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (TypeFilter != global::Channeld.ChannelType.Unknown) {
+      if (TypeFilter != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) TypeFilter);
       }
@@ -3011,7 +3014,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (TypeFilter != global::Channeld.ChannelType.Unknown) {
+      if (TypeFilter != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) TypeFilter);
       }
@@ -3026,7 +3029,7 @@ namespace Channeld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (TypeFilter != global::Channeld.ChannelType.Unknown) {
+      if (TypeFilter != global::Channeldpb.ChannelType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TypeFilter);
       }
       size += metadataFilters_.CalculateSize(_repeated_metadataFilters_codec);
@@ -3042,7 +3045,7 @@ namespace Channeld {
       if (other == null) {
         return;
       }
-      if (other.TypeFilter != global::Channeld.ChannelType.Unknown) {
+      if (other.TypeFilter != global::Channeldpb.ChannelType.Unknown) {
         TypeFilter = other.TypeFilter;
       }
       metadataFilters_.Add(other.metadataFilters_);
@@ -3062,7 +3065,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            TypeFilter = (global::Channeld.ChannelType) input.ReadEnum();
+            TypeFilter = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3085,7 +3088,7 @@ namespace Channeld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            TypeFilter = (global::Channeld.ChannelType) input.ReadEnum();
+            TypeFilter = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3113,7 +3116,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3145,12 +3148,12 @@ namespace Channeld {
 
     /// <summary>Field number for the "channels" field.</summary>
     public const int ChannelsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Channeld.ListChannelResultMessage.Types.ChannelInfo> _repeated_channels_codec
-        = pb::FieldCodec.ForMessage(10, global::Channeld.ListChannelResultMessage.Types.ChannelInfo.Parser);
-    private readonly pbc::RepeatedField<global::Channeld.ListChannelResultMessage.Types.ChannelInfo> channels_ = new pbc::RepeatedField<global::Channeld.ListChannelResultMessage.Types.ChannelInfo>();
+    private static readonly pb::FieldCodec<global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo> _repeated_channels_codec
+        = pb::FieldCodec.ForMessage(10, global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo.Parser);
+    private readonly pbc::RepeatedField<global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo> channels_ = new pbc::RepeatedField<global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Channeld.ListChannelResultMessage.Types.ChannelInfo> Channels {
+    public pbc::RepeatedField<global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo> Channels {
       get { return channels_; }
     }
 
@@ -3294,7 +3297,7 @@ namespace Channeld {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Channeld.ListChannelResultMessage.Descriptor.NestedTypes[0]; }
+          get { return global::Channeldpb.ListChannelResultMessage.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3340,10 +3343,10 @@ namespace Channeld {
 
         /// <summary>Field number for the "channelType" field.</summary>
         public const int ChannelTypeFieldNumber = 2;
-        private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+        private global::Channeldpb.ChannelType channelType_ = global::Channeldpb.ChannelType.Unknown;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public global::Channeld.ChannelType ChannelType {
+        public global::Channeldpb.ChannelType ChannelType {
           get { return channelType_; }
           set {
             channelType_ = value;
@@ -3388,7 +3391,7 @@ namespace Channeld {
         public override int GetHashCode() {
           int hash = 1;
           if (ChannelId != 0) hash ^= ChannelId.GetHashCode();
-          if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+          if (ChannelType != global::Channeldpb.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
           if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -3412,7 +3415,7 @@ namespace Channeld {
             output.WriteRawTag(8);
             output.WriteUInt32(ChannelId);
           }
-          if (ChannelType != global::Channeld.ChannelType.Unknown) {
+          if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
             output.WriteRawTag(16);
             output.WriteEnum((int) ChannelType);
           }
@@ -3434,7 +3437,7 @@ namespace Channeld {
             output.WriteRawTag(8);
             output.WriteUInt32(ChannelId);
           }
-          if (ChannelType != global::Channeld.ChannelType.Unknown) {
+          if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
             output.WriteRawTag(16);
             output.WriteEnum((int) ChannelType);
           }
@@ -3455,7 +3458,7 @@ namespace Channeld {
           if (ChannelId != 0) {
             size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ChannelId);
           }
-          if (ChannelType != global::Channeld.ChannelType.Unknown) {
+          if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
           }
           if (Metadata.Length != 0) {
@@ -3476,7 +3479,7 @@ namespace Channeld {
           if (other.ChannelId != 0) {
             ChannelId = other.ChannelId;
           }
-          if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+          if (other.ChannelType != global::Channeldpb.ChannelType.Unknown) {
             ChannelType = other.ChannelType;
           }
           if (other.Metadata.Length != 0) {
@@ -3502,7 +3505,7 @@ namespace Channeld {
                 break;
               }
               case 16: {
-                ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+                ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
                 break;
               }
               case 26: {
@@ -3529,7 +3532,7 @@ namespace Channeld {
                 break;
               }
               case 16: {
-                ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+                ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
                 break;
               }
               case 26: {
@@ -3566,7 +3569,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3614,10 +3617,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "subOptions" field.</summary>
     public const int SubOptionsFieldNumber = 2;
-    private global::Channeld.ChannelSubscriptionOptions subOptions_;
+    private global::Channeldpb.ChannelSubscriptionOptions subOptions_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelSubscriptionOptions SubOptions {
+    public global::Channeldpb.ChannelSubscriptionOptions SubOptions {
       get { return subOptions_; }
       set {
         subOptions_ = value;
@@ -3727,7 +3730,7 @@ namespace Channeld {
       }
       if (other.subOptions_ != null) {
         if (subOptions_ == null) {
-          SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+          SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
         }
         SubOptions.MergeFrom(other.SubOptions);
       }
@@ -3752,7 +3755,7 @@ namespace Channeld {
           }
           case 18: {
             if (subOptions_ == null) {
-              SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+              SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
             }
             input.ReadMessage(SubOptions);
             break;
@@ -3778,7 +3781,7 @@ namespace Channeld {
           }
           case 18: {
             if (subOptions_ == null) {
-              SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+              SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
             }
             input.ReadMessage(SubOptions);
             break;
@@ -3804,7 +3807,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3854,10 +3857,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "subOptions" field.</summary>
     public const int SubOptionsFieldNumber = 2;
-    private global::Channeld.ChannelSubscriptionOptions subOptions_;
+    private global::Channeldpb.ChannelSubscriptionOptions subOptions_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelSubscriptionOptions SubOptions {
+    public global::Channeldpb.ChannelSubscriptionOptions SubOptions {
       get { return subOptions_; }
       set {
         subOptions_ = value;
@@ -3866,10 +3869,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "connType" field.</summary>
     public const int ConnTypeFieldNumber = 3;
-    private global::Channeld.ConnectionType connType_ = global::Channeld.ConnectionType.NoConnection;
+    private global::Channeldpb.ConnectionType connType_ = global::Channeldpb.ConnectionType.NoConnection;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ConnectionType ConnType {
+    public global::Channeldpb.ConnectionType ConnType {
       get { return connType_; }
       set {
         connType_ = value;
@@ -3878,10 +3881,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "channelType" field.</summary>
     public const int ChannelTypeFieldNumber = 4;
-    private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+    private global::Channeldpb.ChannelType channelType_ = global::Channeldpb.ChannelType.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelType ChannelType {
+    public global::Channeldpb.ChannelType ChannelType {
       get { return channelType_; }
       set {
         channelType_ = value;
@@ -3916,8 +3919,8 @@ namespace Channeld {
       int hash = 1;
       if (ConnId != 0) hash ^= ConnId.GetHashCode();
       if (subOptions_ != null) hash ^= SubOptions.GetHashCode();
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) hash ^= ConnType.GetHashCode();
-      if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) hash ^= ConnType.GetHashCode();
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3944,11 +3947,11 @@ namespace Channeld {
         output.WriteRawTag(18);
         output.WriteMessage(SubOptions);
       }
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ConnType);
       }
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(32);
         output.WriteEnum((int) ChannelType);
       }
@@ -3970,11 +3973,11 @@ namespace Channeld {
         output.WriteRawTag(18);
         output.WriteMessage(SubOptions);
       }
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ConnType);
       }
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(32);
         output.WriteEnum((int) ChannelType);
       }
@@ -3994,10 +3997,10 @@ namespace Channeld {
       if (subOptions_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SubOptions);
       }
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ConnType);
       }
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
       }
       if (_unknownFields != null) {
@@ -4017,14 +4020,14 @@ namespace Channeld {
       }
       if (other.subOptions_ != null) {
         if (subOptions_ == null) {
-          SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+          SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
         }
         SubOptions.MergeFrom(other.SubOptions);
       }
-      if (other.ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (other.ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         ConnType = other.ConnType;
       }
-      if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (other.ChannelType != global::Channeldpb.ChannelType.Unknown) {
         ChannelType = other.ChannelType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -4048,17 +4051,17 @@ namespace Channeld {
           }
           case 18: {
             if (subOptions_ == null) {
-              SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+              SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
             }
             input.ReadMessage(SubOptions);
             break;
           }
           case 24: {
-            ConnType = (global::Channeld.ConnectionType) input.ReadEnum();
+            ConnType = (global::Channeldpb.ConnectionType) input.ReadEnum();
             break;
           }
           case 32: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
         }
@@ -4082,17 +4085,17 @@ namespace Channeld {
           }
           case 18: {
             if (subOptions_ == null) {
-              SubOptions = new global::Channeld.ChannelSubscriptionOptions();
+              SubOptions = new global::Channeldpb.ChannelSubscriptionOptions();
             }
             input.ReadMessage(SubOptions);
             break;
           }
           case 24: {
-            ConnType = (global::Channeld.ConnectionType) input.ReadEnum();
+            ConnType = (global::Channeldpb.ConnectionType) input.ReadEnum();
             break;
           }
           case 32: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
         }
@@ -4119,7 +4122,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4308,7 +4311,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4357,10 +4360,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "connType" field.</summary>
     public const int ConnTypeFieldNumber = 2;
-    private global::Channeld.ConnectionType connType_ = global::Channeld.ConnectionType.NoConnection;
+    private global::Channeldpb.ConnectionType connType_ = global::Channeldpb.ConnectionType.NoConnection;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ConnectionType ConnType {
+    public global::Channeldpb.ConnectionType ConnType {
       get { return connType_; }
       set {
         connType_ = value;
@@ -4369,10 +4372,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "channelType" field.</summary>
     public const int ChannelTypeFieldNumber = 3;
-    private global::Channeld.ChannelType channelType_ = global::Channeld.ChannelType.Unknown;
+    private global::Channeldpb.ChannelType channelType_ = global::Channeldpb.ChannelType.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.ChannelType ChannelType {
+    public global::Channeldpb.ChannelType ChannelType {
       get { return channelType_; }
       set {
         channelType_ = value;
@@ -4405,8 +4408,8 @@ namespace Channeld {
     public override int GetHashCode() {
       int hash = 1;
       if (ConnId != 0) hash ^= ConnId.GetHashCode();
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) hash ^= ConnType.GetHashCode();
-      if (ChannelType != global::Channeld.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) hash ^= ConnType.GetHashCode();
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4429,11 +4432,11 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteUInt32(ConnId);
       }
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         output.WriteRawTag(16);
         output.WriteEnum((int) ConnType);
       }
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ChannelType);
       }
@@ -4451,11 +4454,11 @@ namespace Channeld {
         output.WriteRawTag(8);
         output.WriteUInt32(ConnId);
       }
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         output.WriteRawTag(16);
         output.WriteEnum((int) ConnType);
       }
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ChannelType);
       }
@@ -4472,10 +4475,10 @@ namespace Channeld {
       if (ConnId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ConnId);
       }
-      if (ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ConnType);
       }
-      if (ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (ChannelType != global::Channeldpb.ChannelType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChannelType);
       }
       if (_unknownFields != null) {
@@ -4493,10 +4496,10 @@ namespace Channeld {
       if (other.ConnId != 0) {
         ConnId = other.ConnId;
       }
-      if (other.ConnType != global::Channeld.ConnectionType.NoConnection) {
+      if (other.ConnType != global::Channeldpb.ConnectionType.NoConnection) {
         ConnType = other.ConnType;
       }
-      if (other.ChannelType != global::Channeld.ChannelType.Unknown) {
+      if (other.ChannelType != global::Channeldpb.ChannelType.Unknown) {
         ChannelType = other.ChannelType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -4519,11 +4522,11 @@ namespace Channeld {
             break;
           }
           case 16: {
-            ConnType = (global::Channeld.ConnectionType) input.ReadEnum();
+            ConnType = (global::Channeldpb.ConnectionType) input.ReadEnum();
             break;
           }
           case 24: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
         }
@@ -4546,11 +4549,11 @@ namespace Channeld {
             break;
           }
           case 16: {
-            ConnType = (global::Channeld.ConnectionType) input.ReadEnum();
+            ConnType = (global::Channeldpb.ConnectionType) input.ReadEnum();
             break;
           }
           case 24: {
-            ChannelType = (global::Channeld.ChannelType) input.ReadEnum();
+            ChannelType = (global::Channeldpb.ChannelType) input.ReadEnum();
             break;
           }
         }
@@ -4577,7 +4580,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4781,7 +4784,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4970,7 +4973,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5233,7 +5236,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5265,10 +5268,10 @@ namespace Channeld {
 
     /// <summary>Field number for the "loc" field.</summary>
     public const int LocFieldNumber = 1;
-    private global::Channeld.Location loc_;
+    private global::Channeldpb.Location loc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeld.Location Loc {
+    public global::Channeldpb.Location Loc {
       get { return loc_; }
       set {
         loc_ = value;
@@ -5362,7 +5365,7 @@ namespace Channeld {
       }
       if (other.loc_ != null) {
         if (loc_ == null) {
-          Loc = new global::Channeld.Location();
+          Loc = new global::Channeldpb.Location();
         }
         Loc.MergeFrom(other.Loc);
       }
@@ -5383,7 +5386,7 @@ namespace Channeld {
             break;
           case 10: {
             if (loc_ == null) {
-              Loc = new global::Channeld.Location();
+              Loc = new global::Channeldpb.Location();
             }
             input.ReadMessage(Loc);
             break;
@@ -5405,7 +5408,7 @@ namespace Channeld {
             break;
           case 10: {
             if (loc_ == null) {
-              Loc = new global::Channeld.Location();
+              Loc = new global::Channeldpb.Location();
             }
             input.ReadMessage(Loc);
             break;
@@ -5431,7 +5434,7 @@ namespace Channeld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Channeld.ChanneldReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5463,12 +5466,12 @@ namespace Channeld {
 
     /// <summary>Field number for the "entities" field.</summary>
     public const int EntitiesFieldNumber = 1;
-    private static readonly pbc::MapField<uint, global::Channeld.SpatialEntityInfo>.Codec _map_entities_codec
-        = new pbc::MapField<uint, global::Channeld.SpatialEntityInfo>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Channeld.SpatialEntityInfo.Parser), 10);
-    private readonly pbc::MapField<uint, global::Channeld.SpatialEntityInfo> entities_ = new pbc::MapField<uint, global::Channeld.SpatialEntityInfo>();
+    private static readonly pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo>.Codec _map_entities_codec
+        = new pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Channeldpb.SpatialEntityInfo.Parser), 10);
+    private readonly pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo> entities_ = new pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<uint, global::Channeld.SpatialEntityInfo> Entities {
+    public pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo> Entities {
       get { return entities_; }
     }
 

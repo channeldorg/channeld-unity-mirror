@@ -1,4 +1,5 @@
 ﻿
+using Channeldpb;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using Mirror;

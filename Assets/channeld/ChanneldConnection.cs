@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using System.Threading;
 using Google.Protobuf.WellKnownTypes;
+using UnityEngine;
 
 namespace Channeld
 {
@@ -50,7 +51,7 @@ namespace Channeld
         public int RemotePort { get; private set; }
         public int ConnectTimeoutMs { get; set; } = 3000;
         public uint Id { get; private set; } = 0;
-        public CompressionType CompressionType { get; private set; } = CompressionType.NoCompression;
+        public Channeldpb.CompressionType CompressionType { get; private set; } = Channeldpb.CompressionType.NoCompression;
         public Dictionary<uint, SubscribedToChannelResultMessage> SubscribedChannels { get; private set; } = new Dictionary<uint, SubscribedToChannelResultMessage>();
         public Dictionary<uint, CreateChannelResultMessage> OwnedChannels { get; private set; } = new Dictionary<uint, CreateChannelResultMessage>();
         public Dictionary<uint, ListChannelResultMessage.Types.ChannelInfo> ListedChannels { get; private set; } =
@@ -106,6 +107,8 @@ namespace Channeld
             SetMessageHandlerEntry((uint)MessageType.SubToChannel, SubscribedToChannelResultMessage.Parser, HandleSubToChannel);
             SetMessageHandlerEntry((uint)MessageType.UnsubFromChannel, UnsubscribedFromChannelResultMessage.Parser, HandleUnsubToChannel);
             SetMessageHandlerEntry((uint)MessageType.ChannelDataUpdate, ChannelDataUpdateMessage.Parser);
+            SetMessageHandlerEntry((uint)MessageType.CreateSpatialChannel, CreateSpatialChannelsResultMessage.Parser, HandleCreateSpatialChannel);
+            SetMessageHandlerEntry((uint)MessageType.QuerySpatialChannel, QuerySpatialChannelResultMessage.Parser);
         }
 
         private void HandleAuth(ChanneldConnection conn, uint channelId, IMessage msg)
@@ -135,6 +138,30 @@ namespace Channeld
                 ChannelType = resultMsg.ChannelType,
                 Metadata = resultMsg.Metadata
             };
+        }
+
+        private void HandleCreateSpatialChannel(ChanneldConnection conn, uint channelId, IMessage msg)
+        {
+            var resultMsg = (CreateSpatialChannelsResultMessage)msg;
+            foreach (var spatialChannelId in resultMsg.SpatialChannelId)
+            {
+                if (resultMsg.OwnerConnId == Id)
+                {
+                    OwnedChannels.Add(spatialChannelId, new CreateChannelResultMessage()
+                    {
+                        ChannelType = ChannelType.Spatial,
+                        Metadata = resultMsg.Metadata,
+                        OwnerConnId = resultMsg.OwnerConnId,
+                    });
+                }
+
+                ListedChannels[spatialChannelId] = new ListChannelResultMessage.Types.ChannelInfo()
+                {
+                    ChannelId = spatialChannelId,
+                    ChannelType = ChannelType.Spatial,
+                    Metadata = resultMsg.Metadata
+                };
+            }
         }
 
         private void HandleRemoveChannel(ChanneldConnection conn, uint channelId, IMessage msg)
@@ -331,7 +358,7 @@ namespace Channeld
 
                 var ros = new System.ReadOnlySpan<byte>(bytes, 5, size);
 
-                if (bytes[4] == (byte)CompressionType.Snappy)
+                if (bytes[4] == (byte)Channeldpb.CompressionType.Snappy)
                 {
                     try
                     {
@@ -455,6 +482,7 @@ namespace Channeld
                     RpcCallback callback;
                     if (rpcCallbacks.TryGetValue(entry.stubId, out callback))
                     {
+                        Log.Debug($"Handling RPC callback of {entry.msg.GetType().Name}, stubId: {entry.stubId}");
                         if (callback.handleFunc != null)
                             callback.handleFunc(this, entry.channelId, entry.msg);
                         if (callback.tcs != null)
@@ -488,7 +516,7 @@ namespace Channeld
 
             var bytes = p.ToByteArray();
 
-            if (CompressionType == CompressionType.Snappy)
+            if (CompressionType == Channeldpb.CompressionType.Snappy)
             {
                 bytes = IronSnappy.Snappy.Encode(bytes);
             }
@@ -550,6 +578,18 @@ namespace Channeld
             }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 
+        public void CreateSpatialChannel(string metadata, ChannelSubscriptionOptions subOptions = null, IMessage data = null, ChannelDataMergeOptions mergeOptions = null, Action<CreateSpatialChannelsResultMessage> callback = null)
+        {
+            Send(GlobalChannelId, (uint)MessageType.CreateChannel, new CreateChannelMessage()
+            {
+                ChannelType = ChannelType.Spatial,
+                Metadata = metadata,
+                SubOptions = subOptions,
+                Data = data == null ? null : Any.Pack(data),
+                MergeOptions = mergeOptions,
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
+        }
+
         public void RemoveChannel(uint channelId, Action<RemoveChannelMessage> callback = null)
         {
             Send(GlobalChannelId, (uint)MessageType.RemoveChannel, new RemoveChannelMessage()
@@ -572,9 +612,15 @@ namespace Channeld
 
         public void SubToChannel(uint channelId, ChannelSubscriptionOptions options = null, Action<SubscribedToChannelResultMessage> callback = null)
         {
+            SubConnectionToChannel(Id, channelId, options, callback);
+        }
+
+        // Subscribe another connection to a channel. Only the owner of the GLOBAL channel or the target channel has the authority to do so.
+        public void SubConnectionToChannel(uint connId, uint channelId, ChannelSubscriptionOptions options = null, Action<SubscribedToChannelResultMessage> callback = null)
+        {
             Send(channelId, (uint)MessageType.SubToChannel, new SubscribedToChannelMessage()
             {
-                ConnId = Id,
+                ConnId = connId,
                 SubOptions = options
             }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
@@ -585,6 +631,17 @@ namespace Channeld
             {
                 ConnId = Id
             }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
+        }
+
+        public void QuerySpatialChannel(Vector3[] positions, Action<QuerySpatialChannelResultMessage> callback = null)
+        {
+            var msg = new QuerySpatialChannelMessage();
+            msg.SpatialInfo.AddRange(Array.ConvertAll(positions, pos => new SpatialInfo()
+            {
+                X = pos.x, Y = pos.y, Z = pos.z,
+            }));
+            Send(GlobalChannelId, (uint)MessageType.QuerySpatialChannel, msg,
+                BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
     }
 }

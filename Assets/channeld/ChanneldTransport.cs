@@ -27,6 +27,9 @@ namespace Channeld
         public int ClientPortToChanneld = 12108;
         public int ClientConnectTimeoutMs = 3000;
 
+        [Header("Misc.")]
+        public float HeartbeatInterval = 0;
+
         internal ChanneldConnection serverConnection { get; private set; }
         internal ChanneldConnection clientConnection { get; private set; }
 
@@ -98,6 +101,10 @@ namespace Channeld
             parser.GetOptionValue("--server-ip", "-sa", ref ServerAddressToChanneld);
             parser.GetOptionValue("--server-port", "-sp", ref ServerPortToChanneld);
             parser.GetOptionValue("--client-port", "-cp", ref ServerPortToChanneld);
+            parser.GetOptionValue("--heartbeat", "-hb", ref HeartbeatInterval);
+
+            // TODO: implement heartbeat to channeld
+            NetworkTime.PingFrequency = HeartbeatInterval;
 
             Log.Debug("ChanneldTransport initialized.");
         }
@@ -245,11 +252,14 @@ namespace Channeld
             NetworkServer.spawned[msg.netId] = identity;
         }
 
+        // Which channel will the server sends message to?
+        public static Func<int, uint> GetServerSendChannelId = (connectionId) => ServerSendChannelId ?? ChanneldConnection.GlobalChannelId;
+
         public override void ServerSend(int connectionId, ArraySegment<byte> segment, int reliable)
         {
             var msgType = MirrorUtils.GetChanneldMsgType(segment);
             // Send the packet to channeld and forward to the client connection.
-            serverConnection?.Send(ServerSendChannelId ?? ChanneldConnection.GlobalChannelId, msgType, new ServerForwardMessage()
+            serverConnection?.Send(GetServerSendChannelId(connectionId), msgType, new ServerForwardMessage()
             {
                 ClientConnId = (uint)connectionId,
                 Payload = ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count)

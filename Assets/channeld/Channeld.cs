@@ -71,26 +71,30 @@ namespace Channeldpb {
             "YW5uZWxUeXBlGAMgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZSI+ChhD",
             "aGFubmVsRGF0YVVwZGF0ZU1lc3NhZ2USIgoEZGF0YRgBIAEoCzIULmdvb2ds",
             "ZS5wcm90b2J1Zi5BbnkiIwoRRGlzY29ubmVjdE1lc3NhZ2USDgoGY29ubklk",
-            "GAEgASgNIisKCExvY2F0aW9uEgkKAXgYASABKAESCQoBeRgCIAEoARIJCgF6",
-            "GAMgASgBIjYKEVNwYXRpYWxFbnRpdHlJbmZvEiEKA2xvYxgBIAEoCzIULmNo",
-            "YW5uZWxkcGIuTG9jYXRpb24isgEKGVNwYXRpYWxDaGFubmVsRGF0YU1lc3Nh",
-            "Z2USRQoIZW50aXRpZXMYASADKAsyMy5jaGFubmVsZHBiLlNwYXRpYWxDaGFu",
-            "bmVsRGF0YU1lc3NhZ2UuRW50aXRpZXNFbnRyeRpOCg1FbnRpdGllc0VudHJ5",
-            "EgsKA2tleRgBIAEoDRIsCgV2YWx1ZRgCIAEoCzIdLmNoYW5uZWxkcGIuU3Bh",
-            "dGlhbEVudGl0eUluZm86AjgBKlUKDUJyb2FkY2FzdFR5cGUSEAoMTk9fQlJP",
-            "QURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQAhIVChFTSU5H",
-            "TEVfQ09OTkVDVElPThADKjsKDkNvbm5lY3Rpb25UeXBlEhEKDU5PX0NPTk5F",
-            "Q1RJT04QABIKCgZTRVJWRVIQARIKCgZDTElFTlQQAiqEAQoLQ2hhbm5lbFR5",
-            "cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQAhIMCghT",
-            "VUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVTVDEQZRIJ",
-            "CgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCrJAQoLTWVzc2FnZVR5",
-            "cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hBTk5FTBAD",
-            "EhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUSEgoOU1VC",
-            "X1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIXChNDSEFO",
-            "TkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhQKEFVTRVJfU1BB",
-            "Q0VfU1RBUlQQZCoxCg9Db21wcmVzc2lvblR5cGUSEgoOTk9fQ09NUFJFU1NJ",
-            "T04QABIKCgZTTkFQUFkQAUIuWixjaGFubmVsZC5jbGV3Y2F0LmNvbS9jaGFu",
-            "bmVsZC9wa2cvY2hhbm5lbGRwYmIGcHJvdG8z"));
+            "GAEgASgNIi4KC1NwYXRpYWxJbmZvEgkKAXgYASABKAESCQoBeRgCIAEoARIJ",
+            "CgF6GAMgASgBImUKIkNyZWF0ZVNwYXRpYWxDaGFubmVsc1Jlc3VsdE1lc3Nh",
+            "Z2USGAoQc3BhdGlhbENoYW5uZWxJZBgBIAMoDRIQCghtZXRhZGF0YRgCIAEo",
+            "CRITCgtvd25lckNvbm5JZBgDIAEoDSJKChpRdWVyeVNwYXRpYWxDaGFubmVs",
+            "TWVzc2FnZRIsCgtzcGF0aWFsSW5mbxgBIAMoCzIXLmNoYW5uZWxkcGIuU3Bh",
+            "dGlhbEluZm8iNQogUXVlcnlTcGF0aWFsQ2hhbm5lbFJlc3VsdE1lc3NhZ2US",
+            "EQoJY2hhbm5lbElkGAEgAygNImwKGkNoYW5uZWxEYXRhSGFuZG92ZXJNZXNz",
+            "YWdlEhQKDHNyY0NoYW5uZWxJZBgBIAEoDRIUCgxkc3RDaGFubmVsSWQYAiAB",
+            "KA0SIgoEZGF0YRgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkqVQoNQnJv",
+            "YWRjYXN0VHlwZRIQCgxOT19CUk9BRENBU1QQABIHCgNBTEwQARISCg5BTExf",
+            "QlVUX1NFTkRFUhACEhUKEVNJTkdMRV9DT05ORUNUSU9OEAMqOwoOQ29ubmVj",
+            "dGlvblR5cGUSEQoNTk9fQ09OTkVDVElPThAAEgoKBlNFUlZFUhABEgoKBkNM",
+            "SUVOVBACKoQBCgtDaGFubmVsVHlwZRILCgdVTktOT1dOEAASCgoGR0xPQkFM",
+            "EAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMSCwoHU1BBVElBTBAEEggK",
+            "BFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYSCQoFVEVTVDMQZxIJCgVU",
+            "RVNUNBBoKpsCCgtNZXNzYWdlVHlwZRILCgdJTlZBTElEEAASCAoEQVVUSBAB",
+            "EhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZFX0NIQU5ORUwQBBIQCgxM",
+            "SVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5FTBAGEhYKElVOU1VCX0ZS",
+            "T01fQ0hBTk5FTBAHEhcKE0NIQU5ORUxfREFUQV9VUERBVEUQCBIOCgpESVND",
+            "T05ORUNUEAkSGgoWQ1JFQVRFX1NQQVRJQUxfQ0hBTk5FTBAKEhkKFVFVRVJZ",
+            "X1NQQVRJQUxfQ0hBTk5FTBALEhkKFUNIQU5ORUxfREFUQV9IQU5ET1ZFUhAM",
+            "EhQKEFVTRVJfU1BBQ0VfU1RBUlQQZCoxCg9Db21wcmVzc2lvblR5cGUSEgoO",
+            "Tk9fQ09NUFJFU1NJT04QABIKCgZTTkFQUFkQAUIuWixjaGFubmVsZC5jbGV3",
+            "Y2F0LmNvbS9jaGFubmVsZC9wa2cvY2hhbm5lbGRwYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -112,9 +116,11 @@ namespace Channeldpb {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.UnsubscribedFromChannelResultMessage), global::Channeldpb.UnsubscribedFromChannelResultMessage.Parser, new[]{ "ConnId", "ConnType", "ChannelType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataUpdateMessage), global::Channeldpb.ChannelDataUpdateMessage.Parser, new[]{ "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DisconnectMessage), global::Channeldpb.DisconnectMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.Location), global::Channeldpb.Location.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialEntityInfo), global::Channeldpb.SpatialEntityInfo.Parser, new[]{ "Loc" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialChannelDataMessage), global::Channeldpb.SpatialChannelDataMessage.Parser, new[]{ "Entities" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialInfo), global::Channeldpb.SpatialInfo.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateSpatialChannelsResultMessage), global::Channeldpb.CreateSpatialChannelsResultMessage.Parser, new[]{ "SpatialChannelId", "Metadata", "OwnerConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.QuerySpatialChannelMessage), global::Channeldpb.QuerySpatialChannelMessage.Parser, new[]{ "SpatialInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.QuerySpatialChannelResultMessage), global::Channeldpb.QuerySpatialChannelResultMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataHandoverMessage), global::Channeldpb.ChannelDataHandoverMessage.Parser, new[]{ "SrcChannelId", "DstChannelId", "Data" }, null, null, null, null)
           }));
     }
     #endregion
@@ -135,8 +141,8 @@ namespace Channeldpb {
     /// </summary>
     [pbr::OriginalName("ALL_BUT_SENDER")] AllButSender = 2,
     /// <summary>
-    /// Forward the packet to the connection. Can only be used by the backend server.
-    /// This has the same behavior as sending the packet to the PRIVATE channel owned by the target connection with BroadcastType = NO.
+    /// Forward the message to the connection. Can only be used by the backend server.
+    /// This has the same behavior as sending the message to the PRIVATE channel owned by the target connection with BroadcastType = NO.
     /// </summary>
     [pbr::OriginalName("SINGLE_CONNECTION")] SingleConnection = 3,
   }
@@ -150,7 +156,7 @@ namespace Channeldpb {
   public enum ChannelType {
     [pbr::OriginalName("UNKNOWN")] Unknown = 0,
     /// <summary>
-    /// Default channel. Any message without ChannelId specified will be sent to this channel.
+    /// Default channel. Any message without ChannelId specified (equals 0) will be sent to this channel.
     /// </summary>
     [pbr::OriginalName("GLOBAL")] Global = 1,
     /// <summary>
@@ -158,11 +164,12 @@ namespace Channeldpb {
     /// </summary>
     [pbr::OriginalName("PRIVATE")] Private = 2,
     /// <summary>
-    /// A game "room" in a session-based game, or a level in an MMORPG. Subworlds are spatially divided thus the interests are isolated.
+    /// A game "room" in a session-based game, or a "dungeon" in an MMORPG. Subworlds are spatially divided thus the interests are isolated.
     /// </summary>
     [pbr::OriginalName("SUBWORLD")] Subworld = 3,
     /// <summary>
-    /// Spatial channels are spatailly connected. Using this channel to implement a seamless open world.
+    /// Spatial channels are spatailly connected. Using this type of channel to implement a seamless open world which consists of servers, and each server simulates a part of the world. 
+    /// Only server connections can create the spatail channel.
     /// </summary>
     [pbr::OriginalName("SPATIAL")] Spatial = 4,
     /// <summary>
@@ -177,17 +184,53 @@ namespace Channeldpb {
 
   public enum MessageType {
     [pbr::OriginalName("INVALID")] Invalid = 0,
+    /// <summary>
+    /// Used by both @AuthMessage and @AuthResultMessage
+    /// </summary>
     [pbr::OriginalName("AUTH")] Auth = 1,
     /// <summary>
-    ///AUTH_RESULT = 2;
+    /// Used by both @CreateChannelMessage and @CreateChannelResultMessage
     /// </summary>
     [pbr::OriginalName("CREATE_CHANNEL")] CreateChannel = 3,
+    /// <summary>
+    /// Used by @RemoveChannelMessage
+    /// </summary>
     [pbr::OriginalName("REMOVE_CHANNEL")] RemoveChannel = 4,
+    /// <summary>
+    /// Used by both @ListChannelMessage and @ListChannelResultMessage
+    /// </summary>
     [pbr::OriginalName("LIST_CHANNEL")] ListChannel = 5,
+    /// <summary>
+    /// Used by both @SubscribedToChannelMessage and @SubscribedToChannelResultMessage
+    /// </summary>
     [pbr::OriginalName("SUB_TO_CHANNEL")] SubToChannel = 6,
+    /// <summary>
+    /// Used by both @UnsubscribedFromChannelMessage and @UnsubscribedFromChannelResultMessage
+    /// </summary>
     [pbr::OriginalName("UNSUB_FROM_CHANNEL")] UnsubFromChannel = 7,
+    /// <summary>
+    /// Used by @ChannelDataUpdateMessage
+    /// </summary>
     [pbr::OriginalName("CHANNEL_DATA_UPDATE")] ChannelDataUpdate = 8,
+    /// <summary>
+    /// Used by @DisconnectMessage
+    /// </summary>
     [pbr::OriginalName("DISCONNECT")] Disconnect = 9,
+    /// <summary>
+    /// Used by both @CreateChannelMessage and @CreateSpatialChannelsResultMessage
+    /// </summary>
+    [pbr::OriginalName("CREATE_SPATIAL_CHANNEL")] CreateSpatialChannel = 10,
+    /// <summary>
+    /// Used by both @QuerySpatialChannelMessage and @QuerySpatialChannelResultMessage
+    /// </summary>
+    [pbr::OriginalName("QUERY_SPATIAL_CHANNEL")] QuerySpatialChannel = 11,
+    /// <summary>
+    /// Used by @ChannelDataHandoverMessage
+    /// </summary>
+    [pbr::OriginalName("CHANNEL_DATA_HANDOVER")] ChannelDataHandover = 12,
+    /// <summary>
+    /// Start of any user-space defined message
+    /// </summary>
     [pbr::OriginalName("USER_SPACE_START")] UserSpaceStart = 100,
   }
 
@@ -471,7 +514,7 @@ namespace Channeldpb {
     private uint stubId_;
     /// <summary>
     /// The stub for RPC callbacks.
-    /// 0 means the packet is not a RPC message.
+    /// 0 means the message is not a RPC message.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -978,7 +1021,7 @@ namespace Channeldpb {
   }
 
   /// <summary>
-  /// The packet should have channelId = 0 in order to be handled.
+  /// The message should have channelId = 0 in order to be handled.
   /// Response: @AuthResultMessage. The GLOBAL channel owner will also receive this message (to handle the client's subscription if it doesn't have the authority to).
   /// </summary>
   public sealed partial class AuthMessage : pb::IMessage<AuthMessage>
@@ -2059,8 +2102,9 @@ namespace Channeldpb {
   }
 
   /// <summary>
-  /// The packet should have channelId = 0 in order to be handled.
-  /// Response: @CreateChannelResultMessage. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
+  /// The message should have channelId = 0 in order to be handled.
+  /// Response: @CreateChannelResultMessage, if the MessageType is CREATE_CHANNEL and the channelType is not SPATIAL. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
+  /// Response: @CreateSpatialChannelsResultMessage, if the MessageType is CREATE_SPATIAL_CHANNEL and the channelType is SPATIAL.
   /// Response: @SubscribedToChannelResultMessage. The channel creator will also be subscripbed to the channel immediately after the creation.
   /// </summary>
   public sealed partial class CreateChannelMessage : pb::IMessage<CreateChannelMessage>
@@ -2691,7 +2735,7 @@ namespace Channeldpb {
   }
 
   /// <summary>
-  /// The packet should have channelId = 0 in order to be handled.
+  /// The message should have channelId = 0 in order to be handled.
   /// Response: all connections in the channel will receive @RemoveChannelMessage. The GLOBAL channel owner will also receive this message.
   /// </summary>
   public sealed partial class RemoveChannelMessage : pb::IMessage<RemoveChannelMessage>
@@ -2884,7 +2928,7 @@ namespace Channeldpb {
   }
 
   /// <summary>
-  /// The packet should have channelId = 0 in order to be handled.
+  /// The message should have channelId = 0 in order to be handled.
   /// Response: @ListChannelResultMessage
   /// </summary>
   public sealed partial class ListChannelMessage : pb::IMessage<ListChannelMessage>
@@ -4767,7 +4811,7 @@ namespace Channeldpb {
   /// <summary>
   /// Disconnect another connection from channeld. 
   /// This message should only be sent by the server connection in a server-authoratative environment.
-  /// The packet should have channelId = 0 in order to be handled.
+  /// The message should have channelId = 0 in order to be handled.
   /// Response: no.
   /// </summary>
   public sealed partial class DisconnectMessage : pb::IMessage<DisconnectMessage>
@@ -4959,16 +5003,16 @@ namespace Channeldpb {
 
   }
 
-  public sealed partial class Location : pb::IMessage<Location>
+  public sealed partial class SpatialInfo : pb::IMessage<SpatialInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Location> _parser = new pb::MessageParser<Location>(() => new Location());
+    private static readonly pb::MessageParser<SpatialInfo> _parser = new pb::MessageParser<SpatialInfo>(() => new SpatialInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<Location> Parser { get { return _parser; } }
+    public static pb::MessageParser<SpatialInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4984,7 +5028,7 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Location() {
+    public SpatialInfo() {
       OnConstruction();
     }
 
@@ -4992,7 +5036,7 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Location(Location other) : this() {
+    public SpatialInfo(SpatialInfo other) : this() {
       x_ = other.x_;
       y_ = other.y_;
       z_ = other.z_;
@@ -5001,8 +5045,8 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Location Clone() {
-      return new Location(this);
+    public SpatialInfo Clone() {
+      return new SpatialInfo(this);
     }
 
     /// <summary>Field number for the "x" field.</summary>
@@ -5044,12 +5088,12 @@ namespace Channeldpb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as Location);
+      return Equals(other as SpatialInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(Location other) {
+    public bool Equals(SpatialInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -5148,7 +5192,7 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(Location other) {
+    public void MergeFrom(SpatialInfo other) {
       if (other == null) {
         return;
       }
@@ -5222,16 +5266,16 @@ namespace Channeldpb {
 
   }
 
-  public sealed partial class SpatialEntityInfo : pb::IMessage<SpatialEntityInfo>
+  public sealed partial class CreateSpatialChannelsResultMessage : pb::IMessage<CreateSpatialChannelsResultMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SpatialEntityInfo> _parser = new pb::MessageParser<SpatialEntityInfo>(() => new SpatialEntityInfo());
+    private static readonly pb::MessageParser<CreateSpatialChannelsResultMessage> _parser = new pb::MessageParser<CreateSpatialChannelsResultMessage>(() => new CreateSpatialChannelsResultMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SpatialEntityInfo> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateSpatialChannelsResultMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5247,7 +5291,7 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SpatialEntityInfo() {
+    public CreateSpatialChannelsResultMessage() {
       OnConstruction();
     }
 
@@ -5255,45 +5299,72 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SpatialEntityInfo(SpatialEntityInfo other) : this() {
-      loc_ = other.loc_ != null ? other.loc_.Clone() : null;
+    public CreateSpatialChannelsResultMessage(CreateSpatialChannelsResultMessage other) : this() {
+      spatialChannelId_ = other.spatialChannelId_.Clone();
+      metadata_ = other.metadata_;
+      ownerConnId_ = other.ownerConnId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SpatialEntityInfo Clone() {
-      return new SpatialEntityInfo(this);
+    public CreateSpatialChannelsResultMessage Clone() {
+      return new CreateSpatialChannelsResultMessage(this);
     }
 
-    /// <summary>Field number for the "loc" field.</summary>
-    public const int LocFieldNumber = 1;
-    private global::Channeldpb.Location loc_;
+    /// <summary>Field number for the "spatialChannelId" field.</summary>
+    public const int SpatialChannelIdFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_spatialChannelId_codec
+        = pb::FieldCodec.ForUInt32(10);
+    private readonly pbc::RepeatedField<uint> spatialChannelId_ = new pbc::RepeatedField<uint>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Channeldpb.Location Loc {
-      get { return loc_; }
+    public pbc::RepeatedField<uint> SpatialChannelId {
+      get { return spatialChannelId_; }
+    }
+
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 2;
+    private string metadata_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Metadata {
+      get { return metadata_; }
       set {
-        loc_ = value;
+        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ownerConnId" field.</summary>
+    public const int OwnerConnIdFieldNumber = 3;
+    private uint ownerConnId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint OwnerConnId {
+      get { return ownerConnId_; }
+      set {
+        ownerConnId_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SpatialEntityInfo);
+      return Equals(other as CreateSpatialChannelsResultMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SpatialEntityInfo other) {
+    public bool Equals(CreateSpatialChannelsResultMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Loc, other.Loc)) return false;
+      if(!spatialChannelId_.Equals(other.spatialChannelId_)) return false;
+      if (Metadata != other.Metadata) return false;
+      if (OwnerConnId != other.OwnerConnId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5301,7 +5372,9 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (loc_ != null) hash ^= Loc.GetHashCode();
+      hash ^= spatialChannelId_.GetHashCode();
+      if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
+      if (OwnerConnId != 0) hash ^= OwnerConnId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5320,9 +5393,14 @@ namespace Channeldpb {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (loc_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Loc);
+      spatialChannelId_.WriteTo(output, _repeated_spatialChannelId_codec);
+      if (Metadata.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Metadata);
+      }
+      if (OwnerConnId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(OwnerConnId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -5334,9 +5412,14 @@ namespace Channeldpb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (loc_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Loc);
+      spatialChannelId_.WriteTo(ref output, _repeated_spatialChannelId_codec);
+      if (Metadata.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Metadata);
+      }
+      if (OwnerConnId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(OwnerConnId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -5348,8 +5431,12 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (loc_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Loc);
+      size += spatialChannelId_.CalculateSize(_repeated_spatialChannelId_codec);
+      if (Metadata.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      if (OwnerConnId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OwnerConnId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5359,15 +5446,16 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SpatialEntityInfo other) {
+    public void MergeFrom(CreateSpatialChannelsResultMessage other) {
       if (other == null) {
         return;
       }
-      if (other.loc_ != null) {
-        if (loc_ == null) {
-          Loc = new global::Channeldpb.Location();
-        }
-        Loc.MergeFrom(other.Loc);
+      spatialChannelId_.Add(other.spatialChannelId_);
+      if (other.Metadata.Length != 0) {
+        Metadata = other.Metadata;
+      }
+      if (other.OwnerConnId != 0) {
+        OwnerConnId = other.OwnerConnId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5384,11 +5472,17 @@ namespace Channeldpb {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (loc_ == null) {
-              Loc = new global::Channeldpb.Location();
-            }
-            input.ReadMessage(Loc);
+          case 10:
+          case 8: {
+            spatialChannelId_.AddEntriesFrom(input, _repeated_spatialChannelId_codec);
+            break;
+          }
+          case 18: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 24: {
+            OwnerConnId = input.ReadUInt32();
             break;
           }
         }
@@ -5406,11 +5500,17 @@ namespace Channeldpb {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (loc_ == null) {
-              Loc = new global::Channeldpb.Location();
-            }
-            input.ReadMessage(Loc);
+          case 10:
+          case 8: {
+            spatialChannelId_.AddEntriesFrom(ref input, _repeated_spatialChannelId_codec);
+            break;
+          }
+          case 18: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 24: {
+            OwnerConnId = input.ReadUInt32();
             break;
           }
         }
@@ -5420,16 +5520,20 @@ namespace Channeldpb {
 
   }
 
-  public sealed partial class SpatialChannelDataMessage : pb::IMessage<SpatialChannelDataMessage>
+  /// <summary>
+  /// The message should have channelId = 0 in order to be handled.
+  /// Response: @QuerySpatialChannelResultMessage
+  /// </summary>
+  public sealed partial class QuerySpatialChannelMessage : pb::IMessage<QuerySpatialChannelMessage>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SpatialChannelDataMessage> _parser = new pb::MessageParser<SpatialChannelDataMessage>(() => new SpatialChannelDataMessage());
+    private static readonly pb::MessageParser<QuerySpatialChannelMessage> _parser = new pb::MessageParser<QuerySpatialChannelMessage>(() => new QuerySpatialChannelMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SpatialChannelDataMessage> Parser { get { return _parser; } }
+    public static pb::MessageParser<QuerySpatialChannelMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5445,7 +5549,7 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SpatialChannelDataMessage() {
+    public QuerySpatialChannelMessage() {
       OnConstruction();
     }
 
@@ -5453,44 +5557,44 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SpatialChannelDataMessage(SpatialChannelDataMessage other) : this() {
-      entities_ = other.entities_.Clone();
+    public QuerySpatialChannelMessage(QuerySpatialChannelMessage other) : this() {
+      spatialInfo_ = other.spatialInfo_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SpatialChannelDataMessage Clone() {
-      return new SpatialChannelDataMessage(this);
+    public QuerySpatialChannelMessage Clone() {
+      return new QuerySpatialChannelMessage(this);
     }
 
-    /// <summary>Field number for the "entities" field.</summary>
-    public const int EntitiesFieldNumber = 1;
-    private static readonly pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo>.Codec _map_entities_codec
-        = new pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::Channeldpb.SpatialEntityInfo.Parser), 10);
-    private readonly pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo> entities_ = new pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo>();
+    /// <summary>Field number for the "spatialInfo" field.</summary>
+    public const int SpatialInfoFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Channeldpb.SpatialInfo> _repeated_spatialInfo_codec
+        = pb::FieldCodec.ForMessage(10, global::Channeldpb.SpatialInfo.Parser);
+    private readonly pbc::RepeatedField<global::Channeldpb.SpatialInfo> spatialInfo_ = new pbc::RepeatedField<global::Channeldpb.SpatialInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::MapField<uint, global::Channeldpb.SpatialEntityInfo> Entities {
-      get { return entities_; }
+    public pbc::RepeatedField<global::Channeldpb.SpatialInfo> SpatialInfo {
+      get { return spatialInfo_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SpatialChannelDataMessage);
+      return Equals(other as QuerySpatialChannelMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SpatialChannelDataMessage other) {
+    public bool Equals(QuerySpatialChannelMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!Entities.Equals(other.Entities)) return false;
+      if(!spatialInfo_.Equals(other.spatialInfo_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5498,7 +5602,7 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= Entities.GetHashCode();
+      hash ^= spatialInfo_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5517,7 +5621,7 @@ namespace Channeldpb {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      entities_.WriteTo(output, _map_entities_codec);
+      spatialInfo_.WriteTo(output, _repeated_spatialInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5528,7 +5632,7 @@ namespace Channeldpb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      entities_.WriteTo(ref output, _map_entities_codec);
+      spatialInfo_.WriteTo(ref output, _repeated_spatialInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5539,7 +5643,7 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += entities_.CalculateSize(_map_entities_codec);
+      size += spatialInfo_.CalculateSize(_repeated_spatialInfo_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5548,11 +5652,11 @@ namespace Channeldpb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SpatialChannelDataMessage other) {
+    public void MergeFrom(QuerySpatialChannelMessage other) {
       if (other == null) {
         return;
       }
-      entities_.Add(other.entities_);
+      spatialInfo_.Add(other.spatialInfo_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5569,7 +5673,7 @@ namespace Channeldpb {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            entities_.AddEntriesFrom(input, _map_entities_codec);
+            spatialInfo_.AddEntriesFrom(input, _repeated_spatialInfo_codec);
             break;
           }
         }
@@ -5588,7 +5692,459 @@ namespace Channeldpb {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            entities_.AddEntriesFrom(ref input, _map_entities_codec);
+            spatialInfo_.AddEntriesFrom(ref input, _repeated_spatialInfo_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class QuerySpatialChannelResultMessage : pb::IMessage<QuerySpatialChannelResultMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<QuerySpatialChannelResultMessage> _parser = new pb::MessageParser<QuerySpatialChannelResultMessage>(() => new QuerySpatialChannelResultMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<QuerySpatialChannelResultMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public QuerySpatialChannelResultMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public QuerySpatialChannelResultMessage(QuerySpatialChannelResultMessage other) : this() {
+      channelId_ = other.channelId_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public QuerySpatialChannelResultMessage Clone() {
+      return new QuerySpatialChannelResultMessage(this);
+    }
+
+    /// <summary>Field number for the "channelId" field.</summary>
+    public const int ChannelIdFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_channelId_codec
+        = pb::FieldCodec.ForUInt32(10);
+    private readonly pbc::RepeatedField<uint> channelId_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> ChannelId {
+      get { return channelId_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as QuerySpatialChannelResultMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(QuerySpatialChannelResultMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!channelId_.Equals(other.channelId_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= channelId_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      channelId_.WriteTo(output, _repeated_channelId_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      channelId_.WriteTo(ref output, _repeated_channelId_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += channelId_.CalculateSize(_repeated_channelId_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(QuerySpatialChannelResultMessage other) {
+      if (other == null) {
+        return;
+      }
+      channelId_.Add(other.channelId_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            channelId_.AddEntriesFrom(input, _repeated_channelId_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            channelId_.AddEntriesFrom(ref input, _repeated_channelId_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ChannelDataHandoverMessage : pb::IMessage<ChannelDataHandoverMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ChannelDataHandoverMessage> _parser = new pb::MessageParser<ChannelDataHandoverMessage>(() => new ChannelDataHandoverMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ChannelDataHandoverMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChannelDataHandoverMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChannelDataHandoverMessage(ChannelDataHandoverMessage other) : this() {
+      srcChannelId_ = other.srcChannelId_;
+      dstChannelId_ = other.dstChannelId_;
+      data_ = other.data_ != null ? other.data_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChannelDataHandoverMessage Clone() {
+      return new ChannelDataHandoverMessage(this);
+    }
+
+    /// <summary>Field number for the "srcChannelId" field.</summary>
+    public const int SrcChannelIdFieldNumber = 1;
+    private uint srcChannelId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint SrcChannelId {
+      get { return srcChannelId_; }
+      set {
+        srcChannelId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dstChannelId" field.</summary>
+    public const int DstChannelIdFieldNumber = 2;
+    private uint dstChannelId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DstChannelId {
+      get { return dstChannelId_; }
+      set {
+        dstChannelId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "data" field.</summary>
+    public const int DataFieldNumber = 3;
+    private global::Google.Protobuf.WellKnownTypes.Any data_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Any Data {
+      get { return data_; }
+      set {
+        data_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ChannelDataHandoverMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ChannelDataHandoverMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SrcChannelId != other.SrcChannelId) return false;
+      if (DstChannelId != other.DstChannelId) return false;
+      if (!object.Equals(Data, other.Data)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SrcChannelId != 0) hash ^= SrcChannelId.GetHashCode();
+      if (DstChannelId != 0) hash ^= DstChannelId.GetHashCode();
+      if (data_ != null) hash ^= Data.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SrcChannelId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(SrcChannelId);
+      }
+      if (DstChannelId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(DstChannelId);
+      }
+      if (data_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Data);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SrcChannelId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(SrcChannelId);
+      }
+      if (DstChannelId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(DstChannelId);
+      }
+      if (data_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Data);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SrcChannelId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SrcChannelId);
+      }
+      if (DstChannelId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DstChannelId);
+      }
+      if (data_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ChannelDataHandoverMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SrcChannelId != 0) {
+        SrcChannelId = other.SrcChannelId;
+      }
+      if (other.DstChannelId != 0) {
+        DstChannelId = other.DstChannelId;
+      }
+      if (other.data_ != null) {
+        if (data_ == null) {
+          Data = new global::Google.Protobuf.WellKnownTypes.Any();
+        }
+        Data.MergeFrom(other.Data);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SrcChannelId = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            DstChannelId = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            if (data_ == null) {
+              Data = new global::Google.Protobuf.WellKnownTypes.Any();
+            }
+            input.ReadMessage(Data);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            SrcChannelId = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            DstChannelId = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            if (data_ == null) {
+              Data = new global::Google.Protobuf.WellKnownTypes.Any();
+            }
+            input.ReadMessage(Data);
             break;
           }
         }

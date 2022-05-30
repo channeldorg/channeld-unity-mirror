@@ -35,11 +35,36 @@ public class RunUnityInstanceWindow : EditorWindow
         EditorPrefs.SetString(GetType().Name, prefValue);
     }
 
+    private void SaveProfile()
+    {
+        var filePath = EditorUtility.SaveFilePanel("Save profile to...", Application.persistentDataPath, "run", "json");
+        if (!string.IsNullOrEmpty(filePath))
+            File.WriteAllText(filePath, EditorJsonUtility.ToJson(this, true));
+    }
+
+    private void LoadProfile()
+    {
+        var filePath = EditorUtility.OpenFilePanel("Save profile to...", Application.persistentDataPath, "json");
+        var json = File.ReadAllText(filePath);
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            try
+            {
+                EditorJsonUtility.FromJsonOverwrite(json, this);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Failed to load profile from '{filePath}' \nException:{ex}");
+            }
+        }
+    }
+
     [Serializable]
     public struct InstaceGroup
     {
         public bool visible;
         public int num;
+        public float delayTime;
         public bool serverMode;
         public bool alwaysBuild;
         public bool logFile;
@@ -53,11 +78,13 @@ public class RunUnityInstanceWindow : EditorWindow
 
     private void OnGUI()
     {
+        GUILayout.BeginHorizontal();
         if (GUILayout.Button("Add Group"))
         {
             var newGroup = new InstaceGroup();
             newGroup.visible = true;
             newGroup.num = 1;
+            newGroup.delayTime = 0;
             newGroup.serverMode = true;
             newGroup.alwaysBuild = false;
             newGroup.logFile = false;
@@ -65,16 +92,39 @@ public class RunUnityInstanceWindow : EditorWindow
             newGroup.otherArgs = "";
             groups.Add(newGroup);
         }
+        if (GUILayout.Button("Save..."))
+        {
+            SaveProfile();
+        }
+        if (GUILayout.Button("Load..."))
+        {
+            LoadProfile();
+        }
+        GUILayout.EndHorizontal();
+
         scrollPos = GUILayout.BeginScrollView(scrollPos, false, true);
 
         for (int groupIndex = 0; groupIndex < groups.Count; groupIndex++)
         {
             var group = groups[groupIndex];
+            bool removed = false;
             group.visible = EditorGUILayout.BeginFoldoutHeaderGroup(group.visible, "Group " + groupIndex);
             if (group.visible)
             {
-                EditorGUILayout.LabelField("Number of instances:");
-                group.num = EditorGUILayout.IntSlider(group.num, 0, 10);
+                GUILayout.BeginHorizontal();
+                {
+                    EditorGUILayout.LabelField("Number of instances:");
+                    group.num = EditorGUILayout.IntSlider(group.num, 0, 10);
+                }
+                GUILayout.EndHorizontal();
+
+                GUILayout.BeginHorizontal();
+                {
+                    EditorGUILayout.LabelField("Delay run in sec:");
+                    group.delayTime = EditorGUILayout.FloatField(group.delayTime);
+                }
+                GUILayout.EndHorizontal();
+
                 group.serverMode = EditorGUILayout.Toggle("Is server?", group.serverMode);
                 group.alwaysBuild = EditorGUILayout.Toggle("Always build?", group.alwaysBuild);
                 group.logFile = EditorGUILayout.Toggle("Use log file?", group.logFile);
@@ -93,12 +143,14 @@ public class RunUnityInstanceWindow : EditorWindow
                 if (GUILayout.Button("Remove"))
                 {
                     groups.RemoveAt(groupIndex);
+                    removed = true;
                 }
                 GUILayout.EndHorizontal();
             }
             EditorGUILayout.EndFoldoutHeaderGroup();
 
-            groups[groupIndex] = group;
+            if (!removed)
+                groups[groupIndex] = group;
         }
 
         GUILayout.EndScrollView();
@@ -107,7 +159,13 @@ public class RunUnityInstanceWindow : EditorWindow
         if (GUILayout.Button("Run All"))
         {
             for (int groupIndex = 0; groupIndex < groups.Count; groupIndex++)
-                RunGroup(groups[groupIndex], groupIndex);
+            {
+                if (groups[groupIndex].delayTime > 0)
+                    System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(groups[groupIndex].delayTime))
+                        .ContinueWith(_ => RunGroup(groups[groupIndex], groupIndex));
+                else
+                    RunGroup(groups[groupIndex], groupIndex);
+            }
         }
 
         if (hasUnsavedChanges)

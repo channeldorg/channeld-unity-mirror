@@ -27,5 +27,25 @@ namespace Mirror
         {
             ni.netId = netId;
         }
+
+        public static void SetAuthority(this NetworkIdentity ni, bool hasAuthority)
+        {
+            ni.hasAuthority = hasAuthority;
+        }
+
+        public static void SetDestroyCalled(this NetworkIdentity ni)
+        {
+            ni.destroyCalled = true;
+        }
+
+        public static void OnStopServer(this NetworkIdentity ni)
+        {
+            ni.OnStopServer();
+        }
+
+        public static void ClearObservers(this NetworkIdentity ni)
+        {
+            ni.ClearObservers();
+        }
     }
 }

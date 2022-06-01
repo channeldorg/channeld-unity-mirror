@@ -109,6 +109,7 @@ namespace Channeld
             SetMessageHandlerEntry((uint)MessageType.ChannelDataUpdate, ChannelDataUpdateMessage.Parser);
             SetMessageHandlerEntry((uint)MessageType.CreateSpatialChannel, CreateSpatialChannelsResultMessage.Parser, HandleCreateSpatialChannel);
             SetMessageHandlerEntry((uint)MessageType.QuerySpatialChannel, QuerySpatialChannelResultMessage.Parser);
+            SetMessageHandlerEntry((uint)MessageType.ChannelDataHandover, ChannelDataHandoverMessage.Parser);
         }
 
         private void HandleAuth(ChanneldConnection conn, uint channelId, IMessage msg)

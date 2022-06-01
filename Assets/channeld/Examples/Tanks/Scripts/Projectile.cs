@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Channeld.Examples.Tanks
 {
-    public class Projectile : NetworkBehaviour
+    public class Projectile : ChanneldNetworkBehaviour
     {
         public float destroyAfter = 5;
         public Rigidbody rigidBody;

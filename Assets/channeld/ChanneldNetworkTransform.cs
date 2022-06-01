@@ -627,6 +627,8 @@ namespace Channeld
             transformStateProvider = GetComponent<ITransformStateProvider>();
             if (transformStateProvider != null)
                 transformStateProvider.OnTransformUpdated += OnTransformUpdate;
+            else
+                Log.Warning($"Can't find the ITransformStateProvider for the ChanneldNetworkTransform, object: {gameObject.name}");
         }
 
         /* ChannelView refactoring

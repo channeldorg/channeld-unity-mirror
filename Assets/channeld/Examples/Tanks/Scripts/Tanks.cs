@@ -25,21 +25,21 @@ namespace Channeld.Examples.Tanks {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgt0YW5rcy5wcm90bxIHdGFua3NwYhohcGtnL2NoYW5uZWxkcGIvdW5pdHlf",
-            "Y29tbW9uLnByb3RvIiwKCVRhbmtTdGF0ZRIPCgdyZW1vdmVkGAEgASgIEg4K",
-            "BmhlYWx0aBgCIAEoBSK+AgoTVGFua0dhbWVDaGFubmVsRGF0YRJKCg90cmFu",
-            "c2Zvcm1TdGF0ZXMYASADKAsyMS50YW5rc3BiLlRhbmtHYW1lQ2hhbm5lbERh",
-            "dGEuVHJhbnNmb3JtU3RhdGVzRW50cnkSQAoKdGFua1N0YXRlcxgCIAMoCzIs",
-            "LnRhbmtzcGIuVGFua0dhbWVDaGFubmVsRGF0YS5UYW5rU3RhdGVzRW50cnka",
-            "UgoUVHJhbnNmb3JtU3RhdGVzRW50cnkSCwoDa2V5GAEgASgNEikKBXZhbHVl",
-            "GAIgASgLMhouY2hhbm5lbGRwYi5UcmFuc2Zvcm1TdGF0ZToCOAEaRQoPVGFu",
-            "a1N0YXRlc0VudHJ5EgsKA2tleRgBIAEoDRIhCgV2YWx1ZRgCIAEoCzISLnRh",
-            "bmtzcGIuVGFua1N0YXRlOgI4AUJUWjhjaGFubmVsZC5jbGV3Y2F0LmNvbS9l",
-            "eGFtcGxlcy91bml0eS1taXJyb3ItdGFua3MvdGFua3NwYqoCF0NoYW5uZWxk",
-            "LkV4YW1wbGVzLlRhbmtzYgZwcm90bzM="));
+            "Y29tbW9uLnByb3RvIjoKCVRhbmtTdGF0ZRIPCgdyZW1vdmVkGAEgASgIEg4K",
+            "BmhlYWx0aBgCIAEoBRIMCgRpc0FJGAMgASgIIr4CChNUYW5rR2FtZUNoYW5u",
+            "ZWxEYXRhEkoKD3RyYW5zZm9ybVN0YXRlcxgBIAMoCzIxLnRhbmtzcGIuVGFu",
+            "a0dhbWVDaGFubmVsRGF0YS5UcmFuc2Zvcm1TdGF0ZXNFbnRyeRJACgp0YW5r",
+            "U3RhdGVzGAIgAygLMiwudGFua3NwYi5UYW5rR2FtZUNoYW5uZWxEYXRhLlRh",
+            "bmtTdGF0ZXNFbnRyeRpSChRUcmFuc2Zvcm1TdGF0ZXNFbnRyeRILCgNrZXkY",
+            "ASABKA0SKQoFdmFsdWUYAiABKAsyGi5jaGFubmVsZHBiLlRyYW5zZm9ybVN0",
+            "YXRlOgI4ARpFCg9UYW5rU3RhdGVzRW50cnkSCwoDa2V5GAEgASgNEiEKBXZh",
+            "bHVlGAIgASgLMhIudGFua3NwYi5UYW5rU3RhdGU6AjgBQlRaOGNoYW5uZWxk",
+            "LmNsZXdjYXQuY29tL2V4YW1wbGVzL3VuaXR5LW1pcnJvci10YW5rcy90YW5r",
+            "c3BiqgIXQ2hhbm5lbGQuRXhhbXBsZXMuVGFua3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Channeld.UnityCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankState), global::Channeld.Examples.Tanks.TankState.Parser, new[]{ "Removed", "Health" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankState), global::Channeld.Examples.Tanks.TankState.Parser, new[]{ "Removed", "Health", "IsAI" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeld.Examples.Tanks.TankGameChannelData), global::Channeld.Examples.Tanks.TankGameChannelData.Parser, new[]{ "TransformStates", "TankStates" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, })
           }));
     }
@@ -83,6 +83,7 @@ namespace Channeld.Examples.Tanks {
     public TankState(TankState other) : this() {
       removed_ = other.removed_;
       health_ = other.health_;
+      isAI_ = other.isAI_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -119,6 +120,18 @@ namespace Channeld.Examples.Tanks {
       }
     }
 
+    /// <summary>Field number for the "isAI" field.</summary>
+    public const int IsAIFieldNumber = 3;
+    private bool isAI_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsAI {
+      get { return isAI_; }
+      set {
+        isAI_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -136,6 +149,7 @@ namespace Channeld.Examples.Tanks {
       }
       if (Removed != other.Removed) return false;
       if (Health != other.Health) return false;
+      if (IsAI != other.IsAI) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -145,6 +159,7 @@ namespace Channeld.Examples.Tanks {
       int hash = 1;
       if (Removed != false) hash ^= Removed.GetHashCode();
       if (Health != 0) hash ^= Health.GetHashCode();
+      if (IsAI != false) hash ^= IsAI.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -171,6 +186,10 @@ namespace Channeld.Examples.Tanks {
         output.WriteRawTag(16);
         output.WriteInt32(Health);
       }
+      if (IsAI != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsAI);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -189,6 +208,10 @@ namespace Channeld.Examples.Tanks {
         output.WriteRawTag(16);
         output.WriteInt32(Health);
       }
+      if (IsAI != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsAI);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -204,6 +227,9 @@ namespace Channeld.Examples.Tanks {
       }
       if (Health != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Health);
+      }
+      if (IsAI != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -222,6 +248,9 @@ namespace Channeld.Examples.Tanks {
       }
       if (other.Health != 0) {
         Health = other.Health;
+      }
+      if (other.IsAI != false) {
+        IsAI = other.IsAI;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -246,6 +275,10 @@ namespace Channeld.Examples.Tanks {
             Health = input.ReadInt32();
             break;
           }
+          case 24: {
+            IsAI = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -267,6 +300,10 @@ namespace Channeld.Examples.Tanks {
           }
           case 16: {
             Health = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IsAI = input.ReadBool();
             break;
           }
         }

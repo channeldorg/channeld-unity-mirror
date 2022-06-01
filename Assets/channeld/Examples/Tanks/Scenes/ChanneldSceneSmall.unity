@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88936773}
   m_LocalRotation: {x: 0, y: 0.8660254, z: -0.5, w: 0}
-  m_LocalPosition: {x: 0, y: 60, z: 49.7}
+  m_LocalPosition: {x: 0, y: 28.8, z: 16.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -213,6 +213,50 @@ MonoBehaviour:
   height: 150
   maxLogCount: 50
   hotKey: 293
+--- !u!1 &275202463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275202465}
+  - component: {fileID: 275202464}
+  m_Layer: 0
+  m_Name: SpatialRegionsDrawer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &275202464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275202463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ee412c25616ab4098ddf0d84413a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 1
+--- !u!4 &275202465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275202463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107091652
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +348,7 @@ Transform:
   m_GameObject: {fileID: 1107091652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -406,7 +450,7 @@ MonoBehaviour:
   ServerChannelMetadata: MirrorServer
   ClientPortToChanneld: 12108
   ClientConnectTimeoutMs: 3000
-  HeartbeatInterval: 0
+  HeartbeatInterval: 0.1
 --- !u!114 &1282001523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +543,7 @@ MonoBehaviour:
   syncInterval: 0.1
   tankPrefab: {fileID: 5813281437721818533, guid: 14ab5060e1354f04c8151bba4abb91a5, type: 3}
   prespawnNum: 0
-  batchSpawnNum: 10
+  batchSpawnNum: 2
 --- !u!4 &1398358989
 Transform:
   m_ObjectHideFlags: 0
@@ -560,10 +604,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1b638c591745e438b06bcbe43d5abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCount: 20
-  zCount: 20
-  xSpacing: 4
-  zSpacing: 4
+  xCount: 4
+  zCount: 4
+  xSpacing: 2
+  zSpacing: 2
 --- !u!4 &1538999829
 Transform:
   m_ObjectHideFlags: 0
@@ -577,49 +621,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1723971785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1723971787}
-  - component: {fileID: 1723971786}
-  m_Layer: 0
-  m_Name: SpatialRegionsDrawer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1723971786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723971785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ee412c25616ab4098ddf0d84413a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1723971787
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723971785}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054208274
 GameObject:

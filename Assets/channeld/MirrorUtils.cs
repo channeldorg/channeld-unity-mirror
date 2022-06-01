@@ -13,6 +13,9 @@ namespace Channeld
 
         public static uint GetChanneldMsgType(ArraySegment<byte> segment)
         {
+            return (uint)MessageType.UserSpaceStart;
+/*  Mirror's Transport.Send() receives batched messages which consists of a double time header and multiple NetworkMessages.
+ *  So it's impossible to check only one type of message in the batch.
             ushort msgType;
             emptyReader.SetBuffer(segment);
             if (MessagePacking.Unpack(emptyReader, out msgType))
@@ -38,6 +41,7 @@ namespace Channeld
             reader.SetBuffer(segment);
             ushort msgType;
             return MessagePacking.Unpack(reader, out msgType) && msgType == MessagePacking.GetId<T>();
+*/
         }
 
         #region Extension methods

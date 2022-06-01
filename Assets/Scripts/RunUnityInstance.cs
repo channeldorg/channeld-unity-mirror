@@ -160,11 +160,11 @@ public class RunUnityInstanceWindow : EditorWindow
         {
             for (int groupIndex = 0; groupIndex < groups.Count; groupIndex++)
             {
-                if (groups[groupIndex].delayTime > 0)
-                    System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(groups[groupIndex].delayTime))
-                        .ContinueWith(_ => RunGroup(groups[groupIndex], groupIndex));
-                else
-                    RunGroup(groups[groupIndex], groupIndex);
+                var group = groups[groupIndex];
+                // The Unity instance can only run in the main thread, so we can't use Timer or Task to start a new thread.
+                if (group.delayTime > 0)
+                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(group.delayTime));
+                RunGroup(group, groupIndex);
             }
         }
 
@@ -208,7 +208,8 @@ public class RunUnityInstanceWindow : EditorWindow
             if (group.logFile)
             {
                 string timePostfix = group.useTimePostfixForLogFile ? DateTime.Now.ToString("-yyyyMMddHHmmssff") : "";
-                string logFile = $"./Logs/server{i}-group{groupIndex}{timePostfix}.log";
+                string prefix = group.serverMode ? "server" : "client";
+                string logFile = $"./Logs/{prefix}{i}-group{groupIndex}{timePostfix}.log";
                 instanceArgs += $" -logFile {logFile}";
             }
 

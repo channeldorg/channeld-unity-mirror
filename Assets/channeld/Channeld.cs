@@ -79,22 +79,29 @@ namespace Channeldpb {
             "dGlhbEluZm8iNQogUXVlcnlTcGF0aWFsQ2hhbm5lbFJlc3VsdE1lc3NhZ2US",
             "EQoJY2hhbm5lbElkGAEgAygNImwKGkNoYW5uZWxEYXRhSGFuZG92ZXJNZXNz",
             "YWdlEhQKDHNyY0NoYW5uZWxJZBgBIAEoDRIUCgxkc3RDaGFubmVsSWQYAiAB",
-            "KA0SIgoEZGF0YRgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkqVQoNQnJv",
-            "YWRjYXN0VHlwZRIQCgxOT19CUk9BRENBU1QQABIHCgNBTEwQARISCg5BTExf",
-            "QlVUX1NFTkRFUhACEhUKEVNJTkdMRV9DT05ORUNUSU9OEAMqOwoOQ29ubmVj",
-            "dGlvblR5cGUSEQoNTk9fQ09OTkVDVElPThAAEgoKBlNFUlZFUhABEgoKBkNM",
-            "SUVOVBACKoQBCgtDaGFubmVsVHlwZRILCgdVTktOT1dOEAASCgoGR0xPQkFM",
-            "EAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMSCwoHU1BBVElBTBAEEggK",
-            "BFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYSCQoFVEVTVDMQZxIJCgVU",
-            "RVNUNBBoKpsCCgtNZXNzYWdlVHlwZRILCgdJTlZBTElEEAASCAoEQVVUSBAB",
-            "EhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZFX0NIQU5ORUwQBBIQCgxM",
-            "SVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5FTBAGEhYKElVOU1VCX0ZS",
-            "T01fQ0hBTk5FTBAHEhcKE0NIQU5ORUxfREFUQV9VUERBVEUQCBIOCgpESVND",
-            "T05ORUNUEAkSGgoWQ1JFQVRFX1NQQVRJQUxfQ0hBTk5FTBAKEhkKFVFVRVJZ",
-            "X1NQQVRJQUxfQ0hBTk5FTBALEhkKFUNIQU5ORUxfREFUQV9IQU5ET1ZFUhAM",
-            "EhQKEFVTRVJfU1BBQ0VfU1RBUlQQZCoxCg9Db21wcmVzc2lvblR5cGUSEgoO",
-            "Tk9fQ09NUFJFU1NJT04QABIKCgZTTkFQUFkQAUIuWixjaGFubmVsZC5jbGV3",
-            "Y2F0LmNvbS9jaGFubmVsZC9wa2cvY2hhbm5lbGRwYmIGcHJvdG8z"));
+            "KA0SIgoEZGF0YRgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkigwEKDVNw",
+            "YXRpYWxSZWdpb24SJAoDbWluGAEgASgLMhcuY2hhbm5lbGRwYi5TcGF0aWFs",
+            "SW5mbxIkCgNtYXgYAiABKAsyFy5jaGFubmVsZHBiLlNwYXRpYWxJbmZvEhEK",
+            "CWNoYW5uZWxJZBgDIAEoDRITCgtzZXJ2ZXJJbmRleBgEIAEoDSIfCh1EZWJ1",
+            "Z0dldFNwYXRpYWxSZWdpb25zTWVzc2FnZSJRCiNEZWJ1Z0dldFNwYXRpYWxS",
+            "ZWdpb25zUmVzdWx0TWVzc2FnZRIqCgdyZWdpb25zGAEgAygLMhkuY2hhbm5l",
+            "bGRwYi5TcGF0aWFsUmVnaW9uKlUKDUJyb2FkY2FzdFR5cGUSEAoMTk9fQlJP",
+            "QURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQAhIVChFTSU5H",
+            "TEVfQ09OTkVDVElPThADKjsKDkNvbm5lY3Rpb25UeXBlEhEKDU5PX0NPTk5F",
+            "Q1RJT04QABIKCgZTRVJWRVIQARIKCgZDTElFTlQQAiqEAQoLQ2hhbm5lbFR5",
+            "cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQAhIMCghT",
+            "VUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVTVDEQZRIJ",
+            "CgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCq6AgoLTWVzc2FnZVR5",
+            "cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hBTk5FTBAD",
+            "EhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUSEgoOU1VC",
+            "X1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIXChNDSEFO",
+            "TkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhoKFkNSRUFURV9T",
+            "UEFUSUFMX0NIQU5ORUwQChIZChVRVUVSWV9TUEFUSUFMX0NIQU5ORUwQCxIZ",
+            "ChVDSEFOTkVMX0RBVEFfSEFORE9WRVIQDBIdChlERUJVR19HRVRfU1BBVElB",
+            "TF9SRUdJT05TEGMSFAoQVVNFUl9TUEFDRV9TVEFSVBBkKjEKD0NvbXByZXNz",
+            "aW9uVHlwZRISCg5OT19DT01QUkVTU0lPThAAEgoKBlNOQVBQWRABQi5aLGNo",
+            "YW5uZWxkLmNsZXdjYXQuY29tL2NoYW5uZWxkL3BrZy9jaGFubmVsZHBiYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -120,7 +127,10 @@ namespace Channeldpb {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateSpatialChannelsResultMessage), global::Channeldpb.CreateSpatialChannelsResultMessage.Parser, new[]{ "SpatialChannelId", "Metadata", "OwnerConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.QuerySpatialChannelMessage), global::Channeldpb.QuerySpatialChannelMessage.Parser, new[]{ "SpatialInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.QuerySpatialChannelResultMessage), global::Channeldpb.QuerySpatialChannelResultMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataHandoverMessage), global::Channeldpb.ChannelDataHandoverMessage.Parser, new[]{ "SrcChannelId", "DstChannelId", "Data" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataHandoverMessage), global::Channeldpb.ChannelDataHandoverMessage.Parser, new[]{ "SrcChannelId", "DstChannelId", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialRegion), global::Channeldpb.SpatialRegion.Parser, new[]{ "Min", "Max", "ChannelId", "ServerIndex" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DebugGetSpatialRegionsMessage), global::Channeldpb.DebugGetSpatialRegionsMessage.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DebugGetSpatialRegionsResultMessage), global::Channeldpb.DebugGetSpatialRegionsResultMessage.Parser, new[]{ "Regions" }, null, null, null, null)
           }));
     }
     #endregion
@@ -228,6 +238,10 @@ namespace Channeldpb {
     /// Used by @ChannelDataHandoverMessage
     /// </summary>
     [pbr::OriginalName("CHANNEL_DATA_HANDOVER")] ChannelDataHandover = 12,
+    /// <summary>
+    /// Used by @DebugGetSpatialRegionsMessage and DebugGetSpatialRegionsResultMessage
+    /// </summary>
+    [pbr::OriginalName("DEBUG_GET_SPATIAL_REGIONS")] DebugGetSpatialRegions = 99,
     /// <summary>
     /// Start of any user-space defined message
     /// </summary>
@@ -6145,6 +6159,654 @@ namespace Channeldpb {
               Data = new global::Google.Protobuf.WellKnownTypes.Any();
             }
             input.ReadMessage(Data);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SpatialRegion : pb::IMessage<SpatialRegion>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SpatialRegion> _parser = new pb::MessageParser<SpatialRegion>(() => new SpatialRegion());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SpatialRegion> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[23]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SpatialRegion() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SpatialRegion(SpatialRegion other) : this() {
+      min_ = other.min_ != null ? other.min_.Clone() : null;
+      max_ = other.max_ != null ? other.max_.Clone() : null;
+      channelId_ = other.channelId_;
+      serverIndex_ = other.serverIndex_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SpatialRegion Clone() {
+      return new SpatialRegion(this);
+    }
+
+    /// <summary>Field number for the "min" field.</summary>
+    public const int MinFieldNumber = 1;
+    private global::Channeldpb.SpatialInfo min_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Channeldpb.SpatialInfo Min {
+      get { return min_; }
+      set {
+        min_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max" field.</summary>
+    public const int MaxFieldNumber = 2;
+    private global::Channeldpb.SpatialInfo max_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Channeldpb.SpatialInfo Max {
+      get { return max_; }
+      set {
+        max_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "channelId" field.</summary>
+    public const int ChannelIdFieldNumber = 3;
+    private uint channelId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ChannelId {
+      get { return channelId_; }
+      set {
+        channelId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "serverIndex" field.</summary>
+    public const int ServerIndexFieldNumber = 4;
+    private uint serverIndex_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ServerIndex {
+      get { return serverIndex_; }
+      set {
+        serverIndex_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SpatialRegion);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SpatialRegion other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Min, other.Min)) return false;
+      if (!object.Equals(Max, other.Max)) return false;
+      if (ChannelId != other.ChannelId) return false;
+      if (ServerIndex != other.ServerIndex) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (min_ != null) hash ^= Min.GetHashCode();
+      if (max_ != null) hash ^= Max.GetHashCode();
+      if (ChannelId != 0) hash ^= ChannelId.GetHashCode();
+      if (ServerIndex != 0) hash ^= ServerIndex.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (min_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Min);
+      }
+      if (max_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Max);
+      }
+      if (ChannelId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ChannelId);
+      }
+      if (ServerIndex != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ServerIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (min_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Min);
+      }
+      if (max_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Max);
+      }
+      if (ChannelId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ChannelId);
+      }
+      if (ServerIndex != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ServerIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (min_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Min);
+      }
+      if (max_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Max);
+      }
+      if (ChannelId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ChannelId);
+      }
+      if (ServerIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ServerIndex);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SpatialRegion other) {
+      if (other == null) {
+        return;
+      }
+      if (other.min_ != null) {
+        if (min_ == null) {
+          Min = new global::Channeldpb.SpatialInfo();
+        }
+        Min.MergeFrom(other.Min);
+      }
+      if (other.max_ != null) {
+        if (max_ == null) {
+          Max = new global::Channeldpb.SpatialInfo();
+        }
+        Max.MergeFrom(other.Max);
+      }
+      if (other.ChannelId != 0) {
+        ChannelId = other.ChannelId;
+      }
+      if (other.ServerIndex != 0) {
+        ServerIndex = other.ServerIndex;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (min_ == null) {
+              Min = new global::Channeldpb.SpatialInfo();
+            }
+            input.ReadMessage(Min);
+            break;
+          }
+          case 18: {
+            if (max_ == null) {
+              Max = new global::Channeldpb.SpatialInfo();
+            }
+            input.ReadMessage(Max);
+            break;
+          }
+          case 24: {
+            ChannelId = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            ServerIndex = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (min_ == null) {
+              Min = new global::Channeldpb.SpatialInfo();
+            }
+            input.ReadMessage(Min);
+            break;
+          }
+          case 18: {
+            if (max_ == null) {
+              Max = new global::Channeldpb.SpatialInfo();
+            }
+            input.ReadMessage(Max);
+            break;
+          }
+          case 24: {
+            ChannelId = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            ServerIndex = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class DebugGetSpatialRegionsMessage : pb::IMessage<DebugGetSpatialRegionsMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DebugGetSpatialRegionsMessage> _parser = new pb::MessageParser<DebugGetSpatialRegionsMessage>(() => new DebugGetSpatialRegionsMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<DebugGetSpatialRegionsMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[24]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DebugGetSpatialRegionsMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DebugGetSpatialRegionsMessage(DebugGetSpatialRegionsMessage other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DebugGetSpatialRegionsMessage Clone() {
+      return new DebugGetSpatialRegionsMessage(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as DebugGetSpatialRegionsMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(DebugGetSpatialRegionsMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(DebugGetSpatialRegionsMessage other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class DebugGetSpatialRegionsResultMessage : pb::IMessage<DebugGetSpatialRegionsResultMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DebugGetSpatialRegionsResultMessage> _parser = new pb::MessageParser<DebugGetSpatialRegionsResultMessage>(() => new DebugGetSpatialRegionsResultMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<DebugGetSpatialRegionsResultMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Channeldpb.ChanneldReflection.Descriptor.MessageTypes[25]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DebugGetSpatialRegionsResultMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DebugGetSpatialRegionsResultMessage(DebugGetSpatialRegionsResultMessage other) : this() {
+      regions_ = other.regions_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DebugGetSpatialRegionsResultMessage Clone() {
+      return new DebugGetSpatialRegionsResultMessage(this);
+    }
+
+    /// <summary>Field number for the "regions" field.</summary>
+    public const int RegionsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Channeldpb.SpatialRegion> _repeated_regions_codec
+        = pb::FieldCodec.ForMessage(10, global::Channeldpb.SpatialRegion.Parser);
+    private readonly pbc::RepeatedField<global::Channeldpb.SpatialRegion> regions_ = new pbc::RepeatedField<global::Channeldpb.SpatialRegion>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Channeldpb.SpatialRegion> Regions {
+      get { return regions_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as DebugGetSpatialRegionsResultMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(DebugGetSpatialRegionsResultMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!regions_.Equals(other.regions_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= regions_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      regions_.WriteTo(output, _repeated_regions_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      regions_.WriteTo(ref output, _repeated_regions_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += regions_.CalculateSize(_repeated_regions_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(DebugGetSpatialRegionsResultMessage other) {
+      if (other == null) {
+        return;
+      }
+      regions_.Add(other.regions_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            regions_.AddEntriesFrom(input, _repeated_regions_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            regions_.AddEntriesFrom(ref input, _repeated_regions_codec);
             break;
           }
         }

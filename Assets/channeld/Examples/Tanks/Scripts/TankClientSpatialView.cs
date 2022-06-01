@@ -19,7 +19,6 @@ namespace Channeld.Examples.Tanks.Scripts
                     ChanneldTransport.Current.OnClientSubToChannel(channelId);
                 }
             });
-
             Connection.SubToChannel(ChanneldConnection.GlobalChannelId);
         }
     }

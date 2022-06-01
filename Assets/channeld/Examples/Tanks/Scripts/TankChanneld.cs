@@ -24,6 +24,8 @@ namespace Channeld.Examples.Tanks
         [Header("Stats")]
         [SyncVar] public int health = 4;
 
+        public bool isAI = false;
+
         // Represents the latest change (from SerializeSyncVars). Only changed properties will be set.
         private TankState syncState;
         private TransformState transformState;
@@ -98,6 +100,9 @@ namespace Channeld.Examples.Tanks
         [ServerCallback]
         void OnTriggerEnter(Collider other)
         {
+            if (!netIdentity.hasAuthority)
+                return;
+
             if (other.GetComponent<Projectile>() != null)
             {
                 --health;
@@ -149,6 +154,12 @@ namespace Channeld.Examples.Tanks
             if (controller == null)
                 controller = GetComponent<ITankController>();
 
+            syncState = new TankState()
+            {
+                Health = health,
+                IsAI = isAI,
+            };
+
             /* ChannelView refactoring
             TankChannelDataProvider.OnGenericDataChanged += (channelId, channelData) =>
             {
@@ -185,6 +196,7 @@ namespace Channeld.Examples.Tanks
             if (initialState)
             {
                 syncState.Health = health;
+                syncState.IsAI = isAI;
             }
             else
             {
@@ -213,6 +225,9 @@ namespace Channeld.Examples.Tanks
         public bool UpdateChannelData(IMessage data)
         //public bool UpdateChannelData(TankGameChannelData tankChanneldata)
         {
+            if (!hasAuthority)
+                return false;
+
             var tankChanneldata = (TankGameChannelData)data;
             // Handle the situation that the game object is going to be removed (set from OnStopClient/Server).
             if (IsRemoved)

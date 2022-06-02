@@ -10,12 +10,14 @@ namespace Channeld
 {
     public class SpatialRegionsDrawer : MonoBehaviour
     {
-        public float height = 1.0f;
+        public GameObject regionBoxPrefab;
+        //public float height = 1.0f;
+        public Vector3 minSize = new Vector3(0.1f, 0.1f, 0.1f);
 
         private IList<SpatialRegion> regions = null;
         private List<Color> colors = new List<Color>();
 
-#if UNITY_EDITOR
+#if DEBUG
         private void Start()
         {
             ChanneldTransport.OnAuthenticated += (conn) =>
@@ -35,8 +37,23 @@ namespace Channeld
             {
                 colors.Add(Color.HSVToRGB(1.0f / serverCount * i, 0.5f, 0.5f));
             }
+
+            foreach (var region in regions)
+            {
+                var box = Instantiate(regionBoxPrefab, transform);
+                box.name = $"Channel-{region.ChannelId}-Server-{region.ServerIndex}";
+                var bounds = region.ToBounds();
+                box.transform.position = bounds.center;
+                box.transform.localScale = Vector3.Max(minSize, bounds.size);
+                var renderer = box.GetComponent<Renderer>();
+                if (renderer == null)
+                    continue;
+                var color = colors[(int)region.ServerIndex];
+                renderer.material.color = new Color(color.r, color.g, color.b, renderer.material.color.a);
+            }
         }
 
+        /*
         private void FixedUpdate()
         {
             if (regions == null)
@@ -55,11 +72,7 @@ namespace Channeld
             Debug.DrawLine(max, new Vector3(max.x, height, min.z), color);
             Debug.DrawLine(max, new Vector3(min.x, height, max.z), color);
         }
-
-        private static Vector3 ToVector3(SpatialInfo info)
-        {
-            return new Vector3((float)info.X, (float)info.Y, (float)info.Z);
-        }
+        */
 #endif
     }
 

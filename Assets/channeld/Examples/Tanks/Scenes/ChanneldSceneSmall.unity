@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ee412c25616ab4098ddf0d84413a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regionBoxPrefab: {fileID: 2343163469206001273, guid: f10d277cd35ff1143876dad5bdbd15ca, type: 3}
   height: 1
 --- !u!4 &275202465
 Transform:

@@ -32,7 +32,8 @@ namespace Channeld.Examples.Tanks
                         Connection.SubToChannel(channelId, new ChannelSubscriptionOptions()
                         {
                             CanUpdateData = true,
-                            FanOutIntervalMs = fanOutIntervalMs
+                            FanOutIntervalMs = fanOutIntervalMs,
+                            FanOutDelayMs = 100,
                         }, callback: (_) =>
                         {
                             ChanneldTransport.Current.OnClientSubToChannel(channelId);

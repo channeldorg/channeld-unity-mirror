@@ -422,7 +422,7 @@ namespace Channeld
 
         private void OnClientConnectTimeout()
         {
-            Log.Info("Client failed to connect to channeld.");
+            Log.Error("Client failed to connect to channeld.");
             NetworkClient.Shutdown();
         }
 

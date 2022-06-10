@@ -60,6 +60,18 @@ namespace Channeld
             ChanneldTransport.Current.ClientSendNetworkMessage(ChannelDataView.GetOwningChannel(netId), message);
         }
 
+        protected virtual void OnChannelDataRemoved()
+        {
+            if (isClient)
+            {
+                NetworkClient.DestroyObject(netId);
+            }
+            else
+            {
+                NetworkServer.Destroy(gameObject);
+            }
+        }
+
         public override void OnStartServer()
         {
             AddDataProviders(NetworkServer.aoi as ChanneldInterestManagement);

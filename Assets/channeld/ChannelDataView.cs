@@ -221,6 +221,19 @@ namespace Channeld
             }
         }
 
+        public void OnDisconnect()
+        {
+            foreach (var kv in channelDataProviders)
+            {
+                foreach (var provider in kv.Value)
+                {
+                    provider.IsRemoved = true;
+                }
+            }
+            // Force to send the channel update data with the removed states to channeld
+            SendAllChannelUpdates();
+        }
+
         private void HandleUnsub(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var unsubMsg = (UnsubscribedFromChannelResultMessage)msg;

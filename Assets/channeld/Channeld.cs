@@ -36,72 +36,72 @@ namespace Channeldpb {
             "DjIoLmNoYW5uZWxkcGIuQXV0aFJlc3VsdE1lc3NhZ2UuQXV0aFJlc3VsdBIO",
             "CgZjb25uSWQYAiABKA0SNAoPY29tcHJlc3Npb25UeXBlGAMgASgOMhsuY2hh",
             "bm5lbGRwYi5Db21wcmVzc2lvblR5cGUiPQoKQXV0aFJlc3VsdBIOCgpTVUND",
-            "RVNTRlVMEAASDwoLSU5WQUxJRF9QSVQQARIOCgpJTlZBTElEX0xUEAIiZQoa",
+            "RVNTRlVMEAASDwoLSU5WQUxJRF9QSVQQARIOCgpJTlZBTElEX0xUEAIifAoa",
             "Q2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMSFQoNQ2FuVXBkYXRlRGF0YRgB",
             "IAEoCBIWCg5EYXRhRmllbGRNYXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZh",
-            "bE1zGAMgASgNIoYBChdDaGFubmVsRGF0YU1lcmdlT3B0aW9ucxIZChFzaG91",
-            "bGRSZXBsYWNlTGlzdBgBIAEoCBIVCg1saXN0U2l6ZUxpbWl0GAIgASgNEhMK",
-            "C3RydW5jYXRlVG9wGAMgASgIEiQKHHNob3VsZENoZWNrUmVtb3ZhYmxlTWFw",
-            "RmllbGQYBCABKAgi8QEKFENyZWF0ZUNoYW5uZWxNZXNzYWdlEiwKC2NoYW5u",
-            "ZWxUeXBlGAEgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZRIQCghtZXRh",
-            "ZGF0YRgCIAEoCRI6CgpzdWJPcHRpb25zGAMgASgLMiYuY2hhbm5lbGRwYi5D",
-            "aGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucxIiCgRkYXRhGAQgASgLMhQuZ29v",
-            "Z2xlLnByb3RvYnVmLkFueRI5CgxtZXJnZU9wdGlvbnMYBSABKAsyIy5jaGFu",
-            "bmVsZHBiLkNoYW5uZWxEYXRhTWVyZ2VPcHRpb25zInEKGkNyZWF0ZUNoYW5u",
-            "ZWxSZXN1bHRNZXNzYWdlEiwKC2NoYW5uZWxUeXBlGAEgASgOMhcuY2hhbm5l",
-            "bGRwYi5DaGFubmVsVHlwZRIQCghtZXRhZGF0YRgCIAEoCRITCgtvd25lckNv",
-            "bm5JZBgDIAEoDSIpChRSZW1vdmVDaGFubmVsTWVzc2FnZRIRCgljaGFubmVs",
-            "SWQYASABKA0iWgoSTGlzdENoYW5uZWxNZXNzYWdlEisKCnR5cGVGaWx0ZXIY",
-            "ASABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlEhcKD21ldGFkYXRhRmls",
-            "dGVycxgCIAMoCSLAAQoYTGlzdENoYW5uZWxSZXN1bHRNZXNzYWdlEkIKCGNo",
-            "YW5uZWxzGAEgAygLMjAuY2hhbm5lbGRwYi5MaXN0Q2hhbm5lbFJlc3VsdE1l",
-            "c3NhZ2UuQ2hhbm5lbEluZm8aYAoLQ2hhbm5lbEluZm8SEQoJY2hhbm5lbElk",
-            "GAEgASgNEiwKC2NoYW5uZWxUeXBlGAIgASgOMhcuY2hhbm5lbGRwYi5DaGFu",
-            "bmVsVHlwZRIQCghtZXRhZGF0YRgDIAEoCSJoChpTdWJzY3JpYmVkVG9DaGFu",
-            "bmVsTWVzc2FnZRIOCgZjb25uSWQYASABKA0SOgoKc3ViT3B0aW9ucxgCIAEo",
-            "CzImLmNoYW5uZWxkcGIuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMiygEK",
-            "IFN1YnNjcmliZWRUb0NoYW5uZWxSZXN1bHRNZXNzYWdlEg4KBmNvbm5JZBgB",
+            "bE1zGAMgASgNEhUKDUZhbk91dERlbGF5TXMYBCABKAUihgEKF0NoYW5uZWxE",
+            "YXRhTWVyZ2VPcHRpb25zEhkKEXNob3VsZFJlcGxhY2VMaXN0GAEgASgIEhUK",
+            "DWxpc3RTaXplTGltaXQYAiABKA0SEwoLdHJ1bmNhdGVUb3AYAyABKAgSJAoc",
+            "c2hvdWxkQ2hlY2tSZW1vdmFibGVNYXBGaWVsZBgEIAEoCCLxAQoUQ3JlYXRl",
+            "Q2hhbm5lbE1lc3NhZ2USLAoLY2hhbm5lbFR5cGUYASABKA4yFy5jaGFubmVs",
+            "ZHBiLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEjoKCnN1Yk9wdGlv",
+            "bnMYAyABKAsyJi5jaGFubmVsZHBiLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRp",
+            "b25zEiIKBGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55EjkKDG1l",
+            "cmdlT3B0aW9ucxgFIAEoCzIjLmNoYW5uZWxkcGIuQ2hhbm5lbERhdGFNZXJn",
+            "ZU9wdGlvbnMicQoaQ3JlYXRlQ2hhbm5lbFJlc3VsdE1lc3NhZ2USLAoLY2hh",
+            "bm5lbFR5cGUYASABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlEhAKCG1l",
+            "dGFkYXRhGAIgASgJEhMKC293bmVyQ29ubklkGAMgASgNIikKFFJlbW92ZUNo",
+            "YW5uZWxNZXNzYWdlEhEKCWNoYW5uZWxJZBgBIAEoDSJaChJMaXN0Q2hhbm5l",
+            "bE1lc3NhZ2USKwoKdHlwZUZpbHRlchgBIAEoDjIXLmNoYW5uZWxkcGIuQ2hh",
+            "bm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0ZXJzGAIgAygJIsABChhMaXN0Q2hh",
+            "bm5lbFJlc3VsdE1lc3NhZ2USQgoIY2hhbm5lbHMYASADKAsyMC5jaGFubmVs",
+            "ZHBiLkxpc3RDaGFubmVsUmVzdWx0TWVzc2FnZS5DaGFubmVsSW5mbxpgCgtD",
+            "aGFubmVsSW5mbxIRCgljaGFubmVsSWQYASABKA0SLAoLY2hhbm5lbFR5cGUY",
+            "AiABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAMg",
+            "ASgJImgKGlN1YnNjcmliZWRUb0NoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgB",
             "IAEoDRI6CgpzdWJPcHRpb25zGAIgASgLMiYuY2hhbm5lbGRwYi5DaGFubmVs",
-            "U3Vic2NyaXB0aW9uT3B0aW9ucxIsCghjb25uVHlwZRgDIAEoDjIaLmNoYW5u",
-            "ZWxkcGIuQ29ubmVjdGlvblR5cGUSLAoLY2hhbm5lbFR5cGUYBCABKA4yFy5j",
-            "aGFubmVsZHBiLkNoYW5uZWxUeXBlIjAKHlVuc3Vic2NyaWJlZEZyb21DaGFu",
-            "bmVsTWVzc2FnZRIOCgZjb25uSWQYASABKA0ikgEKJFVuc3Vic2NyaWJlZEZy",
-            "b21DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZjb25uSWQYASABKA0SLAoIY29u",
-            "blR5cGUYAiABKA4yGi5jaGFubmVsZHBiLkNvbm5lY3Rpb25UeXBlEiwKC2No",
-            "YW5uZWxUeXBlGAMgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZSI+ChhD",
-            "aGFubmVsRGF0YVVwZGF0ZU1lc3NhZ2USIgoEZGF0YRgBIAEoCzIULmdvb2ds",
-            "ZS5wcm90b2J1Zi5BbnkiIwoRRGlzY29ubmVjdE1lc3NhZ2USDgoGY29ubklk",
-            "GAEgASgNIi4KC1NwYXRpYWxJbmZvEgkKAXgYASABKAESCQoBeRgCIAEoARIJ",
-            "CgF6GAMgASgBImUKIkNyZWF0ZVNwYXRpYWxDaGFubmVsc1Jlc3VsdE1lc3Nh",
-            "Z2USGAoQc3BhdGlhbENoYW5uZWxJZBgBIAMoDRIQCghtZXRhZGF0YRgCIAEo",
-            "CRITCgtvd25lckNvbm5JZBgDIAEoDSJKChpRdWVyeVNwYXRpYWxDaGFubmVs",
-            "TWVzc2FnZRIsCgtzcGF0aWFsSW5mbxgBIAMoCzIXLmNoYW5uZWxkcGIuU3Bh",
-            "dGlhbEluZm8iNQogUXVlcnlTcGF0aWFsQ2hhbm5lbFJlc3VsdE1lc3NhZ2US",
-            "EQoJY2hhbm5lbElkGAEgAygNImwKGkNoYW5uZWxEYXRhSGFuZG92ZXJNZXNz",
-            "YWdlEhQKDHNyY0NoYW5uZWxJZBgBIAEoDRIUCgxkc3RDaGFubmVsSWQYAiAB",
-            "KA0SIgoEZGF0YRgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkigwEKDVNw",
-            "YXRpYWxSZWdpb24SJAoDbWluGAEgASgLMhcuY2hhbm5lbGRwYi5TcGF0aWFs",
-            "SW5mbxIkCgNtYXgYAiABKAsyFy5jaGFubmVsZHBiLlNwYXRpYWxJbmZvEhEK",
-            "CWNoYW5uZWxJZBgDIAEoDRITCgtzZXJ2ZXJJbmRleBgEIAEoDSIfCh1EZWJ1",
-            "Z0dldFNwYXRpYWxSZWdpb25zTWVzc2FnZSJRCiNEZWJ1Z0dldFNwYXRpYWxS",
-            "ZWdpb25zUmVzdWx0TWVzc2FnZRIqCgdyZWdpb25zGAEgAygLMhkuY2hhbm5l",
-            "bGRwYi5TcGF0aWFsUmVnaW9uKlUKDUJyb2FkY2FzdFR5cGUSEAoMTk9fQlJP",
-            "QURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQAhIVChFTSU5H",
-            "TEVfQ09OTkVDVElPThADKjsKDkNvbm5lY3Rpb25UeXBlEhEKDU5PX0NPTk5F",
-            "Q1RJT04QABIKCgZTRVJWRVIQARIKCgZDTElFTlQQAiqEAQoLQ2hhbm5lbFR5",
-            "cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQAhIMCghT",
-            "VUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVTVDEQZRIJ",
-            "CgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCq6AgoLTWVzc2FnZVR5",
-            "cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hBTk5FTBAD",
-            "EhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUSEgoOU1VC",
-            "X1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIXChNDSEFO",
-            "TkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhoKFkNSRUFURV9T",
-            "UEFUSUFMX0NIQU5ORUwQChIZChVRVUVSWV9TUEFUSUFMX0NIQU5ORUwQCxIZ",
-            "ChVDSEFOTkVMX0RBVEFfSEFORE9WRVIQDBIdChlERUJVR19HRVRfU1BBVElB",
-            "TF9SRUdJT05TEGMSFAoQVVNFUl9TUEFDRV9TVEFSVBBkKjEKD0NvbXByZXNz",
-            "aW9uVHlwZRISCg5OT19DT01QUkVTU0lPThAAEgoKBlNOQVBQWRABQi5aLGNo",
-            "YW5uZWxkLmNsZXdjYXQuY29tL2NoYW5uZWxkL3BrZy9jaGFubmVsZHBiYgZw",
-            "cm90bzM="));
+            "U3Vic2NyaXB0aW9uT3B0aW9ucyLKAQogU3Vic2NyaWJlZFRvQ2hhbm5lbFJl",
+            "c3VsdE1lc3NhZ2USDgoGY29ubklkGAEgASgNEjoKCnN1Yk9wdGlvbnMYAiAB",
+            "KAsyJi5jaGFubmVsZHBiLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiwK",
+            "CGNvbm5UeXBlGAMgASgOMhouY2hhbm5lbGRwYi5Db25uZWN0aW9uVHlwZRIs",
+            "CgtjaGFubmVsVHlwZRgEIAEoDjIXLmNoYW5uZWxkcGIuQ2hhbm5lbFR5cGUi",
+            "MAoeVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgB",
+            "IAEoDSKSAQokVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxSZXN1bHRNZXNzYWdl",
+            "Eg4KBmNvbm5JZBgBIAEoDRIsCghjb25uVHlwZRgCIAEoDjIaLmNoYW5uZWxk",
+            "cGIuQ29ubmVjdGlvblR5cGUSLAoLY2hhbm5lbFR5cGUYAyABKA4yFy5jaGFu",
+            "bmVsZHBiLkNoYW5uZWxUeXBlIj4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2Fn",
+            "ZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNj",
+            "b25uZWN0TWVzc2FnZRIOCgZjb25uSWQYASABKA0iLgoLU3BhdGlhbEluZm8S",
+            "CQoBeBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAEiZQoiQ3JlYXRlU3Bh",
+            "dGlhbENoYW5uZWxzUmVzdWx0TWVzc2FnZRIYChBzcGF0aWFsQ2hhbm5lbElk",
+            "GAEgAygNEhAKCG1ldGFkYXRhGAIgASgJEhMKC293bmVyQ29ubklkGAMgASgN",
+            "IkoKGlF1ZXJ5U3BhdGlhbENoYW5uZWxNZXNzYWdlEiwKC3NwYXRpYWxJbmZv",
+            "GAEgAygLMhcuY2hhbm5lbGRwYi5TcGF0aWFsSW5mbyI1CiBRdWVyeVNwYXRp",
+            "YWxDaGFubmVsUmVzdWx0TWVzc2FnZRIRCgljaGFubmVsSWQYASADKA0ibAoa",
+            "Q2hhbm5lbERhdGFIYW5kb3Zlck1lc3NhZ2USFAoMc3JjQ2hhbm5lbElkGAEg",
+            "ASgNEhQKDGRzdENoYW5uZWxJZBgCIAEoDRIiCgRkYXRhGAMgASgLMhQuZ29v",
+            "Z2xlLnByb3RvYnVmLkFueSKDAQoNU3BhdGlhbFJlZ2lvbhIkCgNtaW4YASAB",
+            "KAsyFy5jaGFubmVsZHBiLlNwYXRpYWxJbmZvEiQKA21heBgCIAEoCzIXLmNo",
+            "YW5uZWxkcGIuU3BhdGlhbEluZm8SEQoJY2hhbm5lbElkGAMgASgNEhMKC3Nl",
+            "cnZlckluZGV4GAQgASgNIh8KHURlYnVnR2V0U3BhdGlhbFJlZ2lvbnNNZXNz",
+            "YWdlIlEKI0RlYnVnR2V0U3BhdGlhbFJlZ2lvbnNSZXN1bHRNZXNzYWdlEioK",
+            "B3JlZ2lvbnMYASADKAsyGS5jaGFubmVsZHBiLlNwYXRpYWxSZWdpb24qVQoN",
+            "QnJvYWRjYXN0VHlwZRIQCgxOT19CUk9BRENBU1QQABIHCgNBTEwQARISCg5B",
+            "TExfQlVUX1NFTkRFUhACEhUKEVNJTkdMRV9DT05ORUNUSU9OEAMqOwoOQ29u",
+            "bmVjdGlvblR5cGUSEQoNTk9fQ09OTkVDVElPThAAEgoKBlNFUlZFUhABEgoK",
+            "BkNMSUVOVBACKoQBCgtDaGFubmVsVHlwZRILCgdVTktOT1dOEAASCgoGR0xP",
+            "QkFMEAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMSCwoHU1BBVElBTBAE",
+            "EggKBFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYSCQoFVEVTVDMQZxIJ",
+            "CgVURVNUNBBoKroCCgtNZXNzYWdlVHlwZRILCgdJTlZBTElEEAASCAoEQVVU",
+            "SBABEhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZFX0NIQU5ORUwQBBIQ",
+            "CgxMSVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5FTBAGEhYKElVOU1VC",
+            "X0ZST01fQ0hBTk5FTBAHEhcKE0NIQU5ORUxfREFUQV9VUERBVEUQCBIOCgpE",
+            "SVNDT05ORUNUEAkSGgoWQ1JFQVRFX1NQQVRJQUxfQ0hBTk5FTBAKEhkKFVFV",
+            "RVJZX1NQQVRJQUxfQ0hBTk5FTBALEhkKFUNIQU5ORUxfREFUQV9IQU5ET1ZF",
+            "UhAMEh0KGURFQlVHX0dFVF9TUEFUSUFMX1JFR0lPTlMQYxIUChBVU0VSX1NQ",
+            "QUNFX1NUQVJUEGQqMQoPQ29tcHJlc3Npb25UeXBlEhIKDk5PX0NPTVBSRVNT",
+            "SU9OEAASCgoGU05BUFBZEAFCLlosY2hhbm5lbGQuY2xld2NhdC5jb20vY2hh",
+            "bm5lbGQvcGtnL2NoYW5uZWxkcGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -110,7 +110,7 @@ namespace Channeldpb {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ServerForwardMessage), global::Channeldpb.ServerForwardMessage.Parser, new[]{ "ClientConnId", "Payload" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.AuthMessage), global::Channeldpb.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.AuthResultMessage), global::Channeldpb.AuthResultMessage.Parser, new[]{ "Result", "ConnId", "CompressionType" }, null, new[]{ typeof(global::Channeldpb.AuthResultMessage.Types.AuthResult) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelSubscriptionOptions), global::Channeldpb.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelSubscriptionOptions), global::Channeldpb.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs", "FanOutDelayMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataMergeOptions), global::Channeldpb.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceList", "ListSizeLimit", "TruncateTop", "ShouldCheckRemovableMapField" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelMessage), global::Channeldpb.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelResultMessage), global::Channeldpb.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
@@ -1583,6 +1583,7 @@ namespace Channeldpb {
       canUpdateData_ = other.canUpdateData_;
       dataFieldMasks_ = other.dataFieldMasks_.Clone();
       fanOutIntervalMs_ = other.fanOutIntervalMs_;
+      fanOutDelayMs_ = other.fanOutDelayMs_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1595,6 +1596,9 @@ namespace Channeldpb {
     /// <summary>Field number for the "CanUpdateData" field.</summary>
     public const int CanUpdateDataFieldNumber = 1;
     private bool canUpdateData_;
+    /// <summary>
+    /// Should the subscriber be able to update the channel data?
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool CanUpdateData {
@@ -1609,6 +1613,10 @@ namespace Channeldpb {
     private static readonly pb::FieldCodec<string> _repeated_dataFieldMasks_codec
         = pb::FieldCodec.ForString(18);
     private readonly pbc::RepeatedField<string> dataFieldMasks_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// How the fields are filtered before sending to the subscriber.
+    /// For detailed usage, see https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> DataFieldMasks {
@@ -1618,12 +1626,34 @@ namespace Channeldpb {
     /// <summary>Field number for the "FanOutIntervalMs" field.</summary>
     public const int FanOutIntervalMsFieldNumber = 3;
     private uint fanOutIntervalMs_;
+    /// <summary>
+    /// How frequent the updated channel data will be fanned-out to the subscriber, in millisecond. 
+    /// For an MMORPG-style server/client, the value should be between 50-100, while an FPS-style game, the value should be between 10-30.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint FanOutIntervalMs {
       get { return fanOutIntervalMs_; }
       set {
         fanOutIntervalMs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FanOutDelayMs" field.</summary>
+    public const int FanOutDelayMsFieldNumber = 4;
+    private int fanOutDelayMs_;
+    /// <summary>
+    /// How long between the subscription and the first (and full-state) ChannelDataUpdateMessage being send to the subscriber, in millisecond.
+    /// To be accurate, the first fan-out time will be (sub time + fan-out delay). It's possible to set the delay to a negative value to makee the first fan-out happen earlier.
+    /// Fan-out delay is useful when the clients need spawn message (sent from the backend server) to be handled, before handling the ChannelDataUpdateMessage properly.
+    /// In Mirror, it can take up to 100ms to wait.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int FanOutDelayMs {
+      get { return fanOutDelayMs_; }
+      set {
+        fanOutDelayMs_ = value;
       }
     }
 
@@ -1645,6 +1675,7 @@ namespace Channeldpb {
       if (CanUpdateData != other.CanUpdateData) return false;
       if(!dataFieldMasks_.Equals(other.dataFieldMasks_)) return false;
       if (FanOutIntervalMs != other.FanOutIntervalMs) return false;
+      if (FanOutDelayMs != other.FanOutDelayMs) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1655,6 +1686,7 @@ namespace Channeldpb {
       if (CanUpdateData != false) hash ^= CanUpdateData.GetHashCode();
       hash ^= dataFieldMasks_.GetHashCode();
       if (FanOutIntervalMs != 0) hash ^= FanOutIntervalMs.GetHashCode();
+      if (FanOutDelayMs != 0) hash ^= FanOutDelayMs.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1682,6 +1714,10 @@ namespace Channeldpb {
         output.WriteRawTag(24);
         output.WriteUInt32(FanOutIntervalMs);
       }
+      if (FanOutDelayMs != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(FanOutDelayMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1701,6 +1737,10 @@ namespace Channeldpb {
         output.WriteRawTag(24);
         output.WriteUInt32(FanOutIntervalMs);
       }
+      if (FanOutDelayMs != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(FanOutDelayMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1717,6 +1757,9 @@ namespace Channeldpb {
       size += dataFieldMasks_.CalculateSize(_repeated_dataFieldMasks_codec);
       if (FanOutIntervalMs != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FanOutIntervalMs);
+      }
+      if (FanOutDelayMs != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(FanOutDelayMs);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1736,6 +1779,9 @@ namespace Channeldpb {
       dataFieldMasks_.Add(other.dataFieldMasks_);
       if (other.FanOutIntervalMs != 0) {
         FanOutIntervalMs = other.FanOutIntervalMs;
+      }
+      if (other.FanOutDelayMs != 0) {
+        FanOutDelayMs = other.FanOutDelayMs;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1764,6 +1810,10 @@ namespace Channeldpb {
             FanOutIntervalMs = input.ReadUInt32();
             break;
           }
+          case 32: {
+            FanOutDelayMs = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -1789,6 +1839,10 @@ namespace Channeldpb {
           }
           case 24: {
             FanOutIntervalMs = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            FanOutDelayMs = input.ReadInt32();
             break;
           }
         }

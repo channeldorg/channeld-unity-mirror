@@ -59,11 +59,13 @@ namespace Channeld
         public MessageHandlerFunc DefaultMessageHandleFunc = (client, channelId, msg) => { };
         public Action<uint, uint, byte[]> UserSpaceMessageHandleFunc = (channelId, clientConnId, payload) => { };
         public bool ShowUserSpaceMessageLog { get; set; }
-        public bool Connected => tcp.Connected;
+        public bool Connected => tcp != null && tcp.Connected;
 
         private TcpClient tcp;
         private NetworkStream netStream;
         private Thread receiveThread;
+        // Signal for the receive thread to finish
+        private int receiveFinished;
         private BlockingCollection<MessageQueueEntry> incomingQueue = new BlockingCollection<MessageQueueEntry>();
         private BlockingCollection<MessagePack> outgoingQueue = new BlockingCollection<MessagePack>();
         private Dictionary<uint, MessageHandlerEntry> handlers = new Dictionary<uint, MessageHandlerEntry>();
@@ -91,9 +93,7 @@ namespace Channeld
             }
 
             ConnectionType = connectionType;
-            tcp = new TcpClient();
-            receiveThread = new Thread(Receive);
-            receiveThread.IsBackground = true;
+
             userSpaceMessageHandlerEntry = new MessageHandlerEntry()
             {
                 parser = ServerForwardMessage.Parser,
@@ -247,10 +247,19 @@ namespace Channeld
             handlers[msgType] = entry;
         }
 
+        private void InitConnection()
+        {
+            tcp = new TcpClient();
+            receiveFinished = 0;
+            receiveThread = new Thread(Receive);
+            receiveThread.IsBackground = true;
+        }
+
         public void Connect(string host, int port, Action onConnected = null, Action onTimeout = null)
         {
             RemoteAddress = host;
             RemotePort = port;
+            InitConnection();
 
 #if UNITY_SERVER
             if (tcp.ConnectAsync(host, port).Wait(ConnectTimeoutMs))
@@ -286,6 +295,8 @@ namespace Channeld
         {
             RemoteAddress = host;
             RemotePort = port;
+            InitConnection();
+
             var task = tcp.ConnectAsync(host, port);
             task.ContinueWith((t) =>
             {
@@ -310,24 +321,43 @@ namespace Channeld
                 netStream.Flush();
             }
 
-            receiveThread.Abort();
+            //try
+            //{
+            //    receiveThread.Abort();
+            //}
+            //catch{ }
+            Interlocked.Increment(ref receiveFinished);
             netStream.Close();
             tcp.Close();
+
+            Id = 0;
+            SubscribedChannels.Clear();
+            OwnedChannels.Clear();
+            ListedChannels.Clear();
         }
 
         private MemoryStream netBuffer = new MemoryStream();
 
         private void Receive()
         {
-            while (netStream.CanRead)
+            while (netStream.CanRead && receiveFinished == 0)
             {
                 byte[] buffer = new byte[512];
                 do
                 {
-                    int bytesRead = netStream.Read(buffer, 0, buffer.Length);
+                    int bytesRead = 0;
+                    try
+                    {
+                        bytesRead = netStream.Read(buffer, 0, buffer.Length);
+                    } 
+                    catch
+                    {
+                        return;       
+                    }
                     netBuffer.Write(buffer, 0, bytesRead);
                 }
-                while (netStream.DataAvailable);
+                // NetworkStream.DataAvailable throws exception when closed, so we need to check CanRead first
+                while (netStream.CanRead && netStream.DataAvailable);
 
                 if (netBuffer.Length <= 5)
                     continue;

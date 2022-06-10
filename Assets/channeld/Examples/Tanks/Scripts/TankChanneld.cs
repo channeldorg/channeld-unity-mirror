@@ -261,12 +261,22 @@ namespace Channeld.Examples.Tanks
             TankState newState;
             if (tankChanneldata.TankStates.TryGetValue(netId, out newState))
             {
+                if (newState.Removed)
+                {
+                    OnChannelDataRemoved();
+                    return;
+                }
                 health = newState.Health;
             }
 
             TransformState transformState;
             if (tankChanneldata.TransformStates.TryGetValue(netId, out transformState))
             {
+                if (transformState.Removed)
+                {
+                    OnChannelDataRemoved();
+                    return;
+                }
                 OnTransformUpdated?.Invoke(transformState);
             }
         }

@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regionBoxPrefab: {fileID: 2343163469206001273, guid: f10d277cd35ff1143876dad5bdbd15ca, type: 3}
-  height: 1
+  minSize: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!4 &275202465
 Transform:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1282001517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: d4baa23e45f724d49a082deac3d6add9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208ffac57848f384f89729360e92f1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChannelViewPrefab: {fileID: 11400000, guid: d89dc87ddaa959f46b081af4871b975c, type: 2}
+  ChannelViewPrefab: {fileID: 11400000, guid: 3aef318ad0013a04fb8dc62e816c4ae2, type: 2}
 --- !u!1 &1356050967
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ namespace Channeld.Examples.Tanks.Scripts
     [CreateAssetMenu(fileName = "TankGlobalServerView", menuName = "ScriptableObjects/TankGlobalServerView", order = 1)]
     public class TankGlobalServerView : ChannelDataView
     {
+        public uint clientFanOutIntervalMs = 50;
         protected override void InitChannels()
         {
             Connection.AddMessageHandler((uint)MessageType.SubToChannel, (_, channelId, msg) =>
@@ -27,7 +28,12 @@ namespace Channeld.Examples.Tanks.Scripts
                         }
 
                         // Sub the client to the spatial channel
-                        Connection.SubConnectionToChannel(subResultMsg.ConnId, startChannelId);
+                        Connection.SubConnectionToChannel(subResultMsg.ConnId, startChannelId, new ChannelSubscriptionOptions()
+                        {
+                            CanUpdateData = true,
+                            FanOutIntervalMs = clientFanOutIntervalMs,
+                            FanOutDelayMs = 100,
+                        });
                     });
                 }
             });

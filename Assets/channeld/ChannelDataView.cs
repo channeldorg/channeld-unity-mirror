@@ -52,30 +52,33 @@ namespace Channeld
 
         public virtual void Initialize(ChanneldConnection conn)
         {
-            Connection = conn;
+            if (Connection == null)
+            { 
+                Connection = conn;
             
-            LoadCmdLineArgs();
+                LoadCmdLineArgs();
             
-            Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
-            Connection.AddMessageHandler((uint)MessageType.UnsubFromChannel, HandleUnsub);
-            if (Connection.ConnectionType == ConnectionType.Client)
-            {
-                Action<uint, uint, byte[]> handler = (channelId, clientConnId, payload) =>
+                Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
+                Connection.AddMessageHandler((uint)MessageType.UnsubFromChannel, HandleUnsub);
+                if (Connection.ConnectionType == ConnectionType.Client)
                 {
-                    // The payload may contains multiple Mirror messages, making it hard to recognize the SpawnMessage inside.
-                    // We have to use this awkward way to make sure when handling SpawnMessage, the NetworkClient has the right channelId context.
-                    // FIXME: how to reduce memory allocation?
-                    Action<SpawnMessage> onSpawn = (msg) =>
+                    Action<uint, uint, byte[]> handler = (channelId, clientConnId, payload) =>
                     {
-                        netIdOwningChannels[msg.netId] = channelId;
-                        Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {channelId}");
-                        NetworkClientExposed.OnSpawn(msg);
+                        // The payload may contains multiple Mirror messages, making it hard to recognize the SpawnMessage inside.
+                        // We have to use this awkward way to make sure when handling SpawnMessage, the NetworkClient has the right channelId context.
+                        // FIXME: how to reduce memory allocation?
+                        Action<SpawnMessage> onSpawn = (msg) =>
+                        {
+                            netIdOwningChannels[msg.netId] = channelId;
+                            Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {channelId}");
+                            NetworkClientExposed.OnSpawn(msg);
+                        };
+                        NetworkClient.ReplaceHandler<SpawnMessage>(onSpawn, false);
                     };
-                    NetworkClient.ReplaceHandler<SpawnMessage>(onSpawn, false);
-                };
-                // Make sure NetworkClient.ReplaceHandler() is called before NetworkClient.OnTransportData()
-                handler += Connection.UserSpaceMessageHandleFunc;
-                Connection.UserSpaceMessageHandleFunc = handler;
+                    // Make sure NetworkClient.ReplaceHandler() is called before NetworkClient.OnTransportData()
+                    handler += Connection.UserSpaceMessageHandleFunc;
+                    Connection.UserSpaceMessageHandleFunc = handler;
+                }
             }
 
             InitChannels();

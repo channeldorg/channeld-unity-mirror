@@ -9,10 +9,7 @@ namespace Channeld
 {
     public class ChanneldTransport : Transport
     {
-        public enum LogLevel { Debug, Info, Warning, Error }
-
         [Header("Logging")]
-        public LogLevel logLevel = LogLevel.Info;
         public bool showUserSpaceMessageLog = false;
 
         [Header("Server")]
@@ -22,7 +19,7 @@ namespace Channeld
         public string ServerChannelMetadata = "MirrorServer";
 
         [Header("Client")]
-        // The client connects to the address Mirror passes to it, generally NetworkManager.networkAddress
+        // The client connects to the address Mirror passes to it. Use NetworkManager.networkAddress instead.
         //public string ClientAddressToChanneld = "127.0.0.1";
         public int ClientPortToChanneld = 12108;
         public int ClientConnectTimeoutMs = 3000;
@@ -88,16 +85,7 @@ namespace Channeld
 
         void Awake()
         {
-            Log.Debug = (t) => { if (logLevel <= LogLevel.Debug) Debug.Log(t); };
-            Log.Info = (t) => { if (logLevel <= LogLevel.Info) Debug.Log(t); };
-            Log.Warning = (t) => { if (logLevel <= LogLevel.Warning) Debug.LogWarning(t); };
-            Log.Error = (t) => { if (logLevel <= LogLevel.Error) Debug.LogError(t); };
-
             var parser = CmdLineArgParser.Default;
-            parser.DefaultConversionSuccessHandler = (optionName, alias, value, result) => Log.Info($"Read '{optionName}' from command line: {value}");
-            parser.DefaultConversionErrorHandler = (optionName, alias, value, type, ex) => Log.Error($"Invalid value of command line arg '{optionName}': {value}, exception: {ex}");
-            parser.GetEnumOptionFromInt("--log-level", "-loglevel", ref logLevel);
-            parser.GetOptionValue("--max-conn", "-maxconn", ref NetworkManager.singleton.maxConnections);
             parser.GetOptionValue("--server-ip", "-sa", ref ServerAddressToChanneld);
             parser.GetOptionValue("--server-port", "-sp", ref ServerPortToChanneld);
             parser.GetOptionValue("--client-port", "-cp", ref ServerPortToChanneld);
@@ -308,6 +296,7 @@ namespace Channeld
         {
             serverConnection.UserSpaceMessageHandleFunc = null;
             serverConnection?.Disconnect();
+            ServerSendChannelId = null;
         }
 
         #endregion
@@ -488,6 +477,7 @@ namespace Channeld
         public override void ClientDisconnect()
         {
             clientConnection?.Disconnect();
+            ClientSendChannelId = null;
         }
 
         #endregion

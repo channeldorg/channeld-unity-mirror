@@ -69,39 +69,41 @@ namespace Channeldpb {
             "IAEoDSKSAQokVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxSZXN1bHRNZXNzYWdl",
             "Eg4KBmNvbm5JZBgBIAEoDRIsCghjb25uVHlwZRgCIAEoDjIaLmNoYW5uZWxk",
             "cGIuQ29ubmVjdGlvblR5cGUSLAoLY2hhbm5lbFR5cGUYAyABKA4yFy5jaGFu",
-            "bmVsZHBiLkNoYW5uZWxUeXBlIj4KGENoYW5uZWxEYXRhVXBkYXRlTWVzc2Fn",
-            "ZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueSIjChFEaXNj",
-            "b25uZWN0TWVzc2FnZRIOCgZjb25uSWQYASABKA0iLgoLU3BhdGlhbEluZm8S",
-            "CQoBeBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAEiZQoiQ3JlYXRlU3Bh",
-            "dGlhbENoYW5uZWxzUmVzdWx0TWVzc2FnZRIYChBzcGF0aWFsQ2hhbm5lbElk",
-            "GAEgAygNEhAKCG1ldGFkYXRhGAIgASgJEhMKC293bmVyQ29ubklkGAMgASgN",
-            "IkoKGlF1ZXJ5U3BhdGlhbENoYW5uZWxNZXNzYWdlEiwKC3NwYXRpYWxJbmZv",
-            "GAEgAygLMhcuY2hhbm5lbGRwYi5TcGF0aWFsSW5mbyI1CiBRdWVyeVNwYXRp",
-            "YWxDaGFubmVsUmVzdWx0TWVzc2FnZRIRCgljaGFubmVsSWQYASADKA0ibAoa",
-            "Q2hhbm5lbERhdGFIYW5kb3Zlck1lc3NhZ2USFAoMc3JjQ2hhbm5lbElkGAEg",
-            "ASgNEhQKDGRzdENoYW5uZWxJZBgCIAEoDRIiCgRkYXRhGAMgASgLMhQuZ29v",
-            "Z2xlLnByb3RvYnVmLkFueSKDAQoNU3BhdGlhbFJlZ2lvbhIkCgNtaW4YASAB",
-            "KAsyFy5jaGFubmVsZHBiLlNwYXRpYWxJbmZvEiQKA21heBgCIAEoCzIXLmNo",
-            "YW5uZWxkcGIuU3BhdGlhbEluZm8SEQoJY2hhbm5lbElkGAMgASgNEhMKC3Nl",
-            "cnZlckluZGV4GAQgASgNIh8KHURlYnVnR2V0U3BhdGlhbFJlZ2lvbnNNZXNz",
-            "YWdlIlEKI0RlYnVnR2V0U3BhdGlhbFJlZ2lvbnNSZXN1bHRNZXNzYWdlEioK",
-            "B3JlZ2lvbnMYASADKAsyGS5jaGFubmVsZHBiLlNwYXRpYWxSZWdpb24qVQoN",
-            "QnJvYWRjYXN0VHlwZRIQCgxOT19CUk9BRENBU1QQABIHCgNBTEwQARISCg5B",
-            "TExfQlVUX1NFTkRFUhACEhUKEVNJTkdMRV9DT05ORUNUSU9OEAMqOwoOQ29u",
-            "bmVjdGlvblR5cGUSEQoNTk9fQ09OTkVDVElPThAAEgoKBlNFUlZFUhABEgoK",
-            "BkNMSUVOVBACKoQBCgtDaGFubmVsVHlwZRILCgdVTktOT1dOEAASCgoGR0xP",
-            "QkFMEAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMSCwoHU1BBVElBTBAE",
-            "EggKBFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYSCQoFVEVTVDMQZxIJ",
-            "CgVURVNUNBBoKroCCgtNZXNzYWdlVHlwZRILCgdJTlZBTElEEAASCAoEQVVU",
-            "SBABEhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZFX0NIQU5ORUwQBBIQ",
-            "CgxMSVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5FTBAGEhYKElVOU1VC",
-            "X0ZST01fQ0hBTk5FTBAHEhcKE0NIQU5ORUxfREFUQV9VUERBVEUQCBIOCgpE",
-            "SVNDT05ORUNUEAkSGgoWQ1JFQVRFX1NQQVRJQUxfQ0hBTk5FTBAKEhkKFVFV",
-            "RVJZX1NQQVRJQUxfQ0hBTk5FTBALEhkKFUNIQU5ORUxfREFUQV9IQU5ET1ZF",
-            "UhAMEh0KGURFQlVHX0dFVF9TUEFUSUFMX1JFR0lPTlMQYxIUChBVU0VSX1NQ",
-            "QUNFX1NUQVJUEGQqMQoPQ29tcHJlc3Npb25UeXBlEhIKDk5PX0NPTVBSRVNT",
-            "SU9OEAASCgoGU05BUFBZEAFCLlosY2hhbm5lbGQuY2xld2NhdC5jb20vY2hh",
-            "bm5lbGQvcGtnL2NoYW5uZWxkcGJiBnByb3RvMw=="));
+            "bmVsZHBiLkNoYW5uZWxUeXBlIlUKGENoYW5uZWxEYXRhVXBkYXRlTWVzc2Fn",
+            "ZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueRIVCg1jb250",
+            "ZXh0Q29ubklkGAIgASgNIiMKEURpc2Nvbm5lY3RNZXNzYWdlEg4KBmNvbm5J",
+            "ZBgBIAEoDSIuCgtTcGF0aWFsSW5mbxIJCgF4GAEgASgBEgkKAXkYAiABKAES",
+            "CQoBehgDIAEoASJlCiJDcmVhdGVTcGF0aWFsQ2hhbm5lbHNSZXN1bHRNZXNz",
+            "YWdlEhgKEHNwYXRpYWxDaGFubmVsSWQYASADKA0SEAoIbWV0YWRhdGEYAiAB",
+            "KAkSEwoLb3duZXJDb25uSWQYAyABKA0iSgoaUXVlcnlTcGF0aWFsQ2hhbm5l",
+            "bE1lc3NhZ2USLAoLc3BhdGlhbEluZm8YASADKAsyFy5jaGFubmVsZHBiLlNw",
+            "YXRpYWxJbmZvIjUKIFF1ZXJ5U3BhdGlhbENoYW5uZWxSZXN1bHRNZXNzYWdl",
+            "EhEKCWNoYW5uZWxJZBgBIAMoDSKDAQoaQ2hhbm5lbERhdGFIYW5kb3Zlck1l",
+            "c3NhZ2USFAoMc3JjQ2hhbm5lbElkGAEgASgNEhQKDGRzdENoYW5uZWxJZBgC",
+            "IAEoDRIVCg1jb250ZXh0Q29ubklkGAMgASgNEiIKBGRhdGEYBCABKAsyFC5n",
+            "b29nbGUucHJvdG9idWYuQW55IoMBCg1TcGF0aWFsUmVnaW9uEiQKA21pbhgB",
+            "IAEoCzIXLmNoYW5uZWxkcGIuU3BhdGlhbEluZm8SJAoDbWF4GAIgASgLMhcu",
+            "Y2hhbm5lbGRwYi5TcGF0aWFsSW5mbxIRCgljaGFubmVsSWQYAyABKA0SEwoL",
+            "c2VydmVySW5kZXgYBCABKA0iHwodRGVidWdHZXRTcGF0aWFsUmVnaW9uc01l",
+            "c3NhZ2UiUQojRGVidWdHZXRTcGF0aWFsUmVnaW9uc1Jlc3VsdE1lc3NhZ2US",
+            "KgoHcmVnaW9ucxgBIAMoCzIZLmNoYW5uZWxkcGIuU3BhdGlhbFJlZ2lvbipo",
+            "Cg1Ccm9hZGNhc3RUeXBlEhAKDE5PX0JST0FEQ0FTVBAAEgcKA0FMTBABEhIK",
+            "DkFMTF9CVVRfU0VOREVSEAISEQoNQUxMX0JVVF9PV05FUhADEhUKEVNJTkdM",
+            "RV9DT05ORUNUSU9OEAQqOwoOQ29ubmVjdGlvblR5cGUSEQoNTk9fQ09OTkVD",
+            "VElPThAAEgoKBlNFUlZFUhABEgoKBkNMSUVOVBACKoQBCgtDaGFubmVsVHlw",
+            "ZRILCgdVTktOT1dOEAASCgoGR0xPQkFMEAESCwoHUFJJVkFURRACEgwKCFNV",
+            "QldPUkxEEAMSCwoHU1BBVElBTBAEEggKBFRFU1QQZBIJCgVURVNUMRBlEgkK",
+            "BVRFU1QyEGYSCQoFVEVTVDMQZxIJCgVURVNUNBBoKroCCgtNZXNzYWdlVHlw",
+            "ZRILCgdJTlZBTElEEAASCAoEQVVUSBABEhIKDkNSRUFURV9DSEFOTkVMEAMS",
+            "EgoOUkVNT1ZFX0NIQU5ORUwQBBIQCgxMSVNUX0NIQU5ORUwQBRISCg5TVUJf",
+            "VE9fQ0hBTk5FTBAGEhYKElVOU1VCX0ZST01fQ0hBTk5FTBAHEhcKE0NIQU5O",
+            "RUxfREFUQV9VUERBVEUQCBIOCgpESVNDT05ORUNUEAkSGgoWQ1JFQVRFX1NQ",
+            "QVRJQUxfQ0hBTk5FTBAKEhkKFVFVRVJZX1NQQVRJQUxfQ0hBTk5FTBALEhkK",
+            "FUNIQU5ORUxfREFUQV9IQU5ET1ZFUhAMEh0KGURFQlVHX0dFVF9TUEFUSUFM",
+            "X1JFR0lPTlMQYxIUChBVU0VSX1NQQUNFX1NUQVJUEGQqMQoPQ29tcHJlc3Np",
+            "b25UeXBlEhIKDk5PX0NPTVBSRVNTSU9OEAASCgoGU05BUFBZEAFCLlosY2hh",
+            "bm5lbGQuY2xld2NhdC5jb20vY2hhbm5lbGQvcGtnL2NoYW5uZWxkcGJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -121,13 +123,13 @@ namespace Channeldpb {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SubscribedToChannelResultMessage), global::Channeldpb.SubscribedToChannelResultMessage.Parser, new[]{ "ConnId", "SubOptions", "ConnType", "ChannelType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.UnsubscribedFromChannelMessage), global::Channeldpb.UnsubscribedFromChannelMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.UnsubscribedFromChannelResultMessage), global::Channeldpb.UnsubscribedFromChannelResultMessage.Parser, new[]{ "ConnId", "ConnType", "ChannelType" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataUpdateMessage), global::Channeldpb.ChannelDataUpdateMessage.Parser, new[]{ "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataUpdateMessage), global::Channeldpb.ChannelDataUpdateMessage.Parser, new[]{ "Data", "ContextConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DisconnectMessage), global::Channeldpb.DisconnectMessage.Parser, new[]{ "ConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialInfo), global::Channeldpb.SpatialInfo.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateSpatialChannelsResultMessage), global::Channeldpb.CreateSpatialChannelsResultMessage.Parser, new[]{ "SpatialChannelId", "Metadata", "OwnerConnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.QuerySpatialChannelMessage), global::Channeldpb.QuerySpatialChannelMessage.Parser, new[]{ "SpatialInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.QuerySpatialChannelResultMessage), global::Channeldpb.QuerySpatialChannelResultMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataHandoverMessage), global::Channeldpb.ChannelDataHandoverMessage.Parser, new[]{ "SrcChannelId", "DstChannelId", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataHandoverMessage), global::Channeldpb.ChannelDataHandoverMessage.Parser, new[]{ "SrcChannelId", "DstChannelId", "ContextConnId", "Data" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.SpatialRegion), global::Channeldpb.SpatialRegion.Parser, new[]{ "Min", "Max", "ChannelId", "ServerIndex" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DebugGetSpatialRegionsMessage), global::Channeldpb.DebugGetSpatialRegionsMessage.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.DebugGetSpatialRegionsResultMessage), global::Channeldpb.DebugGetSpatialRegionsResultMessage.Parser, new[]{ "Regions" }, null, null, null, null)
@@ -151,10 +153,14 @@ namespace Channeldpb {
     /// </summary>
     [pbr::OriginalName("ALL_BUT_SENDER")] AllButSender = 2,
     /// <summary>
+    /// Broadcast the message to all the connections in the channel, the owner excluded.
+    /// </summary>
+    [pbr::OriginalName("ALL_BUT_OWNER")] AllButOwner = 3,
+    /// <summary>
     /// Forward the message to the connection. Can only be used by the backend server.
     /// This has the same behavior as sending the message to the PRIVATE channel owned by the target connection with BroadcastType = NO.
     /// </summary>
-    [pbr::OriginalName("SINGLE_CONNECTION")] SingleConnection = 3,
+    [pbr::OriginalName("SINGLE_CONNECTION")] SingleConnection = 4,
   }
 
   public enum ConnectionType {
@@ -4713,6 +4719,7 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChannelDataUpdateMessage(ChannelDataUpdateMessage other) : this() {
       data_ = other.data_ != null ? other.data_.Clone() : null;
+      contextConnId_ = other.contextConnId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4734,6 +4741,23 @@ namespace Channeldpb {
       }
     }
 
+    /// <summary>Field number for the "contextConnId" field.</summary>
+    public const int ContextConnIdFieldNumber = 2;
+    private uint contextConnId_;
+    /// <summary>
+    /// The ID of the connection that causes the update of the channel data.
+    /// In a server-authoratative system (which means the @ChannelDataUpdateMessage will only be sent by server), the servers need to send this field to channeld.
+    /// If the sender is a client, this field will be ignored.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ContextConnId {
+      get { return contextConnId_; }
+      set {
+        contextConnId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4750,6 +4774,7 @@ namespace Channeldpb {
         return true;
       }
       if (!object.Equals(Data, other.Data)) return false;
+      if (ContextConnId != other.ContextConnId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4758,6 +4783,7 @@ namespace Channeldpb {
     public override int GetHashCode() {
       int hash = 1;
       if (data_ != null) hash ^= Data.GetHashCode();
+      if (ContextConnId != 0) hash ^= ContextConnId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4780,6 +4806,10 @@ namespace Channeldpb {
         output.WriteRawTag(10);
         output.WriteMessage(Data);
       }
+      if (ContextConnId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(ContextConnId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4794,6 +4824,10 @@ namespace Channeldpb {
         output.WriteRawTag(10);
         output.WriteMessage(Data);
       }
+      if (ContextConnId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(ContextConnId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4806,6 +4840,9 @@ namespace Channeldpb {
       int size = 0;
       if (data_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (ContextConnId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ContextConnId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4824,6 +4861,9 @@ namespace Channeldpb {
           Data = new global::Google.Protobuf.WellKnownTypes.Any();
         }
         Data.MergeFrom(other.Data);
+      }
+      if (other.ContextConnId != 0) {
+        ContextConnId = other.ContextConnId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4847,6 +4887,10 @@ namespace Channeldpb {
             input.ReadMessage(Data);
             break;
           }
+          case 16: {
+            ContextConnId = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -4867,6 +4911,10 @@ namespace Channeldpb {
               Data = new global::Google.Protobuf.WellKnownTypes.Any();
             }
             input.ReadMessage(Data);
+            break;
+          }
+          case 16: {
+            ContextConnId = input.ReadUInt32();
             break;
           }
         }
@@ -5986,6 +6034,7 @@ namespace Channeldpb {
     public ChannelDataHandoverMessage(ChannelDataHandoverMessage other) : this() {
       srcChannelId_ = other.srcChannelId_;
       dstChannelId_ = other.dstChannelId_;
+      contextConnId_ = other.contextConnId_;
       data_ = other.data_ != null ? other.data_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -6020,9 +6069,28 @@ namespace Channeldpb {
       }
     }
 
+    /// <summary>Field number for the "contextConnId" field.</summary>
+    public const int ContextConnIdFieldNumber = 3;
+    private uint contextConnId_;
+    /// <summary>
+    /// The ID of the client connection that triggered the handover. If the handover is triggered by server (e.g. NPC movement), the value will be 0.
+    /// The client will be received @UnsubscribedFromChannelResultMessage and @SubscribedToChannelResultMessage.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ContextConnId {
+      get { return contextConnId_; }
+      set {
+        contextConnId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 3;
+    public const int DataFieldNumber = 4;
     private global::Google.Protobuf.WellKnownTypes.Any data_;
+    /// <summary>
+    /// The spatial channel data that migrate from the source channel to the destination channel.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Any Data {
@@ -6049,6 +6117,7 @@ namespace Channeldpb {
       }
       if (SrcChannelId != other.SrcChannelId) return false;
       if (DstChannelId != other.DstChannelId) return false;
+      if (ContextConnId != other.ContextConnId) return false;
       if (!object.Equals(Data, other.Data)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -6059,6 +6128,7 @@ namespace Channeldpb {
       int hash = 1;
       if (SrcChannelId != 0) hash ^= SrcChannelId.GetHashCode();
       if (DstChannelId != 0) hash ^= DstChannelId.GetHashCode();
+      if (ContextConnId != 0) hash ^= ContextConnId.GetHashCode();
       if (data_ != null) hash ^= Data.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -6086,8 +6156,12 @@ namespace Channeldpb {
         output.WriteRawTag(16);
         output.WriteUInt32(DstChannelId);
       }
+      if (ContextConnId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ContextConnId);
+      }
       if (data_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Data);
       }
       if (_unknownFields != null) {
@@ -6108,8 +6182,12 @@ namespace Channeldpb {
         output.WriteRawTag(16);
         output.WriteUInt32(DstChannelId);
       }
+      if (ContextConnId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ContextConnId);
+      }
       if (data_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(34);
         output.WriteMessage(Data);
       }
       if (_unknownFields != null) {
@@ -6127,6 +6205,9 @@ namespace Channeldpb {
       }
       if (DstChannelId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DstChannelId);
+      }
+      if (ContextConnId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ContextConnId);
       }
       if (data_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
@@ -6148,6 +6229,9 @@ namespace Channeldpb {
       }
       if (other.DstChannelId != 0) {
         DstChannelId = other.DstChannelId;
+      }
+      if (other.ContextConnId != 0) {
+        ContextConnId = other.ContextConnId;
       }
       if (other.data_ != null) {
         if (data_ == null) {
@@ -6178,7 +6262,11 @@ namespace Channeldpb {
             DstChannelId = input.ReadUInt32();
             break;
           }
-          case 26: {
+          case 24: {
+            ContextConnId = input.ReadUInt32();
+            break;
+          }
+          case 34: {
             if (data_ == null) {
               Data = new global::Google.Protobuf.WellKnownTypes.Any();
             }
@@ -6208,7 +6296,11 @@ namespace Channeldpb {
             DstChannelId = input.ReadUInt32();
             break;
           }
-          case 26: {
+          case 24: {
+            ContextConnId = input.ReadUInt32();
+            break;
+          }
+          case 34: {
             if (data_ == null) {
               Data = new global::Google.Protobuf.WellKnownTypes.Any();
             }

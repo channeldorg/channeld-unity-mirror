@@ -88,7 +88,11 @@ namespace Channeld
 
         public virtual void Unintialize()
         {
-            Connection.RemoveMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
+            if (Connection != null)
+            {
+                Connection.RemoveMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
+            }
+
             UninitChannels();
             Log.Info($"{GetType()} uninitialized channels.");
         }
@@ -246,7 +250,7 @@ namespace Channeld
                 if (channelDataProviders.TryGetValue(channelId, out providers))
                 {
                     channelDataProviders.Remove(channelId);
-                    Log.Info($"Received Unsub message. Removed all data providers from channel {channelId}");
+                    Log.Info($"Received Unsub message. Removed all data providers({providers.Count}) from channel {channelId}");
                     OnUnsubFromChannel(channelId, providers);
                 }
             }
@@ -325,7 +329,10 @@ namespace Channeld
                     {
                         Connection.Send(channelId, (uint)MessageType.ChannelDataUpdate, new ChannelDataUpdateMessage()
                         {
-                            Data = Any.Pack(newState)
+                            Data = Any.Pack(newState),
+                            /* FIXME: in authoratative server, send the connId of the client that causes the data update
+                            ContextConnId = Connection.Id,
+                            */
                         }, BroadcastType.NoBroadcast);
                     }
                 }

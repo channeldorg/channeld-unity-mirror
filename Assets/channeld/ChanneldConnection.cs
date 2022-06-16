@@ -195,6 +195,11 @@ namespace Channeld
         private void HandleServerForwardMessage(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             var usm = (ServerForwardMessage)msg;
+            if (UserSpaceMessageHandleFunc == null)
+            {
+                Log.Warning($"No handler for user-space message, channelId={channelId}, client connId={usm.ClientConnId}");
+                return;
+            }
             UserSpaceMessageHandleFunc(channelId, usm.ClientConnId, usm.Payload.ToByteArray());
         }
 
@@ -320,6 +325,7 @@ namespace Channeld
             //catch{ }
             Interlocked.Increment(ref receiveFinished);
             netStream.Close();
+            netBuffer.SetLength(0);
             tcp.Close();
 
             Id = 0;
@@ -451,7 +457,10 @@ namespace Channeld
                 {
                     // Write in the leftover for future use
                     netBuffer.Write(bytes, size + 5, leftSize);
+                    // Unity Editor always have this situation - just ignore it.
+                    #if !UNITY_EDITOR
                     Log.Warning($"[channeld] Remained {leftSize} bytes after reading the packet.");
+                    #endif
                 }
             }
         }
@@ -638,7 +647,7 @@ namespace Channeld
             SubConnectionToChannel(Id, channelId, options, callback);
         }
 
-        // Subscribe another connection to a channel. Only the owner of the GLOBAL channel or the target channel has the authority to do so.
+        // Subscribe another connection to a channel. Only the owner of the channel or the GLOBAL channel has the authority to do so.
         public void SubConnectionToChannel(uint connId, uint channelId, ChannelSubscriptionOptions options = null, Action<SubscribedToChannelResultMessage> callback = null)
         {
             Send(channelId, (uint)MessageType.SubToChannel, new SubscribedToChannelMessage()
@@ -653,6 +662,15 @@ namespace Channeld
             Send(channelId, (uint)MessageType.UnsubFromChannel, new UnsubscribedFromChannelMessage()
             {
                 ConnId = Id
+            }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
+        }
+
+        // Unsubscribe another connection from a channel. Only the owner of the channel or the GLOBAL channel has the authority to do so.
+        public void UnsubConnectionToChannel(uint connId, uint channelId, Action<UnsubscribedFromChannelMessage> callback = null)
+        {
+            Send(channelId, (uint)MessageType.UnsubFromChannel, new UnsubscribedFromChannelMessage()
+            {
+                ConnId = connId,
             }, BroadcastType.NoBroadcast, WrapMessageHandler(callback));
         }
 

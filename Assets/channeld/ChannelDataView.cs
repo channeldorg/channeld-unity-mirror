@@ -17,8 +17,10 @@ namespace Channeld
         //private static Dictionary<ChannelType, IMessage> channelDataTemplates = new Dictionary<ChannelType, IMessage>();
         private static Dictionary<ChannelType, System.Func<IMessage>> channelDataCreators = new Dictionary<ChannelType, System.Func<IMessage>>();
         private static Dictionary<System.Type, ChannelType> channelDataTypes = new Dictionary<System.Type, ChannelType>();
-        // The spawned object's netId mapping to the id of the channel that owns the object.
+        // The spawned object's netId mapping to the id of the channel that owns the object. The mapping is only maintained in client.
         protected static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
+
+        // Get the id of the channel that owns the network object. ONLY works for client.
         public static uint GetOwningChannel(uint netId)
         {
             uint channelId = 0;
@@ -60,6 +62,12 @@ namespace Channeld
             
                 Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
                 Connection.AddMessageHandler((uint)MessageType.UnsubFromChannel, HandleUnsub);
+
+                if (conn.ConnectionType == ConnectionType.Client)
+                {
+                    NetworkClient.RegisterHandler<SpawnInChannelMessage>(HandleSpawnInChannelMessage);
+                }
+                /*
                 if (Connection.ConnectionType == ConnectionType.Client)
                 {
                     Action<uint, uint, byte[]> handler = (channelId, clientConnId, payload) =>
@@ -70,8 +78,10 @@ namespace Channeld
                         Action<SpawnMessage> onSpawn = (msg) =>
                         {
                             netIdOwningChannels[msg.netId] = channelId;
-                            Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {channelId}");
                             NetworkClientExposed.OnSpawn(msg);
+                            NetworkIdentity spawned;
+                            NetworkClient.spawned.TryGetValue(msg.netId, out spawned);
+                            Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {channelId}, spawned: {spawned?.name}");
                         };
                         NetworkClient.ReplaceHandler<SpawnMessage>(onSpawn, false);
                     };
@@ -79,11 +89,33 @@ namespace Channeld
                     handler += Connection.UserSpaceMessageHandleFunc;
                     Connection.UserSpaceMessageHandleFunc = handler;
                 }
+                */
             }
 
             InitChannels();
             
             Log.Info($"{GetType()} initialized channels.");
+        }
+
+        private void HandleSpawnInChannelMessage(SpawnInChannelMessage msg)
+        {
+            netIdOwningChannels[msg.netId] = msg.channelId;
+            var spawnMsg = new SpawnMessage()
+            {
+                netId = msg.netId,
+                isLocalPlayer = msg.isLocalPlayer,
+                isOwner = msg.isOwner,
+                sceneId = msg.sceneId,
+                assetId = msg.assetId,
+                position = msg.position,
+                rotation = msg.rotation,
+                scale = msg.scale,
+                payload = msg.payload,
+            };
+            NetworkClientExposed.OnSpawn(spawnMsg);
+            NetworkIdentity spawned;
+            NetworkClient.spawned.TryGetValue(msg.netId, out spawned);
+            Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {msg.channelId}, spawned: {spawned?.name}");
         }
 
         public virtual void Unintialize()
@@ -108,7 +140,7 @@ namespace Channeld
         }
         */
 
-        public void AddChannelDataProviderToDefaultChannel(IChannelDataProvider provider)
+        public virtual void AddChannelDataProviderToDefaultChannel(IChannelDataProvider provider)
         {
             if (Connection == null)
             {
@@ -188,7 +220,7 @@ namespace Channeld
         }
         */
 
-        public void RemoveChannelDataProviderFromAllChannels(IChannelDataProvider provider)
+        public void RemoveChannelDataProviderFromAllChannels(IChannelDataProvider provider, bool sendRemoved)
         {
             if (Connection == null)
             {
@@ -208,7 +240,7 @@ namespace Channeld
             {
                 if (kv.Value.ChannelType == channelType)
                 {
-                    RemoveChannelDataProvider(kv.Key, provider);
+                    RemoveChannelDataProvider(kv.Key, provider, sendRemoved);
                     return;
                 }
             }
@@ -216,15 +248,21 @@ namespace Channeld
             //Log.Warning($"Failed to RemoveChannelDataProviderFromAllChannels: no default channel found of type '{channelType}', data type: {channelDataType}.");
         }
 
-        public void RemoveChannelDataProvider(uint channelId, IChannelDataProvider provider)
+        public void RemoveChannelDataProvider(uint channelId, IChannelDataProvider provider, bool sendRemoved)
         {
             HashSet<IChannelDataProvider> providers;
             if (channelDataProviders.TryGetValue(channelId, out providers))
             {
-                // Post the remove to the next SendAllChannelUpdates, so the Removed=true will be set in the provider's UpdateChannelData().
-                //providers.Remove(provider);
                 Log.Info($"Removing channel data provider {provider} from channel {channelId}");
-                provider.IsRemoved = true;
+                if (sendRemoved)
+                {
+                    // Post the remove to the next SendAllChannelUpdates, so the Removed=true will be set in the provider's UpdateChannelData().
+                    provider.IsRemoved = true;
+                }
+                else
+                {
+                    providers.Remove(provider);
+                }
             }
         }
 
@@ -293,7 +331,7 @@ namespace Channeld
 
             foreach (var kv in Connection.SubscribedChannels)
             {
-                if (kv.Value.SubOptions.CanUpdateData)
+                if (kv.Value.SubOptions.DataAccess == ChannelDataAccess.WriteAccess)
                 {
                     uint channelId = kv.Key;
                     HashSet<IChannelDataProvider> providers;

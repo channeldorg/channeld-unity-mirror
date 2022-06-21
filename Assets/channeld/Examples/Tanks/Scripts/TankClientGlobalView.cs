@@ -14,7 +14,7 @@ namespace Channeld.Examples.Tanks.Scripts
 
             Connection.SubToChannel(ChanneldConnection.GlobalChannelId, new ChannelSubscriptionOptions()
             {
-                CanUpdateData = true,
+                DataAccess = ChannelDataAccess.WriteAccess,
                 FanOutIntervalMs = fanOutIntervalMs,
                 FanOutDelayMs = 100,
             }, (_) =>

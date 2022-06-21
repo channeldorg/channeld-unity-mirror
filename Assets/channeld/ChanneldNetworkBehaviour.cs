@@ -133,7 +133,7 @@ namespace Channeld
 
             if (this is IChannelDataProvider)
             {
-                aoi.CurrentView.RemoveChannelDataProviderFromAllChannels((IChannelDataProvider)this);
+                aoi.CurrentView.RemoveChannelDataProviderFromAllChannels((IChannelDataProvider)this, true);
             }
         }
     }

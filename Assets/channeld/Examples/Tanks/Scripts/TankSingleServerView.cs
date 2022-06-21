@@ -24,6 +24,15 @@ namespace Channeld.Examples.Tanks
         {
             RegisterChannelDataParser(channelType, new TankGameChannelData(), TankGameChannelData.Parser);
 
+            // Replace Mirror's NetworkConnectionToClient for customized spawning process
+            NetworkServer.ConstructClientConnection = (connectionId) => new ChanneldNetworkConnectionToClient(connectionId, (netId) =>
+            {
+                if (channelId != null)
+                    return channelId.Value;
+                Log.Warning($"Server failed to map netId {netId} to any channel, the Global channel will be used.");
+                return ChanneldConnection.GlobalChannelId;
+            });
+
             Connection.AddMessageHandler((uint)MessageType.CreateChannel, (_, channelId, msg) =>
             {
                 var resultMsg = (CreateChannelResultMessage)msg;
@@ -81,7 +90,7 @@ namespace Channeld.Examples.Tanks
 
             Connection.CreateChannel(channelType, channelMetadata, new ChannelSubscriptionOptions()
             {
-                CanUpdateData = true,
+                DataAccess = ChannelDataAccess.WriteAccess,
                 FanOutIntervalMs = fanOutIntervalMs
             }, null, new ChannelDataMergeOptions() { ShouldCheckRemovableMapField = true });
         }

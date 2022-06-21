@@ -354,6 +354,8 @@ namespace Channeld
 
         public void OnClientSubToChannel(uint channelId)
         {
+            Log.Info($"Setting ClientSendChannelId to {channelId}");
+
             if (ClientSendChannelId == null)
             { 
                 ClientSendChannelId = channelId;

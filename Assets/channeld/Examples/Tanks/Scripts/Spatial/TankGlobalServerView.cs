@@ -11,7 +11,7 @@ namespace Channeld.Examples.Tanks.Scripts
     {
         public uint clientFanOutIntervalMs = 50;
 
-        private List<uint> allSpatialChannelIds = new List<uint>();
+        private HashSet<uint> allSpatialChannelIds = new HashSet<uint>();
 
         protected override void InitChannels()
         {
@@ -31,9 +31,15 @@ namespace Channeld.Examples.Tanks.Scripts
                             return;
                         }
 
-                        var subOptions = new ChannelSubscriptionOptions()
+                        var authoritySubOptions = new ChannelSubscriptionOptions()
                         {
-                            CanUpdateData = true,
+                            DataAccess = ChannelDataAccess.WriteAccess,
+                            FanOutIntervalMs = clientFanOutIntervalMs,
+                            FanOutDelayMs = 100,
+                        };
+                        var nonAuthoritySubOptions = new ChannelSubscriptionOptions()
+                        {
+                            DataAccess = ChannelDataAccess.ReadAccess,
                             FanOutIntervalMs = clientFanOutIntervalMs,
                             FanOutDelayMs = 100,
                         };
@@ -41,13 +47,9 @@ namespace Channeld.Examples.Tanks.Scripts
                         // FIXME: should only sub to 8 adjacent spatial channels
                         foreach (var spatialChannelId in allSpatialChannelIds)
                         {
-                            if (spatialChannelId != startChannelId)
-                                Connection.SubConnectionToChannel(subResultMsg.ConnId, spatialChannelId, subOptions);
+                            Connection.SubConnectionToChannel(subResultMsg.ConnId, spatialChannelId, 
+                                spatialChannelId == startChannelId ? authoritySubOptions : nonAuthoritySubOptions);
                         }
-
-                        // Sub the client to the spatial channel in which the start position is.
-                        // This must be sent at last as it affects client's ClientSendChannelId.
-                        Connection.SubConnectionToChannel(subResultMsg.ConnId, startChannelId, subOptions);
                     });
                 }
             });
@@ -55,7 +57,14 @@ namespace Channeld.Examples.Tanks.Scripts
             Connection.AddMessageHandler((uint)MessageType.CreateSpatialChannel, (_, channelId, msg) =>
             { 
                 var resultMsg = (CreateSpatialChannelsResultMessage)msg;
-                allSpatialChannelIds.AddRange(resultMsg.SpatialChannelId);
+                foreach (var spatialChannelId in resultMsg.SpatialChannelId)
+                    allSpatialChannelIds.Add(spatialChannelId);
+            });
+
+            Connection.AddMessageHandler((uint)MessageType.RemoveChannel, (_, channelId, msg) =>
+            {
+                var removeMsg = (RemoveChannelMessage)msg;
+                allSpatialChannelIds.Remove(removeMsg.ChannelId);
             });
 
 

@@ -3,6 +3,7 @@ using Channeldpb;
 using Google.Protobuf;
 using Mirror;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Channeld.Examples.Tanks.Scripts
@@ -10,6 +11,7 @@ namespace Channeld.Examples.Tanks.Scripts
     [CreateAssetMenu(fileName = "TankSpatialServerView", menuName = "ScriptableObjects/TankSpatialServerView", order = 2)]
     public class TankSpatialServerView : ChannelDataView
     {
+        // Map the client to the channels, so ChanneldTransport.ServerSend() can set the right channelId.
         private Dictionary<int, uint> clientInChannels = new Dictionary<int, uint>();
 
         // TODO: Move to ChanneldNetworkManager
@@ -43,11 +45,31 @@ namespace Channeld.Examples.Tanks.Scripts
                 return channelId;
             };
 
+            // Replace Mirror's NetworkConnectionToClient for customized spawning process
+            NetworkServer.ConstructClientConnection = (connectionId) => new ChanneldNetworkConnectionToClient(connectionId, (netId) =>
+            {
+                uint channelId;
+                NetworkIdentity ni;
+                if (NetworkServer.spawned.TryGetValue(netId, out ni))
+                {
+                    if (clientInChannels.TryGetValue(connectionId, out channelId))
+                    {
+                        Log.Info($"Spatial server found mapping of netId: {netId} -> channelId: {channelId}, connId: {connectionId}, spawned: {ni.gameObject.name}");
+                        return channelId;
+                    }
+                }
+
+                channelId = Connection.OwnedChannels.FirstOrDefault().Key;
+                Log.Warning($"Spatial server cound not find mapping of netId: {netId}, using default channelId: {channelId}, connId: {connectionId}, spawned: {ni.gameObject.name}");
+                return channelId;
+            });
+
             Connection.AddMessageHandler((uint)MessageType.SubToChannel, (_, channelId, msg) =>
             {
                 var subResultMsg = (SubscribedToChannelResultMessage)msg;
                 // A client is subscribed to a spatial channel the server owns (by the Global server)
-                if (subResultMsg.ConnType == ConnectionType.Client && subResultMsg.ChannelType == ChannelType.Spatial)
+                if (subResultMsg.ConnType == ConnectionType.Client && subResultMsg.ChannelType == ChannelType.Spatial &&
+                    subResultMsg.SubOptions.DataAccess == ChannelDataAccess.WriteAccess)
                 {
                     int mirrorConnId = (int)subResultMsg.ConnId;
                     if (!NetworkServer.connections.ContainsKey(mirrorConnId))
@@ -55,13 +77,16 @@ namespace Channeld.Examples.Tanks.Scripts
                         ChanneldTransport.Current.OnServerConnected?.Invoke(mirrorConnId);
                     }
                     
-                    // Map the client to the channels, so ChanneldTransport.ServerSend() can set the right channelId.
                     clientInChannels[mirrorConnId] = channelId;
 
                     // MUST always use the EXACT same logic as the Global server
                     var startPos = NetworkManager.startPositions[mirrorConnId % NetworkManager.startPositions.Count];
                     // Code copied from NetworkManager.OnServerAddPlayer
                     var player = Instantiate(NetworkManager.singleton.playerPrefab, startPos.position, startPos.rotation); 
+                    /* At this moment, the netId is still 0
+                    // Set up the netId-channelId mapping before sending the spawn message to client
+                    netIdOwningChannels[player.GetComponent<NetworkIdentity>().netId] = channelId;
+                    */
                     NetworkServer.AddPlayerForConnection(NetworkServer.connections[mirrorConnId], player);
                 }
             });
@@ -74,6 +99,8 @@ namespace Channeld.Examples.Tanks.Scripts
                 if (resultMsg.ConnType == ConnectionType.Client && resultMsg.ChannelType == ChannelType.Spatial)
                 {
                     ChanneldTransport.Current.OnServerDisconnected?.Invoke((int)resultMsg.ConnId);
+
+                    clientInChannels.Remove((int)resultMsg.ConnId);
                 }
             });
 
@@ -171,6 +198,15 @@ namespace Channeld.Examples.Tanks.Scripts
                 // Spawn the handover objects if them don't exist before
                 if (!Connection.SubscribedChannels.ContainsKey(handoverMsg.SrcChannelId))
                 {
+                    int connId = (int)handoverMsg.ContextConnId;
+                    NetworkConnectionToClient clientConn;
+                    if (!NetworkServer.connections.TryGetValue(connId, out clientConn))
+                    {
+                        ChanneldTransport.Current.OnServerConnected((int)handoverMsg.ContextConnId);
+                        clientConn = NetworkServer.connections[connId];
+                        clientInChannels[connId] = handoverMsg.DstChannelId;
+                    }
+
                     foreach (var kv in channelData.TransformStates)
                     {
                         GameObject prefab;
@@ -197,14 +233,6 @@ namespace Channeld.Examples.Tanks.Scripts
                         NetworkIdentity identity = spawned.GetComponent<NetworkIdentity>();
 
                         // Make sure the spawned object has the right owner connection.
-                        int connId = (int)handoverMsg.ContextConnId;
-                        NetworkConnectionToClient clientConn;
-                        if (!NetworkServer.connections.TryGetValue(connId, out clientConn))
-                        { 
-                            ChanneldTransport.Current.OnServerConnected((int)handoverMsg.ContextConnId);
-                            clientConn = NetworkServer.connections[connId];
-                        }
-                        
                         NetworkServer.Spawn(spawned, clientConn);
                         // Keep the object's netId the same when moving across the servers
                         NetworkServer.spawned.Remove(identity.netId);
@@ -222,10 +250,43 @@ namespace Channeld.Examples.Tanks.Scripts
 
             foreach (var kv in channelData.TransformStates)
             {
-                // Update the netId-owning channelId mapping
+                // Update the netId-owningChannelId mapping
                 netIdOwningChannels[kv.Key] = handoverMsg.DstChannelId;
+
+                // Update the clientConnId-channelId mapping
+                NetworkIdentity ni;
+                if (NetworkServer.spawned.TryGetValue(kv.Key, out ni))
+                {
+                    if (ni.connectionToClient != null)
+                        clientInChannels[ni.connectionToClient.connectionId] = handoverMsg.DstChannelId;
+                }
             }
+
+            /*
+            */
+            // Switch the client's authority from the srcChannel to dstChannel
+            Connection.SubConnectionToChannel(handoverMsg.ContextConnId, handoverMsg.SrcChannelId, new ChannelSubscriptionOptions()
+            {
+                DataAccess = ChannelDataAccess.ReadAccess
+            });
+            Connection.SubConnectionToChannel(handoverMsg.ContextConnId, handoverMsg.DstChannelId, new ChannelSubscriptionOptions()
+            {
+                DataAccess = ChannelDataAccess.WriteAccess
+            });
         }
+
+        /* Tried to query the channelId from channeld - but it
+        public override void AddChannelDataProviderToDefaultChannel(IChannelDataProvider provider)
+        {
+            //base.AddChannelDataProviderToDefaultChannel(provider);
+
+            var ni = (provider as MonoBehaviour).GetComponent<NetworkIdentity>();
+            Connection.QuerySpatialChannel(new Vector3[]{ni.transform.position}, (resultMsg) =>
+            {
+                AddChannelDataProvider(resultMsg.ChannelId[0], provider);
+            });
+        }
+        */
 
 
         // Code copied from NetworkServer.DestroyObject()

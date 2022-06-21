@@ -36,83 +36,85 @@ namespace Channeldpb {
             "DjIoLmNoYW5uZWxkcGIuQXV0aFJlc3VsdE1lc3NhZ2UuQXV0aFJlc3VsdBIO",
             "CgZjb25uSWQYAiABKA0SNAoPY29tcHJlc3Npb25UeXBlGAMgASgOMhsuY2hh",
             "bm5lbGRwYi5Db21wcmVzc2lvblR5cGUiPQoKQXV0aFJlc3VsdBIOCgpTVUND",
-            "RVNTRlVMEAASDwoLSU5WQUxJRF9QSVQQARIOCgpJTlZBTElEX0xUEAIifAoa",
-            "Q2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMSFQoNQ2FuVXBkYXRlRGF0YRgB",
-            "IAEoCBIWCg5EYXRhRmllbGRNYXNrcxgCIAMoCRIYChBGYW5PdXRJbnRlcnZh",
-            "bE1zGAMgASgNEhUKDUZhbk91dERlbGF5TXMYBCABKAUihgEKF0NoYW5uZWxE",
-            "YXRhTWVyZ2VPcHRpb25zEhkKEXNob3VsZFJlcGxhY2VMaXN0GAEgASgIEhUK",
-            "DWxpc3RTaXplTGltaXQYAiABKA0SEwoLdHJ1bmNhdGVUb3AYAyABKAgSJAoc",
-            "c2hvdWxkQ2hlY2tSZW1vdmFibGVNYXBGaWVsZBgEIAEoCCLxAQoUQ3JlYXRl",
-            "Q2hhbm5lbE1lc3NhZ2USLAoLY2hhbm5lbFR5cGUYASABKA4yFy5jaGFubmVs",
-            "ZHBiLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAIgASgJEjoKCnN1Yk9wdGlv",
-            "bnMYAyABKAsyJi5jaGFubmVsZHBiLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRp",
-            "b25zEiIKBGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55EjkKDG1l",
-            "cmdlT3B0aW9ucxgFIAEoCzIjLmNoYW5uZWxkcGIuQ2hhbm5lbERhdGFNZXJn",
-            "ZU9wdGlvbnMicQoaQ3JlYXRlQ2hhbm5lbFJlc3VsdE1lc3NhZ2USLAoLY2hh",
-            "bm5lbFR5cGUYASABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlEhAKCG1l",
-            "dGFkYXRhGAIgASgJEhMKC293bmVyQ29ubklkGAMgASgNIikKFFJlbW92ZUNo",
-            "YW5uZWxNZXNzYWdlEhEKCWNoYW5uZWxJZBgBIAEoDSJaChJMaXN0Q2hhbm5l",
-            "bE1lc3NhZ2USKwoKdHlwZUZpbHRlchgBIAEoDjIXLmNoYW5uZWxkcGIuQ2hh",
-            "bm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0ZXJzGAIgAygJIsABChhMaXN0Q2hh",
-            "bm5lbFJlc3VsdE1lc3NhZ2USQgoIY2hhbm5lbHMYASADKAsyMC5jaGFubmVs",
-            "ZHBiLkxpc3RDaGFubmVsUmVzdWx0TWVzc2FnZS5DaGFubmVsSW5mbxpgCgtD",
-            "aGFubmVsSW5mbxIRCgljaGFubmVsSWQYASABKA0SLAoLY2hhbm5lbFR5cGUY",
-            "AiABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlEhAKCG1ldGFkYXRhGAMg",
-            "ASgJImgKGlN1YnNjcmliZWRUb0NoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgB",
-            "IAEoDRI6CgpzdWJPcHRpb25zGAIgASgLMiYuY2hhbm5lbGRwYi5DaGFubmVs",
-            "U3Vic2NyaXB0aW9uT3B0aW9ucyLKAQogU3Vic2NyaWJlZFRvQ2hhbm5lbFJl",
-            "c3VsdE1lc3NhZ2USDgoGY29ubklkGAEgASgNEjoKCnN1Yk9wdGlvbnMYAiAB",
-            "KAsyJi5jaGFubmVsZHBiLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEiwK",
-            "CGNvbm5UeXBlGAMgASgOMhouY2hhbm5lbGRwYi5Db25uZWN0aW9uVHlwZRIs",
-            "CgtjaGFubmVsVHlwZRgEIAEoDjIXLmNoYW5uZWxkcGIuQ2hhbm5lbFR5cGUi",
-            "MAoeVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxNZXNzYWdlEg4KBmNvbm5JZBgB",
-            "IAEoDSKSAQokVW5zdWJzY3JpYmVkRnJvbUNoYW5uZWxSZXN1bHRNZXNzYWdl",
-            "Eg4KBmNvbm5JZBgBIAEoDRIsCghjb25uVHlwZRgCIAEoDjIaLmNoYW5uZWxk",
-            "cGIuQ29ubmVjdGlvblR5cGUSLAoLY2hhbm5lbFR5cGUYAyABKA4yFy5jaGFu",
-            "bmVsZHBiLkNoYW5uZWxUeXBlIlUKGENoYW5uZWxEYXRhVXBkYXRlTWVzc2Fn",
-            "ZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueRIVCg1jb250",
-            "ZXh0Q29ubklkGAIgASgNIiMKEURpc2Nvbm5lY3RNZXNzYWdlEg4KBmNvbm5J",
-            "ZBgBIAEoDSIuCgtTcGF0aWFsSW5mbxIJCgF4GAEgASgBEgkKAXkYAiABKAES",
-            "CQoBehgDIAEoASJlCiJDcmVhdGVTcGF0aWFsQ2hhbm5lbHNSZXN1bHRNZXNz",
-            "YWdlEhgKEHNwYXRpYWxDaGFubmVsSWQYASADKA0SEAoIbWV0YWRhdGEYAiAB",
-            "KAkSEwoLb3duZXJDb25uSWQYAyABKA0iSgoaUXVlcnlTcGF0aWFsQ2hhbm5l",
-            "bE1lc3NhZ2USLAoLc3BhdGlhbEluZm8YASADKAsyFy5jaGFubmVsZHBiLlNw",
-            "YXRpYWxJbmZvIjUKIFF1ZXJ5U3BhdGlhbENoYW5uZWxSZXN1bHRNZXNzYWdl",
-            "EhEKCWNoYW5uZWxJZBgBIAMoDSKDAQoaQ2hhbm5lbERhdGFIYW5kb3Zlck1l",
-            "c3NhZ2USFAoMc3JjQ2hhbm5lbElkGAEgASgNEhQKDGRzdENoYW5uZWxJZBgC",
-            "IAEoDRIVCg1jb250ZXh0Q29ubklkGAMgASgNEiIKBGRhdGEYBCABKAsyFC5n",
-            "b29nbGUucHJvdG9idWYuQW55IoMBCg1TcGF0aWFsUmVnaW9uEiQKA21pbhgB",
-            "IAEoCzIXLmNoYW5uZWxkcGIuU3BhdGlhbEluZm8SJAoDbWF4GAIgASgLMhcu",
-            "Y2hhbm5lbGRwYi5TcGF0aWFsSW5mbxIRCgljaGFubmVsSWQYAyABKA0SEwoL",
-            "c2VydmVySW5kZXgYBCABKA0iHwodRGVidWdHZXRTcGF0aWFsUmVnaW9uc01l",
-            "c3NhZ2UiUQojRGVidWdHZXRTcGF0aWFsUmVnaW9uc1Jlc3VsdE1lc3NhZ2US",
-            "KgoHcmVnaW9ucxgBIAMoCzIZLmNoYW5uZWxkcGIuU3BhdGlhbFJlZ2lvbipo",
-            "Cg1Ccm9hZGNhc3RUeXBlEhAKDE5PX0JST0FEQ0FTVBAAEgcKA0FMTBABEhIK",
-            "DkFMTF9CVVRfU0VOREVSEAISEQoNQUxMX0JVVF9PV05FUhADEhUKEVNJTkdM",
-            "RV9DT05ORUNUSU9OEAQqOwoOQ29ubmVjdGlvblR5cGUSEQoNTk9fQ09OTkVD",
-            "VElPThAAEgoKBlNFUlZFUhABEgoKBkNMSUVOVBACKoQBCgtDaGFubmVsVHlw",
-            "ZRILCgdVTktOT1dOEAASCgoGR0xPQkFMEAESCwoHUFJJVkFURRACEgwKCFNV",
-            "QldPUkxEEAMSCwoHU1BBVElBTBAEEggKBFRFU1QQZBIJCgVURVNUMRBlEgkK",
-            "BVRFU1QyEGYSCQoFVEVTVDMQZxIJCgVURVNUNBBoKroCCgtNZXNzYWdlVHlw",
-            "ZRILCgdJTlZBTElEEAASCAoEQVVUSBABEhIKDkNSRUFURV9DSEFOTkVMEAMS",
-            "EgoOUkVNT1ZFX0NIQU5ORUwQBBIQCgxMSVNUX0NIQU5ORUwQBRISCg5TVUJf",
-            "VE9fQ0hBTk5FTBAGEhYKElVOU1VCX0ZST01fQ0hBTk5FTBAHEhcKE0NIQU5O",
-            "RUxfREFUQV9VUERBVEUQCBIOCgpESVNDT05ORUNUEAkSGgoWQ1JFQVRFX1NQ",
-            "QVRJQUxfQ0hBTk5FTBAKEhkKFVFVRVJZX1NQQVRJQUxfQ0hBTk5FTBALEhkK",
-            "FUNIQU5ORUxfREFUQV9IQU5ET1ZFUhAMEh0KGURFQlVHX0dFVF9TUEFUSUFM",
-            "X1JFR0lPTlMQYxIUChBVU0VSX1NQQUNFX1NUQVJUEGQqMQoPQ29tcHJlc3Np",
-            "b25UeXBlEhIKDk5PX0NPTVBSRVNTSU9OEAASCgoGU05BUFBZEAFCLlosY2hh",
-            "bm5lbGQuY2xld2NhdC5jb20vY2hhbm5lbGQvcGtnL2NoYW5uZWxkcGJiBnBy",
-            "b3RvMw=="));
+            "RVNTRlVMEAASDwoLSU5WQUxJRF9QSVQQARIOCgpJTlZBTElEX0xUEAIimAEK",
+            "GkNoYW5uZWxTdWJzY3JpcHRpb25PcHRpb25zEjEKCmRhdGFBY2Nlc3MYASAB",
+            "KA4yHS5jaGFubmVsZHBiLkNoYW5uZWxEYXRhQWNjZXNzEhYKDmRhdGFGaWVs",
+            "ZE1hc2tzGAIgAygJEhgKEGZhbk91dEludGVydmFsTXMYAyABKA0SFQoNZmFu",
+            "T3V0RGVsYXlNcxgEIAEoBSKGAQoXQ2hhbm5lbERhdGFNZXJnZU9wdGlvbnMS",
+            "GQoRc2hvdWxkUmVwbGFjZUxpc3QYASABKAgSFQoNbGlzdFNpemVMaW1pdBgC",
+            "IAEoDRITCgt0cnVuY2F0ZVRvcBgDIAEoCBIkChxzaG91bGRDaGVja1JlbW92",
+            "YWJsZU1hcEZpZWxkGAQgASgIIvEBChRDcmVhdGVDaGFubmVsTWVzc2FnZRIs",
+            "CgtjaGFubmVsVHlwZRgBIAEoDjIXLmNoYW5uZWxkcGIuQ2hhbm5lbFR5cGUS",
+            "EAoIbWV0YWRhdGEYAiABKAkSOgoKc3ViT3B0aW9ucxgDIAEoCzImLmNoYW5u",
+            "ZWxkcGIuQ2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMSIgoEZGF0YRgEIAEo",
+            "CzIULmdvb2dsZS5wcm90b2J1Zi5BbnkSOQoMbWVyZ2VPcHRpb25zGAUgASgL",
+            "MiMuY2hhbm5lbGRwYi5DaGFubmVsRGF0YU1lcmdlT3B0aW9ucyJxChpDcmVh",
+            "dGVDaGFubmVsUmVzdWx0TWVzc2FnZRIsCgtjaGFubmVsVHlwZRgBIAEoDjIX",
+            "LmNoYW5uZWxkcGIuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAiABKAkSEwoL",
+            "b3duZXJDb25uSWQYAyABKA0iKQoUUmVtb3ZlQ2hhbm5lbE1lc3NhZ2USEQoJ",
+            "Y2hhbm5lbElkGAEgASgNIloKEkxpc3RDaGFubmVsTWVzc2FnZRIrCgp0eXBl",
+            "RmlsdGVyGAEgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZRIXCg9tZXRh",
+            "ZGF0YUZpbHRlcnMYAiADKAkiwAEKGExpc3RDaGFubmVsUmVzdWx0TWVzc2Fn",
+            "ZRJCCghjaGFubmVscxgBIAMoCzIwLmNoYW5uZWxkcGIuTGlzdENoYW5uZWxS",
+            "ZXN1bHRNZXNzYWdlLkNoYW5uZWxJbmZvGmAKC0NoYW5uZWxJbmZvEhEKCWNo",
+            "YW5uZWxJZBgBIAEoDRIsCgtjaGFubmVsVHlwZRgCIAEoDjIXLmNoYW5uZWxk",
+            "cGIuQ2hhbm5lbFR5cGUSEAoIbWV0YWRhdGEYAyABKAkiaAoaU3Vic2NyaWJl",
+            "ZFRvQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgNEjoKCnN1Yk9wdGlv",
+            "bnMYAiABKAsyJi5jaGFubmVsZHBiLkNoYW5uZWxTdWJzY3JpcHRpb25PcHRp",
+            "b25zIsoBCiBTdWJzY3JpYmVkVG9DaGFubmVsUmVzdWx0TWVzc2FnZRIOCgZj",
+            "b25uSWQYASABKA0SOgoKc3ViT3B0aW9ucxgCIAEoCzImLmNoYW5uZWxkcGIu",
+            "Q2hhbm5lbFN1YnNjcmlwdGlvbk9wdGlvbnMSLAoIY29ublR5cGUYAyABKA4y",
+            "Gi5jaGFubmVsZHBiLkNvbm5lY3Rpb25UeXBlEiwKC2NoYW5uZWxUeXBlGAQg",
+            "ASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZSIwCh5VbnN1YnNjcmliZWRG",
+            "cm9tQ2hhbm5lbE1lc3NhZ2USDgoGY29ubklkGAEgASgNIpIBCiRVbnN1YnNj",
+            "cmliZWRGcm9tQ2hhbm5lbFJlc3VsdE1lc3NhZ2USDgoGY29ubklkGAEgASgN",
+            "EiwKCGNvbm5UeXBlGAIgASgOMhouY2hhbm5lbGRwYi5Db25uZWN0aW9uVHlw",
+            "ZRIsCgtjaGFubmVsVHlwZRgDIAEoDjIXLmNoYW5uZWxkcGIuQ2hhbm5lbFR5",
+            "cGUiVQoYQ2hhbm5lbERhdGFVcGRhdGVNZXNzYWdlEiIKBGRhdGEYASABKAsy",
+            "FC5nb29nbGUucHJvdG9idWYuQW55EhUKDWNvbnRleHRDb25uSWQYAiABKA0i",
+            "IwoRRGlzY29ubmVjdE1lc3NhZ2USDgoGY29ubklkGAEgASgNIi4KC1NwYXRp",
+            "YWxJbmZvEgkKAXgYASABKAESCQoBeRgCIAEoARIJCgF6GAMgASgBImUKIkNy",
+            "ZWF0ZVNwYXRpYWxDaGFubmVsc1Jlc3VsdE1lc3NhZ2USGAoQc3BhdGlhbENo",
+            "YW5uZWxJZBgBIAMoDRIQCghtZXRhZGF0YRgCIAEoCRITCgtvd25lckNvbm5J",
+            "ZBgDIAEoDSJKChpRdWVyeVNwYXRpYWxDaGFubmVsTWVzc2FnZRIsCgtzcGF0",
+            "aWFsSW5mbxgBIAMoCzIXLmNoYW5uZWxkcGIuU3BhdGlhbEluZm8iNQogUXVl",
+            "cnlTcGF0aWFsQ2hhbm5lbFJlc3VsdE1lc3NhZ2USEQoJY2hhbm5lbElkGAEg",
+            "AygNIoMBChpDaGFubmVsRGF0YUhhbmRvdmVyTWVzc2FnZRIUCgxzcmNDaGFu",
+            "bmVsSWQYASABKA0SFAoMZHN0Q2hhbm5lbElkGAIgASgNEhUKDWNvbnRleHRD",
+            "b25uSWQYAyABKA0SIgoEZGF0YRgEIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5B",
+            "bnkigwEKDVNwYXRpYWxSZWdpb24SJAoDbWluGAEgASgLMhcuY2hhbm5lbGRw",
+            "Yi5TcGF0aWFsSW5mbxIkCgNtYXgYAiABKAsyFy5jaGFubmVsZHBiLlNwYXRp",
+            "YWxJbmZvEhEKCWNoYW5uZWxJZBgDIAEoDRITCgtzZXJ2ZXJJbmRleBgEIAEo",
+            "DSIfCh1EZWJ1Z0dldFNwYXRpYWxSZWdpb25zTWVzc2FnZSJRCiNEZWJ1Z0dl",
+            "dFNwYXRpYWxSZWdpb25zUmVzdWx0TWVzc2FnZRIqCgdyZWdpb25zGAEgAygL",
+            "MhkuY2hhbm5lbGRwYi5TcGF0aWFsUmVnaW9uKmgKDUJyb2FkY2FzdFR5cGUS",
+            "EAoMTk9fQlJPQURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQ",
+            "AhIRCg1BTExfQlVUX09XTkVSEAMSFQoRU0lOR0xFX0NPTk5FQ1RJT04QBCo7",
+            "Cg5Db25uZWN0aW9uVHlwZRIRCg1OT19DT05ORUNUSU9OEAASCgoGU0VSVkVS",
+            "EAESCgoGQ0xJRU5UEAIqhAEKC0NoYW5uZWxUeXBlEgsKB1VOS05PV04QABIK",
+            "CgZHTE9CQUwQARILCgdQUklWQVRFEAISDAoIU1VCV09STEQQAxILCgdTUEFU",
+            "SUFMEAQSCAoEVEVTVBBkEgkKBVRFU1QxEGUSCQoFVEVTVDIQZhIJCgVURVNU",
+            "MxBnEgkKBVRFU1Q0EGgqugIKC01lc3NhZ2VUeXBlEgsKB0lOVkFMSUQQABII",
+            "CgRBVVRIEAESEgoOQ1JFQVRFX0NIQU5ORUwQAxISCg5SRU1PVkVfQ0hBTk5F",
+            "TBAEEhAKDExJU1RfQ0hBTk5FTBAFEhIKDlNVQl9UT19DSEFOTkVMEAYSFgoS",
+            "VU5TVUJfRlJPTV9DSEFOTkVMEAcSFwoTQ0hBTk5FTF9EQVRBX1VQREFURRAI",
+            "Eg4KCkRJU0NPTk5FQ1QQCRIaChZDUkVBVEVfU1BBVElBTF9DSEFOTkVMEAoS",
+            "GQoVUVVFUllfU1BBVElBTF9DSEFOTkVMEAsSGQoVQ0hBTk5FTF9EQVRBX0hB",
+            "TkRPVkVSEAwSHQoZREVCVUdfR0VUX1NQQVRJQUxfUkVHSU9OUxBjEhQKEFVT",
+            "RVJfU1BBQ0VfU1RBUlQQZCoxCg9Db21wcmVzc2lvblR5cGUSEgoOTk9fQ09N",
+            "UFJFU1NJT04QABIKCgZTTkFQUFkQASpFChFDaGFubmVsRGF0YUFjY2VzcxIN",
+            "CglOT19BQ0NFU1MQABIPCgtSRUFEX0FDQ0VTUxABEhAKDFdSSVRFX0FDQ0VT",
+            "UxACQi5aLGNoYW5uZWxkLmNsZXdjYXQuY29tL2NoYW5uZWxkL3BrZy9jaGFu",
+            "bmVsZHBiYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), typeof(global::Channeldpb.ChannelDataAccess), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.Packet), global::Channeldpb.Packet.Parser, new[]{ "Messages" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.MessagePack), global::Channeldpb.MessagePack.Parser, new[]{ "ChannelId", "Broadcast", "StubId", "MsgType", "MsgBody" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ServerForwardMessage), global::Channeldpb.ServerForwardMessage.Parser, new[]{ "ClientConnId", "Payload" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.AuthMessage), global::Channeldpb.AuthMessage.Parser, new[]{ "PlayerIdentifierToken", "LoginToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.AuthResultMessage), global::Channeldpb.AuthResultMessage.Parser, new[]{ "Result", "ConnId", "CompressionType" }, null, new[]{ typeof(global::Channeldpb.AuthResultMessage.Types.AuthResult) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelSubscriptionOptions), global::Channeldpb.ChannelSubscriptionOptions.Parser, new[]{ "CanUpdateData", "DataFieldMasks", "FanOutIntervalMs", "FanOutDelayMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelSubscriptionOptions), global::Channeldpb.ChannelSubscriptionOptions.Parser, new[]{ "DataAccess", "DataFieldMasks", "FanOutIntervalMs", "FanOutDelayMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataMergeOptions), global::Channeldpb.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceList", "ListSizeLimit", "TruncateTop", "ShouldCheckRemovableMapField" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelMessage), global::Channeldpb.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelResultMessage), global::Channeldpb.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
@@ -260,6 +262,12 @@ namespace Channeldpb {
     /// https://github.com/google/snappy
     /// </summary>
     [pbr::OriginalName("SNAPPY")] Snappy = 1,
+  }
+
+  public enum ChannelDataAccess {
+    [pbr::OriginalName("NO_ACCESS")] NoAccess = 0,
+    [pbr::OriginalName("READ_ACCESS")] ReadAccess = 1,
+    [pbr::OriginalName("WRITE_ACCESS")] WriteAccess = 2,
   }
 
   #endregion
@@ -1586,7 +1594,7 @@ namespace Channeldpb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ChannelSubscriptionOptions(ChannelSubscriptionOptions other) : this() {
-      canUpdateData_ = other.canUpdateData_;
+      dataAccess_ = other.dataAccess_;
       dataFieldMasks_ = other.dataFieldMasks_.Clone();
       fanOutIntervalMs_ = other.fanOutIntervalMs_;
       fanOutDelayMs_ = other.fanOutDelayMs_;
@@ -1599,22 +1607,23 @@ namespace Channeldpb {
       return new ChannelSubscriptionOptions(this);
     }
 
-    /// <summary>Field number for the "CanUpdateData" field.</summary>
-    public const int CanUpdateDataFieldNumber = 1;
-    private bool canUpdateData_;
+    /// <summary>Field number for the "dataAccess" field.</summary>
+    public const int DataAccessFieldNumber = 1;
+    private global::Channeldpb.ChannelDataAccess dataAccess_ = global::Channeldpb.ChannelDataAccess.NoAccess;
     /// <summary>
     /// Should the subscriber be able to update the channel data?
+    /// Use enum over bool as in Protobuf, after setting a bool field to true, merging it with false won't work!
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool CanUpdateData {
-      get { return canUpdateData_; }
+    public global::Channeldpb.ChannelDataAccess DataAccess {
+      get { return dataAccess_; }
       set {
-        canUpdateData_ = value;
+        dataAccess_ = value;
       }
     }
 
-    /// <summary>Field number for the "DataFieldMasks" field.</summary>
+    /// <summary>Field number for the "dataFieldMasks" field.</summary>
     public const int DataFieldMasksFieldNumber = 2;
     private static readonly pb::FieldCodec<string> _repeated_dataFieldMasks_codec
         = pb::FieldCodec.ForString(18);
@@ -1629,7 +1638,7 @@ namespace Channeldpb {
       get { return dataFieldMasks_; }
     }
 
-    /// <summary>Field number for the "FanOutIntervalMs" field.</summary>
+    /// <summary>Field number for the "fanOutIntervalMs" field.</summary>
     public const int FanOutIntervalMsFieldNumber = 3;
     private uint fanOutIntervalMs_;
     /// <summary>
@@ -1645,7 +1654,7 @@ namespace Channeldpb {
       }
     }
 
-    /// <summary>Field number for the "FanOutDelayMs" field.</summary>
+    /// <summary>Field number for the "fanOutDelayMs" field.</summary>
     public const int FanOutDelayMsFieldNumber = 4;
     private int fanOutDelayMs_;
     /// <summary>
@@ -1678,7 +1687,7 @@ namespace Channeldpb {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (CanUpdateData != other.CanUpdateData) return false;
+      if (DataAccess != other.DataAccess) return false;
       if(!dataFieldMasks_.Equals(other.dataFieldMasks_)) return false;
       if (FanOutIntervalMs != other.FanOutIntervalMs) return false;
       if (FanOutDelayMs != other.FanOutDelayMs) return false;
@@ -1689,7 +1698,7 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (CanUpdateData != false) hash ^= CanUpdateData.GetHashCode();
+      if (DataAccess != global::Channeldpb.ChannelDataAccess.NoAccess) hash ^= DataAccess.GetHashCode();
       hash ^= dataFieldMasks_.GetHashCode();
       if (FanOutIntervalMs != 0) hash ^= FanOutIntervalMs.GetHashCode();
       if (FanOutDelayMs != 0) hash ^= FanOutDelayMs.GetHashCode();
@@ -1711,9 +1720,9 @@ namespace Channeldpb {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (CanUpdateData != false) {
+      if (DataAccess != global::Channeldpb.ChannelDataAccess.NoAccess) {
         output.WriteRawTag(8);
-        output.WriteBool(CanUpdateData);
+        output.WriteEnum((int) DataAccess);
       }
       dataFieldMasks_.WriteTo(output, _repeated_dataFieldMasks_codec);
       if (FanOutIntervalMs != 0) {
@@ -1734,9 +1743,9 @@ namespace Channeldpb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (CanUpdateData != false) {
+      if (DataAccess != global::Channeldpb.ChannelDataAccess.NoAccess) {
         output.WriteRawTag(8);
-        output.WriteBool(CanUpdateData);
+        output.WriteEnum((int) DataAccess);
       }
       dataFieldMasks_.WriteTo(ref output, _repeated_dataFieldMasks_codec);
       if (FanOutIntervalMs != 0) {
@@ -1757,8 +1766,8 @@ namespace Channeldpb {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (CanUpdateData != false) {
-        size += 1 + 1;
+      if (DataAccess != global::Channeldpb.ChannelDataAccess.NoAccess) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DataAccess);
       }
       size += dataFieldMasks_.CalculateSize(_repeated_dataFieldMasks_codec);
       if (FanOutIntervalMs != 0) {
@@ -1779,8 +1788,8 @@ namespace Channeldpb {
       if (other == null) {
         return;
       }
-      if (other.CanUpdateData != false) {
-        CanUpdateData = other.CanUpdateData;
+      if (other.DataAccess != global::Channeldpb.ChannelDataAccess.NoAccess) {
+        DataAccess = other.DataAccess;
       }
       dataFieldMasks_.Add(other.dataFieldMasks_);
       if (other.FanOutIntervalMs != 0) {
@@ -1805,7 +1814,7 @@ namespace Channeldpb {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            CanUpdateData = input.ReadBool();
+            DataAccess = (global::Channeldpb.ChannelDataAccess) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1836,7 +1845,7 @@ namespace Channeldpb {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            CanUpdateData = input.ReadBool();
+            DataAccess = (global::Channeldpb.ChannelDataAccess) input.ReadEnum();
             break;
           }
           case 18: {
@@ -2178,7 +2187,7 @@ namespace Channeldpb {
   /// <summary>
   /// The message should have channelId = 0 in order to be handled.
   /// Response: @CreateChannelResultMessage, if the MessageType is CREATE_CHANNEL and the channelType is not SPATIAL. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
-  /// Response: @CreateSpatialChannelsResultMessage, if the MessageType is CREATE_SPATIAL_CHANNEL and the channelType is SPATIAL.
+  /// Response: @CreateSpatialChannelsResultMessage, if the MessageType is CREATE_SPATIAL_CHANNEL and the channelType is SPATIAL. The GLOBAL channel owner will also receive this message.
   /// Response: @SubscribedToChannelResultMessage. The channel creator will also be subscripbed to the channel immediately after the creation.
   /// </summary>
   public sealed partial class CreateChannelMessage : pb::IMessage<CreateChannelMessage>

@@ -9,7 +9,7 @@ namespace Channeld
 {
     public static class MirrorUtils
     {
-        private static NetworkReader emptyReader = new NetworkReader(new byte[0]);
+        //private static NetworkReader emptyReader = new NetworkReader(new byte[0]);
 
         public static uint GetChanneldMsgType(ArraySegment<byte> segment)
         {
@@ -44,14 +44,23 @@ namespace Channeld
 */
         }
 
+
         #region Extension methods
 
-        /*
-        public static uint GetOwningChannel(this NetworkBehaviour netBehaviour)
+        public static void SendNetworkMessage<T>(this ChanneldConnection conn, uint channelId, T message) where T : struct, NetworkMessage
         {
-            return ChanneldTransport.GetOwningChannel(netBehaviour.netId);
+            using (PooledNetworkWriter packetWriter = NetworkWriterPool.GetWriter())
+            {
+                // A packet consists of a timestamp and a series of NetworkMessage.
+                packetWriter.WriteDouble(NetworkTime.localTime);
+                MessagePacking.Pack(message, packetWriter);
+                var segment = packetWriter.ToArraySegment();
+                conn.SendRaw(channelId,
+                    MirrorUtils.GetChanneldMsgType(segment),
+                    ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count));
+            }
         }
-        */
+
 
         #endregion
     }

@@ -50,7 +50,7 @@ namespace Channeld.Examples.Tanks
 
             Connection.SubToChannel(ChanneldConnection.GlobalChannelId, new ChannelSubscriptionOptions()
             {
-                CanUpdateData = false,
+                DataAccess = ChannelDataAccess.NoAccess,
                 FanOutIntervalMs = fanOutIntervalMs,
                 FanOutDelayMs = 100,
             }, (_) =>
@@ -74,7 +74,7 @@ namespace Channeld.Examples.Tanks
                         {
                             Connection.SubToChannel(channelId, new ChannelSubscriptionOptions()
                             {
-                                CanUpdateData = true,
+                                DataAccess = ChannelDataAccess.WriteAccess,
                                 FanOutIntervalMs = fanOutIntervalMs,
                                 FanOutDelayMs = 100,
                             }, callback: (_) =>

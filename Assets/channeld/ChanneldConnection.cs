@@ -179,7 +179,16 @@ namespace Channeld
             var subMsg = (SubscribedToChannelResultMessage)msg;
             if (subMsg.ConnId == conn.Id)
             {
-                SubscribedChannels.Add(channelId, subMsg);
+                SubscribedToChannelResultMessage existedSub;
+                if (SubscribedChannels.TryGetValue(channelId, out existedSub))
+                {
+                    // Merge the SubOptions if the subscription already exists
+                    existedSub.SubOptions.MergeFrom(subMsg.SubOptions);
+                }
+                else
+                { 
+                    SubscribedChannels.Add(channelId, subMsg);
+                }
             }
         }
 

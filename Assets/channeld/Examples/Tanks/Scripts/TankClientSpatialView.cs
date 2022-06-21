@@ -15,7 +15,7 @@ namespace Channeld.Examples.Tanks.Scripts
             Connection.AddMessageHandler((uint)MessageType.SubToChannel, (_, channelId, msg) =>
             {
                 var subResultMsg = (SubscribedToChannelResultMessage)msg;
-                if (subResultMsg.ChannelType == ChannelType.Spatial)
+                if (subResultMsg.ChannelType == ChannelType.Spatial && subResultMsg.SubOptions.DataAccess == ChannelDataAccess.WriteAccess)
                 {
                     ChanneldTransport.Current.OnClientSubToChannel(channelId);
                 }
@@ -31,23 +31,30 @@ namespace Channeld.Examples.Tanks.Scripts
                 {
                     foreach (var kv in channelData.TransformStates)
                     {
+                        // Update netId-channelId mapping
                         var netId = kv.Key;
                         if (Connection.SubscribedChannels.ContainsKey(handoverMsg.DstChannelId))
                             netIdOwningChannels[netId] = handoverMsg.DstChannelId;
                         else
                             netIdOwningChannels.Remove(netId);
 
+                        // Move data providers
                         NetworkIdentity ni;
                         if (NetworkClient.spawned.TryGetValue(netId, out ni))
                         {
                             var dataProvider = ni.GetComponent<IChannelDataProvider>();
                             if (dataProvider != null)
                             {
-                                RemoveChannelDataProvider(handoverMsg.SrcChannelId, dataProvider);
+                                RemoveChannelDataProvider(handoverMsg.SrcChannelId, dataProvider, false);
                                 if (Connection.SubscribedChannels.ContainsKey(handoverMsg.DstChannelId))
                                     AddChannelDataProvider(handoverMsg.DstChannelId, dataProvider);
                             }
                         }
+
+                        // Update ClientSendChannelId (for sending Mirror's messages)
+                        if (ni.isLocalPlayer)
+                            ChanneldTransport.Current.OnClientSubToChannel(handoverMsg.DstChannelId);
+
                     }
                 }
             });

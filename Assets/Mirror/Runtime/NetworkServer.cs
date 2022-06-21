@@ -357,6 +357,8 @@ namespace Mirror
             where T : struct, NetworkMessage =>
                 SendToReadyObservers(identity, message, channelId);
 
+        public static Func<int, NetworkConnectionToClient> ConstructClientConnection = (connectionId) => new NetworkConnectionToClient(connectionId);
+
         // transport events ////////////////////////////////////////////////////
         // called by transport
         static void OnTransportConnected(int connectionId)
@@ -389,7 +391,7 @@ namespace Mirror
             if (connections.Count < maxConnections)
             {
                 // add connection
-                NetworkConnectionToClient conn = new NetworkConnectionToClient(connectionId);
+                NetworkConnectionToClient conn = ConstructClientConnection(connectionId);//new NetworkConnectionToClient(connectionId);
                 OnConnected(conn);
             }
             else

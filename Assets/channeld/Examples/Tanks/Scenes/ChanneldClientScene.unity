@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88936773}
   m_LocalRotation: {x: 0, y: 0.8660254, z: -0.5, w: 0}
-  m_LocalPosition: {x: 0, y: 28.8, z: 16.4}
+  m_LocalPosition: {x: 0, y: 60, z: 49.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -213,52 +213,6 @@ MonoBehaviour:
   height: 150
   maxLogCount: 50
   hotKey: 293
---- !u!1 &275202463
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 275202465}
-  - component: {fileID: 275202464}
-  m_Layer: 0
-  m_Name: SpatialRegionsDrawer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &275202464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275202463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ee412c25616ab4098ddf0d84413a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regionBoxPrefab: {fileID: 2343163469206001273, guid: f10d277cd35ff1143876dad5bdbd15ca, type: 3}
-  subscriptionBoxPrefab: {fileID: 2343163469206001273, guid: 3ad6377cdf0e751408422c9d886d3cea, type: 3}
-  minSize: {x: 0.1, y: 0.1, z: 0.1}
---- !u!4 &275202465
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275202463}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107091652
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 1107091652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -367,6 +321,7 @@ GameObject:
   - component: {fileID: 1282001520}
   - component: {fileID: 1282001519}
   - component: {fileID: 1282001521}
+  - component: {fileID: 1282001522}
   - component: {fileID: 1282001523}
   m_Layer: 0
   m_Name: NetworkManager
@@ -412,7 +367,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1282001517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4baa23e45f724d49a082deac3d6add9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -427,12 +382,11 @@ MonoBehaviour:
   maxConnections: 1000
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 1916082411674582, guid: 345457c841b536d48843f454e61b227f, type: 3}
-  autoCreatePlayer: 0
+  autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 5890560936853567077, guid: b7dd46dbf38c643f09e206f9fa4be008, type: 3}
   - {fileID: 1916082411674582, guid: 14ab5060e1354f04c8151bba4abb91a5, type: 3}
-  logLevel: 0
 --- !u!114 &1282001521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7781b1346121f47a34ee94ab0475db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logLevel: 0
   showUserSpaceMessageLog: 0
   ServerAddressToChanneld: 127.0.0.1
   ServerPortToChanneld: 11288
@@ -452,7 +407,18 @@ MonoBehaviour:
   ServerChannelMetadata: MirrorServer
   ClientPortToChanneld: 12108
   ClientConnectTimeoutMs: 3000
-  HeartbeatInterval: 0.1
+--- !u!114 &1282001522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282001517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eed21c7d3f31304885d0a6b2a367a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1282001523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208ffac57848f384f89729360e92f1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChannelViewPrefab: {fileID: 11400000, guid: d89dc87ddaa959f46b081af4871b975c, type: 2}
+  ChannelViewPrefab: {fileID: 11400000, guid: 66e3faf44fa46c4448565a9bfe3cf170, type: 2}
 --- !u!1 &1356050967
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +511,7 @@ MonoBehaviour:
   syncInterval: 0.1
   tankPrefab: {fileID: 5813281437721818533, guid: 14ab5060e1354f04c8151bba4abb91a5, type: 3}
   prespawnNum: 0
-  batchSpawnNum: 2
+  batchSpawnNum: 10
 --- !u!4 &1398358989
 Transform:
   m_ObjectHideFlags: 0
@@ -606,10 +572,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1b638c591745e438b06bcbe43d5abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCount: 4
-  zCount: 4
-  xSpacing: 2
-  zSpacing: 2
+  xCount: 20
+  zCount: 20
+  xSpacing: 4
+  zSpacing: 4
 --- !u!4 &1538999829
 Transform:
   m_ObjectHideFlags: 0

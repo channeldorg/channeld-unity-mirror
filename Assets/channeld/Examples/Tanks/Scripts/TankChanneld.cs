@@ -79,7 +79,7 @@ namespace Channeld.Examples.Tanks
         void CmdFire_Implementation()
         {
             GameObject projectile = Instantiate(projectilePrefab, projectileMount.position, transform.rotation);
-            NetworkServer.Spawn(projectile);
+            NetworkServer.Spawn(projectile, connectionToClient);
             RpcOnFire();
         }
 

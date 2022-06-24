@@ -47,7 +47,7 @@ namespace Channeld
 
         #region Extension methods
 
-        public static void SendNetworkMessage<T>(this ChanneldConnection conn, uint channelId, T message) where T : struct, NetworkMessage
+        public static void BroadcastNetworkMessage<T>(this ChanneldConnection conn, uint channelId, T message, BroadcastType broadcast, uint clientConnId = 0) where T : struct, NetworkMessage
         {
             using (PooledNetworkWriter packetWriter = NetworkWriterPool.GetWriter())
             {
@@ -55,12 +55,20 @@ namespace Channeld
                 packetWriter.WriteDouble(NetworkTime.localTime);
                 MessagePacking.Pack(message, packetWriter);
                 var segment = packetWriter.ToArraySegment();
-                conn.SendRaw(channelId,
-                    MirrorUtils.GetChanneldMsgType(segment),
-                    ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count));
+                
+                conn.Send(channelId, MirrorUtils.GetChanneldMsgType(segment), new ServerForwardMessage()
+                {
+                    ClientConnId = clientConnId,
+                    Payload = ByteString.CopyFrom(segment.Array, segment.Offset, segment.Count),
+                }, broadcast);
+
             }
         }
 
+        public static void SendNetworkMessage<T>(this ChanneldConnection conn, uint channelId, T message, uint clientConnId) where T : struct, NetworkMessage
+        {
+            conn.BroadcastNetworkMessage(channelId, message, BroadcastType.SingleConnection, clientConnId);
+        }
 
         #endregion
     }

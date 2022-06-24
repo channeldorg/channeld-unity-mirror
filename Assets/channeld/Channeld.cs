@@ -87,25 +87,25 @@ namespace Channeldpb {
             "YWxJbmZvEhEKCWNoYW5uZWxJZBgDIAEoDRITCgtzZXJ2ZXJJbmRleBgEIAEo",
             "DSIfCh1EZWJ1Z0dldFNwYXRpYWxSZWdpb25zTWVzc2FnZSJRCiNEZWJ1Z0dl",
             "dFNwYXRpYWxSZWdpb25zUmVzdWx0TWVzc2FnZRIqCgdyZWdpb25zGAEgAygL",
-            "MhkuY2hhbm5lbGRwYi5TcGF0aWFsUmVnaW9uKmgKDUJyb2FkY2FzdFR5cGUS",
+            "MhkuY2hhbm5lbGRwYi5TcGF0aWFsUmVnaW9uKn8KDUJyb2FkY2FzdFR5cGUS",
             "EAoMTk9fQlJPQURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JVVF9TRU5ERVIQ",
-            "AhIRCg1BTExfQlVUX09XTkVSEAMSFQoRU0lOR0xFX0NPTk5FQ1RJT04QBCo7",
-            "Cg5Db25uZWN0aW9uVHlwZRIRCg1OT19DT05ORUNUSU9OEAASCgoGU0VSVkVS",
-            "EAESCgoGQ0xJRU5UEAIqhAEKC0NoYW5uZWxUeXBlEgsKB1VOS05PV04QABIK",
-            "CgZHTE9CQUwQARILCgdQUklWQVRFEAISDAoIU1VCV09STEQQAxILCgdTUEFU",
-            "SUFMEAQSCAoEVEVTVBBkEgkKBVRFU1QxEGUSCQoFVEVTVDIQZhIJCgVURVNU",
-            "MxBnEgkKBVRFU1Q0EGgqugIKC01lc3NhZ2VUeXBlEgsKB0lOVkFMSUQQABII",
-            "CgRBVVRIEAESEgoOQ1JFQVRFX0NIQU5ORUwQAxISCg5SRU1PVkVfQ0hBTk5F",
-            "TBAEEhAKDExJU1RfQ0hBTk5FTBAFEhIKDlNVQl9UT19DSEFOTkVMEAYSFgoS",
-            "VU5TVUJfRlJPTV9DSEFOTkVMEAcSFwoTQ0hBTk5FTF9EQVRBX1VQREFURRAI",
-            "Eg4KCkRJU0NPTk5FQ1QQCRIaChZDUkVBVEVfU1BBVElBTF9DSEFOTkVMEAoS",
-            "GQoVUVVFUllfU1BBVElBTF9DSEFOTkVMEAsSGQoVQ0hBTk5FTF9EQVRBX0hB",
-            "TkRPVkVSEAwSHQoZREVCVUdfR0VUX1NQQVRJQUxfUkVHSU9OUxBjEhQKEFVT",
-            "RVJfU1BBQ0VfU1RBUlQQZCoxCg9Db21wcmVzc2lvblR5cGUSEgoOTk9fQ09N",
-            "UFJFU1NJT04QABIKCgZTTkFQUFkQASpFChFDaGFubmVsRGF0YUFjY2VzcxIN",
-            "CglOT19BQ0NFU1MQABIPCgtSRUFEX0FDQ0VTUxABEhAKDFdSSVRFX0FDQ0VT",
-            "UxACQi5aLGNoYW5uZWxkLmNsZXdjYXQuY29tL2NoYW5uZWxkL3BrZy9jaGFu",
-            "bmVsZHBiYgZwcm90bzM="));
+            "AhIRCg1BTExfQlVUX09XTkVSEAMSFQoRU0lOR0xFX0NPTk5FQ1RJT04QBBIV",
+            "ChFBREpBQ0VOVF9DSEFOTkVMUxAFKjsKDkNvbm5lY3Rpb25UeXBlEhEKDU5P",
+            "X0NPTk5FQ1RJT04QABIKCgZTRVJWRVIQARIKCgZDTElFTlQQAiqEAQoLQ2hh",
+            "bm5lbFR5cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsKB1BSSVZBVEUQ",
+            "AhIMCghTVUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNUEGQSCQoFVEVT",
+            "VDEQZRIJCgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQaCq6AgoLTWVz",
+            "c2FnZVR5cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5DUkVBVEVfQ0hB",
+            "Tk5FTBADEhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9DSEFOTkVMEAUS",
+            "EgoOU1VCX1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NIQU5ORUwQBxIX",
+            "ChNDSEFOTkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVDVBAJEhoKFkNS",
+            "RUFURV9TUEFUSUFMX0NIQU5ORUwQChIZChVRVUVSWV9TUEFUSUFMX0NIQU5O",
+            "RUwQCxIZChVDSEFOTkVMX0RBVEFfSEFORE9WRVIQDBIdChlERUJVR19HRVRf",
+            "U1BBVElBTF9SRUdJT05TEGMSFAoQVVNFUl9TUEFDRV9TVEFSVBBkKjEKD0Nv",
+            "bXByZXNzaW9uVHlwZRISCg5OT19DT01QUkVTU0lPThAAEgoKBlNOQVBQWRAB",
+            "KkUKEUNoYW5uZWxEYXRhQWNjZXNzEg0KCU5PX0FDQ0VTUxAAEg8KC1JFQURf",
+            "QUNDRVNTEAESEAoMV1JJVEVfQUNDRVNTEAJCLlosY2hhbm5lbGQuY2xld2Nh",
+            "dC5jb20vY2hhbm5lbGQvcGtnL2NoYW5uZWxkcGJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), typeof(global::Channeldpb.ChannelDataAccess), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -163,6 +163,10 @@ namespace Channeldpb {
     /// This has the same behavior as sending the message to the PRIVATE channel owned by the target connection with BroadcastType = NO.
     /// </summary>
     [pbr::OriginalName("SINGLE_CONNECTION")] SingleConnection = 4,
+    /// <summary>
+    /// Broadcast the message to all the connections in all the adjacent spatial channels. Ignored if the target channel is not a spatial channel.
+    /// </summary>
+    [pbr::OriginalName("ADJACENT_CHANNELS")] AdjacentChannels = 5,
   }
 
   public enum ConnectionType {

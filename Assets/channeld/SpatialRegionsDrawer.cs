@@ -11,10 +11,13 @@ namespace Channeld
     public class SpatialRegionsDrawer : MonoBehaviour
     {
         public GameObject regionBoxPrefab;
+        public GameObject subscriptionBoxPrefab;
         //public float height = 1.0f;
         public Vector3 minSize = new Vector3(0.1f, 0.1f, 0.1f);
 
         private IList<SpatialRegion> regions = null;
+        private Dictionary<uint, GameObject> regionBoxes = new Dictionary<uint, GameObject>();
+        private List<GameObject> subBoxes = new List<GameObject>();
         private List<Color> colors = new List<Color>();
 
 #if DEBUG
@@ -23,7 +26,9 @@ namespace Channeld
             ChanneldTransport.OnAuthenticated += (conn) =>
             {
                 conn.SetMessageHandlerEntry((uint)MessageType.DebugGetSpatialRegions, DebugGetSpatialRegionsResultMessage.Parser, HandleSpatialRegionsResult);
-                
+                conn.AddMessageHandler((uint)MessageType.SubToChannel, UpdateSubBoxes);
+                conn.AddMessageHandler((uint)MessageType.UnsubFromChannel, UpdateSubBoxes);
+
                 conn.Send(ChanneldConnection.GlobalChannelId, (uint)MessageType.DebugGetSpatialRegions, new DebugGetSpatialRegionsMessage());
             };
         }
@@ -32,7 +37,15 @@ namespace Channeld
         {
             var resultMsg = (DebugGetSpatialRegionsResultMessage)msg;
             regions = resultMsg.Regions;
+
+            foreach (var box in regionBoxes.Values)
+            {
+                Destroy(box);
+            }
+            regionBoxes.Clear();
+
             uint serverCount = regions.Max(r => r.ServerIndex) + 1;
+            colors.Clear();
             for (int i = 0; i < serverCount; i++)
             {
                 colors.Add(Color.HSVToRGB(1.0f / serverCount * i, 0.5f, 0.5f));
@@ -50,29 +63,34 @@ namespace Channeld
                     continue;
                 var color = colors[(int)region.ServerIndex];
                 renderer.material.color = new Color(color.r, color.g, color.b, renderer.material.color.a);
+                regionBoxes.Add(region.ChannelId, box);
             }
         }
 
-        /*
-        private void FixedUpdate()
+        private void UpdateSubBoxes(ChanneldConnection conn, uint channelId, IMessage msg)
         {
             if (regions == null)
                 return;
 
-            foreach (var region in regions)
+            foreach (var box in subBoxes)
             {
-                DrawRectXZ(ToVector3(region.Min), ToVector3(region.Max), colors[(int)region.ServerIndex]);
+                Destroy(box);
+            }
+            subBoxes.Clear();
+
+            foreach (var kv in conn.SubscribedChannels)
+            {
+                if (regionBoxes.TryGetValue(kv.Key, out var regionBox))
+                {
+                    var subBox = Instantiate(subscriptionBoxPrefab, transform);
+                    subBox.name = $"Channel-{kv.Key}-Sub";
+                    subBox.transform.position = regionBox.transform.position;
+                    subBox.transform.localScale = regionBox.transform.localScale;
+                    subBoxes.Add(subBox);
+                }
             }
         }
 
-        private void DrawRectXZ(Vector3 min, Vector3 max, Color color)
-        {
-            Debug.DrawLine(min, new Vector3(max.x, height, min.z), color);
-            Debug.DrawLine(min, new Vector3(min.x, height, max.z), color);
-            Debug.DrawLine(max, new Vector3(max.x, height, min.z), color);
-            Debug.DrawLine(max, new Vector3(min.x, height, max.z), color);
-        }
-        */
 #endif
     }
 

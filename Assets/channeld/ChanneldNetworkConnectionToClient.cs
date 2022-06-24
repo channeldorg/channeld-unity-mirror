@@ -12,15 +12,15 @@ namespace Channeld
             this.netIdOwningChannelMapper = netIdOwningChannelMapper;
         }
 
-        public override void Send<T>(T message, int channelId = 0)
+        public override void Send<T>(T message, int unreliable = 0)
         {
             // Separate the sending of SpawnMessage from other Mirror messages, as the channelId it's sent to sure be taken care of.
             if (message is SpawnMessage spawnMsg)
             {
-                //SendSpawn(spawnMsg);
-                base.Send(new SpawnInChannelMessage()
+                var channelId = netIdOwningChannelMapper(spawnMsg.netId);
+                var spawnInChannelMsg = new SpawnInChannelMessage()
                 {
-                    channelId = netIdOwningChannelMapper(spawnMsg.netId),
+                    channelId = channelId,
                     netId = spawnMsg.netId,
                     isLocalPlayer = spawnMsg.isLocalPlayer,
                     isOwner = spawnMsg.isOwner,
@@ -30,17 +30,19 @@ namespace Channeld
                     rotation = spawnMsg.rotation,
                     scale = spawnMsg.scale,
                     payload = spawnMsg.payload,
-                }, channelId);
-
+                };
+                SendSpawnInChannel(spawnInChannelMsg, unreliable);
+                Log.Info($"Server sent SpawnInChannelMessage to connId={connectionId}, channelId={spawnInChannelMsg.channelId}, netId={spawnInChannelMsg.netId}, isOwner={spawnInChannelMsg.isOwner}");
                 return;
             }
-            base.Send(message, channelId);
+
+            base.Send(message, unreliable);
         }
 
-        public void SendSpawn(SpawnMessage spawnMessage)
+        protected virtual void SendSpawnInChannel(SpawnInChannelMessage msg, int unreliable = 0)
         {
-            // The spawned object's netId-channelId mapping must be set before sending SpawnMessage
-            ChanneldConnection.Instance.SendNetworkMessage(ChannelDataView.GetOwningChannel(spawnMessage.netId), spawnMessage);
+            // Sends to the client (Mirror handles the broadcasting in current server)
+            base.Send(msg, unreliable);
         }
     }
 }

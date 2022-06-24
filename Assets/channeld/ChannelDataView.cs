@@ -63,10 +63,6 @@ namespace Channeld
                 Connection.AddMessageHandler((uint)MessageType.ChannelDataUpdate, HandleChannelDataUpdate);
                 Connection.AddMessageHandler((uint)MessageType.UnsubFromChannel, HandleUnsub);
 
-                if (conn.ConnectionType == ConnectionType.Client)
-                {
-                    NetworkClient.RegisterHandler<SpawnInChannelMessage>(HandleSpawnInChannelMessage);
-                }
                 /*
                 if (Connection.ConnectionType == ConnectionType.Client)
                 {
@@ -92,6 +88,12 @@ namespace Channeld
                 */
             }
 
+            // Mirror's message handlers are cleared after disconnection, so we should always register the handlers when connected.
+            if (conn.ConnectionType == ConnectionType.Client)
+            {
+                NetworkClient.RegisterHandler<SpawnInChannelMessage>(HandleSpawnInChannelMessage);
+            }
+
             InitChannels();
             
             Log.Info($"{GetType()} initialized channels.");
@@ -115,7 +117,7 @@ namespace Channeld
             NetworkClientExposed.OnSpawn(spawnMsg);
             NetworkIdentity spawned;
             NetworkClient.spawned.TryGetValue(msg.netId, out spawned);
-            Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {msg.channelId}, spawned: {spawned?.name}");
+            Log.Info($"Client set up mapping of netId: {msg.netId} -> channelId: {msg.channelId}, spawned: {spawned?.name}, isOwner: {spawnMsg.isOwner}");
         }
 
         public virtual void Unintialize()
@@ -368,10 +370,12 @@ namespace Channeld
                         Connection.Send(channelId, (uint)MessageType.ChannelDataUpdate, new ChannelDataUpdateMessage()
                         {
                             Data = Any.Pack(newState),
-                            /* FIXME: in authoratative server, send the connId of the client that causes the data update
+                            /* FIXME: in authoritative server, send the connId of the client that causes the data update
                             ContextConnId = Connection.Id,
                             */
                         }, BroadcastType.NoBroadcast);
+
+                        Log.Debug($"Sent {newState.GetType().Name} update: {newState.ToString()}");
                     }
                 }
             }

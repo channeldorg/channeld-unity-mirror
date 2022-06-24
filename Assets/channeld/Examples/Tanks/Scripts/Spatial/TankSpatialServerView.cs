@@ -1,4 +1,5 @@
 ﻿
+using Channeld.Spatial;
 using Channeldpb;
 using Google.Protobuf;
 using Mirror;
@@ -46,11 +47,10 @@ namespace Channeld.Examples.Tanks.Scripts
             };
 
             // Replace Mirror's NetworkConnectionToClient for customized spawning process
-            NetworkServer.ConstructClientConnection = (connectionId) => new ChanneldNetworkConnectionToClient(connectionId, (netId) =>
+            NetworkServer.ConstructClientConnection = (connectionId) => new SpatialNetworkConnectionToClient(connectionId, (netId) =>
             {
                 uint channelId;
-                NetworkIdentity ni;
-                if (NetworkServer.spawned.TryGetValue(netId, out ni))
+                if (NetworkServer.spawned.TryGetValue(netId, out var ni))
                 {
                     if (clientInChannels.TryGetValue(connectionId, out channelId))
                     {
@@ -83,11 +83,14 @@ namespace Channeld.Examples.Tanks.Scripts
                     var startPos = NetworkManager.startPositions[mirrorConnId % NetworkManager.startPositions.Count];
                     // Code copied from NetworkManager.OnServerAddPlayer
                     var player = Instantiate(NetworkManager.singleton.playerPrefab, startPos.position, startPos.rotation); 
+                    player.name = $"{NetworkManager.singleton.playerPrefab.name} [connId={mirrorConnId}]";
                     /* At this moment, the netId is still 0
                     // Set up the netId-channelId mapping before sending the spawn message to client
                     netIdOwningChannels[player.GetComponent<NetworkIdentity>().netId] = channelId;
                     */
                     NetworkServer.AddPlayerForConnection(NetworkServer.connections[mirrorConnId], player);
+
+                    Log.Info($"Server set up mapping of connId: {mirrorConnId} -> channelId: {channelId}, netId: {player.GetComponent<NetworkIdentity>().netId}");
                 }
             });
 
@@ -125,48 +128,12 @@ namespace Channeld.Examples.Tanks.Scripts
             // Source spatial server - the channel data is handed over from
             if (Connection.SubscribedChannels.ContainsKey(handoverMsg.SrcChannelId))
             {
-                /*
-                foreach (var kv in channelData.TransformStates)
-                {
-                    NetworkIdentity ni;
-                    if (!NetworkServer.spawned.TryGetValue(kv.Key, out ni))
-                        continue;
-
-                    // If the handover objects are no longer in the interest area of current server, delete them.
-                    if (!Connection.SubscribedChannels.ContainsKey(handoverMsg.DstChannelId))
-                    {
-                        // NetworkServer.Destroy(ni.gameObject) will also destroy the gameObject in the client. We don't want that.
-                        ServerDestroyObject(ni);
-                    }
-                    // If the handover objects are no longer in the authority area of current server,
-                    // make sure them won't send ChannelDataUpdate message.
-                    else if (!Connection.OwnedChannels.ContainsKey(handoverMsg.DstChannelId))
-                    {
-                        // Use Mirror's built-in authority property
-                        ni.SetAuthority(false);
-                    }
-
-                    // Unsubscribe the client from the channel, if the server is the channel owner
-                    if (ni.connectionToClient != null && Connection.OwnedChannels.ContainsKey(handoverMsg.SrcChannelId))
-                    {
-                        foreach (var conn in NetworkServer.connections)
-                        {
-                            if (conn.Value == ni.connectionToClient)
-                            {
-                                Connection.UnsubConnectionToChannel((uint)conn.Key, handoverMsg.SrcChannelId);
-                            }
-                        }
-                    }
-                }
-                */
-
                 // If the handover objects are no longer in the interest area of current server, delete them.
                 if (!Connection.SubscribedChannels.ContainsKey(handoverMsg.DstChannelId))
                 {
                     foreach (var kv in channelData.TransformStates)
                     {
-                        NetworkIdentity ni;
-                        if (NetworkServer.spawned.TryGetValue(kv.Key, out ni))
+                        if (NetworkServer.spawned.TryGetValue(kv.Key, out var ni))
                         {
                             // NetworkServer.Destroy(ni.gameObject) will also destroy the gameObject in the client. We don't want that.
                             ServerDestroyObject(ni);
@@ -182,8 +149,7 @@ namespace Channeld.Examples.Tanks.Scripts
                 {
                     foreach (var kv in channelData.TransformStates)
                     {
-                        NetworkIdentity ni;
-                        if (NetworkServer.spawned.TryGetValue(kv.Key, out ni))
+                        if (NetworkServer.spawned.TryGetValue(kv.Key, out var ni))
                         {
                             // Use Mirror's built-in authority property
                             ni.SetAuthority(false);
@@ -199,12 +165,12 @@ namespace Channeld.Examples.Tanks.Scripts
                 if (!Connection.SubscribedChannels.ContainsKey(handoverMsg.SrcChannelId))
                 {
                     int connId = (int)handoverMsg.ContextConnId;
-                    NetworkConnectionToClient clientConn;
-                    if (!NetworkServer.connections.TryGetValue(connId, out clientConn))
+                    if (!NetworkServer.connections.TryGetValue(connId, out var clientConn))
                     {
                         ChanneldTransport.Current.OnServerConnected((int)handoverMsg.ContextConnId);
                         clientConn = NetworkServer.connections[connId];
                         clientInChannels[connId] = handoverMsg.DstChannelId;
+                        Log.Info($"Server updated mapping of connId: {connId} -> channelId: {handoverMsg.DstChannelId}");
                     }
 
                     foreach (var kv in channelData.TransformStates)
@@ -254,8 +220,7 @@ namespace Channeld.Examples.Tanks.Scripts
                 netIdOwningChannels[kv.Key] = handoverMsg.DstChannelId;
 
                 // Update the clientConnId-channelId mapping
-                NetworkIdentity ni;
-                if (NetworkServer.spawned.TryGetValue(kv.Key, out ni))
+                if (NetworkServer.spawned.TryGetValue(kv.Key, out var ni))
                 {
                     if (ni.connectionToClient != null)
                         clientInChannels[ni.connectionToClient.connectionId] = handoverMsg.DstChannelId;
@@ -275,7 +240,7 @@ namespace Channeld.Examples.Tanks.Scripts
             });
         }
 
-        /* Tried to query the channelId from channeld - but it
+        /* Tried to query the channelId from channeld - but it can be too later when the response reaches.
         public override void AddChannelDataProviderToDefaultChannel(IChannelDataProvider provider)
         {
             //base.AddChannelDataProviderToDefaultChannel(provider);

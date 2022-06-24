@@ -25,7 +25,7 @@ namespace Channeld
         {
             ChanneldTransport.OnAuthenticated += (conn) =>
             {
-                conn.SetMessageHandlerEntry((uint)MessageType.DebugGetSpatialRegions, DebugGetSpatialRegionsResultMessage.Parser, HandleSpatialRegionsResult);
+                conn.SetMessageHandlerEntry((uint)MessageType.DebugGetSpatialRegions, SpatialRegionsUpdateMessage.Parser, HandleSpatialRegionsResult);
                 conn.AddMessageHandler((uint)MessageType.SubToChannel, UpdateSubBoxes);
                 conn.AddMessageHandler((uint)MessageType.UnsubFromChannel, UpdateSubBoxes);
 
@@ -35,7 +35,7 @@ namespace Channeld
 
         private void HandleSpatialRegionsResult(ChanneldConnection conn, uint channelId, IMessage msg)
         {
-            var resultMsg = (DebugGetSpatialRegionsResultMessage)msg;
+            var resultMsg = (SpatialRegionsUpdateMessage)msg;
             regions = resultMsg.Regions;
 
             foreach (var box in regionBoxes.Values)

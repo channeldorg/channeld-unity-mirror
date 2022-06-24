@@ -52,7 +52,11 @@ namespace Channeld.Examples.Tanks.Scripts
                 uint channelId;
                 if (NetworkServer.spawned.TryGetValue(netId, out var ni))
                 {
+                    /* WRONG! The client connection's channelId for message forwarding doesn't necessarily equal the channelId a network object should be spawned in.
+                     * Example: a player summons a network object that falls in another spatial channel.
                     if (clientInChannels.TryGetValue(connectionId, out channelId))
+                    */
+                    if (Connection.TryGetSpatialChannelId(ni.transform.position, out channelId))
                     {
                         Log.Info($"Spatial server found mapping of netId: {netId} -> channelId: {channelId}, connId: {connectionId}, spawned: {ni.gameObject.name}");
                         return channelId;

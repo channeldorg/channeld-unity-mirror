@@ -102,6 +102,7 @@ namespace Channeld
             SetMessageHandlerEntry((uint)MessageType.CreateSpatialChannel, CreateSpatialChannelsResultMessage.Parser, HandleCreateSpatialChannel);
             SetMessageHandlerEntry((uint)MessageType.QuerySpatialChannel, QuerySpatialChannelResultMessage.Parser);
             SetMessageHandlerEntry((uint)MessageType.ChannelDataHandover, ChannelDataHandoverMessage.Parser);
+            SetMessageHandlerEntry((uint)MessageType.SpatialRegionsUpdate, SpatialRegionsUpdateMessage.Parser, HandleSpatialRegionsUpdate);
         }
 
         private void HandleAuth(ChanneldConnection conn, uint channelId, IMessage msg)
@@ -155,6 +156,35 @@ namespace Channeld
                     Metadata = resultMsg.Metadata
                 };
             }
+        }
+
+        private IList<SpatialRegion> spatialRegions = null;
+
+        private void HandleSpatialRegionsUpdate(ChanneldConnection conn, uint channelId, IMessage msg)
+        {
+            var updateMsg = (SpatialRegionsUpdateMessage)msg;
+            spatialRegions = updateMsg.Regions;
+        }
+
+        public bool TryGetSpatialChannelId(Vector3 position, out uint channelId)
+        {
+            if (spatialRegions == null)
+            {
+                Log.Error("No spatial regions info for the query");
+                channelId = GlobalChannelId;
+                return false;
+            }
+            foreach (var region in spatialRegions)
+            {
+                if (region.ToBounds().Contains(position))
+                {
+                    channelId = region.ChannelId;
+                    return true;
+                }
+            }
+            Log.Warning($"Failed to map {position} to a spatial channelId");
+            channelId = GlobalChannelId;
+            return false;
         }
 
         private void HandleRemoveChannel(ChanneldConnection conn, uint channelId, IMessage msg)

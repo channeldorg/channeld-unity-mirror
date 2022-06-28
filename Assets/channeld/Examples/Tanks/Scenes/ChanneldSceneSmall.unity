@@ -245,6 +245,7 @@ MonoBehaviour:
   regionBoxPrefab: {fileID: 2343163469206001273, guid: f10d277cd35ff1143876dad5bdbd15ca, type: 3}
   subscriptionBoxPrefab: {fileID: 2343163469206001273, guid: 3ad6377cdf0e751408422c9d886d3cea, type: 3}
   minSize: {x: 0.1, y: 0.1, z: 0.1}
+  maxSize: {x: 1000, y: 0.1, z: 1000}
 --- !u!4 &275202465
 Transform:
   m_ObjectHideFlags: 0

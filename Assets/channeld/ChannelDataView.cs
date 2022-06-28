@@ -101,6 +101,12 @@ namespace Channeld
 
         private void HandleSpawnInChannelMessage(SpawnInChannelMessage msg)
         {
+            if (netIdOwningChannels.ContainsKey(msg.netId))
+            {
+                Log.Info($"Already spawned netId={msg.netId}; SpawnInChannelMessage will be ignored");
+                return;
+            }
+
             netIdOwningChannels[msg.netId] = msg.channelId;
             var spawnMsg = new SpawnMessage()
             {

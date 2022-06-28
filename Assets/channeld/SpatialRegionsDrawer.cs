@@ -14,6 +14,7 @@ namespace Channeld
         public GameObject subscriptionBoxPrefab;
         //public float height = 1.0f;
         public Vector3 minSize = new Vector3(0.1f, 0.1f, 0.1f);
+        public Vector3 maxSize = new Vector3(1000, 10f, 1000f);
 
         private IList<SpatialRegion> regions = null;
         private Dictionary<uint, GameObject> regionBoxes = new Dictionary<uint, GameObject>();
@@ -25,7 +26,7 @@ namespace Channeld
         {
             ChanneldTransport.OnAuthenticated += (conn) =>
             {
-                conn.SetMessageHandlerEntry((uint)MessageType.DebugGetSpatialRegions, SpatialRegionsUpdateMessage.Parser, HandleSpatialRegionsResult);
+                conn.SetMessageHandlerEntry((uint)MessageType.SpatialRegionsUpdate, SpatialRegionsUpdateMessage.Parser, HandleSpatialRegionsResult);
                 conn.AddMessageHandler((uint)MessageType.SubToChannel, UpdateSubBoxes);
                 conn.AddMessageHandler((uint)MessageType.UnsubFromChannel, UpdateSubBoxes);
 
@@ -58,6 +59,7 @@ namespace Channeld
                 var bounds = region.ToBounds();
                 box.transform.position = bounds.center;
                 box.transform.localScale = Vector3.Max(minSize, bounds.size);
+                box.transform.localScale = Vector3.Min(maxSize, bounds.size);
                 var renderer = box.GetComponent<Renderer>();
                 if (renderer == null)
                     continue;

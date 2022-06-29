@@ -523,7 +523,7 @@ namespace Channeld
             outgoingQueue.Add(new MessagePack()
             {
                 ChannelId = channelId,
-                Broadcast = broadcast,
+                Broadcast = (uint)broadcast,
                 StubId = stubId,
                 MsgType = msgType,
                 MsgBody = msgBody

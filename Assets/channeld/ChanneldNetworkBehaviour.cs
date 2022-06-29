@@ -74,26 +74,30 @@ namespace Channeld
 
         public override void OnStartServer()
         {
-            AddDataProviders(NetworkServer.aoi as ChanneldInterestManagement);
+            var cnm = NetworkManager.singleton as ChanneldNetworkManager;
+            AddDataProviders(cnm?.CurrentView);
         }
         public override void OnStopServer()
         {
-            RemoveDataProviders(NetworkServer.aoi as ChanneldInterestManagement);
+            var cnm = NetworkManager.singleton as ChanneldNetworkManager;
+            RemoveDataProviders(cnm?.CurrentView);
         }
         public override void OnStartClient()
         {
-            AddDataProviders(NetworkServer.aoi as ChanneldInterestManagement);
+            var cnm = NetworkManager.singleton as ChanneldNetworkManager;
+            AddDataProviders(cnm?.CurrentView);
         }
         public override void OnStopClient()
         {
-            RemoveDataProviders(NetworkServer.aoi as ChanneldInterestManagement);
+            var cnm = NetworkManager.singleton as ChanneldNetworkManager;
+            RemoveDataProviders(cnm?.CurrentView);
         }
 
-        private void AddDataProviders(ChanneldInterestManagement aoi)
+        private void AddDataProviders(ChannelDataView view)
         {
-            if (aoi == null || aoi.CurrentView == null)
+            if (view == null)
             {
-                Log.Error("ChanneldInterestManagement or ChannelDataView is not properly initialized.");
+                Log.Error("ChannelDataView is not properly initialized.");
                 return;
             }
 
@@ -102,22 +106,22 @@ namespace Channeld
             {
                 if (interfaceType.IsSubclassOf(typeof(IChannelDataProvider<>)))
                 {
-                    aoi.CurrentView.AddChannelDataProviderToDefaultChannel((IChannelDataProvider)this, interfaceType.GetGenericArguments()[0]);
+                    view.AddChannelDataProviderToDefaultChannel((IChannelDataProvider)this, interfaceType.GetGenericArguments()[0]);
                 }
             }
             */
 
             if (this is IChannelDataProvider)
             {
-                aoi.CurrentView.AddChannelDataProviderToDefaultChannel((IChannelDataProvider)this);
+                view.AddChannelDataProviderToDefaultChannel((IChannelDataProvider)this);
             }
         }
 
-        private void RemoveDataProviders(ChanneldInterestManagement aoi)
+        private void RemoveDataProviders(ChannelDataView view)
         {
-            if (aoi == null || aoi.CurrentView == null)
+            if (view == null)
             {
-                Log.Error("ChanneldInterestManagement or ChannelDataView is not properly initialized.");
+                Log.Error("ChannelDataView is not properly initialized.");
                 return;
             }
 
@@ -126,14 +130,14 @@ namespace Channeld
             {
                 if (interfaceType.IsSubclassOf(typeof(IChannelDataProvider<>)))
                 {
-                    aoi.CurrentView.RemoveChannelDataProviderFromAllChannels((IChannelDataProvider)this, interfaceType.GetGenericArguments()[0]);
+                    view.RemoveChannelDataProviderFromAllChannels((IChannelDataProvider)this, interfaceType.GetGenericArguments()[0]);
                 }
             }
             */
 
             if (this is IChannelDataProvider)
             {
-                aoi.CurrentView.RemoveChannelDataProviderFromAllChannels((IChannelDataProvider)this, true);
+                view.RemoveChannelDataProviderFromAllChannels((IChannelDataProvider)this, true);
             }
         }
     }

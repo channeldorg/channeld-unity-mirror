@@ -19,6 +19,12 @@ namespace Channeld
         [Header("Logging")]
         public LogLevel logLevel = LogLevel.Info;
 
+        [Header("View")]
+        public ChannelDataView ChannelViewPrefab;
+
+        public ChannelDataView CurrentView { get; private set; }
+
+
         public override void Awake()
         {
             base.Awake();
@@ -35,14 +41,54 @@ namespace Channeld
             parser.GetOptionValue("--max-conn", "-maxconn", ref maxConnections);
             parser.GetEnumOptionFromInt("--log-level", "-loglevel", ref logLevel);
             parser.GetOptionValue("--auto-create-player", "-acp", ref autoCreatePlayer);
+
+            string viewClassName = parser.GetOptionValue("--view", "-V");
+            if (!string.IsNullOrEmpty(viewClassName))
+            {
+                CurrentView = ScriptableObject.CreateInstance(viewClassName) as ChannelDataView;
+                if (CurrentView == null)
+                {
+                    Log.Error($"Failed to create view by class name '{viewClassName}'");
+                    return;
+                }
+            }
+            else if (ChannelViewPrefab != null)
+            {
+                CurrentView = Instantiate(ChannelViewPrefab);
+            }
+            else
+            {
+                Log.Warning(@"No view is set for the ChanneldNetworkManager.
+                    Use '-view' command line argument to set the view, 
+                    or set the prefab in ChanneldNetworkManager.");
+                return;
+            }
+
+            ChanneldTransport.OnAuthenticated += CurrentView.Initialize;
+
+            NetworkLoop.OnLateUpdate += CurrentView.SendAllChannelUpdates;
         }
 
         public override void OnStopClient()
         {
-            if (NetworkClient.aoi && NetworkClient.aoi is ChanneldInterestManagement cim)
+            if (CurrentView != null)
             {
-                cim.CurrentView.OnDisconnect();
-                cim.CurrentView.SendAllChannelUpdates();
+                CurrentView.OnDisconnect();
+                CurrentView.SendAllChannelUpdates();
+            }
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            if (CurrentView != null)
+            {
+                ChanneldTransport.OnAuthenticated -= CurrentView.Initialize;
+
+                NetworkLoop.OnLateUpdate -= CurrentView.SendAllChannelUpdates;
+
+                CurrentView.Unintialize();
             }
         }
     }

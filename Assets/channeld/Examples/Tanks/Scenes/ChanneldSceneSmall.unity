@@ -433,7 +433,8 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 5890560936853567077, guid: b7dd46dbf38c643f09e206f9fa4be008, type: 3}
   - {fileID: 1916082411674582, guid: 14ab5060e1354f04c8151bba4abb91a5, type: 3}
-  logLevel: 1
+  logLevel: 0
+  ChannelViewPrefab: {fileID: 11400000, guid: d89dc87ddaa959f46b081af4871b975c, type: 2}
 --- !u!114 &1282001521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208ffac57848f384f89729360e92f1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChannelViewPrefab: {fileID: 11400000, guid: d89dc87ddaa959f46b081af4871b975c, type: 2}
 --- !u!1 &1356050967
 GameObject:
   m_ObjectHideFlags: 0

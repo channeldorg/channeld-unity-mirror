@@ -17,10 +17,10 @@ namespace Channeld
         //private static Dictionary<ChannelType, IMessage> channelDataTemplates = new Dictionary<ChannelType, IMessage>();
         private static Dictionary<ChannelType, System.Func<IMessage>> channelDataCreators = new Dictionary<ChannelType, System.Func<IMessage>>();
         private static Dictionary<System.Type, ChannelType> channelDataTypes = new Dictionary<System.Type, ChannelType>();
-        // The spawned object's netId mapping to the id of the channel that owns the object. The mapping is only maintained in client.
+        // The spawned object's netId mapping to the id of the channel that owns the object.
         protected static Dictionary<uint, uint> netIdOwningChannels = new Dictionary<uint, uint>();
 
-        // Get the id of the channel that owns the network object. ONLY works for client.
+        // Get the id of the channel that owns the network object.
         public static uint GetOwningChannel(uint netId)
         {
             uint channelId = 0;

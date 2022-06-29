@@ -58,6 +58,7 @@ namespace Channeld.Examples.Tanks.Scripts
                     */
                     if (Connection.TryGetSpatialChannelId(ni.transform.position, out channelId))
                     {
+                        netIdOwningChannels[netId] = channelId;
                         Log.Info($"Spatial server found mapping of netId: {netId} -> channelId: {channelId}, connId: {connectionId}, spawned: {ni.gameObject.name}");
                         return channelId;
                     }
@@ -139,8 +140,12 @@ namespace Channeld.Examples.Tanks.Scripts
                     {
                         if (NetworkServer.spawned.TryGetValue(kv.Key, out var ni))
                         {
-                            // NetworkServer.Destroy(ni.gameObject) will also destroy the gameObject in the client. We don't want that.
-                            ServerDestroyObject(ni);
+                            // Remove the client connection if the object represents a player
+                            if (ni.connectionToClient != null)
+                                NetworkServer.RemovePlayerForConnection(ni.connectionToClient, false);
+                            else
+                                // NetworkServer.Destroy(ni.gameObject) will also destroy the gameObject in the client. We don't want that.
+                                ServerDestroyObject(ni);
                         }
 
                         // Update the netId-owning channelId mapping
@@ -148,7 +153,7 @@ namespace Channeld.Examples.Tanks.Scripts
                     }
                 }
                 // If the handover objects are no longer in the authority area of current server,
-                // make sure them won't send ChannelDataUpdate message.
+                // make sure them no longer sending ChannelDataUpdate message.
                 else if (!Connection.OwnedChannels.ContainsKey(handoverMsg.DstChannelId))
                 {
                     foreach (var kv in channelData.TransformStates)

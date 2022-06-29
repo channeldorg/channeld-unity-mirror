@@ -39,8 +39,7 @@ namespace Channeld.Examples.Tanks.Scripts
                             netIdOwningChannels.Remove(netId);
 
                         // Move data providers
-                        NetworkIdentity ni;
-                        if (NetworkClient.spawned.TryGetValue(netId, out ni))
+                        if (NetworkClient.spawned.TryGetValue(netId, out var ni))
                         {
                             var dataProvider = ni.GetComponent<IChannelDataProvider>();
                             if (dataProvider != null)
@@ -49,11 +48,11 @@ namespace Channeld.Examples.Tanks.Scripts
                                 if (Connection.SubscribedChannels.ContainsKey(handoverMsg.DstChannelId))
                                     AddChannelDataProvider(handoverMsg.DstChannelId, dataProvider);
                             }
-                        }
 
-                        // Update ClientSendChannelId (for sending Mirror's messages)
-                        if (ni.isLocalPlayer)
-                            ChanneldTransport.Current.OnClientSubToChannel(handoverMsg.DstChannelId);
+                            // Update ClientSendChannelId (for sending Mirror's messages)
+                            if (ni.isLocalPlayer)
+                                ChanneldTransport.Current.OnClientSubToChannel(handoverMsg.DstChannelId);
+                        }
 
                     }
                 }

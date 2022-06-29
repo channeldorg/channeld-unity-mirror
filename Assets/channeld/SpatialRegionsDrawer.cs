@@ -26,7 +26,7 @@ namespace Channeld
         {
             ChanneldTransport.OnAuthenticated += (conn) =>
             {
-                conn.SetMessageHandlerEntry((uint)MessageType.SpatialRegionsUpdate, SpatialRegionsUpdateMessage.Parser, HandleSpatialRegionsResult);
+                conn.AddMessageHandler((uint)MessageType.SpatialRegionsUpdate, HandleSpatialRegionsResult);
                 conn.AddMessageHandler((uint)MessageType.SubToChannel, UpdateSubBoxes);
                 conn.AddMessageHandler((uint)MessageType.UnsubFromChannel, UpdateSubBoxes);
 

@@ -12,9 +12,15 @@ namespace Channeld.Spatial
         {
             base.SendSpawnInChannel(msg, unreliable);
 
-            msg.isOwner = false;
-            // Also need to broadcast to all connection in the adjacent channels
-            ChanneldConnection.Instance.BroadcastNetworkMessage(msg.channelId, msg, Channeldpb.BroadcastType.AdjacentChannels, (uint)connectionId);
+            //if (msg.isOwner)
+            {
+                msg.isOwner = false;
+
+                // Also need to broadcast to all connection in the adjacent channels (except this client connection and this server)
+                ChanneldConnection.Instance.BroadcastNetworkMessage(msg.channelId, msg, Channeldpb.BroadcastType.AdjacentChannels, (uint)connectionId);
+
+                Log.Info($"Broadcast SpawnInChannelMessage to adjacent channels, channelId={msg.channelId}, netId={msg.netId}");
+            }
         }
     }
 }

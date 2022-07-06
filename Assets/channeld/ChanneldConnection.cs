@@ -576,11 +576,12 @@ namespace Channeld
                 return;
 
             var p = new Packet();
-            uint size = 0;
+            int size = 0;
             while (outgoingQueue.Count > 0)
             {
                 var mp = outgoingQueue.Take();
-                if (size + mp.CalculateSize() >= 0xfffff0)
+                size += mp.CalculateSize();
+                if (size >= 0xfffff0)
                     break;
                 p.Messages.Add(mp);
             }

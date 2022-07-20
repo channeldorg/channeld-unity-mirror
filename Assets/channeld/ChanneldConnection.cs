@@ -123,12 +123,12 @@ namespace Channeld
             var resultMsg = (CreateChannelResultMessage)msg;
             if (resultMsg.OwnerConnId == Id)
             {
-                OwnedChannels.Add(channelId, resultMsg);
+                OwnedChannels.Add(resultMsg.ChannelId, resultMsg);
             }
 
-            ListedChannels[channelId] = new ListChannelResultMessage.Types.ChannelInfo()
+            ListedChannels[resultMsg.ChannelId] = new ListChannelResultMessage.Types.ChannelInfo()
             {
-                ChannelId = channelId,
+                ChannelId = resultMsg.ChannelId,
                 ChannelType = resultMsg.ChannelType,
                 Metadata = resultMsg.Metadata
             };
@@ -146,6 +146,7 @@ namespace Channeld
                         ChannelType = ChannelType.Spatial,
                         Metadata = resultMsg.Metadata,
                         OwnerConnId = resultMsg.OwnerConnId,
+                        ChannelId = spatialChannelId,
                     });
                 }
 

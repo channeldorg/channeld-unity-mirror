@@ -48,64 +48,65 @@ namespace Channeldpb {
             "b25zGAMgASgLMiYuY2hhbm5lbGRwYi5DaGFubmVsU3Vic2NyaXB0aW9uT3B0",
             "aW9ucxIiCgRkYXRhGAQgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueRI5Cgxt",
             "ZXJnZU9wdGlvbnMYBSABKAsyIy5jaGFubmVsZHBiLkNoYW5uZWxEYXRhTWVy",
-            "Z2VPcHRpb25zInEKGkNyZWF0ZUNoYW5uZWxSZXN1bHRNZXNzYWdlEiwKC2No",
-            "YW5uZWxUeXBlGAEgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZRIQCght",
-            "ZXRhZGF0YRgCIAEoCRITCgtvd25lckNvbm5JZBgDIAEoDSIpChRSZW1vdmVD",
-            "aGFubmVsTWVzc2FnZRIRCgljaGFubmVsSWQYASABKA0iWgoSTGlzdENoYW5u",
-            "ZWxNZXNzYWdlEisKCnR5cGVGaWx0ZXIYASABKA4yFy5jaGFubmVsZHBiLkNo",
-            "YW5uZWxUeXBlEhcKD21ldGFkYXRhRmlsdGVycxgCIAMoCSLAAQoYTGlzdENo",
-            "YW5uZWxSZXN1bHRNZXNzYWdlEkIKCGNoYW5uZWxzGAEgAygLMjAuY2hhbm5l",
-            "bGRwYi5MaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2UuQ2hhbm5lbEluZm8aYAoL",
-            "Q2hhbm5lbEluZm8SEQoJY2hhbm5lbElkGAEgASgNEiwKC2NoYW5uZWxUeXBl",
-            "GAIgASgOMhcuY2hhbm5lbGRwYi5DaGFubmVsVHlwZRIQCghtZXRhZGF0YRgD",
-            "IAEoCSJoChpTdWJzY3JpYmVkVG9DaGFubmVsTWVzc2FnZRIOCgZjb25uSWQY",
-            "ASABKA0SOgoKc3ViT3B0aW9ucxgCIAEoCzImLmNoYW5uZWxkcGIuQ2hhbm5l",
-            "bFN1YnNjcmlwdGlvbk9wdGlvbnMiygEKIFN1YnNjcmliZWRUb0NoYW5uZWxS",
-            "ZXN1bHRNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI6CgpzdWJPcHRpb25zGAIg",
-            "ASgLMiYuY2hhbm5lbGRwYi5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucxIs",
-            "Cghjb25uVHlwZRgDIAEoDjIaLmNoYW5uZWxkcGIuQ29ubmVjdGlvblR5cGUS",
-            "LAoLY2hhbm5lbFR5cGUYBCABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBl",
-            "IjAKHlVuc3Vic2NyaWJlZEZyb21DaGFubmVsTWVzc2FnZRIOCgZjb25uSWQY",
-            "ASABKA0ikgEKJFVuc3Vic2NyaWJlZEZyb21DaGFubmVsUmVzdWx0TWVzc2Fn",
-            "ZRIOCgZjb25uSWQYASABKA0SLAoIY29ublR5cGUYAiABKA4yGi5jaGFubmVs",
-            "ZHBiLkNvbm5lY3Rpb25UeXBlEiwKC2NoYW5uZWxUeXBlGAMgASgOMhcuY2hh",
-            "bm5lbGRwYi5DaGFubmVsVHlwZSJVChhDaGFubmVsRGF0YVVwZGF0ZU1lc3Nh",
-            "Z2USIgoEZGF0YRgBIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnkSFQoNY29u",
-            "dGV4dENvbm5JZBgCIAEoDSIjChFEaXNjb25uZWN0TWVzc2FnZRIOCgZjb25u",
-            "SWQYASABKA0iLgoLU3BhdGlhbEluZm8SCQoBeBgBIAEoARIJCgF5GAIgASgB",
-            "EgkKAXoYAyABKAEiZQoiQ3JlYXRlU3BhdGlhbENoYW5uZWxzUmVzdWx0TWVz",
-            "c2FnZRIYChBzcGF0aWFsQ2hhbm5lbElkGAEgAygNEhAKCG1ldGFkYXRhGAIg",
-            "ASgJEhMKC293bmVyQ29ubklkGAMgASgNIkoKGlF1ZXJ5U3BhdGlhbENoYW5u",
-            "ZWxNZXNzYWdlEiwKC3NwYXRpYWxJbmZvGAEgAygLMhcuY2hhbm5lbGRwYi5T",
-            "cGF0aWFsSW5mbyI1CiBRdWVyeVNwYXRpYWxDaGFubmVsUmVzdWx0TWVzc2Fn",
-            "ZRIRCgljaGFubmVsSWQYASADKA0igwEKGkNoYW5uZWxEYXRhSGFuZG92ZXJN",
-            "ZXNzYWdlEhQKDHNyY0NoYW5uZWxJZBgBIAEoDRIUCgxkc3RDaGFubmVsSWQY",
-            "AiABKA0SFQoNY29udGV4dENvbm5JZBgDIAEoDRIiCgRkYXRhGAQgASgLMhQu",
-            "Z29vZ2xlLnByb3RvYnVmLkFueSKDAQoNU3BhdGlhbFJlZ2lvbhIkCgNtaW4Y",
-            "ASABKAsyFy5jaGFubmVsZHBiLlNwYXRpYWxJbmZvEiQKA21heBgCIAEoCzIX",
-            "LmNoYW5uZWxkcGIuU3BhdGlhbEluZm8SEQoJY2hhbm5lbElkGAMgASgNEhMK",
-            "C3NlcnZlckluZGV4GAQgASgNIkkKG1NwYXRpYWxSZWdpb25zVXBkYXRlTWVz",
-            "c2FnZRIqCgdyZWdpb25zGAEgAygLMhkuY2hhbm5lbGRwYi5TcGF0aWFsUmVn",
-            "aW9uIh8KHURlYnVnR2V0U3BhdGlhbFJlZ2lvbnNNZXNzYWdlKn8KDUJyb2Fk",
-            "Y2FzdFR5cGUSEAoMTk9fQlJPQURDQVNUEAASBwoDQUxMEAESEgoOQUxMX0JV",
-            "VF9TRU5ERVIQAhIRCg1BTExfQlVUX09XTkVSEAQSFQoRU0lOR0xFX0NPTk5F",
-            "Q1RJT04QCBIVChFBREpBQ0VOVF9DSEFOTkVMUxAQKjsKDkNvbm5lY3Rpb25U",
-            "eXBlEhEKDU5PX0NPTk5FQ1RJT04QABIKCgZTRVJWRVIQARIKCgZDTElFTlQQ",
-            "AiqEAQoLQ2hhbm5lbFR5cGUSCwoHVU5LTk9XThAAEgoKBkdMT0JBTBABEgsK",
-            "B1BSSVZBVEUQAhIMCghTVUJXT1JMRBADEgsKB1NQQVRJQUwQBBIICgRURVNU",
-            "EGQSCQoFVEVTVDEQZRIJCgVURVNUMhBmEgkKBVRFU1QzEGcSCQoFVEVTVDQQ",
-            "aCrWAgoLTWVzc2FnZVR5cGUSCwoHSU5WQUxJRBAAEggKBEFVVEgQARISCg5D",
-            "UkVBVEVfQ0hBTk5FTBADEhIKDlJFTU9WRV9DSEFOTkVMEAQSEAoMTElTVF9D",
-            "SEFOTkVMEAUSEgoOU1VCX1RPX0NIQU5ORUwQBhIWChJVTlNVQl9GUk9NX0NI",
-            "QU5ORUwQBxIXChNDSEFOTkVMX0RBVEFfVVBEQVRFEAgSDgoKRElTQ09OTkVD",
-            "VBAJEhoKFkNSRUFURV9TUEFUSUFMX0NIQU5ORUwQChIZChVRVUVSWV9TUEFU",
-            "SUFMX0NIQU5ORUwQCxIZChVDSEFOTkVMX0RBVEFfSEFORE9WRVIQDBIaChZT",
-            "UEFUSUFMX1JFR0lPTlNfVVBEQVRFEA0SHQoZREVCVUdfR0VUX1NQQVRJQUxf",
-            "UkVHSU9OUxBjEhQKEFVTRVJfU1BBQ0VfU1RBUlQQZCoxCg9Db21wcmVzc2lv",
-            "blR5cGUSEgoOTk9fQ09NUFJFU1NJT04QABIKCgZTTkFQUFkQASpFChFDaGFu",
-            "bmVsRGF0YUFjY2VzcxINCglOT19BQ0NFU1MQABIPCgtSRUFEX0FDQ0VTUxAB",
-            "EhAKDFdSSVRFX0FDQ0VTUxACQi5aLGNoYW5uZWxkLmNsZXdjYXQuY29tL2No",
-            "YW5uZWxkL3BrZy9jaGFubmVsZHBiYgZwcm90bzM="));
+            "Z2VPcHRpb25zIoQBChpDcmVhdGVDaGFubmVsUmVzdWx0TWVzc2FnZRIsCgtj",
+            "aGFubmVsVHlwZRgBIAEoDjIXLmNoYW5uZWxkcGIuQ2hhbm5lbFR5cGUSEAoI",
+            "bWV0YWRhdGEYAiABKAkSEwoLb3duZXJDb25uSWQYAyABKA0SEQoJY2hhbm5l",
+            "bElkGAQgASgNIikKFFJlbW92ZUNoYW5uZWxNZXNzYWdlEhEKCWNoYW5uZWxJ",
+            "ZBgBIAEoDSJaChJMaXN0Q2hhbm5lbE1lc3NhZ2USKwoKdHlwZUZpbHRlchgB",
+            "IAEoDjIXLmNoYW5uZWxkcGIuQ2hhbm5lbFR5cGUSFwoPbWV0YWRhdGFGaWx0",
+            "ZXJzGAIgAygJIsABChhMaXN0Q2hhbm5lbFJlc3VsdE1lc3NhZ2USQgoIY2hh",
+            "bm5lbHMYASADKAsyMC5jaGFubmVsZHBiLkxpc3RDaGFubmVsUmVzdWx0TWVz",
+            "c2FnZS5DaGFubmVsSW5mbxpgCgtDaGFubmVsSW5mbxIRCgljaGFubmVsSWQY",
+            "ASABKA0SLAoLY2hhbm5lbFR5cGUYAiABKA4yFy5jaGFubmVsZHBiLkNoYW5u",
+            "ZWxUeXBlEhAKCG1ldGFkYXRhGAMgASgJImgKGlN1YnNjcmliZWRUb0NoYW5u",
+            "ZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRI6CgpzdWJPcHRpb25zGAIgASgL",
+            "MiYuY2hhbm5lbGRwYi5DaGFubmVsU3Vic2NyaXB0aW9uT3B0aW9ucyLKAQog",
+            "U3Vic2NyaWJlZFRvQ2hhbm5lbFJlc3VsdE1lc3NhZ2USDgoGY29ubklkGAEg",
+            "ASgNEjoKCnN1Yk9wdGlvbnMYAiABKAsyJi5jaGFubmVsZHBiLkNoYW5uZWxT",
+            "dWJzY3JpcHRpb25PcHRpb25zEiwKCGNvbm5UeXBlGAMgASgOMhouY2hhbm5l",
+            "bGRwYi5Db25uZWN0aW9uVHlwZRIsCgtjaGFubmVsVHlwZRgEIAEoDjIXLmNo",
+            "YW5uZWxkcGIuQ2hhbm5lbFR5cGUiMAoeVW5zdWJzY3JpYmVkRnJvbUNoYW5u",
+            "ZWxNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDSKSAQokVW5zdWJzY3JpYmVkRnJv",
+            "bUNoYW5uZWxSZXN1bHRNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDRIsCghjb25u",
+            "VHlwZRgCIAEoDjIaLmNoYW5uZWxkcGIuQ29ubmVjdGlvblR5cGUSLAoLY2hh",
+            "bm5lbFR5cGUYAyABKA4yFy5jaGFubmVsZHBiLkNoYW5uZWxUeXBlIlUKGENo",
+            "YW5uZWxEYXRhVXBkYXRlTWVzc2FnZRIiCgRkYXRhGAEgASgLMhQuZ29vZ2xl",
+            "LnByb3RvYnVmLkFueRIVCg1jb250ZXh0Q29ubklkGAIgASgNIiMKEURpc2Nv",
+            "bm5lY3RNZXNzYWdlEg4KBmNvbm5JZBgBIAEoDSIuCgtTcGF0aWFsSW5mbxIJ",
+            "CgF4GAEgASgBEgkKAXkYAiABKAESCQoBehgDIAEoASJlCiJDcmVhdGVTcGF0",
+            "aWFsQ2hhbm5lbHNSZXN1bHRNZXNzYWdlEhgKEHNwYXRpYWxDaGFubmVsSWQY",
+            "ASADKA0SEAoIbWV0YWRhdGEYAiABKAkSEwoLb3duZXJDb25uSWQYAyABKA0i",
+            "SgoaUXVlcnlTcGF0aWFsQ2hhbm5lbE1lc3NhZ2USLAoLc3BhdGlhbEluZm8Y",
+            "ASADKAsyFy5jaGFubmVsZHBiLlNwYXRpYWxJbmZvIjUKIFF1ZXJ5U3BhdGlh",
+            "bENoYW5uZWxSZXN1bHRNZXNzYWdlEhEKCWNoYW5uZWxJZBgBIAMoDSKDAQoa",
+            "Q2hhbm5lbERhdGFIYW5kb3Zlck1lc3NhZ2USFAoMc3JjQ2hhbm5lbElkGAEg",
+            "ASgNEhQKDGRzdENoYW5uZWxJZBgCIAEoDRIVCg1jb250ZXh0Q29ubklkGAMg",
+            "ASgNEiIKBGRhdGEYBCABKAsyFC5nb29nbGUucHJvdG9idWYuQW55IoMBCg1T",
+            "cGF0aWFsUmVnaW9uEiQKA21pbhgBIAEoCzIXLmNoYW5uZWxkcGIuU3BhdGlh",
+            "bEluZm8SJAoDbWF4GAIgASgLMhcuY2hhbm5lbGRwYi5TcGF0aWFsSW5mbxIR",
+            "CgljaGFubmVsSWQYAyABKA0SEwoLc2VydmVySW5kZXgYBCABKA0iSQobU3Bh",
+            "dGlhbFJlZ2lvbnNVcGRhdGVNZXNzYWdlEioKB3JlZ2lvbnMYASADKAsyGS5j",
+            "aGFubmVsZHBiLlNwYXRpYWxSZWdpb24iHwodRGVidWdHZXRTcGF0aWFsUmVn",
+            "aW9uc01lc3NhZ2UqfwoNQnJvYWRjYXN0VHlwZRIQCgxOT19CUk9BRENBU1QQ",
+            "ABIHCgNBTEwQARISCg5BTExfQlVUX1NFTkRFUhACEhEKDUFMTF9CVVRfT1dO",
+            "RVIQBBIVChFTSU5HTEVfQ09OTkVDVElPThAIEhUKEUFESkFDRU5UX0NIQU5O",
+            "RUxTEBAqOwoOQ29ubmVjdGlvblR5cGUSEQoNTk9fQ09OTkVDVElPThAAEgoK",
+            "BlNFUlZFUhABEgoKBkNMSUVOVBACKoQBCgtDaGFubmVsVHlwZRILCgdVTktO",
+            "T1dOEAASCgoGR0xPQkFMEAESCwoHUFJJVkFURRACEgwKCFNVQldPUkxEEAMS",
+            "CwoHU1BBVElBTBAEEggKBFRFU1QQZBIJCgVURVNUMRBlEgkKBVRFU1QyEGYS",
+            "CQoFVEVTVDMQZxIJCgVURVNUNBBoKtYCCgtNZXNzYWdlVHlwZRILCgdJTlZB",
+            "TElEEAASCAoEQVVUSBABEhIKDkNSRUFURV9DSEFOTkVMEAMSEgoOUkVNT1ZF",
+            "X0NIQU5ORUwQBBIQCgxMSVNUX0NIQU5ORUwQBRISCg5TVUJfVE9fQ0hBTk5F",
+            "TBAGEhYKElVOU1VCX0ZST01fQ0hBTk5FTBAHEhcKE0NIQU5ORUxfREFUQV9V",
+            "UERBVEUQCBIOCgpESVNDT05ORUNUEAkSGgoWQ1JFQVRFX1NQQVRJQUxfQ0hB",
+            "Tk5FTBAKEhkKFVFVRVJZX1NQQVRJQUxfQ0hBTk5FTBALEhkKFUNIQU5ORUxf",
+            "REFUQV9IQU5ET1ZFUhAMEhoKFlNQQVRJQUxfUkVHSU9OU19VUERBVEUQDRId",
+            "ChlERUJVR19HRVRfU1BBVElBTF9SRUdJT05TEGMSFAoQVVNFUl9TUEFDRV9T",
+            "VEFSVBBkKjEKD0NvbXByZXNzaW9uVHlwZRISCg5OT19DT01QUkVTU0lPThAA",
+            "EgoKBlNOQVBQWRABKkUKEUNoYW5uZWxEYXRhQWNjZXNzEg0KCU5PX0FDQ0VT",
+            "UxAAEg8KC1JFQURfQUNDRVNTEAESEAoMV1JJVEVfQUNDRVNTEAJCLlosY2hh",
+            "bm5lbGQuY2xld2NhdC5jb20vY2hhbm5lbGQvcGtnL2NoYW5uZWxkcGJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.AnyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Channeldpb.BroadcastType), typeof(global::Channeldpb.ConnectionType), typeof(global::Channeldpb.ChannelType), typeof(global::Channeldpb.MessageType), typeof(global::Channeldpb.CompressionType), typeof(global::Channeldpb.ChannelDataAccess), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -117,7 +118,7 @@ namespace Channeldpb {
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelSubscriptionOptions), global::Channeldpb.ChannelSubscriptionOptions.Parser, new[]{ "DataAccess", "DataFieldMasks", "FanOutIntervalMs", "FanOutDelayMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ChannelDataMergeOptions), global::Channeldpb.ChannelDataMergeOptions.Parser, new[]{ "ShouldReplaceList", "ListSizeLimit", "TruncateTop", "ShouldCheckRemovableMapField" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelMessage), global::Channeldpb.CreateChannelMessage.Parser, new[]{ "ChannelType", "Metadata", "SubOptions", "Data", "MergeOptions" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelResultMessage), global::Channeldpb.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.CreateChannelResultMessage), global::Channeldpb.CreateChannelResultMessage.Parser, new[]{ "ChannelType", "Metadata", "OwnerConnId", "ChannelId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.RemoveChannelMessage), global::Channeldpb.RemoveChannelMessage.Parser, new[]{ "ChannelId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ListChannelMessage), global::Channeldpb.ListChannelMessage.Parser, new[]{ "TypeFilter", "MetadataFilters" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ListChannelResultMessage), global::Channeldpb.ListChannelResultMessage.Parser, new[]{ "Channels" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo), global::Channeldpb.ListChannelResultMessage.Types.ChannelInfo.Parser, new[]{ "ChannelId", "ChannelType", "Metadata" }, null, null, null, null)}),
@@ -521,8 +522,9 @@ namespace Channeldpb {
     public const int ChannelIdFieldNumber = 1;
     private uint channelId_;
     /// <summary>
-    /// The channel that the message is sent to.
-    /// 0 means the message should be handled in the global channel (e.g. a @CreateChannel message)
+    /// The ID of the channel that the message is sent to, or received from channeld.
+    /// 0 is the GLOBAL channel; 1-65535 are for non-spatial channels;
+    /// beyond (0xffff-0xffffffff) are reserved for spatial channels.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2198,7 +2200,7 @@ namespace Channeldpb {
 
   /// <summary>
   /// The message should have channelId = 0 in order to be handled.
-  /// Response: @CreateChannelResultMessage, if the MessageType is CREATE_CHANNEL and the channelType is not SPATIAL. The channelId in the response MessagePack corresponds to the created channel. The GLOBAL channel owner will also receive this message.
+  /// Response: @CreateChannelResultMessage, if the MessageType is CREATE_CHANNEL and the channelType is not SPATIAL. The GLOBAL channel owner will also receive this message.
   /// Response: @CreateSpatialChannelsResultMessage, if the MessageType is CREATE_SPATIAL_CHANNEL and the channelType is SPATIAL. The GLOBAL channel owner will also receive this message.
   /// Response: @SubscribedToChannelResultMessage. The channel creator will also be subscripbed to the channel immediately after the creation.
   /// </summary>
@@ -2603,6 +2605,7 @@ namespace Channeldpb {
       channelType_ = other.channelType_;
       metadata_ = other.metadata_;
       ownerConnId_ = other.ownerConnId_;
+      channelId_ = other.channelId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2648,6 +2651,21 @@ namespace Channeldpb {
       }
     }
 
+    /// <summary>Field number for the "channelId" field.</summary>
+    public const int ChannelIdFieldNumber = 4;
+    private uint channelId_;
+    /// <summary>
+    /// The ID of the newly-created channel. Add this field to differentiate it from MessagePack.channelId.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ChannelId {
+      get { return channelId_; }
+      set {
+        channelId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2666,6 +2684,7 @@ namespace Channeldpb {
       if (ChannelType != other.ChannelType) return false;
       if (Metadata != other.Metadata) return false;
       if (OwnerConnId != other.OwnerConnId) return false;
+      if (ChannelId != other.ChannelId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2676,6 +2695,7 @@ namespace Channeldpb {
       if (ChannelType != global::Channeldpb.ChannelType.Unknown) hash ^= ChannelType.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (OwnerConnId != 0) hash ^= OwnerConnId.GetHashCode();
+      if (ChannelId != 0) hash ^= ChannelId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2706,6 +2726,10 @@ namespace Channeldpb {
         output.WriteRawTag(24);
         output.WriteUInt32(OwnerConnId);
       }
+      if (ChannelId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ChannelId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2728,6 +2752,10 @@ namespace Channeldpb {
         output.WriteRawTag(24);
         output.WriteUInt32(OwnerConnId);
       }
+      if (ChannelId != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ChannelId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2746,6 +2774,9 @@ namespace Channeldpb {
       }
       if (OwnerConnId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OwnerConnId);
+      }
+      if (ChannelId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ChannelId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2767,6 +2798,9 @@ namespace Channeldpb {
       }
       if (other.OwnerConnId != 0) {
         OwnerConnId = other.OwnerConnId;
+      }
+      if (other.ChannelId != 0) {
+        ChannelId = other.ChannelId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2795,6 +2829,10 @@ namespace Channeldpb {
             OwnerConnId = input.ReadUInt32();
             break;
           }
+          case 32: {
+            ChannelId = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2820,6 +2858,10 @@ namespace Channeldpb {
           }
           case 24: {
             OwnerConnId = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            ChannelId = input.ReadUInt32();
             break;
           }
         }
@@ -3743,7 +3785,8 @@ namespace Channeldpb {
     public const int ConnIdFieldNumber = 1;
     private uint connId_;
     /// <summary>
-    /// The connection to be added to the channel is not necessarily the one sends the message 
+    /// The connection to be added to the channel is not necessarily the one sends the message.
+    /// Remarks: only the channel owner can sub another connection to the channel.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

@@ -39,8 +39,8 @@ namespace Channeld.Examples.Tanks
                 if (resultMsg.OwnerConnId == Connection.Id)
                 {
                     Log.Info($"Server owned channel {resultMsg.ChannelType}");
-                    this.channelId = channelId;
-                    ChanneldTransport.ServerSendChannelId = channelId;
+                    this.channelId = resultMsg.ChannelId;
+                    ChanneldTransport.ServerSendChannelId = resultMsg.ChannelId;
                 }
             });
 

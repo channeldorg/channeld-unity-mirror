@@ -1,6 +1,10 @@
+> From the author: It's been too long since I last updated this repo. The code should work but only with the earliest version of channeld (v0.1 / v0.2). Also, it misses the updates of Mirror since mid 2022.
+> 
+> If you are interested in maintaining this repo, please let me know. Thanks!
+
 # Prerequisites
 1. Make sure you have either [Go](https://go.dev) or [Docker](https://www.docker.com/products/docker-desktop) installed for running channeld.
-2. Check out [channeld](https://github.com/indiest/channeld)
+2. Check out [channeld](https://github.com/channeldorg/channeld)
 3. To run channeld, either navigate to `cmd` folder and execute `go run .`, or [use Docker Compose](https://github.com/indiest/channeld#2-docker)
 
 # How to run the tank demo
